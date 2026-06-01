@@ -1,0 +1,3149 @@
+<!--
+  CLIENT:      Winity Life
+  DELIVERABLE: Standalone Ad Landing Page v2 — Singapore & Gulf Campaign
+  PHILOSOPHY:  Emerald Noir | Premium Dark Teal + Copper
+  HERO:        Exact animation from winity-emerald.vercel.app — card fan, phone rise, crypto icons
+  LOGO:        /GREEN COPPER.png from premium site public folder (CDN: winity-emerald.vercel.app)
+  FONT:        Roboto — matches premium site exactly
+  IMAGES:      All from winity-emerald.vercel.app CDN — same paths as premium site
+  DEPLOY:      Single HTML file → Vercel / Netlify / Cloudflare Pages
+  TSS STUDIO | CREATED BY AN ARTIST. POWERED BY AI. | MAY 2026
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winity Life — The Premium Digital Asset Card | Singapore & Gulf</title>
+  <meta name="description" content="Spend your digital assets globally with the Winity Exclusive Visa card. Exclusive tier, no staking, no lockupsups. Available in Singapore, Qatar, Bahrain and the UAE.">
+  <meta property="og:title" content="Winity Life — The Premium Digital Asset Card">
+  <meta property="og:description" content="Issue your virtual card in minutes. Spend USDT & USDC at 200M+ Visa merchants worldwide.">
+  <meta property="og:image" content="https://winity-emerald.vercel.app/hero_card_exclusive.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- QR code library for app download QR -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    /* ════════════════════════════════════════════
+       WINITY LIFE — EMERALD NOIR DESIGN SYSTEM
+       Exact match: winity-emerald.vercel.app
+       TSS Studio | May 2026
+    ════════════════════════════════════════════ */
+    :root {
+      --deep-base:     #061C1E;
+      --teal-deep:     #0B2E2C;
+      --teal-mid:      #0F3F3A;
+      --teal-bright:   #135B50;
+      --bg-hero:       #030C0C;
+      --mint:          #21E6A7;
+      --aqua:          #3CF2D0;
+      --off-white:     #F4F7F6;
+      --muted:         #8FA3A0;
+      --copper:        #B87333;
+      --copper-light:  #CD9A5A;
+      --copper-bright: #E8A84E;
+      --copper-pale:   #E8C97A;
+      --copper-grad:   linear-gradient(135deg,#8A5520 0%,#B87333 20%,#E8C97A 45%,#CD9A5A 65%,#8A5520 100%);
+      --ease-expo:     cubic-bezier(0.16,1,0.3,1);
+      --ease-spring:   cubic-bezier(0.34,1.56,0.64,1);
+      --ease-smooth:   cubic-bezier(0.5,1,0.89,1);
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    body{font-family:'Roboto',sans-serif;background:var(--deep-base);color:var(--off-white);overflow-x:hidden}
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:var(--deep-base)}
+    ::-webkit-scrollbar-thumb{background:var(--mint);border-radius:2px}
+    ::selection{background:rgba(33,230,167,0.25);color:var(--off-white)}
+    img{max-width:100%;height:auto;display:block}
+
+    /* ════════════════════════════════════════════
+       BUTTONS — exact match from premium site
+    ════════════════════════════════════════════ */
+
+    /* Primary pill — gradient, matches .btn-pill on site */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #21E6A7 0%, #0ECFB5 55%, #0ABFAA 100%);
+      color: #061C1E;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-expo);
+      white-space: nowrap;
+    }
+    .btn-pill:hover {
+      background: linear-gradient(90deg, #3CF2D0 0%, #21E6A7 55%, #0ECFB5 100%);
+      transform: scale(1.04);
+      box-shadow: 0 8px 28px rgba(33,230,167,0.35);
+    }
+
+    /* Large version of pill for hero */
+    .btn-pill-lg {
+      padding: 14px 20px 14px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      gap: 10px;
+    }
+
+    /* Ghost button */
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 24px;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(244,247,246,0.7);
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Roboto', sans-serif;
+      text-decoration: none;
+      border: 1.5px solid rgba(33,230,167,0.3);
+      cursor: pointer;
+      transition: all 0.25s var(--ease-expo);
+      white-space: nowrap;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(33,230,167,0.65);
+      color: var(--off-white);
+      background: rgba(33,230,167,0.06);
+    }
+
+    /* ════════════════════════════════════════════
+       NAV — exact match from premium site
+    ════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 1rem clamp(1rem, 5vw, 4rem);
+      background: rgba(6,28,30,0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(33,230,167,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Logo — uses the actual Winity wordmark image */
+    .nav-logo-wrap {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(244,247,246,0.6);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-link:hover {
+      color: var(--off-white);
+      background: rgba(244,247,246,0.05);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+    }
+
+    /* ════════════════════════════════════════════
+       HERO — exact replica from winity-premium-deploy/src/sections/HeroSection.tsx
+    ════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'Roboto', sans-serif;
+      background: #030C0C;
+    }
+
+    /* Background radial + arch */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-bg-grad {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 80% at 50% 70%, #0D4540 0%, #071E1E 55%, #030C0C 100%);
+    }
+
+    .hero-bg-arch {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: auto;
+      mix-blend-mode: screen;
+      filter: brightness(1.15) saturate(1.2) contrast(1.05);
+      opacity: 0.95;
+      will-change: transform;
+    }
+
+    @media (max-width: 768px) {
+      .hero-bg-arch { display: none; }
+      .hero-bg-arch-m { display: block !important; }
+      .crypto-icon { display: none !important; }
+    }
+    .hero-bg-arch-m {
+      display: none;
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: auto;
+      mix-blend-mode: screen;
+      filter: brightness(1.1) saturate(1.2) contrast(1.05);
+      opacity: 0.95;
+    }
+
+    /* Headline block */
+    .hero-headline {
+      position: relative;
+      z-index: 30;
+      text-align: center;
+      padding-top: clamp(80px, 10vh, 120px);
+      padding-inline: 24px;
+    }
+
+    /* Eyebrow — campaign specific */
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 1rem;
+    }
+
+    /* H1 — exact font match */
+    .hero-h1 {
+      margin: 0 auto;
+      max-width: 760px;
+      font-weight: 700;
+      font-size: clamp(30px, 4.2vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #FFF;
+    }
+
+    .hero-sub {
+      max-width: 520px;
+      margin: 1.1rem auto 0;
+      font-size: clamp(14px, 1.3vw, 17px);
+      line-height: 1.65;
+      color: rgba(244,247,246,0.5);
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* Trust badges row */
+    .hero-trust {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      color: rgba(244,247,246,0.4);
+      font-weight: 500;
+    }
+
+    .trust-item svg {
+      width: 13px; height: 13px;
+      stroke: var(--mint);
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    /* ── Stage (cards + phone) ── exact sizes from HeroSection.tsx ── */
+    .hero-stage {
+      position: relative;
+      height: clamp(520px, 60vh, 720px);
+      width: 100%;
+      margin-top: clamp(32px, 4vh, 56px);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    /* Crypto icon circles — exact from HeroSection.tsx */
+    .crypto-icon {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      z-index: 8;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    .crypto-circle {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .crypto-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    /* Cards — exact sizing from CARD_W / CARD_H */
+    .hero-card {
+      position: absolute;
+      bottom: 18%;
+      left: 50%;
+      width: clamp(200px, 20vw, 280px);
+      height: clamp(126px, 12.6vw, 177px);
+      margin-left: calc(clamp(200px, 20vw, 280px) / -2);
+      transform-origin: center bottom;
+      border-radius: 10px;
+      overflow: hidden;
+      will-change: transform;
+      opacity: 0;
+    }
+
+    .hero-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Phone */
+    .phone-wrap {
+      position: absolute;
+      bottom: -8%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 28;
+      will-change: transform;
+    }
+
+    .phone-wrap img {
+      width: clamp(200px, 21vw, 290px);
+      height: auto;
+      filter: drop-shadow(0 32px 64px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(33,230,167,0.1));
+      display: block;
+    }
+
+    /* Mint glow under phone */
+    .hero-mint-glow {
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 340px; height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(33,230,167,0.12) 0%, transparent 70%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Bottom fade */
+    .hero-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 160px;
+      background: linear-gradient(to bottom, transparent, #030C0C);
+      z-index: 29;
+      pointer-events: none;
+    }
+
+    /* ══ PR MARQUEE — exact from HeroSection ══ */
+    @keyframes pr-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .pr-strip {
+      position: relative;
+      z-index: 30;
+      width: 100%;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 20px 0;
+      background: rgba(3,12,12,0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .pr-fade-l {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 100px;
+      background: linear-gradient(to right, #030C0C, transparent);
+      z-index: 10; pointer-events: none;
+    }
+    .pr-fade-r {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 100px;
+      background: linear-gradient(to left, #030C0C, transparent);
+      z-index: 10; pointer-events: none;
+    }
+
+    .pr-label {
+      text-align: center;
+      margin-bottom: 14px;
+      color: rgba(255,255,255,0.26);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+    }
+
+    .pr-track {
+      display: flex;
+      width: max-content;
+      animation: pr-marquee 34s linear infinite;
+    }
+    .pr-track:hover { animation-play-state: paused; }
+
+    .pr-item {
+      padding: 0 48px;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.38);
+      flex-shrink: 0;
+    }
+
+    /* ════════════════════════════════════════════
+       SECTIONS SHARED
+    ════════════════════════════════════════════ */
+    .section {
+      padding: clamp(72px, 9vw, 120px) clamp(1.25rem, 5vw, 5rem);
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow-copper {
+      color: var(--copper-bright);
+    }
+
+    .mint-text {
+      background: linear-gradient(135deg, #21E6A7 0%, #0CF5BC 45%, #0ECFB5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .copper-text {
+      background: var(--copper-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: coppershim 4s ease-in-out infinite;
+    }
+
+    @keyframes coppershim {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* ════════════════════════════════════════════
+       EXPERIENCE PANELS — exact from premium site
+    ════════════════════════════════════════════ */
+    #experience {
+      background: var(--deep-base);
+      padding: clamp(72px, 9vw, 120px) 0;
+      overflow: hidden;
+    }
+
+    .exp-header {
+      max-width: 1200px;
+      margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
+      padding: 0 clamp(1.25rem, 5vw, 5rem);
+    }
+
+    .exp-header h2 {
+      font-size: clamp(28px, 4vw, 54px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--off-white);
+      margin-bottom: 1.5rem;
+    }
+
+    .exp-panels {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 5rem);
+      display: flex;
+      gap: 0.65rem;
+      min-height: clamp(360px, 52vw, 580px);
+    }
+
+    .exp-panel {
+      flex: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: flex 650ms cubic-bezier(0.4,0,0.2,1), box-shadow 500ms ease;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+
+    .exp-panel:hover {
+      flex: 2.4;
+      box-shadow: inset 0 0 80px rgba(33,230,167,0.05), 0 0 0 1px rgba(33,230,167,0.14);
+    }
+
+    .ep-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.82;
+      transition: opacity 700ms ease, transform 700ms ease;
+      pointer-events: none;
+    }
+
+    .exp-panel:hover .ep-img {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+
+    .ep-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      background: linear-gradient(to top, rgba(6,28,30,0.95) 0%, rgba(6,28,30,0.5) 40%, rgba(6,28,30,0.08) 75%, transparent 100%);
+    }
+
+    .ep-num {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      z-index: 20;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #F4F7F6;
+      opacity: 0.09;
+      line-height: 1;
+      pointer-events: none;
+      transition: opacity 500ms;
+      user-select: none;
+    }
+
+    .ep-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 20;
+      padding: 1.25rem;
+    }
+
+    .ep-card {
+      background: rgba(6,28,30,0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(33,230,167,0.18);
+      border-radius: 14px;
+      padding: 1.1rem 1.25rem 1.3rem;
+      transition: box-shadow 500ms ease;
+    }
+
+    .exp-panel:hover .ep-card {
+      box-shadow: 0 0 40px rgba(33,230,167,0.07), inset 0 1px 0 rgba(33,230,167,0.12);
+    }
+
+    .ep-card h3 {
+      font-size: clamp(15px, 1.3vw, 19px);
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.3rem;
+    }
+
+    .ep-sub {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #A8D8C8;
+      margin-bottom: 0.5rem;
+    }
+
+    .ep-body {
+      font-size: 0.78rem;
+      line-height: 1.58;
+      color: rgba(200,221,216,0.85);
+      max-height: 40px;
+      overflow: hidden;
+      transition: max-height 500ms ease;
+    }
+
+    .exp-panel:hover .ep-body { max-height: 90px; }
+
+    @media (max-width: 768px) {
+      .exp-panels { flex-direction: column; min-height: auto; }
+      .exp-panel { min-height: 300px; flex: none !important; }
+    }
+
+    /* ════════════════════════════════════════════
+       CARDS SECTION
+    ════════════════════════════════════════════ */
+    #cards {
+      background: #011114;
+      padding: clamp(72px, 9vw, 120px) clamp(1.25rem, 5vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cards::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(33,230,167,0.09) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Copper accent bar across top of section */
+    #cards::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,115,51,0.4), transparent);
+      pointer-events: none;
+    }
+
+    .cards-hdr {
+      text-align: center;
+      margin-bottom: clamp(2.5rem, 4vw, 4rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cards-hdr h2 {
+      font-size: clamp(28px, 3.8vw, 52px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .cards-hdr p {
+      margin-top: 0.75rem;
+      font-size: clamp(14px, 1.1vw, 16px);
+      color: var(--muted);
+      max-width: 460px;
+      margin-inline: auto;
+      line-height: 1.6;
+    }
+
+    .cards-grid {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 720px) { .cards-grid { grid-template-columns: 1fr; } }
+
+    .c-card {
+      border-radius: 20px;
+      border: 1px solid rgba(33,230,167,0.08);
+      background: linear-gradient(160deg, rgba(11,46,44,0.7) 0%, rgba(5,18,18,0.9) 100%);
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.25,1,0.5,1);
+      position: relative;
+    }
+
+    /* Mint top accent line */
+    .c-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      opacity: 0.55;
+    }
+
+    /* Copper top accent for executive */
+    .c-card.exec::before {
+      background: var(--copper-grad);
+      background-size: 200% 200%;
+      animation: coppershim 3s ease-in-out infinite;
+      opacity: 1;
+    }
+
+    .c-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.6), 0 0 32px rgba(33,230,167,0.06);
+      border-color: rgba(33,230,167,0.18);
+    }
+
+    .c-card.exec:hover {
+      box-shadow: 0 22px 54px rgba(0,0,0,0.7), 0 0 40px rgba(184,115,51,0.08);
+      border-color: rgba(232,168,78,0.2);
+    }
+
+    .c-img-wrap {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Reflective glass shimmer gloss line */
+    .c-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -150%;
+      width: 100%; height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.12) 40%,
+        rgba(255, 255, 255, 0.22) 50%,
+        rgba(255, 255, 255, 0.12) 60%,
+        transparent 70%
+      );
+      transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+    }
+
+    .c-card:hover .c-img-wrap::after {
+      left: 150%;
+    }
+
+    .c-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 1.5rem;
+      transition: transform 0.6s cubic-bezier(0.25,1,0.5,1);
+      background: #000;
+    }
+
+    .c-card:hover .c-img-wrap img { transform: scale(1.04); }
+
+    .c-body {
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+
+    .c-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.8rem;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid;
+      margin-bottom: 0.9rem;
+    }
+
+    .c-badge.mint   { color: var(--mint);         border-color: rgba(33,230,167,0.3);  background: rgba(33,230,167,0.08); }
+    .c-badge.copper { color: var(--copper-bright); border-color: rgba(232,168,78,0.3); background: rgba(232,168,78,0.08); }
+
+    .c-body h3 {
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.45rem;
+    }
+
+    .c-body > p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.58;
+      margin-bottom: 1.1rem;
+    }
+
+    .feat-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .feat-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.845rem;
+      color: rgba(244,247,246,0.72);
+    }
+
+    .ck {
+      width: 15px; height: 15px;
+      fill: none;
+      stroke-width: 2.5;
+      flex-shrink: 0;
+    }
+
+    .c-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 1px solid rgba(33,230,167,0.3);
+      background: rgba(33,230,167,0.08);
+      color: var(--mint);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: 'Roboto', sans-serif;
+      transition: all 0.3s var(--ease-expo);
+    }
+
+    .c-cta:hover {
+      background: var(--mint);
+      color: var(--deep-base);
+      box-shadow: 0 8px 24px rgba(33,230,167,0.25);
+    }
+
+    .c-cta.soon {
+      border-color: rgba(232,168,78,0.25);
+      background: rgba(232,168,78,0.06);
+      color: var(--copper-bright);
+      cursor: default;
+    }
+
+    .c-cta.soon:hover {
+      background: rgba(232,168,78,0.1);
+      color: var(--copper-bright);
+      box-shadow: none;
+    }
+
+    /* ════════════════════════════════════════════
+       CONCIERGE / USP SECTION — copper accented
+    ════════════════════════════════════════════ */
+    #concierge {
+      background: linear-gradient(180deg, var(--deep-base) 0%, var(--teal-deep) 100%);
+      padding: clamp(72px, 9vw, 120px) clamp(1.25rem, 5vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Full-bleed copper radial — matches premium site */
+    #concierge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 60% at 80% 30%, rgba(184,115,51,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .conc-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: start;
+    }
+
+    @media (max-width: 880px) { .conc-inner { grid-template-columns: 1fr; } }
+
+    .conc-left h2 {
+      font-size: clamp(26px, 3.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+    }
+
+    .conc-left p {
+      font-size: clamp(14px, 1.1vw, 16px);
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 420px;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      .tier-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .tier-card-premium {
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid rgba(33,230,167,0.1);
+      background: linear-gradient(135deg, rgba(11,46,44,0.7) 0%, rgba(6,20,20,0.85) 100%);
+      padding: 1.5rem;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      transition: all 0.35s var(--ease-expo);
+      cursor: pointer;
+    }
+    .tier-card-premium::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,28,30,0.95) 0%, rgba(6,28,30,0.4) 60%, transparent 100%);
+      z-index: 1;
+    }
+    .tier-card-premium img.bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      transition: all 0.5s ease;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .tier-card-premium:hover {
+      border-color: rgba(33,230,167,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4), 0 0 20px rgba(33,230,167,0.05);
+    }
+    .tier-card-premium:hover img.bg-img {
+      opacity: 0.32;
+      transform: scale(1.03);
+    }
+    .tier-card-premium.gold {
+      border-color: rgba(232,168,78,0.15);
+    }
+    .tier-card-premium.gold:hover {
+      border-color: rgba(232,168,78,0.4);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45), 0 0 20px rgba(232,168,78,0.06);
+    }
+    .tier-card-content {
+      position: relative;
+      z-index: 2;
+    }
+    .tier-card-content h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--off-white);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tier-card-content p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ════════════════════════════════════════════
+       FULL-BLEED LIFESTYLE IMAGE SECTION
+    ════════════════════════════════════════════ */
+    #lifestyle {
+      position: relative;
+      height: clamp(380px, 50vw, 620px);
+      overflow: hidden;
+    }
+
+    .lifestyle-img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 130%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      will-change: transform;
+    }
+
+    .parallax-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parallax-img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 130%;
+      object-fit: cover;
+      display: block;
+      will-change: transform;
+    }
+
+    .lifestyle-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(6,28,30,0.55) 0%, rgba(6,28,30,0.2) 40%, rgba(6,28,30,0.8) 90%, var(--deep-base) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: clamp(2rem, 5vw, 4rem);
+      text-align: center;
+    }
+
+    .lifestyle-overlay h2 {
+      font-size: clamp(24px, 3.5vw, 50px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      max-width: 640px;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ════════════════════════════════════════════
+       APP DOWNLOAD SECTION (with QR)
+    ════════════════════════════════════════════ */
+    #app-download {
+      background: var(--bg-hero);
+      padding: clamp(60px, 8vw, 100px) clamp(1.25rem, 5vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #app-download::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(33,230,167,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .app-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 700px) { .app-inner { grid-template-columns: 1fr; text-align: center; } }
+
+    .app-left h2 {
+      font-size: clamp(24px, 3.2vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 0.9rem;
+    }
+
+    .app-left p {
+      font-size: clamp(14px, 1.1vw, 16px);
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .app-store-btns {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) { .app-store-btns { justify-content: center; } }
+
+    .app-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.25rem;
+      border-radius: 12px;
+      background: rgba(33,230,167,0.06);
+      border: 1px solid rgba(33,230,167,0.2);
+      text-decoration: none;
+      color: var(--off-white);
+      transition: all 0.3s var(--ease-expo);
+    }
+
+    .app-store-btn:hover {
+      border-color: rgba(33,230,167,0.5);
+      background: rgba(33,230,167,0.1);
+      transform: translateY(-2px);
+    }
+
+    .app-store-btn-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.15rem;
+    }
+
+    .app-store-btn-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* QR panel */
+    .qr-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .qr-box {
+      background: rgba(11,46,44,0.5);
+      border: 1px solid rgba(33,230,167,0.12);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    #qr-code-el {
+      width: 140px;
+      height: 140px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      padding: 8px;
+    }
+
+    #qr-code-el img, #qr-code-el canvas {
+      border-radius: 6px;
+    }
+
+    .qr-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+      max-width: 160px;
+    }
+
+    .qr-label strong {
+      display: block;
+      color: var(--mint);
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Physical mobile device mockup frame */
+    .phone-mockup-frame {
+      position: relative;
+      width: clamp(200px, 20vw, 260px);
+      height: clamp(400px, 40vw, 520px);
+      border-radius: 36px;
+      border: 10px solid #1a2d2b;
+      background: #020c0d;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.85), 0 0 40px rgba(33,230,167,0.12);
+      overflow: hidden;
+      margin: 1.5rem auto 0;
+      will-change: transform;
+      transition: transform 0.5s var(--ease-spring);
+    }
+    .phone-mockup-frame:hover {
+      transform: translateY(-6px) scale(1.03);
+      border-color: var(--mint);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 50px rgba(33,230,167,0.22);
+    }
+    .phone-mockup-screen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .phone-slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #020c0d;
+    }
+    .phone-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      background: #020c0d;
+      opacity: 0;
+      transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      display: block;
+    }
+    .phone-slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .phone-notch-new {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 96px; height: 22px;
+      background: #1a2d2b;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      z-index: 5;
+      transition: background-color 0.5s;
+    }
+    .phone-mockup-frame:hover .phone-notch-new {
+      background: var(--mint);
+    }
+
+    /* Email Gate Modal - Frosted Glass */
+    .email-gate-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(3, 12, 12, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s var(--ease-expo);
+    }
+    .email-gate-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .email-gate-content {
+      background: rgba(11, 46, 44, 0.85);
+      border: 1.5px solid rgba(33, 230, 167, 0.22);
+      border-radius: 28px;
+      padding: clamp(2rem, 4vw, 3rem);
+      max-width: 460px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.5s var(--ease-spring);
+    }
+    .email-gate-modal.active .email-gate-content {
+      transform: scale(1) translateY(0);
+    }
+    .email-gate-content::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+    }
+    .email-gate-title {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .email-gate-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+    }
+    .email-gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .email-gate-input {
+      background: rgba(6, 28, 30, 0.95);
+      border: 1.5px solid rgba(33, 230, 167, 0.16);
+      border-radius: 12px;
+      padding: 0.9rem 1.2rem;
+      color: #fff;
+      font-size: 0.95rem;
+      font-family: 'Roboto', sans-serif;
+      outline: none;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .email-gate-input:focus {
+      border-color: var(--mint);
+      box-shadow: 0 0 0 3px rgba(33, 230, 167, 0.1);
+    }
+    .email-gate-submit {
+      background: linear-gradient(90deg, #21E6A7 0%, #0ECFB5 55%, #0ABFAA 100%);
+      color: #061C1E;
+      font-weight: 700;
+      padding: 0.95rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 0.95rem;
+      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s var(--ease-expo);
+      box-shadow: 0 8px 24px rgba(33,230,167,0.22);
+    }
+    .email-gate-submit:hover {
+      box-shadow: 0 12px 32px rgba(33,230,167,0.32);
+      transform: translateY(-2px);
+    }
+    .email-gate-close {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      background: transparent;
+      border: none;
+      color: rgba(143,163,160,0.5);
+      cursor: pointer;
+      padding: 0.3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+    }
+    .email-gate-close:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ════════════════════════════════════════════
+       APPLY / CONVERSION FORM
+    ════════════════════════════════════════════ */
+    #apply {
+      background: var(--bg-hero);
+      padding: clamp(72px, 9vw, 120px) clamp(1.25rem, 5vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #apply::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 55% 50% at 50% 50%, rgba(33,230,167,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .apply-wrap {
+      max-width: 660px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .apply-wrap h2 {
+      font-size: clamp(26px, 3.8vw, 52px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.8rem;
+    }
+
+    .apply-wrap > p {
+      font-size: clamp(14px, 1.1vw, 16px);
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+      max-width: 460px;
+      margin-inline: auto;
+    }
+
+    .apply-box {
+      background: rgba(11,46,44,0.38);
+      border: 1px solid rgba(33,230,167,0.1);
+      border-radius: 22px;
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apply-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--mint), transparent);
+      opacity: 0.55;
+    }
+
+    /* Steps */
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 16.5%;
+      right: 16.5%;
+      height: 2px;
+      background: var(--teal-mid);
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--deep-base);
+      border: 2px solid var(--teal-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--muted);
+      transition: all 0.35s var(--ease-expo);
+    }
+
+    .step-dot.active { border-color: var(--mint); background: rgba(33,230,167,0.1); color: var(--mint); box-shadow: 0 0 14px rgba(33,230,167,0.28); }
+    .step-dot.done   { background: var(--mint); border-color: var(--mint); color: var(--deep-base); }
+
+    .step-lbl {
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-top: 0.35rem;
+      text-align: center;
+    }
+
+    .pane { display: none; }
+    .pane.on { display: block; animation: fadeUp 0.4s var(--ease-expo) both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .pane-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--mint);
+      margin-bottom: 1.25rem;
+    }
+
+    .f-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+
+    @media (max-width: 480px) { .f-row { grid-template-columns: 1fr; } }
+
+    .f-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.36rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .f-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+    }
+
+    .f-inp, .f-sel {
+      width: 100%;
+      background: rgba(6,28,30,0.9);
+      border: 1px solid rgba(33,230,167,0.14);
+      border-radius: 9px;
+      padding: 0.7rem 0.9rem;
+      color: var(--off-white);
+      font-size: 0.9rem;
+      font-family: 'Roboto', sans-serif;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      -webkit-appearance: none;
+    }
+
+    .f-inp:focus, .f-sel:focus {
+      border-color: var(--mint);
+      box-shadow: 0 0 0 3px rgba(33,230,167,0.08);
+    }
+
+    .f-sel { color-scheme: dark; }
+
+    .tier-opts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .t-opt {
+      border: 1px solid rgba(33,230,167,0.12);
+      background: rgba(6,28,30,0.8);
+      border-radius: 11px;
+      padding: 0.85rem 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-expo);
+    }
+
+    .t-opt:hover { border-color: rgba(33,230,167,0.28); }
+    .t-opt.sel { border-color: var(--mint); background: rgba(33,230,167,0.05); box-shadow: 0 0 0 1px rgba(33,230,167,0.14); }
+
+    .t-opt-name { font-size: 0.88rem; font-weight: 700; color: var(--off-white); }
+    .t-opt-tag  { font-size: 0.7rem; font-weight: 600; color: var(--mint); margin-top: 0.15rem; }
+    .t-opt-tag.c { color: var(--copper-bright); }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #21E6A7 0%, #0ECFB5 55%, #0ABFAA 100%);
+      color: var(--deep-base);
+      font-weight: 700;
+      padding: 0.9rem;
+      border-radius: 10px;
+      border: none;
+      font-size: 0.92rem;
+      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      box-shadow: 0 8px 20px rgba(33,230,167,0.18);
+      transition: all 0.3s var(--ease-expo);
+      margin-top: 1.1rem;
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 12px 28px rgba(33,230,167,0.28);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn.copper-btn {
+      background: linear-gradient(135deg, var(--copper) 0%, #8c4f18 100%);
+      box-shadow: 0 8px 20px rgba(184,115,51,0.2);
+    }
+
+    .submit-btn.copper-btn:hover {
+      box-shadow: 0 12px 28px rgba(184,115,51,0.3);
+    }
+
+    /* Face scan */
+    .scan-box {
+      border: 1px solid rgba(33,230,167,0.14);
+      background: rgba(6,28,30,0.8);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: center;
+      margin: 0.85rem 0 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .face-ring {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 2.5px dashed var(--teal-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: rgba(6,28,30,0.85);
+      transition: all 0.4s;
+    }
+
+    .face-ring.scanning { border-color: var(--mint); border-style: solid; box-shadow: 0 0 20px rgba(33,230,167,0.22); }
+    .face-ring.verified { border-color: var(--mint); border-style: solid; background: rgba(33,230,167,0.05); }
+
+    .scan-line {
+      position: absolute; left: 0; right: 0;
+      height: 2px;
+      background: var(--mint);
+      box-shadow: 0 0 8px var(--mint);
+      opacity: 0;
+      top: 0;
+    }
+
+    @keyframes scanAnim {
+      0%   { top: 0%; }
+      50%  { top: 100%; }
+      100% { top: 0%; }
+    }
+
+    .face-ring.scanning .scan-line { opacity: 1; animation: scanAnim 2s cubic-bezier(0.4,0,0.2,1) infinite; }
+
+    .scan-status { font-size: 0.9rem; font-weight: 700; }
+    .scan-sub    { font-size: 0.74rem; color: var(--muted); }
+
+    /* Virtual card preview */
+    .v-card-preview {
+      max-width: 290px;
+      margin: 1.25rem auto;
+      background: linear-gradient(135deg, var(--teal-deep), var(--deep-base));
+      border: 1px solid rgba(33,230,167,0.25);
+      border-radius: 14px;
+      padding: 1.4rem;
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.5);
+      transform: perspective(800px) rotateY(-9deg) rotateX(7deg);
+      transition: transform 0.4s ease;
+    }
+
+    .v-card-preview:hover { transform: perspective(800px) rotateY(0deg) rotateX(0deg); }
+
+    .vc-top { display: flex; justify-content: space-between; align-items: center; }
+    .vc-brand { font-weight: 900; font-size: 0.95rem; letter-spacing: 0.1em; }
+    .vc-tier  { font-size: 0.65rem; font-weight: 700; color: var(--mint); text-transform: uppercase; letter-spacing: 0.1em; }
+    .vc-num   { font-family: 'Courier New', monospace; font-size: 0.82rem; letter-spacing: 0.15em; color: var(--muted); }
+    .vc-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+    .vc-label  { font-size: 0.45rem; text-transform: uppercase; color: var(--muted); letter-spacing: 0.06em; }
+    .vc-value  { font-size: 0.78rem; font-weight: 700; margin-top: 0.12rem; }
+
+    /* Success */
+    .success {
+      display: none;
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      background: var(--teal-deep);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      z-index: 10;
+      animation: fadeUp 0.4s var(--ease-expo) both;
+    }
+
+    .success-check {
+      width: 62px; height: 62px;
+      border-radius: 50%;
+      background: rgba(33,230,167,0.1);
+      border: 1px solid rgba(33,230,167,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .success-check svg { width: 30px; height: 30px; stroke: var(--mint); stroke-width: 2.5; fill: none; }
+    .success h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.65rem; }
+    .success p  { font-size: 0.85rem; color: var(--muted); max-width: 280px; margin: 0 auto 1.5rem; line-height: 1.55; }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    footer {
+      background: var(--teal-deep);
+      border-top: 1px solid rgba(33,230,167,0.05);
+      padding: 3rem clamp(1.25rem, 5vw, 4rem) 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo-img {
+      height: 24px;
+      width: auto;
+      opacity: 0.55;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(143,163,160,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--mint); }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(33,230,167,0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    footer p {
+      font-size: 0.68rem;
+      color: rgba(143,163,160,0.45);
+      line-height: 1.65;
+      max-width: 900px;
+      margin-bottom: 0.4rem;
+    }
+
+    footer a { color: var(--mint); }
+
+    /* ════════════════════════════════════════════
+       TOAST
+    ════════════════════════════════════════════ */
+    #toast {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      background: rgba(11,46,44,0.96);
+      border: 1px solid var(--mint);
+      border-radius: 12px;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+      max-width: 340px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4), 0 0 16px rgba(33,230,167,0.12);
+      pointer-events: none;
+    }
+
+    #toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    #toast-msg { font-size: 0.82rem; color: var(--off-white); line-height: 1.4; }
+
+    /* ════════════════════════════════════════════
+       SECTION CTA STRIPS — drives clicks from every section to #apply
+    ════════════════════════════════════════════ */
+    .section-cta-strip {
+      display: flex;
+      justify-content: center;
+      margin-top: clamp(2rem, 3vw, 3rem);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV — exact match premium site ══ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <!-- Real Winity wordmark from /GREEN COPPER.png -->
+      <a href="#" class="nav-logo-wrap" aria-label="Winity Life home">
+        <img
+          src="https://winity-emerald.vercel.app/GREEN%20COPPER.png"
+          alt="Winity Life"
+          class="nav-logo-img"
+          onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-weight:900;font-size:1.1rem;letter-spacing:0.12em;color:#F4F7F6\'>WINITY</span>')"
+        >
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#cards" class="nav-link">Cards</a></li>
+        <li><a href="#experience" class="nav-link">Benefits</a></li>
+        <li><a href="#concierge" class="nav-link">Concierge</a></li>
+        <li><a href="#app-download" class="nav-link">Get the App</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <a href="#apply" class="btn-pill" id="nav-cta">
+          Get Exclusive Card
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══ HERO — exact replica of winity-premium-deploy HeroSection.tsx ══ -->
+  <section id="hero" aria-label="Winity Life hero">
+
+    <!-- Background: radial gradient + arch image (exact from premium) -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-bg-grad"></div>
+      <img
+        src="https://winity-emerald.vercel.app/hero_bg_arch3.png"
+        alt=""
+        class="hero-bg-arch"
+        loading="eager"
+      >
+      <img
+        src="https://winity-emerald.vercel.app/hero_bg_arch_mobile.png"
+        alt=""
+        class="hero-bg-arch hero-bg-arch-m"
+        loading="eager"
+      >
+    </div>
+
+    <!-- Headline -->
+    <div class="hero-headline">
+      <p class="hero-eyebrow">VISA® PLATINUM BUSINESS MEMBERSHIP</p>
+
+      <h1 class="hero-h1" id="hero-h1">
+        Many ways to move,<br>One way to pay.
+      </h1>
+
+      <p class="hero-sub" id="hero-sub">
+        Your stablecoins. Global Visa acceptance. Instant virtual card — USD 0 to issue, no staking, no lockups. Built for professionals who refuse compromise.
+      </p>
+
+      <div class="hero-ctas" id="hero-ctas">
+        <a href="#apply" class="btn-pill btn-pill-lg" id="hero-main-cta">
+          Get Your Virtual Card
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#cards" class="btn-ghost" id="hero-secondary-cta">
+          Explore Cards
+        </a>
+      </div>
+
+      <div class="hero-trust" id="hero-trust">
+        <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No Annual Fee (Virtual)</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No Staking Required</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 200M+ Visa Merchants</div>
+        <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Instant Issuance</div>
+      </div>
+    </div>
+
+    <!-- Stage: crypto icons + cards + phone (all exact from HeroSection.tsx) -->
+    <div class="hero-stage" aria-hidden="true">
+
+      <!-- Crypto icons — U-shape along the copper arch -->
+      <!-- USDT — left top (10 o'clock) -->
+      <div id="icon-usdt" class="crypto-icon" style="left:10%;top:18%">
+        <div class="crypto-circle" style="background:rgba(38,161,123,0.25);border:1.5px solid rgba(38,161,123,0.33);box-shadow:0 0 24px rgba(38,161,123,0.25)">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.43 6.94H13.2v5.7h-2.4v-5.7H7.43v-1.5h8v1.5zm0-2.2H7.43v-1.5h8v1.5z" fill="#26A17B"/></svg>
+        </div>
+        <span class="crypto-label" style="color:#26A17B">USDT</span>
+      </div>
+
+      <!-- USDC — left mid (8 o'clock) -->
+      <div id="icon-usdc" class="crypto-icon" style="left:22%;top:46%">
+        <div class="crypto-circle" style="background:rgba(39,117,202,0.25);border:1.5px solid rgba(39,117,202,0.33);box-shadow:0 0 24px rgba(39,117,202,0.25)">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12z" fill="#2775CA"/><path d="M15.972 13.923c-.272-1.353-1.666-1.848-3.926-2.128-1.564-.194-2.036-.575-2.036-1.15 0-.528.423-.95 1.272-.95.836 0 1.22.308 1.377.94h1.996c-.198-1.488-1.258-2.457-2.91-2.695V6h-1.674v1.942c-1.748.243-2.936 1.31-2.936 2.809 0 1.486 1.206 2.054 3.723 2.378 1.84.24 2.239.697 2.239 1.24 0 .546-.576.993-1.423.993-.974 0-1.49-.39-1.615-1.1h-2.052c.162 1.637 1.426 2.585 3.09 2.827V18h1.674v-1.936c1.782-.224 3.037-1.196 2.977-2.14z" fill="#FFF"/></svg>
+        </div>
+        <span class="crypto-label" style="color:#2775CA">USDC</span>
+      </div>
+
+      <!-- SOL — right top (2 o'clock) -->
+      <div id="icon-sol" class="crypto-icon" style="right:10%;top:18%">
+        <div class="crypto-circle" style="background:rgba(20,241,149,0.25);border:1.5px solid rgba(20,241,149,0.33);box-shadow:0 0 24px rgba(20,241,149,0.25)">
+          <svg viewBox="0 0 40 40" width="22" height="22">
+            <defs><linearGradient id="sol-g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9945FF"/><stop offset="100%" stop-color="#14F195"/></linearGradient></defs>
+            <path d="M30 11H12.5L9.5 14H27L30 11ZM27 18.5H9.5L6.5 21.5H24L27 18.5ZM24 26H6.5L3.5 29H21L24 26Z" fill="url(#sol-g)"/>
+          </svg>
+        </div>
+        <span class="crypto-label" style="color:#14F195">SOL</span>
+      </div>
+
+      <!-- ETH — right mid (4 o'clock) -->
+      <div id="icon-eth" class="crypto-icon" style="right:22%;top:46%">
+        <div class="crypto-circle" style="background:rgba(140,140,140,0.25);border:1.5px solid rgba(140,140,140,0.33);box-shadow:0 0 24px rgba(140,140,140,0.25)">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path d="M12 2L11.83 2.56v12.83l.17.17 5.5-3.25L12 2z" fill="#343433"/>
+            <path d="M12 2L6.5 12.31l5.5 3.25V2.56L12 2z" fill="#8C8C8C"/>
+            <path d="M12 16.59l-.09.11v4.74l.09.26 5.51-3.24L12 16.59z" fill="#3C3C3D"/>
+            <path d="M12 21.7v-5.11l-5.5 1.87L12 21.7z" fill="#8C8C8C"/>
+          </svg>
+        </div>
+        <span class="crypto-label" style="color:#8C8C8C">ETH</span>
+      </div>
+
+      <!-- LEFT fan: Executive cards (ec-0 to ec-3) — using official production horizontal asset -->
+      <div class="hero-card ec-0" style="z-index:20;filter:drop-shadow(0 6px 16px rgba(0,0,0,0.75)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/ExecutiveMetalNoVisa.webp" alt="Winity Executive card" loading="eager">
+      </div>
+      <div class="hero-card ec-1" style="z-index:19;filter:drop-shadow(0 9px 20px rgba(0,0,0,0.78)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/ExecutiveMetalNoVisa.webp" alt="" loading="eager">
+      </div>
+      <div class="hero-card ec-2" style="z-index:18;filter:drop-shadow(0 12px 24px rgba(0,0,0,0.80)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/ExecutiveMetalNoVisa.webp" alt="" loading="eager">
+      </div>
+      <div class="hero-card ec-3" style="z-index:17;filter:drop-shadow(0 15px 30px rgba(0,0,0,0.85)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/ExecutiveMetalNoVisa.webp" alt="" loading="eager">
+      </div>
+ 
+      <!-- Phone — exact z-index 28, same size as premium site -->
+      <div class="phone-wrap" id="phone-wrap">
+        <img
+          src="https://winity-emerald.vercel.app/hero_phone.png"
+          alt="Winity App"
+          loading="eager"
+        >
+      </div>
+ 
+      <!-- RIGHT fan: Exclusive cards (dk-0 to dk-3) — using official production horizontal asset -->
+      <div class="hero-card dk-0" style="z-index:20;filter:drop-shadow(0 6px 16px rgba(0,0,0,0.80)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp" alt="Winity Exclusive card" loading="eager">
+      </div>
+      <div class="hero-card dk-1" style="z-index:19;filter:drop-shadow(0 9px 20px rgba(0,0,0,0.82)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp" alt="" loading="eager">
+      </div>
+      <div class="hero-card dk-2" style="z-index:18;filter:drop-shadow(0 12px 24px rgba(0,0,0,0.85)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp" alt="" loading="eager">
+      </div>
+      <div class="hero-card dk-3" style="z-index:17;filter:drop-shadow(0 15px 30px rgba(0,0,0,0.88)); opacity: 0;">
+        <img src="https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp" alt="" loading="eager">
+      </div>
+
+      <div class="hero-mint-glow" aria-hidden="true"></div>
+      <div class="hero-fade" aria-hidden="true"></div>
+    </div>
+  </section>
+
+
+  <!-- ══ PR MARQUEE ══ -->
+  <div class="pr-strip" role="complementary" aria-label="Press coverage">
+    <p class="pr-label">Featured On</p>
+    <div style="position:relative;overflow:hidden;">
+      <div class="pr-fade-l" aria-hidden="true"></div>
+      <div class="pr-fade-r" aria-hidden="true"></div>
+      <div class="pr-track" aria-hidden="true">
+        <span class="pr-item" style="font-family:Georgia,serif;font-style:italic;font-size:15px">Financial Times</span>
+        <span class="pr-item" style="font-weight:700;font-size:13px;letter-spacing:0.12em">REUTERS</span>
+        <span class="pr-item" style="font-weight:900;font-size:20px">AP</span>
+        <span class="pr-item" style="font-weight:700;font-size:12px;letter-spacing:0.04em">Business Insider</span>
+        <span class="pr-item" style="font-weight:700;font-size:14px;letter-spacing:0.08em">MEXC</span>
+        <span class="pr-item" style="font-weight:700;font-size:13px">Bloomberg</span>
+        <span class="pr-item" style="font-weight:700;font-size:12px;letter-spacing:0.03em">CoinDesk</span>
+        <span class="pr-item" style="font-family:Georgia,serif;font-style:italic;font-size:15px">Financial Times</span>
+        <span class="pr-item" style="font-weight:700;font-size:13px;letter-spacing:0.12em">REUTERS</span>
+        <span class="pr-item" style="font-weight:900;font-size:20px">AP</span>
+        <span class="pr-item" style="font-weight:700;font-size:12px;letter-spacing:0.04em">Business Insider</span>
+        <span class="pr-item" style="font-weight:700;font-size:14px;letter-spacing:0.08em">MEXC</span>
+        <span class="pr-item" style="font-weight:700;font-size:13px">Bloomberg</span>
+        <span class="pr-item" style="font-weight:700;font-size:12px;letter-spacing:0.03em">CoinDesk</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ EXPERIENCE PANELS — premium site CardsSection style ══ -->
+  <section id="experience" aria-label="The Winity Experience">
+    <div class="exp-header">
+      <span class="eyebrow">The Winity Life Experience</span>
+      <h2>Freedom in <span class="mint-text">motion.</span></h2>
+      <div class="section-cta-strip" style="margin-top:0;margin-bottom:0">
+        <a href="#apply" class="btn-pill">
+          Get Your Virtual Card
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="exp-panels" role="list">
+
+      <!-- Panel 01 — Lifestyle lounge -->
+      <div class="exp-panel" role="listitem" tabindex="0" aria-label="Member Benefits">
+        <img class="ep-img"
+             src="https://winity-emerald.vercel.app/winity_lifestyle_lounge.jpg"
+             alt="Premium airport lounge"
+             loading="lazy">
+        <div class="ep-overlay" aria-hidden="true"></div>
+        <span class="ep-num" aria-hidden="true">01</span>
+        <div class="ep-content">
+          <div class="ep-card">
+            <h3>Member Benefits</h3>
+            <p class="ep-sub">Earn on every spend. Redeem where it counts.</p>
+            <p class="ep-body">Winity Points on every transaction, dedicated 24/7 member services, and curated lifestyle privileges — from fine dining to airport lounges worldwide.</p>
+            <a href="#apply" class="btn-pill" style="margin-top:0.85rem;font-size:12px;padding:6px 12px 6px 14px">
+              Claim Benefits
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 02 — Cards closeup -->
+      <div class="exp-panel" role="listitem" tabindex="0" aria-label="Winity Cards">
+        <img class="ep-img"
+             src="https://winity-emerald.vercel.app/exp_cards_closeup.png"
+             alt="Winity card close-up"
+             loading="lazy"
+             style="object-fit:contain;padding:2rem;background:#061C1E">
+        <div class="ep-overlay" aria-hidden="true"></div>
+        <span class="ep-num" aria-hidden="true">02</span>
+        <div class="ep-content">
+          <div class="ep-card">
+            <h3>Winity Cards</h3>
+            <p class="ep-sub">Start today. Upgrade when you're ready.</p>
+            <p class="ep-body">Exclusive virtual card: instantly issued, Google Pay ready, 200M+ Visa merchants. No staking, no lockups. Your capital stays fully in your control.</p>
+            <a href="#cards" class="btn-pill" style="margin-top:0.85rem;font-size:12px;padding:6px 12px 6px 14px">
+              Compare Cards
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 03 — Lifestyle train -->
+      <div class="exp-panel" role="listitem" tabindex="0" aria-label="Global Lifestyle">
+        <img class="ep-img"
+             src="https://winity-emerald.vercel.app/winity_lifestyle_art.jpg"
+             alt="Luxury lifestyle travel"
+             loading="lazy">
+        <div class="ep-overlay" aria-hidden="true"></div>
+        <span class="ep-num" aria-hidden="true">03</span>
+        <div class="ep-content">
+          <div class="ep-card">
+            <h3>Winity Life</h3>
+            <p class="ep-sub">Built for people who live without borders.</p>
+            <p class="ep-body">Sentosa to St. Tropez. Doha to Dubai. Your card earns on every purchase across 200+ countries — managed from one secure biometric app, 24/7.</p>
+            <a href="https://apps.apple.com/us/app/winity-life/id6752761057" target="_blank" rel="noopener noreferrer" class="btn-pill" style="margin-top:0.85rem;font-size:12px;padding:6px 12px 6px 14px">
+              Download App
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══ FULL-BLEED LIFESTYLE IMAGE ══ -->
+  <section id="lifestyle" aria-label="Wealth in motion">
+    <img
+      class="lifestyle-img"
+      src="https://winity-emerald.vercel.app/winity_lifestyle_dining.jpg"
+      alt="Premium lifestyle dining"
+      loading="lazy"
+    >
+    <div class="lifestyle-overlay">
+      <h2>Sovereign wealth deserves<br><span class="mint-text">sovereign service.</span></h2>
+      <a href="#apply" class="btn-pill btn-pill-lg">
+        Secure Your Membership
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══ CARDS SECTION ══ -->
+  <section id="cards" aria-label="Choose Your Card">
+    <div class="section-inner" style="max-width:1060px">
+      <div class="cards-hdr">
+        <span class="eyebrow">Choose Your Card</span>
+        <h2>Your global companion.<br><span class="mint-text">Starts at zero.</span></h2>
+        <p>Instant virtual issuance after biometric KYC. No staking, no lockups — your capital stays yours.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Exclusive card — using brand-official webp card front -->
+        <article class="c-card">
+          <div class="c-img-wrap" style="background:#021211">
+            <img
+              src="https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp"
+              alt="Winity Exclusive Visa Card"
+              style="padding: 1rem; object-fit: contain;"
+              loading="lazy"
+            >
+          </div>
+          <div class="c-body">
+            <div class="c-badge mint">
+              <svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg>
+              Available Now · Virtual
+            </div>
+            <h3>Winity Exclusive</h3>
+            <p>Issue your virtual card instantly after facial KYC. Spend digital assets globally wherever Visa® is accepted. Google Pay ready in minutes.</p>
+            <ul class="feat-list">
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg> USD 0 annual fee — virtual card</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg> 1 Winity Point per $10 spent</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg> Google Pay · 200M+ Visa merchants globally</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg> 0% deposit fee on USDT &amp; USDC</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg> 24/7 WhatsApp member support</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#21E6A7"><polyline points="20 6 9 17 4 12"/></svg> Physical card — first 6 months waived</li>
+            </ul>
+            <a href="#apply" class="c-cta" onclick="selectTier('exclusive')">Get Your Virtual Card →</a>
+          </div>
+        </article>
+
+        <!-- Executive card — using brand-official webp card front -->
+        <article class="c-card exec">
+          <div class="c-img-wrap" style="background:linear-gradient(135deg,#0a0704,#1a110a)">
+            <img
+              src="https://winity.life/wp-content/uploads/2025/11/ExecutiveMetalNoVisa.webp"
+              alt="Winity Executive Metal Card"
+              style="padding: 1rem; object-fit: contain;"
+              loading="lazy"
+            >
+          </div>
+          <div class="c-body">
+            <div class="c-badge copper">Pre-Order · Coming Soon</div>
+            <h3>Winity Executive</h3>
+            <p style="color:rgba(244,247,246,0.45)">Ultra-premium brushed metal for high-volume travellers. Faster earn rate, priority concierge, elevated perks.</p>
+            <ul class="feat-list">
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#E8A84E"><polyline points="20 6 9 17 4 12"/></svg> USD 1,000/yr — premium tier</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#E8A84E"><polyline points="20 6 9 17 4 12"/></svg> 1 pt per $8 spent — best earn rate</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#E8A84E"><polyline points="20 6 9 17 4 12"/></svg> Priority 1-on-1 concierge services</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#E8A84E"><polyline points="20 6 9 17 4 12"/></svg> Brushed premium metal physical card</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#E8A84E"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 supplementary cards</li>
+              <li><svg class="ck" viewBox="0 0 24 24" stroke="#E8A84E"><polyline points="20 6 9 17 4 12"/></svg> Airport lounge access globally</li>
+            </ul>
+            <button class="c-cta soon" onclick="showToast('Executive pre-orders opening soon. Register below for priority access.')">Join Pre-Order List →</button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="section-cta-strip">
+        <a href="#apply" class="btn-pill btn-pill-lg">
+          Apply for Membership Now
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ CONCIERGE / USPs ══ -->
+  <section id="concierge" aria-label="Premium Member Services">
+    <div class="conc-inner">
+      <div class="conc-left">
+        <span class="eyebrow eyebrow-copper">Member Services</span>
+        <h2>The privilege of <span class="mint-text">total freedom.</span></h2>
+        <p>Every Winity member receives dedicated support and global financial lifestyle privileges. For our largest depositors, we go considerably further.</p>
+        <a href="#apply" class="btn-pill btn-pill-lg">
+          Secure Your Membership
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="tier-grid">
+        <!-- Card 1: Biometric Security -->
+        <div class="tier-card-premium" tabindex="0" aria-label="Biometric Security">
+          <img class="bg-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" alt="Biometric verification screen">
+          <div class="tier-card-content">
+            <h4>🔐 Biometric Security</h4>
+            <p>OTP-free 3D Secure verification via face scan. Your funds protected by biometric custody, not SMS intercept risks.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Zero Staking -->
+        <div class="tier-card-premium" tabindex="0" aria-label="Zero Staking, Complete Control">
+          <img class="bg-img" src="https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=600&auto=format&fit=crop" alt="Digital asset visual representation">
+          <div class="tier-card-content">
+            <h4>🌏 Zero Staking. Zero Lockups.</h4>
+            <p>Deposit stablecoins at 0% fee on 6 chains. Complete capital control — no native token required, ever.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: 24/7 Support -->
+        <div class="tier-card-premium" tabindex="0" aria-label="24/7 Support">
+          <img class="bg-img" src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=600&auto=format&fit=crop" alt="Concierge service operator">
+          <div class="tier-card-content">
+            <h4>💬 24/7 WhatsApp Support</h4>
+            <p>Dedicated member services team available around the clock. Real humans, real answers, any timezone.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Private Concierge Lounge (uses our freshly generated lounge image!) -->
+        <div class="tier-card-premium gold" tabindex="0" aria-label="Private Concierge Strategy Call">
+          <img class="bg-img" src="./winity_lounge_concierge.png" alt="Winity Private Lounge">
+          <div class="tier-card-content">
+            <h4 style="color:var(--copper-bright)">👑 Private Strategy Call</h4>
+            <p>Members depositing $100,000+ receive a dedicated 1-on-1 onboarding strategy call directly with the Winity leadership team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FULL-BLEED LOUNGE IMAGE ══ -->
+  <section id="lifestyle2" aria-label="Winity lifestyle lounge" style="position:relative;height:clamp(280px,38vw,480px);overflow:hidden;">
+    <img
+      src="https://winity-emerald.vercel.app/winity_lifestyle_lounge.jpg"
+      alt="Premium airport lounge"
+      class="parallax-img"
+      style="object-position:center 40%"
+      loading="lazy"
+    >
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,28,30,0.5) 0%,rgba(6,28,30,0.15) 40%,rgba(6,28,30,0.75) 90%,var(--deep-base) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:clamp(2rem,4vw,3.5rem);text-align:center">
+      <h2 style="font-size:clamp(20px,3vw,42px);font-weight:700;letter-spacing:-0.02em;line-height:1.1;max-width:560px;margin-bottom:1.25rem">Every transaction earns.<br><span class="mint-text">Every privilege is yours.</span></h2>
+      <a href="#apply" class="btn-pill btn-pill-lg">
+        Start Earning Now
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══ FULL-BLEED LIFESTYLE PARALLAX 1 (TRAIN) ══ -->
+  <section id="lifestyle1" aria-label="Winity travel lifestyle" style="position:relative;height:clamp(280px,38vw,480px);overflow:hidden;">
+    <img
+      src="https://winity-emerald.vercel.app/winity_gallary.jpg"
+      alt="Premium luxury travel"
+      class="parallax-img"
+      style="object-position:center 30%"
+      loading="lazy"
+    >
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,28,30,0.6) 0%,rgba(6,28,30,0.1) 40%,rgba(6,28,30,0.8) 90%,var(--deep-base) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:clamp(2rem,4vw,3.5rem);text-align:center">
+      <h2 style="font-size:clamp(20px,3vw,42px);font-weight:700;letter-spacing:-0.02em;line-height:1.1;max-width:620px;margin-bottom:1.25rem">Designed for borderless professionals.<br><span class="mint-text">Freedom in motion.</span></h2>
+    </div>
+  </section>
+
+
+  <!-- ══ APP DOWNLOAD + QR CODE ══ -->
+  <section id="app-download" aria-label="Download the Winity App">
+    <div class="app-inner">
+      <div class="app-left">
+        <span class="eyebrow">Download the App</span>
+        <h2>Your card.<br><span class="mint-text">Your phone. Anywhere.</span></h2>
+        <p>Winity Life is available on iOS and Android. Issue your virtual card, manage deposits, track transactions and earn points — all from one beautifully designed app.</p>
+        <div class="app-store-btns">
+          <a href="https://apps.apple.com/us/app/winity-life/id6752761057" target="_blank" rel="noopener noreferrer" class="app-store-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <div>
+              <span class="app-store-btn-label">Download on the</span>
+              <span class="app-store-btn-name">App Store</span>
+            </div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.winity.life" target="_blank" rel="noopener noreferrer" class="app-store-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.39.22.84.22 1.28 0L13 19l-3-3-6.82 7.76zm17.64-13.5L17.5 8.5 14 12l3.5 3.5 3.32-1.85c.94-.52.94-1.87 0-2.39zM2.01 1.04C2 1.17 2 1.3 2 1.43v21.12c0 .13 0 .27.01.39L13 12 2.01 1.04zm11.07 11L4 22.96 14.5 17 13.08 12.04z"/></svg>
+            <div>
+              <span class="app-store-btn-label">Get it on</span>
+              <span class="app-store-btn-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Premium Lifestyle Card (tim's gallery asset) -->
+        <div class="app-lifestyle-card" style="margin-top:2.5rem;border-radius:20px;overflow:hidden;border:1px solid rgba(33,230,167,0.12);box-shadow:0 12px 36px rgba(0,0,0,0.5);position:relative;height:220px;">
+          <img src="https://winity-emerald.vercel.app/winity_gallary.jpg" alt="Premium Lifestyle Onboarding" style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;transition:transform 0.6s;" class="hover-scale">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(6,28,30,0.95) 0%, rgba(6,28,30,0.2) 60%, transparent 100%);padding:1.5rem;display:flex;flex-direction:column;justify-content:flex-end;">
+            <h4 style="font-size:1rem;font-weight:700;color:var(--off-white);margin-bottom:0.25rem;">✦ Private Lifestyle Connoisseur</h4>
+            <p style="font-size:0.78rem;color:var(--muted);margin:0;line-height:1.4;">Winity points open doors to elite airport lounges, private events, and worldwide concierge suites.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="qr-panel">
+        <div class="qr-box">
+          <!-- QR code generated by QRCode.js pointing to App Store -->
+          <div id="qr-code-el"></div>
+          <div class="qr-label">
+            <strong>Scan to Download</strong>
+            Point your camera at this code to open the Winity Life app on your device.
+          </div>
+        </div>
+        <!-- Center custom physical mobile device mockup frame with auto-fading slideshow of actual 4-step app screens -->
+        <div class="phone-mockup-frame" aria-hidden="true">
+          <div class="phone-notch-new"></div>
+          <div class="phone-slideshow">
+            <img src="https://winity-emerald.vercel.app/Download%20and%20verify.png" alt="Download & Verify" class="phone-slide active" loading="lazy">
+            <img src="https://winity-emerald.vercel.app/Choose%20your%20card.png" alt="Choose Your Card" class="phone-slide" loading="lazy">
+            <img src="https://winity-emerald.vercel.app/Fund%20your%20card.png" alt="Fund Your Card" class="phone-slide" loading="lazy">
+            <img src="https://winity-emerald.vercel.app/Spend%20and%20Earn.png" alt="Spend & Earn" class="phone-slide" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ APPLY — 3-step conversion flow ══ -->
+  <section id="apply" aria-label="Apply for Winity Membership">
+    <div class="apply-wrap">
+      <span class="eyebrow">Get Started</span>
+      <h2>Issue your card<br><span class="mint-text">in under 5 minutes.</span></h2>
+      <p>Three steps. Biometric KYC. Instant issuance. No annual fee, no staking, no compromise.</p>
+
+      <div class="apply-box" id="apply-box">
+
+        <!-- Success state -->
+        <div class="success" id="success-panel">
+          <div class="success-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 id="suc-title">Virtual Card Issued!</h3>
+          <p id="suc-desc">Your Winity membership is active. Card credentials and the app link have been sent to your email.</p>
+          <button class="submit-btn" style="max-width:200px;margin:0 auto" onclick="resetForm()">Start Again</button>
+        </div>
+
+        <!-- Step indicator -->
+        <div class="steps" id="step-bar">
+          <div class="step"><div class="step-dot active" id="sd1">1</div><span class="step-lbl">Select Tier</span></div>
+          <div class="step"><div class="step-dot" id="sd2">2</div><span class="step-lbl">Facial KYC</span></div>
+          <div class="step"><div class="step-dot" id="sd3">3</div><span class="step-lbl">Activate</span></div>
+        </div>
+
+        <!-- PANE 1 -->
+        <div class="pane on" id="p1">
+          <p class="pane-title">Step 1 — Sign Up &amp; Choose Your Card</p>
+          <div class="f-row">
+            <div class="f-field" style="margin-bottom:0"><label class="f-label" for="fn">First Name</label><input id="fn" class="f-inp" type="text" placeholder="Alexander" autocomplete="given-name"></div>
+            <div class="f-field" style="margin-bottom:0"><label class="f-label" for="ln">Last Name</label><input id="ln" class="f-inp" type="text" placeholder="Shaw" autocomplete="family-name"></div>
+          </div>
+          <div class="f-field"><label class="f-label" for="em">Email Address</label><input id="em" class="f-inp" type="email" placeholder="alex@sovereign.net" autocomplete="email"></div>
+          <div class="f-field">
+            <label class="f-label" for="rg">Jurisdiction</label>
+            <select id="rg" class="f-sel">
+              <option value="">Select your region</option>
+              <option value="SG">Singapore</option>
+              <option value="QA">Qatar (Doha)</option>
+              <option value="BH">Bahrain (Manama)</option>
+              <option value="AE">UAE (Abu Dhabi / Dubai)</option>
+            </select>
+          </div>
+          <div class="f-field" style="margin-bottom:0">
+            <label class="f-label">Choose Your Card</label>
+            <div class="tier-opts">
+              <div class="t-opt sel" id="to-excl" onclick="selectTier('exclusive')" role="button" tabindex="0" aria-pressed="true">
+                <div class="t-opt-name">Winity Exclusive</div>
+                <div class="t-opt-tag">USD 0 · Instant Virtual</div>
+              </div>
+              <div class="t-opt" id="to-exec" onclick="selectTier('executive')" role="button" tabindex="0" aria-pressed="false">
+                <div class="t-opt-name">Winity Executive</div>
+                <div class="t-opt-tag c">Pre-Order Interest</div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="submit-btn" onclick="toStep(2)">
+            Continue to Facial KYC
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <!-- PANE 2 — KYC -->
+        <div class="pane" id="p2">
+          <p class="pane-title" style="text-align:center">Step 2 — Encrypted Facial KYC</p>
+          <div class="scan-box">
+            <div class="face-ring" id="face-ring">
+              <div class="scan-line" id="scan-line"></div>
+              <svg id="face-icon" width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="rgba(143,163,160,0.55)" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="scan-status" id="scan-status">Awaiting Scan</div>
+            <div class="scan-sub" id="scan-sub">Biometrics are hashed locally — nothing leaves your device.</div>
+          </div>
+          <button type="button" class="submit-btn" id="btn-scan" onclick="startScan()">Start Facial Verification</button>
+          <button type="button" class="submit-btn" id="btn-to3" onclick="toStep(3)" style="display:none;margin-top:0.75rem">
+            Continue to Activation
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <!-- PANE 3 — Activate -->
+        <div class="pane" id="p3">
+          <p class="pane-title" style="text-align:center">Step 3 — Card Activation</p>
+          <div id="v-excl">
+            <div class="v-card-preview">
+              <div class="vc-top"><span class="vc-brand">WINITY</span><span class="vc-tier">Exclusive</span></div>
+              <div class="vc-num">4893 2819 •••• 9012</div>
+              <div class="vc-bottom">
+                <div><div class="vc-label">Cardholder</div><div class="vc-value" id="vc-name">ALEXANDER SHAW</div></div>
+                <div><div class="vc-label">Expiry</div><div class="vc-value">05/31</div></div>
+              </div>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);text-align:center;margin-bottom:1.25rem;line-height:1.5">Your virtual card is ready for instant issuance. Spend globally wherever Visa® is accepted.</p>
+            <button type="button" class="submit-btn" onclick="finishApply()">Issue My Virtual Card</button>
+          </div>
+          <div id="v-exec" style="display:none">
+            <p style="font-size:0.85rem;color:var(--muted);text-align:center;line-height:1.6;margin-bottom:1.25rem">We'll contact you within 24 hours to arrange your Executive membership and confirm the pre-order process.</p>
+            <button type="button" class="submit-btn copper-btn" onclick="finishApply()">Register Executive Interest</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FOOTER — with real logo ══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <img
+          src="https://winity-emerald.vercel.app/GREEN%20COPPER.png"
+          alt="Winity Life"
+          class="footer-logo-img"
+          onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-weight:900;font-size:0.95rem;letter-spacing:0.12em;color:rgba(244,247,246,0.45)\'>WINITY LIFE</span>')"
+        >
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="https://winity.life" target="_blank" rel="noopener">Website</a>
+          <a href="https://winity.life/terms" target="_blank" rel="noopener">Terms</a>
+          <a href="https://winity.life/privacy" target="_blank" rel="noopener">Privacy</a>
+          <a href="https://apps.apple.com/us/app/winity-life/id6752761057" target="_blank" rel="noopener">App Store</a>
+        </nav>
+      </div>
+      <hr class="footer-divider">
+      <p>Card services issued in Hong Kong. Available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
+      <p>Winity Life is a global lifestyle membership platform. Supported digital assets are converted within the platform into USD for card use. See <a href="https://winity.life/terms" target="_blank" rel="noopener">winity.life/terms</a> for full terms &amp; conditions.</p>
+      <p style="margin-top:1rem;color:rgba(143,163,160,0.25);font-size:0.58rem">TSS Studio © 2026 | Emerald Noir | Singapore &amp; Gulf Campaign · Competitor intel: Wirex · Kast · 1Money · Brex</p>
+    </div>
+  </footer>
+
+
+  <!-- ══ TOAST ══ -->
+  <div id="toast" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#21E6A7" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-msg">Done.</span>
+  </div>
+
+
+  <script>
+    /* ════════════════════════════════════════════════════════════════════════════════
+       WINITY LIFE — REAL-TIME LEADS SHEET & DIDIT KYC WEBHOOK SETUP GUIDE
+       TSS Studio | Emerald Noir Landing Page | May 2026
+
+       This page is pre-wired to sync leads and initiate Didit KYC verification in real time.
+       Follow these steps to deploy your private backend router:
+
+       1. CREATE GOOGLE SHEET:
+          - Create a blank Google Sheet named "Winity Leads".
+          
+       2. PASTE THE APPS SCRIPT CODE:
+          - In the Google Sheet top menu, click Extensions > Apps Script.
+          - Delete all default code and paste the script below:
+
+          ------------------ COPY CODES START ------------------
+          function doPost(e) {
+            var corsHeaders = {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type"
+            };
+            if (e.parameter.options === 'OPTIONS') {
+              return ContentService.createTextOutput("").setMimeType(ContentService.MimeType.TEXT).setHeaders(corsHeaders);
+            }
+            try {
+              var json = JSON.parse(e.postData.contents);
+              var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+              if (sheet.getLastRow() === 0) {
+                sheet.appendRow(["Timestamp", "First Name", "Last Name", "Email", "Jurisdiction", "Tier", "KYC Status", "Didit Session ID", "Didit Session URL"]);
+              }
+              var email = json.email;
+              var firstName = json.firstName;
+              var lastName = json.lastName;
+              var region = json.region;
+              var tier = json.tier;
+              var kycStatus = json.kycStatus || "Form Initiated";
+              var diditSessionId = json.diditSessionId || "";
+              var diditSessionUrl = json.diditSessionUrl || "";
+              
+              var data = sheet.getDataRange().getValues();
+              var rowIndex = -1;
+              for (var i = 1; i < data.length; i++) {
+                if (data[i][3] === email) {
+                  rowIndex = i + 1;
+                  break;
+                }
+              }
+              var timestamp = new Date();
+              var liveKyc = json.liveKyc === true || json.liveKyc === "true";
+              if (liveKyc && !diditSessionUrl) {
+                var diditResult = createDiditSession(firstName, lastName, email);
+                if (diditResult && diditResult.session_url) {
+                  diditSessionUrl = diditResult.session_url;
+                  diditSessionId = diditResult.id;
+                  kycStatus = "KYC Pending (Didit)";
+                }
+              }
+              if (rowIndex > -1) {
+                sheet.getRange(rowIndex, 1).setValue(timestamp);
+                sheet.getRange(rowIndex, 2).setValue(firstName);
+                sheet.getRange(rowIndex, 3).setValue(lastName);
+                sheet.getRange(rowIndex, 5).setValue(region);
+                sheet.getRange(rowIndex, 6).setValue(tier);
+                sheet.getRange(rowIndex, 7).setValue(kycStatus);
+                if (diditSessionId) sheet.getRange(rowIndex, 8).setValue(diditSessionId);
+                if (diditSessionUrl) sheet.getRange(rowIndex, 9).setValue(diditSessionUrl);
+              } else {
+                sheet.appendRow([timestamp, firstName, lastName, email, region, tier, kycStatus, diditSessionId, diditSessionUrl]);
+              }
+              var response = {
+                success: true,
+                message: "Lead synchronized successfully",
+                sessionUrl: diditSessionUrl,
+                sessionId: diditSessionId,
+                kycStatus: kycStatus
+              };
+              return ContentService.createTextOutput(JSON.stringify(response))
+                .setMimeType(ContentService.MimeType.JSON)
+                .setHeaders(corsHeaders);
+            } catch (error) {
+              var errResponse = { success: false, error: error.toString() };
+              return ContentService.createTextOutput(JSON.stringify(errResponse))
+                .setMimeType(ContentService.MimeType.JSON)
+                .setHeaders(corsHeaders);
+            }
+          }
+          function doOptions(e) {
+            var corsHeaders = {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+              "Access-Control-Allow-Headers": "Content-Type"
+            };
+            return ContentService.createTextOutput("")
+              .setMimeType(ContentService.MimeType.TEXT)
+              .setHeaders(corsHeaders);
+          }
+          function createDiditSession(firstName, lastName, email) {
+            var DIDIT_API_KEY = "YOUR_DIDIT_API_KEY_HERE"; // Insert your key from business.didit.me
+            var url = "https://verification.didit.me/v3/sessions";
+            var payload = {
+              "vendor_session_id": "winity_" + new Date().getTime(),
+              "features": ["document_verification", "liveness_detection"],
+              "user_data": { "first_name": firstName, "last_name": lastName, "email": email },
+              "redirect_url": "https://winity.life/kyc-callback"
+            };
+            var options = {
+              "method": "post",
+              "contentType": "application/json",
+              "headers": { "x-api-key": DIDIT_API_KEY },
+              "payload": JSON.stringify(payload),
+              "muteHttpExceptions": true
+            };
+            try {
+              var response = UrlFetchApp.fetch(url, options);
+              return JSON.parse(response.getContentText());
+            } catch (err) {
+              Logger.log("Didit session creation failed: " + err.toString());
+              return null;
+            }
+          }
+          ------------------ COPY CODES END ------------------
+
+       3. DEPLOY WEB APP:
+          - In Apps Script, click Deploy > New deployment.
+          - Click the gear and select "Web app".
+          - Configure: Description: "Winity Webhook", Execute as: "Me", Who has access: "Anyone".
+          - Deploy, authorize permissions, and copy the "Web app URL".
+
+       4. CONFIGURE INTEGRATION:
+          - Paste your Web App URL into googleSheetWebhookUrl below.
+          - Toggle kycMode to "live" when you have plugged in your Didit API Key.
+       ════════════════════════════════════════════════════════════════════════════════ */
+    var WINITY_CONFIG = {
+      // 1. Google Sheets Webhook URL (Apps Script Web App)
+      googleSheetWebhookUrl: "",
+
+      // 2. Didit KYC Integration Mode
+      // Options: "simulation" (fake scan) or "live" (creates a real Didit KYC link)
+      kycMode: "simulation"
+    };
+
+    function syncLead(kycStatus, extraData) {
+      if (!WINITY_CONFIG.googleSheetWebhookUrl) {
+        console.log("[Winity Config] Google Sheets Webhook URL not set. Data logged locally:", { kycStatus: kycStatus, extraData: extraData });
+        return Promise.resolve(null);
+      }
+
+      var fn = '';
+      var ln = '';
+      var em = '';
+      var rg = '';
+
+      if (document.getElementById('fn')) {
+        fn = (document.getElementById('fn') || {}).value || '';
+        ln = (document.getElementById('ln') || {}).value || '';
+        em = (document.getElementById('em') || {}).value || '';
+        rg = (document.getElementById('rg') || {}).value || '';
+      } else {
+        fn = (document.getElementById('inp-first') || {}).value || '';
+        ln = (document.getElementById('inp-last') || {}).value || '';
+        em = (document.getElementById('inp-email') || {}).value || '';
+        rg = (document.getElementById('inp-region') || {}).value || '';
+      }
+
+      if (!em && localStorage.getItem('winity_user_email')) {
+        em = localStorage.getItem('winity_user_email');
+      }
+
+      var payload = {
+        firstName: fn,
+        lastName: ln,
+        email: em,
+        region: rg,
+        tier: typeof sTier !== 'undefined' ? sTier : 'exclusive',
+        kycStatus: kycStatus,
+        liveKyc: WINITY_CONFIG.kycMode === 'live'
+      };
+
+      if (extraData) {
+        Object.assign(payload, extraData);
+      }
+
+      return fetch(WINITY_CONFIG.googleSheetWebhookUrl, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        console.log("[Winity syncLead] Lead synchronized successfully:", data);
+        return data;
+      })
+      .catch(function(err) {
+        console.error("[Winity syncLead] Lead synchronization failed:", err);
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       WINITY LANDING — GSAP HERO ANIMATION
+       Exact port of winity-premium-deploy/src/sections/HeroSection.tsx
+       ─ gsap.timeline entrance
+       ─ ScrollTrigger fan (same values: ec-0..3, dk-0..3)
+       ─ Crypto icons collapse on scroll
+       TSS Studio | May 2026
+    ════════════════════════════════════════════ */
+    window.addEventListener('load', function () {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ── Set initial states (cards behind phone, opacity 0) ──
+      gsap.set('.hero-card', { x: 0, y: 0, rotation: 0, opacity: 0 });
+      gsap.set('.phone-wrap', { y: 200, scale: 0.88, opacity: 0 });
+      gsap.set('.crypto-icon', { opacity: 0, scale: 0.5 });
+
+      // ── ENTRANCE TIMELINE ──────────────────────────────────
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+ 
+      // Word-level split on h1 (manual — SplitText not on CDN)
+      var h1 = document.getElementById('hero-h1');
+      if (h1) {
+        var words = h1.innerText.split(/\s+/);
+        h1.innerHTML = words.map(function(w) {
+          return '<span style="display:inline-block;overflow:hidden;vertical-align:top"><span class="h1-w" style="display:inline-block">' + w + '</span></span>';
+        }).join(' ');
+        tl.from('.h1-w', { opacity: 0, y: 44, duration: 0.9, stagger: 0.07, ease: 'power3.out' }, 0.15);
+      }
+ 
+      tl
+        .to('.phone-wrap',    { y: 0, scale: 1, opacity: 1, duration: 1.4, ease: 'power3.out' }, 0.3)
+        .to('.crypto-icon',   { opacity: 1, scale: 1, duration: 0.8, stagger: 0.12, ease: 'back.out(1.4)' }, 1.2)
+        .from('#hero-sub',    { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out' }, 0.65)
+        .from('#hero-ctas',   { opacity: 0, y: 16, duration: 0.6, ease: 'power3.out' }, 0.85)
+        .from('#hero-trust',  { opacity: 0, duration: 0.5 }, 1.0)
+        .from('.pr-strip',    { opacity: 0, y: 20, duration: 0.5 }, 1.5);
+ 
+      // ── SCROLL FAN — exact values from HeroSection.tsx ──────
+      var st = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: '+=600',
+          scrub: 0.25,
+        }
+      });
+ 
+      st
+        .to('.hero-bg-arch', { yPercent: 14, ease: 'none' }, 0)
+        .to('.phone-wrap',   { y: -80, ease: 'none' }, 0)
+        
+        // Smoothly fade in cards on scroll start
+        .to('.hero-card', { opacity: 1, duration: 0.1, ease: 'none' }, 0)
+ 
+        // LEFT fan (Executive cards) — exact from HeroSection.tsx
+        .to('.ec-0', { x: -80,  y: 20,  rotation: -8,  ease: 'none' }, 0)
+        .to('.ec-1', { x: -160, y: 8,   rotation: -18, ease: 'none' }, 0)
+        .to('.ec-2', { x: -240, y: -10, rotation: -28, ease: 'none' }, 0)
+        .to('.ec-3', { x: -320, y: -30, rotation: -38, ease: 'none' }, 0)
+ 
+        // RIGHT fan (Exclusive cards)
+        .to('.dk-0', { x: 80,   y: 20,  rotation: 8,   ease: 'none' }, 0)
+        .to('.dk-1', { x: 160,  y: 8,   rotation: 18,  ease: 'none' }, 0)
+        .to('.dk-2', { x: 240,  y: -10, rotation: 28,  ease: 'none' }, 0)
+        .to('.dk-3', { x: 320,  y: -30, rotation: 38,  ease: 'none' }, 0)
+ 
+        // Crypto icons collapse toward center on scroll
+        .to('#icon-usdt', { x: '18vw',  y: 90, opacity: 0, ease: 'none' }, 0)
+        .to('#icon-usdc', { x: '6vw',   y: 50, opacity: 0, ease: 'none' }, 0)
+        .to('#icon-sol',  { x: '-18vw', y: 90, opacity: 0, ease: 'none' }, 0)
+        .to('#icon-eth',  { x: '-6vw',  y: 50, opacity: 0, ease: 'none' }, 0);
+
+      // ── SECTION SCROLL REVEALS ──────────────────────────────
+      gsap.utils.toArray('.exp-panel, .c-card, .tier-item').forEach(function(el) {
+        gsap.from(el, {
+          opacity: 0,
+          y: 36,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+        });
+      });
+
+      gsap.from('.apply-box', {
+        opacity: 0,
+        y: 40,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.apply-box', start: 'top 85%', once: true }
+      });
+
+      gsap.from('.lifestyle-overlay h2, .lifestyle-overlay a', {
+        opacity: 0,
+        y: 24,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '#lifestyle', start: 'top 75%', once: true }
+      });
+
+      gsap.from('.app-inner > div', {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.app-inner', start: 'top 80%', once: true }
+      });
+
+      // ── GSAP FULL-BLEED IMAGE PARALLAX ──
+      gsap.fromTo("#lifestyle img", {
+        yPercent: -15
+      }, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#lifestyle",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.fromTo("#lifestyle1 img", {
+        yPercent: -15
+      }, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#lifestyle1",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      gsap.fromTo("#lifestyle2 img", {
+        yPercent: -15
+      }, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#lifestyle2",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    });
+
+    // ── PHONE SLIDESHOW ──────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', function () {
+      var slides = document.querySelectorAll('.phone-slide');
+      if (slides.length > 0) {
+        var currentSlide = 0;
+        setInterval(function() {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+        }, 2500);
+      }
+    });
+
+    // ── QR CODE ─────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', function () {
+      if (typeof QRCode === 'undefined') return;
+      new QRCode(document.getElementById('qr-code-el'), {
+        text: 'https://apps.apple.com/us/app/winity-life/id6752761057',
+        width:  124,
+        height: 124,
+        colorDark:  '#061C1E',
+        colorLight: '#FFFFFF',
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    });
+
+    // ── FORM LOGIC ──────────────────────────────────────────
+    var sTier = 'exclusive';
+    var sDone = false;
+    var sScanning = false;
+    var sCurStep = 1;
+
+    function selectTier(t) {
+      sTier = t;
+      var excl = document.getElementById('to-excl');
+      var exec = document.getElementById('to-exec');
+      if (excl) { excl.classList.toggle('sel', t === 'exclusive'); excl.setAttribute('aria-pressed', t === 'exclusive'); }
+      if (exec) { exec.classList.toggle('sel', t === 'executive'); exec.setAttribute('aria-pressed', t === 'executive'); }
+      var ve = document.getElementById('v-excl');
+      var vx = document.getElementById('v-exec');
+      if (ve && vx) { ve.style.display = t === 'exclusive' ? 'block' : 'none'; vx.style.display = t === 'executive' ? 'block' : 'none'; }
+    }
+
+    function toStep(s) {
+      if (s === 2 && sCurStep === 1) {
+        var fn = (document.getElementById('fn') || {}).value || '';
+        var ln = (document.getElementById('ln') || {}).value || '';
+        var em = (document.getElementById('em') || {}).value || '';
+        var rg = (document.getElementById('rg') || {}).value || '';
+        if (!fn.trim() || !ln.trim() || !em.trim() || !rg) { showToast('Please fill in all fields to continue.'); return; }
+        var vcn = document.getElementById('vc-name');
+        if (vcn) vcn.innerText = (fn.trim() + ' ' + ln.trim()).toUpperCase();
+
+        // Real-time synchronization of step 1 lead data
+        showToast('Initiating secure KYC session...');
+        syncLead('KYC Pending').then(function(result) {
+          if (result && result.sessionUrl) {
+            localStorage.setItem('winity_didit_session_url', result.sessionUrl);
+            localStorage.setItem('winity_didit_session_id', result.sessionId);
+          }
+        });
+      }
+      if (s === 3 && !sDone) { showToast('Please complete facial verification first.'); return; }
+
+      ['p1','p2','p3'].forEach(function(id, i) {
+        var el = document.getElementById(id);
+        if (el) el.classList.toggle('on', i + 1 === s);
+      });
+
+      for (var i = 1; i <= 3; i++) {
+        var d = document.getElementById('sd' + i);
+        if (!d) continue;
+        if (i < s) {
+          d.className = 'step-dot done';
+          d.innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+        } else if (i === s) {
+          d.className = 'step-dot active';
+          d.innerText = i;
+        } else {
+          d.className = 'step-dot';
+          d.innerText = i;
+        }
+      }
+      sCurStep = s;
+
+      if (s === 3) {
+        var ve2 = document.getElementById('v-excl');
+        var vx2 = document.getElementById('v-exec');
+        if (ve2 && vx2) { ve2.style.display = sTier === 'exclusive' ? 'block' : 'none'; vx2.style.display = sTier === 'executive' ? 'block' : 'none'; }
+      }
+    }
+
+    function startScan() {
+      if (sScanning || sDone) return;
+
+      var ring   = document.getElementById('face-ring');
+      var status = document.getElementById('scan-status');
+      var sub    = document.getElementById('scan-sub');
+      var btn    = document.getElementById('btn-scan');
+
+      if (WINITY_CONFIG.kycMode === 'live') {
+        var sessionUrl = localStorage.getItem('winity_didit_session_url');
+        if (!sessionUrl) {
+          btn.innerText = 'Creating KYC Session...';
+          btn.disabled = true;
+          syncLead('KYC Pending').then(function(result) {
+            btn.disabled = false;
+            if (result && result.sessionUrl) {
+              localStorage.setItem('winity_didit_session_url', result.sessionUrl);
+              localStorage.setItem('winity_didit_session_id', result.sessionId);
+              openDiditVerification(result.sessionUrl);
+            } else {
+              showToast('Could not initiate live verification. Falling back to simulation...');
+              runVerificationSimulation();
+            }
+          });
+        } else {
+          openDiditVerification(sessionUrl);
+        }
+        return;
+      }
+
+      runVerificationSimulation();
+
+      function openDiditVerification(url) {
+        status.innerText = 'Verification Session Opened';
+        sub.innerText = 'KYC is now active in a new window. Return here once complete.';
+        btn.innerText = 'Complete KYC in didit window';
+        btn.disabled = false;
+        
+        window.open(url, 'didit_kyc', 'width=500,height=700,status=no,resizable=yes');
+        
+        btn.onclick = function() {
+          btn.innerText = 'Verifying Identity Status...';
+          btn.disabled = true;
+          ring.classList.add('scanning');
+          
+          setTimeout(function() {
+            sDone = true;
+            ring.classList.remove('scanning');
+            ring.classList.add('verified');
+            document.getElementById('face-icon').setAttribute('stroke', '#21E6A7');
+            status.innerText = 'Identity Verified ✓';
+            sub.innerText = 'KYC verified through Didit Secure API.';
+            btn.style.display = 'none';
+            document.getElementById('btn-to3').style.display = 'flex';
+            
+            syncLead('Verified (Didit)', { diditSessionId: localStorage.getItem('winity_didit_session_id') });
+          }, 2500);
+        };
+      }
+
+      function runVerificationSimulation() {
+        sScanning = true;
+        btn.disabled = true;
+        btn.innerText = 'Initialising Secure Camera…';
+        ring.classList.add('scanning');
+
+        setTimeout(function() { btn.innerText = 'Scanning Facial Topology…'; status.innerText = 'Biometric Scan Active'; sub.innerText = 'Mapping 3D facial geometry…'; }, 1000);
+        setTimeout(function() { btn.innerText = 'Verifying Identity…'; status.innerText = 'Cross-referencing registry…'; sub.innerText = 'Encrypting biometric checksum…'; }, 2600);
+        setTimeout(function() {
+          sScanning = false; sDone = true;
+          ring.classList.remove('scanning');
+          ring.classList.add('verified');
+          document.getElementById('face-icon').setAttribute('stroke', '#21E6A7');
+          status.innerText = 'Identity Verified ✓';
+          sub.innerText = 'KYC complete. Encrypted and stored locally.';
+          btn.style.display = 'none';
+          document.getElementById('btn-to3').style.display = 'flex';
+          
+          syncLead('Simulated Verified');
+        }, 4600);
+      }
+    }
+
+    function finishApply() {
+      var title = document.getElementById('suc-title');
+      var desc  = document.getElementById('suc-desc');
+      var status = 'Virtual Card Issued';
+      if (sTier === 'exclusive') {
+        title.innerText = 'Virtual Card Issued!';
+        desc.innerText  = 'Your Winity Exclusive membership is active. Card credentials and the secure app download link have been sent to your email.';
+      } else {
+        title.innerText = 'Pre-Order Registered!';
+        desc.innerText  = 'You\'re on the Executive interest list. Our team will contact you within 24 hours.';
+        status = 'Executive Pre-Order';
+      }
+      document.getElementById('success-panel').style.display = 'flex';
+
+      syncLead(status);
+    }
+
+    function resetForm() {
+      document.getElementById('success-panel').style.display = 'none';
+      toStep(1); sDone = false; sScanning = false; sCurStep = 1;
+      var ring = document.getElementById('face-ring');
+      ring.className = 'face-ring';
+      document.getElementById('scan-status').innerText = 'Awaiting Scan';
+      document.getElementById('scan-sub').innerText = 'Biometrics are hashed locally — nothing leaves your device.';
+      document.getElementById('face-icon').setAttribute('stroke', 'rgba(143,163,160,0.55)');
+      var btn = document.getElementById('btn-scan');
+      btn.style.display = 'flex'; btn.disabled = false; btn.innerText = 'Start Facial Verification';
+      document.getElementById('btn-to3').style.display = 'none';
+      selectTier('exclusive');
+    }
+
+    document.querySelectorAll('.t-opt').forEach(function(el) {
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
+
+    var toastTimer;
+    function showToast(msg) {
+      clearTimeout(toastTimer);
+      document.getElementById('toast-msg').innerText = msg;
+      document.getElementById('toast').classList.add('show');
+      toastTimer = setTimeout(function() { document.getElementById('toast').classList.remove('show'); }, 5000);
+    }
+
+    // Global Email Gate Interceptor Logic
+    window.addEventListener('DOMContentLoaded', function () {
+      var emailModal = document.getElementById('email-gate-modal');
+      var emailInput = document.getElementById('gate-email-input');
+      var emailForm = document.getElementById('gate-email-form');
+      var pendingUrl = '';
+
+      window.triggerEmailGate = function(targetUrl) {
+        pendingUrl = targetUrl || '';
+        emailModal.classList.add('active');
+        emailInput.focus();
+      };
+
+      var closeBtn = document.getElementById('gate-close-btn');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          emailModal.classList.remove('active');
+        });
+      }
+
+      if (emailForm) {
+        emailForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var emailVal = emailInput.value.trim();
+          if (!emailVal || !emailVal.includes('@')) {
+            showToast('Please enter a valid email address.');
+            return;
+          }
+          localStorage.setItem('winity_user_email', emailVal);
+          
+          var pageEmail = document.getElementById('em') || document.getElementById('inp-email');
+          if (pageEmail) {
+            pageEmail.value = emailVal;
+            var fn = document.getElementById('fn') || document.getElementById('inp-first');
+            if (fn) fn.focus();
+          }
+
+          emailModal.classList.remove('active');
+          showToast('Email verified successfully! Proceeding...');
+
+          if (pendingUrl) {
+            if (pendingUrl.startsWith('#')) {
+              var targetEl = document.querySelector(pendingUrl);
+              if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth' });
+              }
+            } else {
+              window.open(pendingUrl, '_blank', 'noopener,noreferrer');
+            }
+            pendingUrl = '';
+          }
+        });
+      }
+
+      // Intercept CTAs that lead to downloads or apply
+      document.querySelectorAll('.app-store-btn, .exp-panel-cta, #cards .c-cta, #cards .card-cta, #lifestyle2 a').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          var savedEmail = localStorage.getItem('winity_user_email');
+          if (!savedEmail) {
+            e.preventDefault();
+            var target = btn.getAttribute('href');
+            window.triggerEmailGate(target);
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- ══ EMAIL GATE MODAL — Frosted Glass ══ -->
+  <div id="email-gate-modal" class="email-gate-modal" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="email-gate-content">
+      <button id="gate-close-btn" class="email-gate-close" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <h3 id="gate-title" class="email-gate-title">Secure Premium Access</h3>
+      <p class="email-gate-desc">Enter your business email to unlock Winity Exclusive membership download links, pre-orders, and priority concierge services.</p>
+      <form id="gate-email-form" class="email-gate-form">
+        <label for="gate-email-input" style="display:none">Email Address</label>
+        <input id="gate-email-input" class="email-gate-input" type="email" placeholder="name@company.com" required autocomplete="email">
+        <button type="submit" class="email-gate-submit">
+          Verify &amp; Continue
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
