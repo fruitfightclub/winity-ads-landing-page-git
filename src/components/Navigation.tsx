@@ -23,7 +23,8 @@ const cardsDropdownLinks = [
 const navLinks = [
   { label: 'How it works', href: '/#how-it-works' },
   { label: 'Loyalty',      href: '/loyalty'        },
-  { label: 'FAQs',         href: '/help'           },
+  { label: 'FAQs',         href: '/faqs'           },
+  { label: 'Support',      href: '/support'        },
 ]
 
 // ─── Component ───────────────────────────────────────────────────────────────

@@ -1,16 +1,5 @@
-/**
- * GlobeSection — Winity Life | Emerald Noir
- * ─────────────────────────────────────────────────────────────────────
- * High-fidelity combined digital ecosystem and global reach component.
- * - Volumetric 3D Globe with 3D flying transaction arcs & sparks.
- * - Supported Assets Grid (USDT, USDC, ETH, SOL, POL, TRX, WCO) with zero stablecoin fees.
- * - Networks Chips bar.
- * - Real-time scrolling transaction notifications.
- * - Full-bleed vertical parallax lifestyle story telling scroller (Airport Lounge, Rail Journey).
- * - Global Stats Ticker.
- * ─────────────────────────────────────────────────────────────────────
- */
 import { useEffect, useRef, useState } from 'react'
+import createGlobe from 'cobe'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
@@ -39,51 +28,6 @@ const NETWORKS = [
   { name: 'W Chain',      dot: '#21E6A7' },
 ]
 
-// ─── Cities & 3D Connections for Globe ─────────────────────────────────────
-interface City {
-  name: string
-  lat: number
-  lng: number
-}
-
-interface ScreenCity extends City {
-  x: number
-  y: number
-  z: number
-}
-
-const CITIES: City[] = [
-  { name: 'London',       lat: 51.5,   lng: -0.1   },
-  { name: 'New York',     lat: 40.7,   lng: -74.0  },
-  { name: 'Tokyo',        lat: 35.7,   lng: 139.7  },
-  { name: 'Hong Kong',    lat: 22.3,   lng: 114.2  },
-  { name: 'Dubai',        lat: 25.2,   lng: 55.3   },
-  { name: 'Singapore',    lat: 1.3,    lng: 103.8  },
-  { name: 'Sydney',       lat: -33.9,  lng: 151.2  },
-  { name: 'Paris',        lat: 48.9,   lng: 2.3    },
-  { name: 'São Paulo',    lat: -23.5,  lng: -46.6  },
-  { name: 'Lagos',        lat: 6.5,    lng: 3.4    },
-]
-
-const CONNECTION_PAIRS: [number, number][] = [
-  [0, 1], // London -> New York
-  [3, 4], // Hong Kong -> Dubai
-  [5, 2], // Singapore -> Tokyo
-  [0, 7], // London -> Paris
-  [3, 5], // Hong Kong -> Singapore
-  [1, 8], // New York -> São Paulo
-]
-
-const PULSE_INDICES = [0, 1, 3, 4, 5]
-
-function project(lat: number, lng: number, cx: number, cy: number, radius: number, rotation: number) {
-  const phi   = ((90 - lat) * Math.PI) / 180
-  const theta = ((lng + 180) * Math.PI) / 180
-  const x = cx + radius * Math.sin(phi) * Math.cos(theta + rotation)
-  const y = cy + radius * Math.cos(phi)
-  const z = radius * Math.sin(phi) * Math.sin(theta + rotation)
-  return { x, y, z }
-}
 
 // ─── Floating Live Transaction Feed Data ─────────────────────────────────
 const TRANSACTIONS = [
@@ -95,240 +39,80 @@ const TRANSACTIONS = [
   { text: 'Hotel lounge charge in Tokyo', value: '¥14,200', type: 'spend', location: 'Japan' },
 ]
 
-// ─── 3D Canvas Globe Component ───────────────────────────────────────────
+// ─── Cobe WebGL Globe (v2 API: uses update() + RAF for rotation) ─────────
 function VolumetricGlobe() {
-  const canvasRef    = useRef<HTMLCanvasElement>(null)
-  const rotRef       = useRef(0)
-  const timeRef      = useRef(0)
-  const rafRef       = useRef<number>(0)
-  const activePairTimerRef = useRef(0)
-  const activePairIndexRef = useRef(0)
+  const wrapRef   = useRef<HTMLDivElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const wrap   = wrapRef.current
+    if (!canvas || !wrap) return
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
-    let SIZE = 0
+    // cobe v2 creates a wrapper div with height:100% around the canvas.
+    // Without an explicit height on wrapRef, that 100% resolves to 0 (circular dependency).
+    // Measure width first, then lock the wrapper to a square before createGlobe runs.
+    const size = Math.min(wrap.offsetWidth || 500, 540)
+    const dpr  = Math.min(window.devicePixelRatio || 1, 2)
 
-    const resize = () => {
-      const container = canvas.parentElement
-      const maxSize = Math.min(container ? container.offsetWidth : 440, 440)
-      SIZE = maxSize
-      canvas.style.width  = `${SIZE}px`
-      canvas.style.height = `${SIZE}px`
-      canvas.width  = SIZE * dpr
-      canvas.height = SIZE * dpr
-      ctx.scale(dpr, dpr)
+    wrap.style.height  = `${size}px`   // lock wrapper height so cobe's inner div resolves correctly
+    canvas.style.width  = `${size}px`
+    canvas.style.height = `${size}px`
+
+    const globe = createGlobe(canvas, {
+      devicePixelRatio: dpr,
+      width:  size * dpr,
+      height: size * dpr,
+      phi:    0.5,
+      theta:  0.2,
+      dark:   1,
+      diffuse: 1.4,
+      mapSamples:    16000,
+      mapBrightness: 5.5,
+      baseColor:   [0.08, 0.28, 0.25],
+      markerColor: [0.13, 0.90, 0.65],
+      glowColor:   [0.07, 0.45, 0.38],
+      markers: [
+        { location: [ 51.5,  -0.1], size: 0.045 }, // London
+        { location: [ 40.7, -74.0], size: 0.055 }, // New York
+        { location: [ 35.7, 139.7], size: 0.045 }, // Tokyo
+        { location: [ 22.3, 114.2], size: 0.08  }, // Hong Kong (HQ)
+        { location: [ 25.2,  55.3], size: 0.05  }, // Dubai
+        { location: [  1.3, 103.8], size: 0.05  }, // Singapore
+        { location: [-33.9, 151.2], size: 0.04  }, // Sydney
+        { location: [ 48.9,   2.3], size: 0.045 }, // Paris
+        { location: [-23.5, -46.6], size: 0.045 }, // São Paulo
+        { location: [  6.5,   3.4], size: 0.04  }, // Lagos
+      ],
+    })
+
+    let phi   = 0.5
+    let rafId = 0
+    const animate = () => {
+      phi += 0.003
+      globe.update({ phi })
+      rafId = requestAnimationFrame(animate)
     }
-    resize()
-    window.addEventListener('resize', resize)
-
-    let isVisible = false
-    const observer = new IntersectionObserver(
-      (entries) => {
-        isVisible = entries[0].isIntersecting
-        if (isVisible && rafRef.current === 0) draw()
-      },
-      { threshold: 0.01 }
-    )
-    observer.observe(canvas)
-
-    const draw = () => {
-      if (!SIZE) { rafRef.current = requestAnimationFrame(draw); return }
-
-      rotRef.current  += 0.0025
-      timeRef.current += 0.016
-      
-      activePairTimerRef.current++
-      if (activePairTimerRef.current > 180) {
-        activePairTimerRef.current = 0
-        activePairIndexRef.current = (activePairIndexRef.current + 1) % CONNECTION_PAIRS.length
-      }
-
-      ctx.clearRect(0, 0, SIZE, SIZE)
-      const cx = SIZE / 2
-      const cy = SIZE / 2
-      const R  = SIZE * 0.38
-      const rot = rotRef.current
-      const t   = timeRef.current
-
-      // 1. Draw solid background space & back-globe shadow
-      ctx.beginPath()
-      ctx.arc(cx, cy, R, 0, Math.PI * 2)
-      ctx.fillStyle = '#030c0c'
-      ctx.fill()
-
-      // 2. Draw Latitude/Longitude coordinate grids
-      ctx.setLineDash([3, 6])
-      ctx.strokeStyle = 'rgba(33,230,167,0.06)'
-      ctx.lineWidth = 0.8
-      for (let latDeg = -60; latDeg <= 60; latDeg += 30) {
-        const phi = ((90 - latDeg) * Math.PI) / 180
-        const ry  = R * Math.cos(phi)
-        const rx  = R * Math.sin(phi)
-        if (rx < 1) continue
-        ctx.beginPath()
-        ctx.ellipse(cx, cy + ry, rx, rx * 0.15, 0, 0, Math.PI * 2)
-        ctx.stroke()
-      }
-      for (let lngDeg = 0; lngDeg < 180; lngDeg += 30) {
-        const theta = (lngDeg * Math.PI) / 180
-        const angle = theta + rot
-        ctx.beginPath()
-        ctx.ellipse(cx, cy, R * Math.abs(Math.cos(angle)), R, 0, 0, Math.PI * 2)
-        ctx.stroke()
-      }
-      ctx.setLineDash([])
-
-      // 3. Project Cities in 3D
-      const projected: ScreenCity[] = CITIES.map(city => {
-        const { x, y, z } = project(city.lat, city.lng, cx, cy, R, rot)
-        return { ...city, x, y, z }
-      })
-
-      // 4. Draw True 3D Flying Arcs (Dynamic altitudes, rotation-aware depth occlusion)
-      CONNECTION_PAIRS.forEach((pair, pairIdx) => {
-        const [ai, bi] = pair
-        const cityA = projected[ai]
-        const cityB = projected[bi]
-
-        const isCurrentArc = pairIdx === activePairIndexRef.current
-
-        // Calculate segment points along the spherical arc
-        const STEPS = 20
-        const points2D: { x: number; y: number; z: number }[] = []
-        let totalZ = 0
-
-        for (let step = 0; step <= STEPS; step++) {
-          const p = step / STEPS
-          const lat_p = cityA.lat + p * (cityB.lat - cityA.lat)
-          
-          let lngDiff = cityB.lng - cityA.lng
-          if (lngDiff > 180) lngDiff -= 360
-          if (lngDiff < -180) lngDiff += 360
-          const lng_p = cityA.lng + p * lngDiff
-
-          // Bubble the arc radius outwards in a beautiful sine curve (max 28px altitude)
-          const altitude = Math.sin(p * Math.PI) * 26
-          const Rp = R + altitude
-
-          const pt = project(lat_p, lng_p, cx, cy, Rp, rot)
-          points2D.push(pt)
-          totalZ += pt.z
-        }
-
-        const avgZ = totalZ / (STEPS + 1)
-        
-        // Hide/dim paths that are behind the globe
-        if (avgZ > -R * 0.3) {
-          const depthAlpha = Math.max(0.04, (avgZ + R) / (2 * R))
-          const alphaMultiplier = isCurrentArc ? 0.48 : 0.15
-          
-          ctx.beginPath()
-          ctx.moveTo(points2D[0].x, points2D[0].y)
-          for (let step = 1; step <= STEPS; step++) {
-            ctx.lineTo(points2D[step].x, points2D[step].y)
-          }
-          ctx.strokeStyle = `rgba(33,230,167,${depthAlpha * alphaMultiplier})`
-          ctx.lineWidth = isCurrentArc ? 1.2 : 0.8
-          if (!isCurrentArc) {
-            ctx.setLineDash([2, 4])
-          }
-          ctx.stroke()
-          ctx.setLineDash([])
-
-          // If current active arc, animate a flying spark traveling along the projected 3D coordinates
-          if (isCurrentArc) {
-            const sparkProgress = (t * 0.5) % 1
-            const sparkIndex = Math.floor(sparkProgress * STEPS)
-            const nextIndex = Math.min(sparkIndex + 1, STEPS)
-            const remainder = (sparkProgress * STEPS) % 1
-            
-            const ptA = points2D[sparkIndex]
-            const ptB = points2D[nextIndex]
-            
-            if (ptA && ptB && ptA.z > 0) {
-              const sparkX = ptA.x + remainder * (ptB.x - ptA.x)
-              const sparkY = ptA.y + remainder * (ptB.y - ptA.y)
-
-              ctx.beginPath()
-              ctx.arc(sparkX, sparkY, 3, 0, Math.PI * 2)
-              ctx.fillStyle = '#21E6A7'
-              ctx.shadowColor = '#21E6A7'
-              ctx.shadowBlur = 8
-              ctx.fill()
-              ctx.shadowBlur = 0 // reset
-            }
-          }
-        }
-      })
-
-      // 5. Draw Cities (Strictly occlude/clip dots rotating to back side)
-      projected.forEach((city, idx) => {
-        // Deep back-side occlusion
-        if (city.z < -R * 0.1) return
-
-        const depthAlpha = Math.max(0.1, (city.z + R) / (2 * R))
-        const isFacing   = city.z > 0.05
-        const dotR       = isFacing ? 3.5 : 1.5
-        const alpha      = isFacing ? depthAlpha * 0.95 : 0.15
-
-        // Dot
-        ctx.beginPath()
-        ctx.arc(city.x, city.y, dotR, 0, Math.PI * 2)
-        ctx.fillStyle = isFacing ? `rgba(33,230,167,${alpha})` : `rgba(143,163,160,${alpha})`
-        ctx.fill()
-
-        // Volumetric pulsing locator for active nodes
-        if (PULSE_INDICES.includes(idx) && isFacing) {
-          const pulseScale = 5 + 6 * Math.abs(Math.sin(t * 1.5 + idx * 1.1))
-          const pulseAlpha = 0.5 * (1 - Math.abs(Math.sin(t * 1.5 + idx * 1.1)))
-          
-          ctx.beginPath()
-          ctx.arc(city.x, city.y, pulseScale, 0, Math.PI * 2)
-          ctx.strokeStyle = `rgba(33,230,167,${pulseAlpha})`
-          ctx.lineWidth = 0.8
-          ctx.stroke()
-          
-          ctx.beginPath()
-          ctx.arc(city.x, city.y, 4, 0, Math.PI * 2)
-          ctx.fillStyle = '#21E6A7'
-          ctx.fill()
-        }
-      })
-
-      // 6. Volumetric Radial Glass Sphere Shading (Rim highlight and dark shadow overlay)
-      const rimHighlight = ctx.createRadialGradient(cx - R * 0.1, cy - R * 0.1, R * 0.75, cx, cy, R * 1.03)
-      rimHighlight.addColorStop(0, 'rgba(33,230,167,0)')
-      rimHighlight.addColorStop(0.75, 'rgba(33,230,167,0.03)')
-      rimHighlight.addColorStop(0.96, 'rgba(33,230,167,0.18)')
-      rimHighlight.addColorStop(1, 'rgba(33,230,167,0.35)')
-      
-      ctx.beginPath()
-      ctx.arc(cx, cy, R * 1.03, 0, Math.PI * 2)
-      ctx.fillStyle = rimHighlight
-      ctx.fill()
-
-      rafRef.current = isVisible ? requestAnimationFrame(draw) : 0
-    }
+    rafId = requestAnimationFrame(animate)
 
     return () => {
-      cancelAnimationFrame(rafRef.current)
-      rafRef.current = 0
-      window.removeEventListener('resize', resize)
-      observer.disconnect()
+      cancelAnimationFrame(rafId)
+      globe.destroy()
     }
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="block mx-auto relative z-10"
-      aria-label="Interactive 3D payments globe"
-    />
+    // minHeight ensures the column has height even before the effect runs
+    <div
+      ref={wrapRef}
+      style={{ width: '100%', maxWidth: 540, minHeight: 400, margin: '0 auto', position: 'relative' }}
+    >
+      <canvas
+        ref={canvasRef}
+        style={{ display: 'block' }}
+        aria-label="Interactive 3D payments globe"
+      />
+    </div>
   )
 }
 
@@ -369,33 +153,33 @@ export default function GlobeSection() {
   // ── GSAP Reveals & Parallax
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header reveal
-      gsap.fromTo(headerRef.current,
-        { opacity: 0, y: 30 },
+      // Left column reveal
+      gsap.set(headerRef.current, { opacity: 0, y: 28 })
+      gsap.to(headerRef.current,
         { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
           scrollTrigger: { trigger: headerRef.current, start: 'top 82%', once: true } }
       )
 
-      // Asset cards
+      // Asset card stagger (inside the already-revealed left col)
       const cards = document.querySelectorAll('.merged-asset-card')
       gsap.fromTo(cards,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.65, ease: 'power3.out', stagger: 0.08,
-          scrollTrigger: { trigger: assetsGridRef.current, start: 'top 80%', once: true } }
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', stagger: 0.06,
+          scrollTrigger: { trigger: assetsGridRef.current, start: 'top 82%', once: true } }
       )
 
-      // Networks Chips bar
+      // Networks
       gsap.fromTo(networksRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
           scrollTrigger: { trigger: networksRef.current, start: 'top 85%', once: true } }
       )
 
-      // Globe entry
-      gsap.fromTo(globeWrapRef.current,
-        { opacity: 0, scale: 0.95 },
-        { opacity: 1, scale: 1, duration: 1, ease: 'power3.out',
-          scrollTrigger: { trigger: globeWrapRef.current, start: 'top 78%', once: true } }
+      // Globe entry — set invisible first, then slide in from right on scroll in sync with header
+      gsap.set(globeWrapRef.current, { opacity: 0, x: 40, scale: 0.96 })
+      gsap.to(globeWrapRef.current,
+        { opacity: 1, x: 0, scale: 1, duration: 1.1, ease: 'power3.out',
+          scrollTrigger: { trigger: headerRef.current, start: 'top 82%', once: true } }
       )
 
       // Lifestyle Parallax scrolling background translations
@@ -454,49 +238,41 @@ export default function GlobeSection() {
         pointerEvents: 'none', zIndex: 1,
       }} />
 
-      <div className="container-wide relative z-10" style={{ marginBottom: 'clamp(80px, 10vw, 120px)' }}>
+      <div className="container-wide relative z-10" style={{ paddingBottom: 'clamp(80px, 10vw, 120px)' }}>
 
-        {/* ── Section Header ── */}
-        <div ref={headerRef} style={{ marginBottom: 'clamp(48px, 6vh, 72px)', opacity: 0 }}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16,
-            fontSize: 11, fontWeight: 600, letterSpacing: '0.22em',
-            textTransform: 'uppercase' as const, color: '#21E6A7',
-          }}>
-            <span style={{ display: 'inline-block', width: 24, height: 1, background: '#21E6A7' }} />
-            Ecosystem & Global Network
-          </span>
-          <h2 style={{
-            fontSize: 'clamp(28px, 4.5vw, 56px)', fontWeight: 800,
-            color: '#F4F7F6', letterSpacing: '-0.03em', lineHeight: 1.06,
-            maxWidth: 620,
-          }}>
-            Your digital assets.<br />
-            <span className="text-gradient-mint">The whole world, accepted.</span>
-          </h2>
-          <p style={{
-            fontSize: 'clamp(14px, 1.1vw, 16px)', color: 'rgba(244,247,246,0.5)',
-            lineHeight: 1.7, maxWidth: 580, marginTop: 14,
-          }}>
-            Load stablecoins with zero fees, or convert non-stable digital assets instantly. One card. 200+ countries. Every Visa terminal on the planet.
-          </p>
-        </div>
+        {/* ── Two-column grid: left = header + content, right = globe ── */}
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 items-center"
+          style={{ gap: 'clamp(48px, 6vw, 72px)' }}
+        >
 
-        {/* ── Two Column Dynamic Story Telling Grid ── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(340px, 100%), 1fr))',
-          gap: 'clamp(32px, 5vw, 72px)',
-          alignItems: 'center',
-        }}>
-          <style>{`
-            @media (min-width: 1024px) {
-              .globe-story-grid { grid-template-columns: 1.1fr 0.9fr !important; }
-            }
-          `}</style>
+          {/* LEFT: headline + tokens + networks + callout + live rates */}
+          <div ref={headerRef} className="flex flex-col gap-8">
 
-          {/* LEFT: Compact token pills + network chips — clean, minimal */}
-          <div className="flex flex-col gap-8">
+            {/* Section headline */}
+            <div>
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16,
+                fontSize: 11, fontWeight: 600, letterSpacing: '0.22em',
+                textTransform: 'uppercase' as const, color: '#21E6A7',
+              }}>
+                <span style={{ display: 'inline-block', width: 24, height: 1, background: '#21E6A7' }} />
+                Ecosystem & Global Network
+              </span>
+              <h2 style={{
+                fontSize: 'clamp(28px, 4.5vw, 56px)', fontWeight: 800,
+                color: '#F4F7F6', letterSpacing: '-0.03em', lineHeight: 1.06,
+              }}>
+                Your digital assets.<br />
+                <span className="text-gradient-mint">The whole world, accepted.</span>
+              </h2>
+              <p style={{
+                fontSize: 'clamp(14px, 1.1vw, 16px)', color: 'rgba(244,247,246,0.5)',
+                lineHeight: 1.7, maxWidth: 520, marginTop: 14,
+              }}>
+                Load stablecoins with zero fees, or convert non-stable digital assets instantly. One card. 200+ countries. Every Visa terminal on the planet.
+              </p>
+            </div>
 
             {/* Supported tokens — compact pill row */}
             <div ref={assetsGridRef}>
@@ -616,81 +392,75 @@ export default function GlobeSection() {
 
           </div>
 
-          {/* RIGHT: High-Fidelity Volumetric Globe + Real-time Spend overlays */}
-          <div ref={globeWrapRef} className="flex flex-col items-center justify-center relative" style={{ opacity: 0 }}>
-            {/* Backdrop lighting */}
-            <div style={{
-              position: 'absolute', width: '90%', height: '90%',
-              background: 'radial-gradient(circle, rgba(33,230,167,0.04) 0%, transparent 70%)',
-              zIndex: 0, pointerEvents: 'none',
-            }} />
+          {/* RIGHT: Globe — fills column, vertically centred */}
+          <div
+            ref={globeWrapRef}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Single relative wrapper so overlays anchor to the globe area */}
+            <div style={{ position: 'relative', width: '100%', maxWidth: 540 }}>
 
-            {/* Scrolling Transaction Overlays */}
-            <div style={{
-              position: 'absolute',
-              top: '5%', left: '5%',
-              zIndex: 20,
-              pointerEvents: 'none',
-              width: '240px',
-            }}>
+              {/* Mint ambient glow */}
               <div style={{
-                background: 'rgba(6,28,30,0.78)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(33,230,167,0.25)',
-                borderRadius: 14,
-                padding: '10px 14px',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
-                display: 'flex', flexDirection: 'column', gap: 3,
-                transition: 'all 0.6s cubic-bezier(0.16,1,0.3,1)',
+                position: 'absolute',
+                top: '50%', left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '120%', height: '120%',
+                background: 'radial-gradient(circle, rgba(33,230,167,0.07) 0%, transparent 65%)',
+                pointerEvents: 'none', zIndex: 0,
+              }} />
+
+              {/* Live Activity card — top-left of globe */}
+              <div style={{
+                position: 'absolute',
+                top: 24, left: 0,
+                zIndex: 20,
+                pointerEvents: 'none',
+                width: 230,
               }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
-                  <span style={{ fontSize: 9, fontWeight: 700, color: '#21E6A7', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                    Live Activity
-                  </span>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#21E6A7', animation: 'pulse 1.5s infinite' }} />
-                </div>
-                <p style={{ fontSize: 11, fontWeight: 600, color: '#F4F7F6', margin: 0 }}>
-                  {TRANSACTIONS[feedIndex].text}
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 1 }}>
-                  <span style={{ fontSize: 10, color: 'rgba(244,247,246,0.4)' }}>
-                    {TRANSACTIONS[feedIndex].location}
-                  </span>
-                  <span style={{ fontSize: 11, fontWeight: 800, color: '#F4F7F6' }}>
-                    {TRANSACTIONS[feedIndex].value}
-                  </span>
+                <div style={{
+                  background: 'rgba(6,28,30,0.82)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                  border: '1px solid rgba(33,230,167,0.28)',
+                  borderRadius: 14,
+                  padding: '10px 14px',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.55)',
+                  display: 'flex', flexDirection: 'column', gap: 3,
+                  transition: 'all 0.6s cubic-bezier(0.16,1,0.3,1)',
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
+                    <span style={{ fontSize: 9, fontWeight: 700, color: '#21E6A7', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                      Live Activity
+                    </span>
+                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#21E6A7', animation: 'pulse 1.5s infinite' }} />
+                  </div>
+                  <p style={{ fontSize: 11, fontWeight: 600, color: '#F4F7F6', margin: 0 }}>
+                    {TRANSACTIONS[feedIndex].text}
+                  </p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 1 }}>
+                    <span style={{ fontSize: 10, color: 'rgba(244,247,246,0.4)' }}>
+                      {TRANSACTIONS[feedIndex].location}
+                    </span>
+                    <span style={{ fontSize: 11, fontWeight: 800, color: '#F4F7F6' }}>
+                      {TRANSACTIONS[feedIndex].value}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Volumetric Rotating Canvas Globe */}
-            <VolumetricGlobe />
+              {/* Globe */}
+              <VolumetricGlobe />
 
-            {/* Static labels around the globe */}
-            <div style={{
-              position: 'absolute', bottom: '15%', right: '8%',
-              background: 'rgba(11,46,44,0.85)',
-              border: '1px solid rgba(33,230,167,0.22)',
-              borderRadius: 20, padding: '4px 12px',
-              backdropFilter: 'blur(10px)',
-              zIndex: 12,
-            }}>
-              <span style={{ fontSize: 10, fontWeight: 700, color: '#21E6A7' }}>Hong Kong Node (HQ)</span>
-            </div>
-            <div style={{
-              position: 'absolute', top: '15%', left: '8%',
-              background: 'rgba(11,46,44,0.85)',
-              border: '1px solid rgba(33,230,167,0.22)',
-              borderRadius: 20, padding: '4px 12px',
-              backdropFilter: 'blur(10px)',
-              zIndex: 12,
-            }}>
-              <span style={{ fontSize: 10, fontWeight: 700, color: '#F4F7F6' }}>Visa network routing</span>
+
             </div>
           </div>
-        </div>
 
+        </div>{/* end globe-main-grid */}
       </div>
 
       {/* ─── FULL-BLEED PARALLAX LIFESTYLE SCROLLER ─── */}

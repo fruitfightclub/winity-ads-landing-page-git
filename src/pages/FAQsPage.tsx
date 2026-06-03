@@ -2,13 +2,13 @@ import { useState } from 'react'
 import SEO from '../components/SEO'
 
 const MINT      = '#21E6A7'
-const OFF_WHITE = '#F0EDE6'
-const MUTED     = 'rgba(240,237,230,0.55)'
+const OFF_WHITE = '#F4F7F6'
+const MUTED     = '#8FA3A0'
 const BASE      = '#061C1E'
-const CARD_BG   = 'rgba(11,46,44,0.72)'
-const BORDER    = 'rgba(33,230,167,0.13)'
+const TEAL_DEEP = '#0B2E2C'
+const BORDER    = 'rgba(33,230,167,0.10)'
+const SECTION_BG = 'rgba(15,63,58,0.28)'
 
-// ─── FAQ data ──────────────────────────────────────────────────────────────────
 const SECTIONS = [
   {
     id: 'registration',
@@ -136,7 +136,7 @@ const SECTIONS = [
       },
       {
         q: 'How secure are Winity Card transactions?',
-        a: 'Winity Card transactions are protected by advanced encryption and security protocols. Each transaction is processed through Visa\'s global network, ensuring the highest standards of security and fraud protection.',
+        a: "Winity Card transactions are protected by advanced encryption and security protocols. Each transaction is processed through Visa's global network, ensuring the highest standards of security and fraud protection.",
       },
     ],
   },
@@ -165,8 +165,8 @@ const SECTIONS = [
         a: `1. Open the Winity Life app and go to the Home Page.\n2. Locate the card you want to freeze.\n3. Tap the Freeze icon displayed under the card.\n4. Confirm when prompted.\n\nOnce confirmed, your card is frozen immediately and cannot be used for transactions.`,
       },
       {
-        q: 'What is 3D Secure (3DS) and how does it work with Winity?',
-        a: '3D Secure is an extra layer of protection for online card transactions. When you make an online payment, you\'ll receive a notification in the Winity Life app asking you to approve the transaction via biometric authentication (fingerprint or Face ID). No OTP is required — Winity\'s 3DS is OTP-free for a faster and more secure experience.',
+        q: "What is 3D Secure (3DS) and how does it work with Winity?",
+        a: "3D Secure is an extra layer of protection for online card transactions. When you make an online payment, you'll receive a notification in the Winity Life app asking you to approve the transaction via biometric authentication (fingerprint or Face ID). No OTP is required — Winity's 3DS is OTP-free for a faster and more secure experience.",
       },
     ],
   },
@@ -210,40 +210,164 @@ const SECTIONS = [
 
 function AccordionItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
+
   return (
-    <div style={{ borderBottom: `1px solid ${BORDER}` }}>
+    <div
+      style={{
+        borderBottom: `1px solid ${BORDER}`,
+        transition: 'background 0.2s',
+      }}
+    >
       <button
         onClick={() => setOpen(o => !o)}
         style={{
-          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '18px 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', gap: 16,
+          width: '100%',
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          padding: '20px 0',
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          textAlign: 'left',
+          gap: 20,
         }}
+        aria-expanded={open}
       >
-        <span style={{ fontSize: 15, fontWeight: 700, color: open ? MINT : OFF_WHITE, transition: 'color 0.2s', lineHeight: 1.45 }}>
+        <span
+          style={{
+            fontSize: 'clamp(14px, 1.5vw, 15px)',
+            fontWeight: 600,
+            color: open ? MINT : OFF_WHITE,
+            transition: 'color 0.25s',
+            lineHeight: 1.5,
+            flex: 1,
+          }}
+        >
           {q}
         </span>
-        <svg
-          width="18" height="18" viewBox="0 0 18 18" fill="none"
-          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', flexShrink: 0 }}
+        {/* Plus / Minus icon */}
+        <span
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: '50%',
+            border: `1.5px solid ${open ? MINT : 'rgba(244,247,246,0.18)'}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            marginTop: 2,
+            transition: 'border-color 0.25s, background 0.25s',
+            background: open ? 'rgba(33,230,167,0.1)' : 'transparent',
+          }}
         >
-          <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke={MINT} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            style={{ transition: 'transform 0.25s', transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
+          >
+            <line x1="6" y1="1" x2="6" y2="11" stroke={open ? MINT : OFF_WHITE} strokeWidth="1.6" strokeLinecap="round" />
+            <line x1="1" y1="6" x2="11" y2="6" stroke={open ? MINT : OFF_WHITE} strokeWidth="1.6" strokeLinecap="round" />
+          </svg>
+        </span>
       </button>
-      {open && (
-        <div style={{ paddingBottom: 18 }}>
-          {a.split('\n').map((line, i) => (
-            line.trim() === ''
-              ? <div key={i} style={{ height: 8 }} />
-              : <p key={i} style={{ fontSize: 14, color: MUTED, lineHeight: 1.75, margin: '0 0 2px' }}>{line}</p>
-          ))}
+
+      <div
+        style={{
+          overflow: 'hidden',
+          maxHeight: open ? '600px' : '0',
+          transition: 'max-height 0.35s cubic-bezier(0.16,1,0.3,1)',
+        }}
+      >
+        <div style={{ paddingBottom: 20 }}>
+          {a.split('\n').map((line, i) =>
+            line.trim() === '' ? (
+              <div key={i} style={{ height: 8 }} />
+            ) : (
+              <p
+                key={i}
+                style={{
+                  fontSize: 'clamp(13px, 1.3vw, 14px)',
+                  color: MUTED,
+                  lineHeight: 1.8,
+                  margin: '0 0 2px',
+                }}
+              >
+                {line}
+              </p>
+            )
+          )}
         </div>
-      )}
+      </div>
+    </div>
+  )
+}
+
+function FAQSection({ section }: { section: typeof SECTIONS[0] }) {
+  return (
+    <div
+      style={{
+        background: SECTION_BG,
+        borderRadius: 20,
+        border: `1px solid ${BORDER}`,
+        padding: 'clamp(20px, 3vw, 32px)',
+        marginBottom: 20,
+      }}
+    >
+      {/* Section header row */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginBottom: 4,
+          paddingBottom: 20,
+          borderBottom: `1px solid ${BORDER}`,
+        }}
+      >
+        <h2
+          style={{
+            fontSize: 'clamp(16px, 1.8vw, 19px)',
+            fontWeight: 700,
+            color: OFF_WHITE,
+            letterSpacing: '-0.01em',
+            margin: 0,
+          }}
+        >
+          {section.label}
+        </h2>
+        <span
+          style={{
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'rgba(33,230,167,0.5)',
+            background: 'rgba(33,230,167,0.06)',
+            border: '1px solid rgba(33,230,167,0.12)',
+            borderRadius: 20,
+            padding: '3px 10px',
+            flexShrink: 0,
+          }}
+        >
+          {section.items.length} {section.items.length === 1 ? 'Q' : 'Qs'}
+        </span>
+      </div>
+
+      <div>
+        {section.items.map((item, i) => (
+          <AccordionItem key={i} q={item.q} a={item.a} />
+        ))}
+      </div>
     </div>
   )
 }
 
 export default function FAQsPage() {
-  const [activeSection, setActiveSection] = useState('registration')
+  const totalQuestions = SECTIONS.reduce((acc, s) => acc + s.items.length, 0)
 
   return (
     <>
@@ -251,81 +375,232 @@ export default function FAQsPage() {
         title="FAQs — Winity Life"
         description="Frequently asked questions about the Winity Life app, card issuance, KYC, wallet funding, transactions, fees, and security."
       />
+
+      <style>{`
+        .faq-layout {
+          display: grid;
+          grid-template-columns: 320px 1fr;
+          gap: clamp(32px, 4vw, 64px);
+          align-items: start;
+        }
+        .faq-sidebar {
+          position: sticky;
+          top: 100px;
+        }
+        @media (max-width: 900px) {
+          .faq-layout {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+          .faq-sidebar {
+            position: static;
+          }
+        }
+        @media (max-width: 640px) {
+          .faq-layout {
+            gap: 28px;
+          }
+        }
+        .faq-section-nav-link {
+          display: block;
+          padding: 9px 14px;
+          border-radius: 10px;
+          font-size: 13px;
+          font-weight: 500;
+          color: ${MUTED};
+          text-decoration: none;
+          transition: color 0.2s, background 0.2s;
+          cursor: pointer;
+          background: none;
+          border: none;
+          text-align: left;
+          width: 100%;
+        }
+        .faq-section-nav-link:hover {
+          color: ${OFF_WHITE};
+          background: rgba(244,247,246,0.05);
+        }
+      `}</style>
+
       <div style={{ background: BASE, minHeight: '100vh', fontFamily: 'Roboto, sans-serif' }}>
 
-        {/* Header */}
-        <div style={{
-          background: '#0B2E2C',
-          borderBottom: `1px solid ${BORDER}`,
-          padding: 'clamp(80px, 12vh, 120px) clamp(20px, 6vw, 96px) clamp(40px, 6vh, 60px)',
-        }}>
-          <div style={{ maxWidth: 900, margin: '0 auto' }}>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: MINT, marginBottom: 14 }}>
+        {/* Hero header */}
+        <div
+          style={{
+            background: TEAL_DEEP,
+            borderBottom: `1px solid ${BORDER}`,
+            padding: 'clamp(100px, 14vh, 140px) clamp(20px, 5vw, 80px) clamp(48px, 6vh, 72px)',
+          }}
+        >
+          <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+            <p
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: MINT,
+                marginBottom: 16,
+              }}
+            >
               Winity Life
             </p>
-            <h1 style={{ fontSize: 'clamp(26px, 4vw, 46px)', fontWeight: 900, color: OFF_WHITE, letterSpacing: '-0.025em', lineHeight: 1.1, marginBottom: 12 }}>
-              Frequently Asked Questions
+            <h1
+              style={{
+                fontSize: 'clamp(32px, 5vw, 60px)',
+                fontWeight: 900,
+                color: OFF_WHITE,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.05,
+                marginBottom: 16,
+                maxWidth: 640,
+              }}
+            >
+              Frequently Asked
+              <br />
+              Questions
             </h1>
-            <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.6 }}>
-              Everything you need to know about Winity Life.
+            <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', color: MUTED, lineHeight: 1.65, maxWidth: 480 }}>
+              {totalQuestions} answers across {SECTIONS.length} topics — everything you need to know about Winity Life.
             </p>
           </div>
         </div>
 
-        {/* Tab nav */}
-        <div style={{ borderBottom: `1px solid ${BORDER}`, background: 'rgba(11,46,44,0.4)', overflowX: 'auto' }}>
-          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 clamp(20px, 6vw, 96px)', display: 'flex', gap: 4 }}>
-            {SECTIONS.map(s => (
-              <button
-                key={s.id}
-                onClick={() => setActiveSection(s.id)}
+        {/* Main content */}
+        <div
+          style={{
+            maxWidth: 1280,
+            margin: '0 auto',
+            padding: 'clamp(40px, 6vh, 72px) clamp(20px, 5vw, 80px)',
+          }}
+        >
+          <div className="faq-layout">
+
+            {/* ── Left sidebar ── */}
+            <aside className="faq-sidebar">
+              <p
                 style={{
-                  padding: '14px 16px',
-                  background: 'none', border: 'none', cursor: 'pointer',
-                  fontSize: 13, fontWeight: 700, whiteSpace: 'nowrap',
-                  color: activeSection === s.id ? MINT : MUTED,
-                  borderBottom: activeSection === s.id ? `2px solid ${MINT}` : '2px solid transparent',
-                  transition: 'color 0.2s, border-color 0.2s',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(33,230,167,0.5)',
+                  marginBottom: 12,
+                  paddingLeft: 14,
                 }}
               >
-                {s.label}
-              </button>
-            ))}
-          </div>
-        </div>
+                Topics
+              </p>
 
-        {/* FAQ content */}
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: 'clamp(40px, 7vh, 72px) clamp(20px, 6vw, 96px)' }}>
-          {SECTIONS.filter(s => s.id === activeSection).map(section => (
-            <div key={section.id}>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 32,
-                padding: '6px 14px', borderRadius: 24,
-                background: 'rgba(33,230,167,0.08)', border: `1px solid rgba(33,230,167,0.18)`,
-              }}>
-                <span style={{ fontSize: 12, fontWeight: 700, color: MINT, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                  {section.label}
-                </span>
-                <span style={{ fontSize: 11, color: 'rgba(33,230,167,0.6)' }}>
-                  {section.items.length} {section.items.length === 1 ? 'question' : 'questions'}
-                </span>
-              </div>
-              <div>
-                {section.items.map((item, i) => (
-                  <AccordionItem key={i} q={item.q} a={item.a} />
+              <nav style={{ marginBottom: 32 }}>
+                {SECTIONS.map(s => (
+                  <button
+                    key={s.id}
+                    className="faq-section-nav-link"
+                    onClick={() => {
+                      document.getElementById(`section-${s.id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
+                  >
+                    {s.label}
+                  </button>
                 ))}
+              </nav>
+
+              {/* Contact card */}
+              <div
+                style={{
+                  background: SECTION_BG,
+                  border: `1px solid ${BORDER}`,
+                  borderRadius: 16,
+                  padding: '20px',
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: OFF_WHITE,
+                    marginBottom: 8,
+                  }}
+                >
+                  Still have questions?
+                </p>
+                <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.65, marginBottom: 14 }}>
+                  Our team is here to help.
+                </p>
+                <a
+                  href="mailto:support@winity.life"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    fontSize: 13,
+                    fontWeight: 700,
+                    color: MINT,
+                    textDecoration: 'none',
+                    padding: '10px 18px',
+                    borderRadius: 999,
+                    border: `1.5px solid rgba(33,230,167,0.3)`,
+                    background: 'rgba(33,230,167,0.06)',
+                    transition: 'all 0.25s',
+                  }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLAnchorElement
+                    el.style.background = 'rgba(33,230,167,0.12)'
+                    el.style.borderColor = 'rgba(33,230,167,0.55)'
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLAnchorElement
+                    el.style.background = 'rgba(33,230,167,0.06)'
+                    el.style.borderColor = 'rgba(33,230,167,0.3)'
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 3.5C1 2.67 1.67 2 2.5 2h9C12.33 2 13 2.67 13 3.5v7C13 11.33 12.33 12 11.5 12h-9C1.67 12 1 11.33 1 10.5v-7z" stroke={MINT} strokeWidth="1.2" />
+                    <path d="M1 4l6 4 6-4" stroke={MINT} strokeWidth="1.2" strokeLinecap="round" />
+                  </svg>
+                  support@winity.life
+                </a>
+              </div>
+            </aside>
+
+            {/* ── Right: all sections ── */}
+            <div>
+              {SECTIONS.map(section => (
+                <div key={section.id} id={`section-${section.id}`} style={{ scrollMarginTop: 120 }}>
+                  <FAQSection section={section} />
+                </div>
+              ))}
+
+              {/* Bottom contact strip */}
+              <div
+                style={{
+                  marginTop: 12,
+                  padding: '20px 24px',
+                  background: 'rgba(184,115,51,0.06)',
+                  borderRadius: 16,
+                  border: '1px solid rgba(184,115,51,0.18)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 16,
+                  flexWrap: 'wrap',
+                }}
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}>
+                  <circle cx="10" cy="10" r="9" stroke="#E8A84E" strokeWidth="1.4" />
+                  <path d="M10 9v5" stroke="#E8A84E" strokeWidth="1.6" strokeLinecap="round" />
+                  <circle cx="10" cy="6.5" r="0.8" fill="#E8A84E" />
+                </svg>
+                <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.65, margin: 0, flex: 1 }}>
+                  Can't find what you're looking for?{' '}
+                  <a href="mailto:support@winity.life" style={{ color: '#E8A84E', textDecoration: 'none', fontWeight: 600 }}>
+                    Email us
+                  </a>
+                  {' '}or reach us via WhatsApp through the Help menu in the Winity Life app.
+                </p>
               </div>
             </div>
-          ))}
 
-          <div style={{ marginTop: 56, padding: '24px', background: CARD_BG, borderRadius: 14, border: `1px solid ${BORDER}` }}>
-            <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.7, margin: 0 }}>
-              Still have questions?{' '}
-              <a href="mailto:support@winity.life" style={{ color: MINT, textDecoration: 'none', fontWeight: 600 }}>
-                support@winity.life
-              </a>
-              {' '}or reach us via WhatsApp through the Help menu in the Winity Life app.
-            </p>
           </div>
         </div>
       </div>

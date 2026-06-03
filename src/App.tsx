@@ -80,7 +80,7 @@ function AppInner() {
           {/* Legal & Support */}
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
-          <Route path="/help" element={<SupportPage />} />
+          <Route path="/support" element={<SupportPage />} />
           <Route path="/fees" element={<FeesPage />} />
           <Route path="/risk" element={<RiskPage />} />
           <Route path="/google-pay-tc" element={<GooglePayPage />} />
@@ -90,7 +90,7 @@ function AppInner() {
           {/* Pages: slug mismatches */}
           <Route path="/blogs" element={<Navigate replace to="/blog" />} />
           <Route path="/exclusive-card" element={<Navigate replace to="/exclusive" />} />
-          <Route path="/support" element={<Navigate replace to="/help" />} />
+          <Route path="/help" element={<Navigate replace to="/support" />} />
           <Route path="/faqs" element={<FAQsPage />} />
           <Route path="/card-availability" element={<CardAvailabilityPage />} />
           <Route path="/delete-account" element={<DeleteAccountPage />} />

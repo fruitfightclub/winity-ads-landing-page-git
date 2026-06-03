@@ -2,13 +2,12 @@
  * ---
  * client: Winity Life
  * philosophy: Emerald Noir
- * deliverable: Help Centre — Premium Support Page
+ * deliverable: Support — Contact Page
  * phase: 6
  * date: 2026-05-28
  * status: Draft
  * ---
  */
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 
@@ -18,7 +17,6 @@ const OFF_WHITE = '#F0EDE6'
 const MUTED     = 'rgba(240,237,230,0.55)'
 const BASE      = '#061C1E'
 const CARD_BG   = 'rgba(11,46,44,0.72)'
-const BORDER    = 'rgba(33,230,167,0.13)'
 
 // ─── Grain ───────────────────────────────────────────────────────────────────
 const GrainOverlay = ({ id = 'g', opacity = 0.03 }: { id?: string; opacity?: number }) => (
@@ -34,50 +32,6 @@ const GrainOverlay = ({ id = 'g', opacity = 0.03 }: { id?: string; opacity?: num
   </svg>
 )
 
-// ─── FAQ Data ─────────────────────────────────────────────────────────────────
-const FAQ = [
-  {
-    q: 'How do I apply for a Winity card?',
-    a: 'Download the Winity Life app (iOS or Android), create an account, and complete KYC verification. Your virtual Exclusive card is issued digitally upon KYC approval — no branch visit, no wait.',
-  },
-  {
-    q: 'How long does KYC verification take?',
-    a: 'Most verifications complete within minutes via our automated identity check. In some cases a manual review may be required, which typically takes 1–2 business days.',
-  },
-  {
-    q: 'What digital assets can I deposit?',
-    a: 'USDC and USDT are accepted at 0% deposit fee. Other supported digital assets are accepted at a 5% conversion fee. See the full list in the app.',
-  },
-  {
-    q: 'How do I get the physical card?',
-    a: 'Spend USD 25 on your virtual card to qualify for the physical card at no issuance cost. Request it in the app. The first 6 months of the USD 20/year annual fee are waived on new activations. Shipping charges may apply.',
-  },
-  {
-    q: 'Can I use the card at ATMs?',
-    a: 'Yes. Your physical Winity card works at any Visa® ATM in 200+ countries. Withdrawal fee: USD 3 per transaction. No foreign transaction fee.',
-  },
-  {
-    q: 'What is the Winity Points programme?',
-    a: 'You earn 1 Winity Point for every USD 10 of eligible card spend. Points can be redeemed for benefits within the app. Points have no cash value.',
-  },
-  {
-    q: 'What is Winity Loop?',
-    a: 'Winity Loop is our referral programme. Share your unique referral code and earn points when referred friends complete KYC and activate their card. Details are in the app.',
-  },
-  {
-    q: 'Is the card available in my country?',
-    a: 'Winity operates in 80+ countries. The card is accepted at 150M+ Visa® merchant locations globally. Availability of card issuance may vary by jurisdiction — check the app for eligibility.',
-  },
-  {
-    q: 'What are the UMI data benefits?',
-    a: 'Reach USD 5,000 in eligible spend and unlock 1 GB of complimentary UMI data, usable in 100+ countries. Join the Winity Club on the UMI app and save 20% on every additional data purchase.',
-  },
-  {
-    q: 'How do I reach support outside the app?',
-    a: 'Email support@winity.life or reach us on Telegram at t.me/winitylife. High-tier members benefit from priority routing and a dedicated account manager.',
-  },
-]
-
 // ─── Telegram SVG icon ────────────────────────────────────────────────────────
 const TelegramIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
@@ -87,40 +41,15 @@ const TelegramIcon = () => (
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function SupportPage() {
-  const [ticket, setTicket] = useState({ name: '', email: '', subject: '', message: '' })
-  const [ticketSent, setTicketSent] = useState(false)
-
-  const handleTicket = (e: React.FormEvent) => {
-    e.preventDefault()
-    const subject  = encodeURIComponent(`[Support] ${ticket.subject || 'Help Request'}`)
-    const body     = encodeURIComponent(`Name: ${ticket.name}\nEmail: ${ticket.email}\n\n${ticket.message}`)
-    window.location.href = `mailto:support@winity.life?subject=${subject}&body=${body}`
-    setTicketSent(true)
-  }
-
-  const inputStyle: React.CSSProperties = {
-    width: '100%', padding: '12px 16px', borderRadius: 10, fontFamily: 'Roboto, sans-serif',
-    background: 'rgba(6,28,30,0.8)', border: '1px solid rgba(33,230,167,0.18)',
-    color: OFF_WHITE, fontSize: 14, outline: 'none', transition: 'border-color 0.2s',
-    boxSizing: 'border-box',
-  }
-
-  const onFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.currentTarget.style.borderColor = 'rgba(33,230,167,0.5)'
-  }
-  const onBlur  = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.currentTarget.style.borderColor = 'rgba(33,230,167,0.18)'
-  }
-
   return (
     <>
       <SEO
-        title="Help Centre — Winity Life"
-        description="24/7 support for Winity Life card members. Contact us via email, Telegram, or submit a support ticket."
+        title="Support — Winity Life"
+        description="Contact Winity Life support. Reach us via email, Telegram, WhatsApp, or business enquiries."
       />
       <div style={{ background: BASE, minHeight: '100vh', fontFamily: 'Roboto, sans-serif' }}>
 
-        {/* ── HERO — full-bleed bg image ──────────────────────────────────────── */}
+        {/* ── HERO ────────────────────────────────────────────────────────────── */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'clamp(320px, 45vh, 480px)' }}>
           <img
             src="/winity_lifestyle_lounge.jpg"
@@ -148,7 +77,7 @@ export default function SupportPage() {
               display: 'inline-flex', alignItems: 'center', gap: 8,
             }}>
               <span style={{ display: 'inline-block', width: 20, height: 1, background: MINT }} />
-              Help Centre
+              Support
             </p>
             <h1 style={{
               fontSize: 'clamp(28px, 4.5vw, 52px)', fontWeight: 900,
@@ -158,7 +87,7 @@ export default function SupportPage() {
               <span style={{ color: MINT }}>you need us.</span>
             </h1>
             <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', color: MUTED, lineHeight: 1.65, maxWidth: 460 }}>
-              24/7 member support across every channel. Find answers below or reach our team directly.
+              24/7 member support across every channel. Reach our team directly below.
             </p>
           </div>
         </div>
@@ -225,7 +154,7 @@ export default function SupportPage() {
                   style={{
                     display: 'block', padding: '20px 20px',
                     borderRadius: 16, background: CARD_BG,
-                    border: BORDER.replace('0.13', '0.15'),
+                    border: '1px solid rgba(33,230,167,0.15)',
                     backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
                     textDecoration: 'none', transition: 'border-color 0.22s, background 0.22s',
                   }}
@@ -255,211 +184,6 @@ export default function SupportPage() {
             </div>
           </div>
 
-          {/* ── Support ticket form ──────────────────────────────────────────── */}
-          <div style={{
-            marginBottom: 64,
-            background: CARD_BG, backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(33,230,167,0.18)', borderRadius: 22,
-            padding: 'clamp(24px, 4vw, 40px)', position: 'relative', overflow: 'hidden',
-          }}>
-            <div style={{
-              position: 'absolute', top: 0, left: 32, right: 32, height: 1,
-              background: 'linear-gradient(90deg, transparent, rgba(33,230,167,0.55), transparent)',
-            }} />
-
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: MINT, marginBottom: 10 }}>
-              Submit a Ticket
-            </p>
-            <h2 style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', fontWeight: 800, color: OFF_WHITE, letterSpacing: '-0.02em', marginBottom: 6 }}>
-              Send us a message
-            </h2>
-            <p style={{ fontSize: 13, color: MUTED, marginBottom: 28, lineHeight: 1.6 }}>
-              Fill in the form below and we'll open a support ticket on your behalf. Expect a response within 24 hours.
-            </p>
-
-            {ticketSent ? (
-              <div style={{
-                padding: '28px 24px', borderRadius: 14, textAlign: 'center',
-                background: 'rgba(33,230,167,0.07)', border: '1px solid rgba(33,230,167,0.2)',
-              }}>
-                <div style={{
-                  width: 48, height: 48, borderRadius: '50%', margin: '0 auto 16px',
-                  background: 'rgba(33,230,167,0.12)', border: '1px solid rgba(33,230,167,0.3)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke={MINT} strokeWidth="2" width="22" height="22">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <p style={{ fontSize: 16, fontWeight: 700, color: OFF_WHITE, marginBottom: 6 }}>Ticket created</p>
-                <p style={{ fontSize: 13, color: MUTED }}>Your email client should open automatically. We'll get back to you within 24 hours.</p>
-                <button
-                  onClick={() => setTicketSent(false)}
-                  style={{
-                    marginTop: 18, padding: '8px 20px', borderRadius: 999,
-                    background: 'rgba(33,230,167,0.12)', border: '1px solid rgba(33,230,167,0.25)',
-                    color: MINT, fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                  }}
-                >
-                  Send another
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleTicket}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
-                  <div>
-                    <label style={{ fontSize: 11, fontWeight: 600, color: MUTED, letterSpacing: '0.06em', display: 'block', marginBottom: 6 }}>
-                      YOUR NAME
-                    </label>
-                    <input
-                      type="text" required
-                      placeholder="Full name"
-                      value={ticket.name}
-                      onChange={e => setTicket({ ...ticket, name: e.target.value })}
-                      style={inputStyle}
-                      onFocus={onFocus} onBlur={onBlur}
-                    />
-                  </div>
-                  <div>
-                    <label style={{ fontSize: 11, fontWeight: 600, color: MUTED, letterSpacing: '0.06em', display: 'block', marginBottom: 6 }}>
-                      EMAIL ADDRESS
-                    </label>
-                    <input
-                      type="email" required
-                      placeholder="your@email.com"
-                      value={ticket.email}
-                      onChange={e => setTicket({ ...ticket, email: e.target.value })}
-                      style={inputStyle}
-                      onFocus={onFocus} onBlur={onBlur}
-                    />
-                  </div>
-                </div>
-                <div style={{ marginBottom: 12 }}>
-                  <label style={{ fontSize: 11, fontWeight: 600, color: MUTED, letterSpacing: '0.06em', display: 'block', marginBottom: 6 }}>
-                    SUBJECT
-                  </label>
-                  <input
-                    type="text" required
-                    placeholder="What is this about?"
-                    value={ticket.subject}
-                    onChange={e => setTicket({ ...ticket, subject: e.target.value })}
-                    style={inputStyle}
-                    onFocus={onFocus} onBlur={onBlur}
-                  />
-                </div>
-                <div style={{ marginBottom: 20 }}>
-                  <label style={{ fontSize: 11, fontWeight: 600, color: MUTED, letterSpacing: '0.06em', display: 'block', marginBottom: 6 }}>
-                    MESSAGE
-                  </label>
-                  <textarea
-                    required
-                    rows={5}
-                    placeholder="Describe your issue or question in detail..."
-                    value={ticket.message}
-                    onChange={e => setTicket({ ...ticket, message: e.target.value })}
-                    style={{ ...inputStyle, resize: 'vertical', minHeight: 120 } as React.CSSProperties}
-                    onFocus={onFocus} onBlur={onBlur}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 8,
-                    padding: '13px 28px', borderRadius: 999, fontWeight: 700, fontSize: 14,
-                    background: `linear-gradient(135deg, ${MINT} 0%, #3CF2D0 100%)`,
-                    color: BASE, border: 'none', cursor: 'pointer',
-                    transition: 'filter 0.2s',
-                  }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.filter = 'brightness(1.08)' }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.filter = 'none' }}
-                >
-                  Send Support Ticket →
-                </button>
-              </form>
-            )}
-          </div>
-
-          {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-          <div style={{ marginBottom: 64 }}>
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(33,230,167,0.6)', marginBottom: 20 }}>
-              Frequently Asked Questions
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {FAQ.map((item, i) => (
-                <details
-                  key={i}
-                  style={{
-                    borderRadius: 14, overflow: 'hidden',
-                    background: CARD_BG, border: '1px solid rgba(33,230,167,0.12)',
-                    backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
-                  }}
-                >
-                  <summary style={{
-                    padding: '17px 22px', cursor: 'pointer', listStyle: 'none',
-                    fontSize: 14, fontWeight: 600, color: OFF_WHITE,
-                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                    userSelect: 'none',
-                  }}>
-                    {item.q}
-                    <span style={{ color: MINT, fontSize: 20, flexShrink: 0, marginLeft: 16, lineHeight: 1 }}>+</span>
-                  </summary>
-                  <div style={{ padding: '0 22px 18px', fontSize: 14, color: MUTED, lineHeight: 1.72 }}>
-                    {item.a}
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-
-          {/* ── Telegram CTA banner ──────────────────────────────────────────── */}
-          <div style={{
-            marginBottom: 48,
-            background: 'linear-gradient(135deg, rgba(41,182,246,0.09) 0%, rgba(11,46,44,0.65) 100%)',
-            border: '1px solid rgba(41,182,246,0.22)',
-            borderRadius: 20, padding: 'clamp(20px, 3.5vw, 32px)',
-            display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 20,
-          }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
-                <div style={{
-                  width: 36, height: 36, borderRadius: 10,
-                  background: 'rgba(41,182,246,0.14)', border: '1px solid rgba(41,182,246,0.25)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#29B6F6',
-                }}>
-                  <TelegramIcon />
-                </div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: OFF_WHITE }}>Join us on Telegram</p>
-              </div>
-              <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.6, maxWidth: 420 }}>
-                Get quick answers, community support, and the latest Winity updates directly on Telegram.
-              </p>
-            </div>
-            <a
-              href="https://t.me/winitylife"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8, flexShrink: 0,
-                padding: '12px 24px', borderRadius: 999, fontWeight: 700, fontSize: 13,
-                background: 'rgba(41,182,246,0.14)', border: '1px solid rgba(41,182,246,0.3)',
-                color: '#29B6F6', textDecoration: 'none', whiteSpace: 'nowrap',
-                transition: 'all 0.25s ease',
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.background = 'rgba(41,182,246,0.25)'
-                el.style.borderColor = 'rgba(41,182,246,0.5)'
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement
-                el.style.background = 'rgba(41,182,246,0.14)'
-                el.style.borderColor = 'rgba(41,182,246,0.3)'
-              }}
-            >
-              <TelegramIcon /> Open Telegram
-            </a>
-          </div>
-
           {/* ── Back link ────────────────────────────────────────────────────── */}
           <div>
             <Link to="/" style={{ fontSize: 13, color: MINT, textDecoration: 'none', opacity: 0.7 }}>
@@ -469,13 +193,6 @@ export default function SupportPage() {
 
         </div>
       </div>
-
-      {/* Responsive */}
-      <style>{`
-        @media (max-width: 600px) {
-          form > div:first-child { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </>
   )
 }
