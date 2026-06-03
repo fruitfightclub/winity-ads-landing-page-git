@@ -20,7 +20,7 @@ const SECTIONS = [
       },
       {
         q: 'What information is required to register an account?',
-        a: `Registration: Enter your phone number, then the OTP received to access the app.\n\nIdentity Verification: Verify your email with the OTP sent to your inbox. Provide personal details (name, date of birth, address), upload an ID document (National ID, Driving Licence, or Passport), and take a selfie as prompted. Submit for verification and await approval — once approved, your application will proceed for card issuance.`,
+        a: `Registration: Enter your phone number, then the OTP received to access the app.\n\nIdentity Verification: Verify your email with the OTP sent to your inbox. Provide personal details (name, date of birth, address), upload an ID document (National ID, Driving Licence, or Passport), and take a selfie as prompted. Submit for verification and await approval. Once approved, your application will proceed for card issuance.`,
       },
       {
         q: 'In which countries is the Winity Card available?',
@@ -60,7 +60,7 @@ const SECTIONS = [
     items: [
       {
         q: 'Is the card virtual, physical, or both?',
-        a: 'Winity offers two card types — Exclusive and Executive — both available in virtual and physical formats. The Exclusive card includes a free virtual card. The Executive card includes both a free virtual card and a premium metal physical card.',
+        a: 'Winity offers two card types, Exclusive and Executive, both available in virtual and physical formats. The Exclusive card includes a free virtual card. The Executive card includes both a free virtual card and a premium metal physical card.',
       },
       {
         q: 'Where can I use the Winity Card?',
@@ -94,7 +94,7 @@ const SECTIONS = [
       },
       {
         q: 'How can I add funds to the Winity Life App?',
-        a: `Open the Winity Life app and go to the Deposit section on the home page. Select the network you want to use — a separate wallet address is shown for each supported network. Copy the address or scan the QR code, then transfer your chosen digital currency to that address.\n\n⚠️ Always ensure you select the correct network and token before making a deposit. Using the wrong network may result in failed or lost transactions. Sender-side blockchain gas fees may apply; these are charged by the network, not by Winity Life.`,
+        a: `Open the Winity Life app and go to the Deposit section on the home page. Select the network you want to use; a separate wallet address is shown for each supported network. Copy the address or scan the QR code, then transfer your chosen digital currency to that address.\n\n⚠️ Always ensure you select the correct network and token before making a deposit. Using the wrong network may result in failed or lost transactions. Sender-side blockchain gas fees may apply; these are charged by the network, not by Winity Life.`,
       },
       {
         q: 'Which digital currencies are supported?',
@@ -166,7 +166,7 @@ const SECTIONS = [
       },
       {
         q: "What is 3D Secure (3DS) and how does it work with Winity?",
-        a: "3D Secure is an extra layer of protection for online card transactions. When you make an online payment, you'll receive a notification in the Winity Life app asking you to approve the transaction via biometric authentication (fingerprint or Face ID). No OTP is required — Winity's 3DS is OTP-free for a faster and more secure experience.",
+        a: "3D Secure is an extra layer of protection for online card transactions. When you make an online payment, you'll receive a notification in the Winity Life app asking you to approve the transaction via biometric authentication (fingerprint or Face ID). No OTP required. Winity's 3DS is OTP-free for a faster and more secure experience.",
       },
     ],
   },
@@ -201,7 +201,7 @@ const SECTIONS = [
     label: 'Active Offers',
     items: [
       {
-        q: 'Christmas That Keeps Giving — Campaign FAQ (Ended)',
+        q: 'Christmas That Keeps Giving: Campaign FAQ (Ended)',
         a: `This campaign ran from December 20, 2025 and bonus funds were valid through March 31, 2026.\n\nNew Users: Complete KYC and make a first deposit of at least USD 10 to receive an instant USD 5 bonus (total USD 15 to spend).\nExisting Users: Make a single deposit of at least USD 25 to receive a USD 5 bonus (total USD 30 to spend).\n\nBonus funds were credited instantly and available for Winity Card spending only. Direct withdrawals to external wallets were not supported. Unused bonus funds after March 31, 2026 were forfeited. Only one bonus per user. Eligibility may vary by jurisdiction.`,
       },
     ],
@@ -461,7 +461,7 @@ export default function FAQsPage() {
               Questions
             </h1>
             <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', color: MUTED, lineHeight: 1.65, maxWidth: 480 }}>
-              {totalQuestions} answers across {SECTIONS.length} topics — everything you need to know about Winity Life.
+              {totalQuestions} answers across {SECTIONS.length} topics. Everything you need to know about Winity Life.
             </p>
           </div>
         </div>

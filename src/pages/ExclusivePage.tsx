@@ -105,7 +105,7 @@ const MOMENTS = [
   {
     label:    'Global ATM Access',
     headline: 'Cash. Anywhere\nVisa® is accepted.',
-    body:     'Withdraw cash at any Visa® ATM in 200+ countries and territories worldwide. Your physical card gives you access to global banking infrastructure — wherever you travel. USD 3 per withdrawal, no foreign transaction fee.',
+    body:     'Withdraw cash at any Visa® ATM in 200+ countries and territories worldwide. Your physical card gives you access to global banking infrastructure, wherever you travel. USD 3 per withdrawal, no foreign transaction fee.',
     image:    '/card_hero_float.jpg',
     fallback: '/exp_cards_closeup.png',
     icon:     Banknote,
@@ -116,11 +116,11 @@ const MOMENTS = [
   {
     label:    'Travel Connected',
     headline: '1 GB free data.\nSave 20% on more.',
-    body:     'Reach USD 5,000 in eligible spend and unlock 1 GB of complimentary UMI data — activated digitally in 100+ countries. Join the Winity Club on the UMI app and save 20% on every additional data package you purchase.',
+    body:     'Reach USD 5,000 in eligible spend and unlock 1 GB of complimentary UMI data, activated digitally in 100+ countries. Join the Winity Club on the UMI app and save 20% on every additional data package you purchase.',
     image:    '/winity_lifestyle_travel.png',
     fallback: '/loyalty_hero_lounge.png',
     icon:     Wifi,
-    badge:    'Winity Club — 20% off data',
+    badge:    'Winity Club: 20% off data',
     imgRight: false,
     appScreen: false,
   },
@@ -138,14 +138,14 @@ const PREMIUM_TIERS = [
   {
     icon:  Star,
     title: 'Curated Concierge',
-    body:  'Members holding USD 100,000 or more in account balances receive access to a dedicated relationship manager and curated concierge service — travel bookings, venue access, personalised support, 24/7.',
+    body:  'Members holding USD 100,000 or more in account balances receive access to a dedicated relationship manager and curated concierge service: travel bookings, venue access, personalised support, 24/7.',
     badge: 'USD 100,000+ balances',
     color: COPPER,
   },
   {
     icon:  Users,
     title: '24/7 Priority Support',
-    body:  'Every Winity member has access to 24/7 WhatsApp support. High-tier members benefit from priority routing and dedicated account management. Your lifestyle doesn\'t pause — neither do we.',
+    body:  'Every Winity member has access to 24/7 WhatsApp support. High-tier members benefit from priority routing and dedicated account management. Your lifestyle doesn\'t pause. Neither do we.',
     badge: 'All members',
     color: MINT,
   },
@@ -155,7 +155,7 @@ const PREMIUM_TIERS = [
 const SMALL_FEATURES = [
   { icon: Globe,       stat: '150M+',    title: 'Visa Merchants',    desc: 'Accepted worldwide at 150M+ Visa® locations across 200+ countries.' },
   { icon: Smartphone,  stat: 'NFC',      title: 'Google Pay Ready',  desc: 'Tap to pay anywhere NFC is accepted. Apple Pay arriving soon.' },
-  { icon: Shield,      stat: 'OTP-Free', title: '3D Secure',         desc: 'Biometric in-app authentication replaces SMS codes — faster, more secure.' },
+  { icon: Shield,      stat: 'OTP-Free', title: '3D Secure',         desc: 'Biometric in-app authentication replaces SMS codes, faster and more secure.' },
   { icon: Zap,         stat: '0%',       title: 'Transfer Fees',     desc: 'Load with USDC or USDT at zero fee. No hidden margin on stablecoins.' },
 ]
 
@@ -602,7 +602,7 @@ export default function ExclusivePage() {
                   background: 'rgba(33,230,167,0.12)', border: '1px solid rgba(33,230,167,0.3)',
                   color: MINT,
                 }}>
-                  <Zap size={10} /> Virtual — USD 0 / year
+                  <Zap size={10} /> Virtual: USD 0 / year
                 </span>
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: 5,
@@ -611,7 +611,7 @@ export default function ExclusivePage() {
                   background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
                   color: 'rgba(255,255,255,0.6)',
                 }}>
-                  <CreditCard size={10} /> Physical — from USD 20 / yr*
+                  <CreditCard size={10} /> Physical: from USD 20 / yr*
                 </span>
               </div>
             </div>
@@ -728,8 +728,8 @@ export default function ExclusivePage() {
 
               <div className="promo-reveal" style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 36 }}>
                 {[
-                  'Virtual card — USD 0 annual fee, issued upon KYC approval',
-                  'Physical card — no issuance cost after $25 eligible spend',
+                  'Virtual card: USD 0 annual fee, issued upon KYC approval',
+                  'Physical card: no issuance cost after $25 eligible spend',
                   'First 6 months annual fee waived for new physical activations',
                   'Accepted at 150M+ Visa® merchant locations globally',
                 ].map((txt) => (
@@ -1221,7 +1221,7 @@ export default function ExclusivePage() {
                 icon: Wifi,
                 headline: '1 GB Free Data',
                 subhead: 'After USD 5,000 eligible spend',
-                body: 'Reach USD 5,000 in eligible card spend and unlock 1 GB of complimentary UMI data. Digitally activated in 100+ countries — no physical SIM needed.',
+                body: 'Reach USD 5,000 in eligible card spend and unlock 1 GB of complimentary UMI data, digitally activated in 100+ countries with no physical SIM needed.',
                 badge: 'Spend milestone reward',
               },
               {
@@ -1229,7 +1229,7 @@ export default function ExclusivePage() {
                 headline: '20% Off All Data',
                 subhead: 'Winity Club members via UMI app',
                 body: 'Join the Winity Club on the UMI app and save 20% on every data package you purchase. An exclusive ongoing benefit for Winity cardholders.',
-                badge: 'Winity Club — ongoing discount',
+                badge: 'Winity Club: ongoing discount',
               },
             ].map((benefit) => {
               const Icon = benefit.icon
@@ -1394,7 +1394,7 @@ export default function ExclusivePage() {
             fontSize: 'clamp(1rem, 1.5vw, 1.1rem)', lineHeight: 1.7, marginBottom: 44,
           }}>
             Download the Winity Life app, complete your KYC verification, and receive your
-            Exclusive virtual card — at zero annual cost. Physical card available after $25 spend.
+            Exclusive virtual card at zero annual cost. Physical card available after $25 spend.
           </p>
           <div className="reveal-up" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 14 }}>
             <a

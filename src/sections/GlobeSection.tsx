@@ -122,7 +122,7 @@ const MOMENTS = [
     image: '/winity_lifestyle_lounge.jpg',
     eyebrow: 'Executive Benefits',
     title: 'Premium Experiences. Included.',
-    description: 'The Winity Executive metal card opens access to a curated world of privilege — dedicated concierge services, exclusive lifestyle benefits, and a personal relationship manager available 24/7 for members who move at the highest level.',
+    description: 'The Winity Executive metal card opens access to a curated world of privilege: dedicated concierge services, exclusive lifestyle benefits, and a personal relationship manager available 24/7 for members who move at the highest level.',
   },
   {
     image: '/winity_lifestyle_travel.png',

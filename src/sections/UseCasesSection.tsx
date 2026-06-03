@@ -39,7 +39,7 @@ const USE_CASES = [
     id: 'ads',
     tag: 'Digital Marketing',
     headline: 'Power your\nad accounts.',
-    sub: 'Meta, Google, TikTok, LinkedIn — load your Winity card and run campaigns globally. No declined transactions, no currency headaches.',
+    sub: 'Meta, Google, TikTok, LinkedIn. Load your Winity card and run campaigns globally. No declined transactions, no currency headaches.',
     platforms: ['Meta Ads', 'Google Ads', 'TikTok Ads', 'LinkedIn'],
     badge: '🎯 Most popular use case',
     accent: MINT,
@@ -52,7 +52,7 @@ const USE_CASES = [
     id: 'subscriptions',
     tag: 'SaaS & Subscriptions',
     headline: 'One card for\nevery tool.',
-    sub: 'Notion, Figma, AWS, Shopify, Adobe, Slack — manage all your software subscriptions from a single Winity card with full spend visibility.',
+    sub: 'Notion, Figma, AWS, Shopify, Adobe, Slack. Manage all your software subscriptions from a single Winity card with full spend visibility.',
     platforms: ['Notion', 'AWS', 'Shopify', 'Adobe'],
     badge: '💳 Zero foreign transaction fees',
     accent: MINT,
@@ -65,7 +65,7 @@ const USE_CASES = [
     id: 'travel',
     tag: 'Travel & Hotels',
     headline: 'Spend like\na local, anywhere.',
-    sub: 'From Dubai to Tokyo — pay at hotels, restaurants, and retail. Your card works at 150M+ Visa® locations across 200+ countries.',
+    sub: 'From Dubai to Tokyo, pay at hotels, restaurants, and retail. Your card works at 150M+ Visa® locations across 200+ countries.',
     platforms: ['Booking.com', 'Airbnb', 'Expedia', 'Hotels'],
     badge: '✈️ 200+ countries supported',
     accent: COPPER_LT,
@@ -78,7 +78,7 @@ const USE_CASES = [
     id: 'ecommerce',
     tag: 'Online Shopping',
     headline: 'Shop global.\nEarn points.',
-    sub: 'Amazon, AliExpress, ASOS, Farfetch — shop any online store that accepts Visa® and earn 1 Winity Point per USD 10 spent automatically.',
+    sub: 'Amazon, AliExpress, ASOS, Farfetch. Shop any online store that accepts Visa® and earn 1 Winity Point per USD 10 spent automatically.',
     platforms: ['Amazon', 'ASOS', 'Farfetch', 'AliExpress'],
     badge: '⭐ 1 point per USD 10 spent',
     accent: MINT,
@@ -91,7 +91,7 @@ const USE_CASES = [
     id: 'dining',
     tag: 'Dining & Lifestyle',
     headline: 'Dinner anywhere\nin the world.',
-    sub: 'Restaurants, cafes, bars — anywhere Visa® is accepted your card works. Contactless payments, Google Pay compatible, no friction.',
+    sub: 'Restaurants, cafes, bars. Anywhere Visa® is accepted, your card works. Contactless payments, Google Pay compatible, no friction.',
     platforms: ['Deliveroo', 'Uber Eats', 'OpenTable', 'Local'],
     badge: '📍 Contactless worldwide',
     accent: COPPER_LT,
@@ -104,7 +104,7 @@ const USE_CASES = [
     id: 'freelance',
     tag: 'Freelancers & Creators',
     headline: 'Receive digital assets.\nSpend globally.',
-    sub: 'Accept digital assets as payment and spend directly with your Winity card — seamlessly bridging the gap between digital earnings and everyday expenses.',
+    sub: 'Accept digital assets as payment and spend directly with your Winity card, bridging the gap between digital earnings and everyday expenses.',
     platforms: ['Upwork', 'Fiverr', 'Stripe', 'Digital Assets'],
     badge: '🔁 Digital asset spending built-in',
     accent: MINT,
@@ -387,7 +387,7 @@ export default function UseCasesSection() {
             fontSize: 'clamp(14px, 1.15vw, 17px)', color: MUTED,
             maxWidth: 500, margin: '0 auto', lineHeight: 1.7,
           }}>
-            From running Meta campaigns to booking hotels in Tokyo — the Winity card
+            From running Meta campaigns to booking hotels in Tokyo, the Winity card
             is already doing the heavy lifting for thousands of users worldwide.
           </p>
         </div>

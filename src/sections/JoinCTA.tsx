@@ -140,7 +140,7 @@ export default function JoinCTA() {
             className="text-muted leading-relaxed"
             style={{ fontSize: 'clamp(15px, 1.3vw, 18px)', maxWidth: 540, margin: '0 auto' }}
           >
-            Download Winity Life, verify in minutes, and spend your crypto anywhere Visa is accepted — 200+ countries, zero spend fees.
+            Download Winity Life, verify in minutes, and spend your crypto anywhere Visa is accepted. 200+ countries, zero spend fees.
           </p>
         </div>
 

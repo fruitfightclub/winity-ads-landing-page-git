@@ -283,7 +283,7 @@ export default function CardsSection() {
             Pick your card. Start free.
           </h2>
           <p style={{ color: 'rgba(244,247,246,0.45)', marginTop: 16, fontSize: 15, maxWidth: 480, marginInline: 'auto' }}>
-            One Visa network, three tiers — from virtual-first to brushed metal. Upgrade any time, no lock-in.
+            One Visa network, three tiers: from virtual-first to brushed metal. Upgrade any time, no lock-in.
           </p>
         </div>
 

@@ -71,7 +71,7 @@ export default function DeleteAccountPage() {
         <H2>Your Data, Your Control</H2>
         <Para>Account deletion is initiated entirely within the Winity Life app. No support ticket is required to begin the process. Once confirmed, deletion is immediate and cannot be undone.</Para>
 
-        <H2>Key Implications — What is Lost</H2>
+        <H2>Key Implications: What is Lost</H2>
         <Para>When a Winity Life account is deleted, the following consequences occur immediately:</Para>
 
         {/* Table */}
@@ -95,9 +95,9 @@ export default function DeleteAccountPage() {
         <Para>Before proceeding with account deletion, members must complete the following steps to prevent disruption:</Para>
 
         <UL items={[
-          'Zero Balance — The account balance must be zero ($0.00). All funds must be withdrawn or transferred before deletion is initiated.',
-          'Download Statements — Download and save all required transaction history or financial statements for personal record-keeping.',
-          'Cancel Subscriptions — Any active premium services or subscriptions linked to the Winity Life account must be cancelled to avoid unintended charges.',
+          'Zero Balance: The account balance must be zero ($0.00). All funds must be withdrawn or transferred before deletion is initiated.',
+          'Download Statements: Download and save all required transaction history or financial statements for personal record-keeping.',
+          'Cancel Subscriptions: Any active premium services or subscriptions linked to the Winity Life account must be cancelled to avoid unintended charges.',
         ]} />
 
         <Divider />
@@ -108,8 +108,8 @@ export default function DeleteAccountPage() {
         <Para>Specifically, data is retained for up to 7 years to comply with Hong Kong financial regulations, which include:</Para>
 
         <UL items={[
-          'Tax Purposes — Records must be kept for at least 7 years.',
-          'Anti-Money Laundering (AML) Compliance — Records are required for a minimum of 5 years.',
+          'Tax Purposes: Records must be kept for at least 7 years.',
+          'Anti-Money Laundering (AML) Compliance: Records are required for a minimum of 5 years.',
         ]} />
 
         <Para>All retained records are kept secure and accessible in a compliant format (English or Chinese) to meet potential audit and legal obligations. Electronic records are maintained and convertible to written form as required by law.</Para>

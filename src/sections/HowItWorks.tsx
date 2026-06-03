@@ -34,7 +34,7 @@ const STEPS = [
   {
     number: '03',
     title: 'Load Your Wallet',
-    desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your crypto converts to USD automatically — no bank required, no extra steps.',
+    desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your crypto converts to USD automatically. No bank required, no extra steps.',
     img: '/Fund your card.png',
     badge: 'Freedom in flexibility',
     stat: '0% stablecoin fee',
@@ -273,7 +273,7 @@ export default function HowItWorks() {
             color: '#F4F7F6', letterSpacing: '-0.03em', lineHeight: 1.06,
             margin: '0 auto', maxWidth: 680,
           }}>
-            From download to first spend —{' '}
+            From download to first spend:{' '}
             <span className="text-gradient-mint">four steps, no branch visit.</span>
           </h2>
           <p style={{

@@ -28,7 +28,7 @@ const HOW_IT_WORKS = [
   {
     num: '03',
     title: 'You both earn Winity Points',
-    desc: 'The moment their spend threshold is reached, Winity Points are credited to both accounts — automatically.',
+    desc: 'The moment their spend threshold is reached, Winity Points are credited to both accounts. Automatically.',
   },
 ]
 
@@ -434,7 +434,7 @@ export default function LoopSection() {
               maxWidth: 480,
             }}>
               Share Winity with your network. When a friend you invite makes their first eligible card
-              transactions, you both earn Winity Points — no limits, no expiry, no fine print.
+              transactions, you both earn Winity Points. No limits, no expiry, no fine print.
             </p>
 
             {/* How it works — 3 steps */}

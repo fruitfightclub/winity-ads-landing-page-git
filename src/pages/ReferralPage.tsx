@@ -212,7 +212,7 @@ const HOW_IT_WORKS = [
 ]
 
 const CARD_TERMS = [
-  'Free virtual Winity Exclusive card — USD 0 annual fee',
+  'Free virtual Winity Exclusive card, USD 0 annual fee',
   'Virtual card issued upon completion of KYC verification',
   'Google Pay ready immediately after issuance',
   'Accepted at 150M+ Visa® merchant locations worldwide',
@@ -381,7 +381,7 @@ export default function ReferralPage() {
                 }}
               >
                 Winity Loop rewards you across three tiers of your referral network.
-                Every qualified spend by your referrals earns you Winity Points — and
+                Every qualified spend by your referrals earns you Winity Points, and
                 the network keeps growing.
               </p>
               <div
@@ -757,7 +757,7 @@ export default function ReferralPage() {
                 border: '1px solid rgba(33,230,167,0.3)',
                 fontSize: 12, fontWeight: 700, color: MINT, letterSpacing: '0.05em',
               }}>
-                <Wifi size={13} /> UMI Travel Data — 100+ Countries
+                <Wifi size={13} /> UMI Travel Data, 100+ Countries
               </div>
             </div>
 
@@ -775,7 +775,7 @@ export default function ReferralPage() {
               </h2>
               <p className="reveal-up" style={{ color: 'rgba(143,163,160,0.82)', fontSize: 16, lineHeight: 1.7, maxWidth: 420, marginBottom: 28 }}>
                 Winity Exclusive cardholders who reach USD 5,000 in eligible spend unlock
-                complimentary UMI travel data. eSIM activation is already free — Winity provides the data package on us.
+                complimentary UMI travel data. eSIM activation is already free. Winity provides the data package on us.
               </p>
 
               {/* Winity Club highlight */}
@@ -871,7 +871,7 @@ export default function ReferralPage() {
             fontSize: 'clamp(1rem, 1.5vw, 1.1rem)', lineHeight: 1.7, marginBottom: 40,
           }}>
             Download the app, get your free Exclusive card, and start sharing your referral link.
-            Every spend by your network earns you Winity Points — across three tiers.
+            Every spend by your network earns you Winity Points across three tiers.
           </p>
           <div className="reveal-up" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 14 }}>
             <a
@@ -923,7 +923,7 @@ export default function ReferralPage() {
           </h2>
           <div className="reveal-up" style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 32 }}>
             {[
-              'Winity Loop is a referral rewards programme — not a multi-level marketing scheme.',
+              'Winity Loop is a referral rewards programme, not a multi-level marketing scheme.',
               'Points are earned based on the eligible spending activity of your referral network, not on recruitment alone.',
               'Reward rates, eligible transactions, and programme structure may change at any time.',
               'Participation is subject to applicable law in your jurisdiction.',

@@ -373,7 +373,7 @@ export default function LoyaltyPage() {
             {
               step: '01',
               title: 'Earn',
-              copy: 'Collect Winity Points on every eligible card purchase — dining, travel, shopping, wherever life takes you.',
+              copy: 'Collect Winity Points on every eligible card purchase: dining, travel, shopping, wherever life takes you.',
               image: '/winity_lifestyle_dining.jpg',
             },
             {
@@ -385,7 +385,7 @@ export default function LoyaltyPage() {
             {
               step: '03',
               title: 'Redeem',
-              copy: 'A curated partner rewards experience is being integrated — turning your points into real-world moments.',
+              copy: 'A curated partner rewards experience is being integrated, turning your points into real-world moments.',
               image: '/winity_lifestyle_travel.png',
             },
           ].map((item, i) => (
@@ -654,7 +654,7 @@ export default function LoyaltyPage() {
               </h2>
               <p className="reveal-up text-[#8FA3A0] text-base leading-relaxed mb-8 max-w-md">
                 Your tier moves as your spend grows. Each level unlocks a richer set of
-                benefits — from UMI travel data passes to curated rewards access.
+                benefits, from UMI travel data passes to curated rewards access.
               </p>
 
               <div className="reveal-up space-y-3">

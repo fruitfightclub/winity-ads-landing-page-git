@@ -11,7 +11,7 @@ const BORDER   = 'rgba(33,230,167,0.10)'
 const DOCS = [
   {
     title: 'Terms of Use',
-    description: 'Rules and guidelines governing the WINITY card program — user responsibilities, permitted activities, transaction limits, and legal obligations.',
+    description: 'Rules and guidelines governing the WINITY card program: user responsibilities, permitted activities, transaction limits, and legal obligations.',
     to: '/terms',
     tag: 'Core',
   },
@@ -23,13 +23,13 @@ const DOCS = [
   },
   {
     title: 'Risk Disclosure',
-    description: 'Material risks associated with digital assets and card services — market volatility, regulatory uncertainty, operational security, and liquidity risks.',
+    description: 'Material risks associated with digital assets and card services: market volatility, regulatory uncertainty, operational security, and liquidity risks.',
     to: '/risk',
     tag: 'Core',
   },
   {
     title: 'Google Pay Terms & Conditions',
-    description: 'Specific terms governing WINITY card integration with Google Pay — wallet usage, security responsibilities, and digital wallet limitations.',
+    description: 'Specific terms governing WINITY card integration with Google Pay: wallet usage, security responsibilities, and digital wallet limitations.',
     to: '/google-pay-tc',
     tag: 'Integrations',
   },

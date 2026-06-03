@@ -23,7 +23,7 @@ const EXPERIENCE_SHOWCASES = [
     maxPts: 199,
     badge: 'Getting Started',
     title: 'Everyday Rewards',
-    desc: 'Mobile top-ups, café credits, and everyday lifestyle perks — your points start working immediately.',
+    desc: 'Mobile top-ups, café credits, and everyday lifestyle perks. Your points start working immediately.',
     img: '/loyalty_points_cafe.png',
     tags: ['Mobile Recharge', 'Café Credits', 'Everyday Spend'],
     accentColor: '#21E6A7',
@@ -47,7 +47,7 @@ const EXPERIENCE_SHOWCASES = [
     maxPts: 999,
     badge: 'Travel Access',
     title: 'Airport Lounges & Stays',
-    desc: 'Premium airport lounge access, hotel room upgrades, and short-haul flights — the world within reach.',
+    desc: 'Premium airport lounge access, hotel room upgrades, and short-haul flights. The world within reach.',
     img: '/loyalty_hero_lounge.png',
     tags: ['Lounge Access', 'Hotel Upgrades', 'Short Flights'],
     accentColor: '#21E6A7',
@@ -175,7 +175,7 @@ export default function LoyaltySection() {
             fontSize: 'clamp(14px,1.1vw,16px)', color: 'rgba(244,247,246,0.5)',
             lineHeight: 1.7, maxWidth: 540, margin: '0 auto',
           }}>
-            Drag the slider to see where your monthly spend takes you — from everyday perks to business class and five-star stays.
+            Drag the slider to see where your monthly spend takes you, from everyday perks to business class and five-star stays.
           </p>
         </div>
 

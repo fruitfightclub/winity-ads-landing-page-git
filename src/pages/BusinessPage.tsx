@@ -226,7 +226,7 @@ function BusinessHero() {
             }}>
               Winity Business gives your company digital asset payment rails,
               corporate Visa cards for every team member, and dedicated treasury
-              management — all in one platform built for global operations.
+              management, all in one platform built for global operations.
             </p>
 
             {/* Trust chips */}
@@ -623,8 +623,8 @@ function PaymentsSection() {
             </h2>
             <p style={{ fontSize: 'clamp(14px, 1.15vw, 17px)', color: MUTED, lineHeight: 1.7, maxWidth: 440, marginBottom: 28 }}>
               Receive digital asset payments from customers anywhere in the world.
-              Winity automatically converts and settles to your preferred currency —
-              your operations stay clean, your treasury stays stable.
+              Winity automatically converts and settles to your preferred currency.
+              Your operations stay clean, your treasury stays stable.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 32 }}>
               {features.map(({ icon: Icon, text }) => (
@@ -685,7 +685,7 @@ function TeamCardsSection() {
     { icon: Lock, title: 'Instant Controls', body: 'Freeze, unfreeze, or cancel any card in seconds. Set category locks, geo-restrictions, and daily limits.' },
     { icon: BarChart3, title: 'Real-Time Spend View', body: 'Every transaction visible instantly. Download reports in CSV or connect to your accounting software.' },
     { icon: Globe, title: 'Global Acceptance', body: '150M+ Visa® merchant locations across 200+ countries. ATM withdrawals wherever Visa® is accepted.' },
-    { icon: Zap, title: 'Digital-First', body: 'Virtual cards issued upon KYC approval — add to Google Pay and start spending the same day. Apple Pay support coming soon.' },
+    { icon: Zap, title: 'Digital-First', body: 'Virtual cards issued upon KYC approval. Add to Google Pay and start spending the same day. Apple Pay support coming soon.' },
   ]
 
   return (
@@ -702,8 +702,8 @@ function TeamCardsSection() {
             <span style={{ color: COPPER_LT }}>Cards for your whole team.</span>
           </h2>
           <p style={{ fontSize: 'clamp(14px, 1.15vw, 17px)', color: MUTED, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
-            Issue Visa cards to every team member with custom spend controls —
-            no additional cost, no extra accounts, no delays.
+            Issue Visa cards to every team member with custom spend controls.
+            No additional cost, no extra accounts, no delays.
           </p>
         </div>
 
@@ -861,7 +861,7 @@ function TreasurySection() {
           </h2>
           <p style={{ fontSize: 'clamp(14px, 1.15vw, 17px)', color: MUTED, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
             Winity Business rewards serious capital. Qualifying large deposits unlock
-            bonus rates and exclusive treasury services — including a dedicated concierge
+            bonus rates and exclusive treasury services, including a dedicated concierge
             for members depositing USD 100,000 or more.
           </p>
         </div>
@@ -1468,8 +1468,7 @@ function PricingSection() {
 
         {/* Disclaimer */}
         <p style={{ textAlign: 'center', fontSize: 11, color: MUTED_DIM, marginTop: 32, maxWidth: 680, margin: '32px auto 0', lineHeight: 1.6 }}>
-          All cards are issued upon completion of KYC verification. Physical cards are available upon request —
-          shipping charges may apply. Deposit bonus rates and thresholds are subject to current promotional terms.
+          All cards are issued upon completion of KYC verification. Physical cards are available upon request; shipping charges may apply. Deposit bonus rates and thresholds are subject to current promotional terms.
           Contact business@winity.life for full terms.
         </p>
       </div>
