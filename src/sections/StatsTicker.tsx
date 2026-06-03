@@ -46,17 +46,6 @@ const pressItems = [
     },
   },
   {
-    name: 'MERC',
-    abbr: 'MERC',
-    style: {
-      fontWeight: 900,
-      fontSize: '1.05rem',
-      color: '#21E6A7',
-      letterSpacing: '0.12em',
-      textTransform: 'uppercase' as const,
-    },
-  },
-  {
     name: 'Bloomberg',
     abbr: 'Bloomberg',
     style: {
@@ -74,6 +63,16 @@ const pressItems = [
       fontSize: '0.88rem',
       color: '#7B96EA',
       letterSpacing: '0.03em',
+    },
+  },
+  {
+    name: 'Yahoo Finance',
+    abbr: 'Yahoo Finance',
+    style: {
+      fontWeight: 700,
+      fontSize: '0.88rem',
+      color: 'rgba(244,247,246,0.7)',
+      letterSpacing: '0.02em',
     },
   },
 ]

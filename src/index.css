@@ -30,10 +30,10 @@
   }
 
   /* Scrollbar styling */
-  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: #061C1E; }
-  ::-webkit-scrollbar-thumb { background: #21E6A7; border-radius: 2px; }
-  ::-webkit-scrollbar-thumb:hover { background: #3CF2D0; }
+  ::-webkit-scrollbar-thumb { background: rgba(33,230,167,0.35); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(33,230,167,0.65); }
 
   /* Text selection */
   ::selection {
@@ -157,7 +157,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: copper-shimmer 4s ease-in-out infinite;
+    animation: copper-shimmer 5s ease-in-out infinite;
+    animation-delay: -1.8s;
   }
 
   /* ── MINT ACCENT TEXT ── */
@@ -210,7 +211,8 @@
     @apply active:scale-[0.98];
     background: var(--copper-gradient);
     background-size: 200% 200%;
-    animation: copper-shimmer 3s ease-in-out infinite;
+    animation: copper-shimmer 4s ease-in-out infinite;
+    animation-delay: -0.6s;
   }
 
   /* Ghost CTA */
@@ -367,8 +369,8 @@
   /* Standard panel card */
   .card-panel {
     @apply rounded-card bg-teal-mid border border-off-white/[0.06];
-    @apply transition-all duration-300;
-    @apply hover:border-mint/20;
+    @apply transition-all duration-500;
+    @apply hover:border-off-white/[0.13];
   }
 
   /* Copper bordered premium card */
@@ -549,7 +551,8 @@ input[type='range']::-moz-range-thumb {
   border-radius: 8px;
   background: var(--copper-gradient);
   background-size: 200% 200%;
-  animation: copper-shimmer 4s ease-in-out infinite;
+  animation: copper-shimmer 6s ease-in-out infinite;
+  animation-delay: -3.2s;
   z-index: -1;
 }
 
@@ -660,6 +663,97 @@ input[type='range']::-moz-range-thumb {
 }
 
 /* ─────────────────────────────────────────────
+   SCROLL PROGRESS INDICATOR
+   ───────────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #21E6A7, #0ECFB5);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(33,230,167,0.5);
+}
+
+/* ─────────────────────────────────────────────
+   PAGE FADE TRANSITION
+   ───────────────────────────────────────────── */
+.page-fade-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.page-fade-exit {
+  opacity: 1;
+}
+.page-fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.18s ease-in;
+}
+
+/* ─────────────────────────────────────────────
+   BUTTON RIPPLE FEEDBACK
+   ───────────────────────────────────────────── */
+.btn-primary,
+.btn-pill,
+.btn-pill-outline,
+.btn-glass,
+.btn-glass-copper,
+.btn-copper {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(0);
+  animation: ripple-burst 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple-burst {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   NAV LINK — UNDERLINE SLIDE VARIANT
+   Individual nav items can use .nav-link-underline
+   instead of the default bg-fill hover for variety.
+   ───────────────────────────────────────────── */
+.nav-link-underline {
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  right: 50%;
+  height: 1.5px;
+  background: var(--color-mint);
+  border-radius: 1px;
+  transition: left 0.25s cubic-bezier(0.16, 1, 0.3, 1), right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+  left: 8px;
+  right: 8px;
+}
+
+/* ─────────────────────────────────────────────
    REDUCED MOTION
    ───────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
@@ -752,7 +846,8 @@ input[type='range']::-moz-range-thumb {
   height: 2px;
   background: linear-gradient(90deg, #8A5520, #B87333, #E8A84E, #B87333, #8A5520);
   background-size: 200% 100%;
-  animation: copper-shimmer 3s ease-in-out infinite;
+  animation: copper-shimmer 4.5s ease-in-out infinite;
+  animation-delay: -2.4s;
 }
 
 /* ─────────────────────────────────────────────

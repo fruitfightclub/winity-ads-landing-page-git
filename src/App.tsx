@@ -13,7 +13,7 @@
  * ---
  */
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import LenisProvider from './components/LenisProvider'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
@@ -60,9 +60,51 @@ function ScrollReset() {
   return null
 }
 
+// Scroll progress bar — thin mint line across the top of the viewport
+function ScrollProgress() {
+  const barRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const update = () => {
+      const scrolled = window.scrollY
+      const total = document.documentElement.scrollHeight - window.innerHeight
+      const pct = total > 0 ? (scrolled / total) * 100 : 0
+      if (barRef.current) barRef.current.style.width = `${pct}%`
+    }
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+  return <div id="scroll-progress" ref={barRef} aria-hidden="true" />
+}
+
+// Global ripple — attaches one delegated listener so every .btn-ripple-target gets feedback
+function RippleInit() {
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = (e.target as Element).closest(
+        '.btn-primary,.btn-pill,.btn-pill-outline,.btn-glass,.btn-glass-copper,.btn-copper'
+      ) as HTMLElement | null
+      if (!target) return
+      const rect = target.getBoundingClientRect()
+      const size = Math.max(rect.width, rect.height)
+      const x = e.clientX - rect.left - size / 2
+      const y = e.clientY - rect.top - size / 2
+      const ripple = document.createElement('span')
+      ripple.className = 'btn-ripple'
+      ripple.style.cssText = `width:${size}px;height:${size}px;left:${x}px;top:${y}px`
+      target.appendChild(ripple)
+      ripple.addEventListener('animationend', () => ripple.remove(), { once: true })
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+  return null
+}
+
 function AppInner() {
   return (
     <LenisProvider>
+      <ScrollProgress />
+      <RippleInit />
       <ScrollReset />
       <Navigation />
       <main id="main-content">

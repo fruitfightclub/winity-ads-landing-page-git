@@ -75,9 +75,9 @@ const PR_LOGOS = [
   { name: 'REUTERS',         style: { fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: 15, letterSpacing: '0.12em' } },
   { name: 'AP',              style: { fontFamily: 'Roboto, sans-serif', fontWeight: 900, fontSize: 22 } },
   { name: 'Business Insider',style: { fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: 14, letterSpacing: '0.04em' } },
-  { name: 'MEXC',            style: { fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: 16, letterSpacing: '0.08em' } },
   { name: 'Bloomberg',       style: { fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: 15 } },
   { name: 'CoinDesk',        style: { fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: 14, letterSpacing: '0.03em' } },
+  { name: 'Yahoo Finance',   style: { fontFamily: 'Roboto, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: '0.02em' } },
 ]
 
 // ── Left/Right cards (Symmetric fanned card dimensions) ──────────────────────

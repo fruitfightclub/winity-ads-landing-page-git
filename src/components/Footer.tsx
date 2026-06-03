@@ -295,7 +295,7 @@ export default function Footer() {
         }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
             <span style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)' }}>
-              © 2025 @WTY Technology Hong Kong Limited.
+              © 2026 WTY Technology Hong Kong Limited.
             </span>
             <Link to="/risk" style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.42)'}>Risk Disclosure</Link>
             <Link to="/terms" style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.42)'}>Terms of Use</Link>

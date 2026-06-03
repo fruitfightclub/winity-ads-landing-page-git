@@ -422,9 +422,8 @@ export default function LoopSection() {
               letterSpacing: '-0.03em',
               marginBottom: 16,
             }}>
-              Refer.{' '}
-              <span className="text-gradient-mint">Earn.</span>{' '}
-              Repeat.
+              When your friends spend,{' '}
+              <span className="text-gradient-mint">you both win.</span>
             </h2>
 
             <p style={{

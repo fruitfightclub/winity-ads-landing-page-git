@@ -233,15 +233,15 @@ export default function Navigation() {
               )}
             </li>
 
-            {/* Regular links */}
+            {/* Regular links — underline-slide style (distinct from Cards bg-fill) */}
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   to={link.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  className={`nav-link-underline px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                     isActive(link.href)
-                      ? 'text-mint bg-mint/10'
-                      : 'text-off-white/60 hover:text-off-white hover:bg-off-white/5'
+                      ? 'text-off-white active'
+                      : 'text-off-white/55 hover:text-off-white'
                   }`}
                 >
                   {link.label}

@@ -34,7 +34,7 @@ const STEPS = [
   {
     number: '03',
     title: 'Load Your Wallet',
-    desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your digital assets convert directly to USD inside the platform. Freedom in flexibility, from your first transfer.',
+    desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your crypto converts to USD automatically — no bank required, no extra steps.',
     img: '/Fund your card.png',
     badge: 'Freedom in flexibility',
     stat: '0% stablecoin fee',
@@ -271,16 +271,16 @@ export default function HowItWorks() {
           <h2 style={{
             fontSize: 'clamp(32px,5vw,60px)', fontWeight: 800,
             color: '#F4F7F6', letterSpacing: '-0.03em', lineHeight: 1.06,
-            margin: '0 auto', maxWidth: 620,
+            margin: '0 auto', maxWidth: 680,
           }}>
-            Up and running.{' '}
-            <span className="text-gradient-mint">In minutes.</span>
+            From download to first spend —{' '}
+            <span className="text-gradient-mint">four steps, no branch visit.</span>
           </h2>
           <p style={{
             color: 'rgba(244,247,246,0.45)', marginTop: 18,
             fontSize: 'clamp(14px,1.1vw,17px)', maxWidth: 480, marginInline: 'auto', lineHeight: 1.7,
           }}>
-            From download to your first global spend: setup takes minutes, not days.
+            Verify once, load your wallet, and you're ready to spend in 200+ countries.
           </p>
         </div>
 
@@ -554,12 +554,15 @@ export default function HowItWorks() {
               <MobileCard step={STEPS[mobileActive]} isActive={true} />
             </div>
 
-            <p style={{
-              textAlign: 'center', marginTop: 20, fontSize: 12,
-              color: 'rgba(244,247,246,0.3)', letterSpacing: '0.06em',
-            }}>
-              ← Swipe to navigate →
-            </p>
+            {/* Swipe cue — animated chevron pair */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 20, opacity: 0.35 }}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M12 5L7 10L12 15" stroke="#21E6A7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M8 5L13 10L8 15" stroke="#21E6A7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
           </div>
         </div>
 
