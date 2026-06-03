@@ -16,7 +16,7 @@ const FEE_SECTIONS = [
       { label: 'Virtual Card Annual Fee',           value: 'USD 0',   note: 'Free forever' },
       { label: 'Physical Card Annual Fee',           value: 'USD 20 / year', note: 'First 6 months free on new activations' },
       { label: 'Physical Card Issuance',             value: 'USD 0',   note: 'Shipping charges may apply' },
-      { label: 'Card Spend Fee',                     value: 'USD 0',   note: 'No foreign transaction fee' },
+      { label: 'Card Spend Fee',                     value: 'See app', note: 'Check current rates in the Winity app' },
       { label: 'ATM Withdrawal Fee',                 value: 'USD 3',   note: 'Per withdrawal at any Visa® ATM worldwide' },
       { label: 'Contactless / NFC Payments',         value: 'USD 0',   note: 'Google Pay supported' },
     ],
@@ -71,7 +71,7 @@ export default function FeesPage() {
               Fees & Limits
             </h1>
             <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.6 }}>
-              No surprises. No hidden fees. Here's exactly what you pay to use Winity.
+              No surprises. Here's exactly what you pay to use Winity.
             </p>
           </div>
         </div>
@@ -84,9 +84,9 @@ export default function FeesPage() {
           }}>
             {[
               { v: 'USD 0', l: 'Virtual card annual fee' },
-              { v: 'USD 0', l: 'Card spend fee' },
               { v: '0%', l: 'Stablecoin deposit fee' },
               { v: 'USD 3', l: 'ATM withdrawal' },
+              { v: 'USD 20/yr', l: 'Physical card annual fee' },
             ].map(h => (
               <div key={h.l} style={{
                 flex: '1 1 160px', padding: '18px 20px', borderRadius: 16,

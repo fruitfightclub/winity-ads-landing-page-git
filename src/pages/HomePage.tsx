@@ -20,7 +20,7 @@ export default function HomePage() {
     <>
       <SEO
         title="Winity Life — Global Visa Card & Payments Platform"
-        description="Spend digital assets globally with a Winity Visa card. Supports USDT, USDC, ETH, SOL and more. Zero spend fees. Earn points on every purchase. Available in 200+ countries wherever Visa is accepted."
+        description="Spend digital assets globally with a Winity Visa card. Supports USDT, USDC, ETH, SOL and more. Earn points on every purchase. Available in 200+ countries wherever Visa is accepted."
         canonicalUrl="https://winity.life"
         ogImage="/og-image.png"
       />

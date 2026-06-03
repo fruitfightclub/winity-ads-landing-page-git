@@ -42,7 +42,7 @@ const STEPS = [
   {
     number: '04',
     title: 'Spend & Earn',
-    desc: 'Spend anywhere Visa is accepted in 200+ countries with 150M+ merchant locations and zero spend fees. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
+    desc: 'Spend anywhere Visa is accepted in 200+ countries with 150M+ merchant locations. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
     img: '/Spend and Earn.png',
     badge: 'Earn on every spend',
     stat: '200+ countries',

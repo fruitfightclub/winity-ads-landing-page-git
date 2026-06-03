@@ -172,7 +172,7 @@ const FEES = [
   { label: 'Virtual Card Annual Fee',   value: 'USD 0 / year' },
   { label: 'Physical Card Annual Fee',  value: 'USD 20 / year (first 6 months free)' },
   { label: 'Physical Card Issuance',    value: 'USD 0 (shipping charges may apply)' },
-  { label: 'Card Spend Fee',            value: 'USD 0' },
+  { label: 'Card Spend Fee',            value: 'See app' },
   { label: 'Stablecoin Load',           value: '0%' },
   { label: 'Other Digital Asset Load',  value: '5% conversion fee' },
   { label: 'ATM Withdrawal',            value: 'USD 3 per withdrawal' },

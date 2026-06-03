@@ -180,7 +180,7 @@ const SECTIONS = [
       },
       {
         q: 'Are there card spend or deposit fees?',
-        a: `Card Spend Fee: USD 0.\nStablecoins (USDT, USDC) Deposit Fee: 0%.\nWCO Deposit Fee: 5%.\nCrypto Assets Conversion Fee: 5% (applies to non-stable coins and non-WCO assets).`,
+        a: `Card Spend Fee: see the Winity app for current rates.\nStablecoins (USDT, USDC) Deposit Fee: 0%.\nWCO Deposit Fee: 5%.\nCrypto Assets Conversion Fee: 5% (applies to non-stable coins and non-WCO assets).`,
       },
       {
         q: 'What is the minimum balance required for card transactions?',

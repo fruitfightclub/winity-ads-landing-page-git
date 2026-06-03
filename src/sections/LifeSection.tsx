@@ -121,7 +121,7 @@ export default function LifeSection() {
               everything you were already doing.
             </p>
             <p className="text-muted mb-8 leading-relaxed max-w-md" style={{ fontSize: 'clamp(15px,1.2vw,17px)' }}>
-              Zero spend fees on the Exclusive card. 1 point per $10 on everything.
+              Earn 1 Winity Point per $10 on every eligible purchase.
               Upgrade to Executive for the fastest earn rate and included benefits
               that match the way you travel.
             </p>
