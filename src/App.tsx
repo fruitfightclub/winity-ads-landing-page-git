@@ -12,7 +12,7 @@
  * status: Production
  * ---
  */
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import LenisProvider from './components/LenisProvider'
 import Navigation from './components/Navigation'
@@ -32,6 +32,10 @@ import SupportPage from './pages/SupportPage'
 import FeesPage from './pages/FeesPage'
 import RiskPage from './pages/RiskPage'
 import GooglePayPage from './pages/GooglePayPage'
+import LegalIndexPage from './pages/LegalIndexPage'
+import CardAvailabilityPage from './pages/CardAvailabilityPage'
+import DeleteAccountPage from './pages/DeleteAccountPage'
+import FAQsPage from './pages/FAQsPage'
 
 // Scroll to top on route change — skips scrollTo when a hash target is present
 function ScrollReset() {
@@ -80,6 +84,43 @@ function AppInner() {
           <Route path="/fees" element={<FeesPage />} />
           <Route path="/risk" element={<RiskPage />} />
           <Route path="/google-pay-tc" element={<GooglePayPage />} />
+
+          {/* ── WordPress slug redirects ── */}
+
+          {/* Pages: slug mismatches */}
+          <Route path="/blogs" element={<Navigate replace to="/blog" />} />
+          <Route path="/exclusive-card" element={<Navigate replace to="/exclusive" />} />
+          <Route path="/support" element={<Navigate replace to="/help" />} />
+          <Route path="/faqs" element={<FAQsPage />} />
+          <Route path="/card-availability" element={<CardAvailabilityPage />} />
+          <Route path="/delete-account" element={<DeleteAccountPage />} />
+
+          {/* Legal: WP nested paths → React equivalents */}
+          <Route path="/legal/privacypolicy" element={<Navigate replace to="/privacy" />} />
+          <Route path="/legal/termsofuse" element={<Navigate replace to="/terms" />} />
+          <Route path="/legal/riskdisclosure" element={<Navigate replace to="/risk" />} />
+          <Route path="/legal/googlepay-tnc" element={<Navigate replace to="/google-pay-tc" />} />
+          {/* Legal sub-pages pending content migration → terms in the interim */}
+          <Route path="/legal" element={<LegalIndexPage />} />
+          <Route path="/legal/free-physical-exclusive-card-terms" element={<Navigate replace to="/terms" />} />
+          <Route path="/legal/referral-program-terms" element={<Navigate replace to="/terms" />} />
+          <Route path="/legal/cny-tiered-spend-rewards-terms" element={<Navigate replace to="/terms" />} />
+          <Route path="/legal/winter-bonus-terms" element={<Navigate replace to="/terms" />} />
+
+          {/* Blog: WP root-level slugs → /blog/slug */}
+          <Route path="/how-to-spend-your-usdt-without-sending-it-to-a-bank-first-2026-guide" element={<Navigate replace to="/blog/how-to-spend-usdt-without-a-bank-2026" />} />
+          <Route path="/guide-to-spend-like-a-stallion-winitys-cny-tiered-rewards" element={<Navigate replace to="/blog/guide-to-spend-like-a-stallion-winitys-cny-tiered-rewards" />} />
+          <Route path="/spend-like-a-stallion-on-the-move-7-ways-winity-life-makes-your-cny-travels-smoother" element={<Navigate replace to="/blog/7-ways-winity-life-makes-your-cny-travels-smoother" />} />
+          <Route path="/winity-life-launches-your-card-on-us-campaign-to-reward-active-users" element={<Navigate replace to="/blog/winity-life-launches-your-card-on-us-campaign" />} />
+          <Route path="/winity-life-launches-winity-loop-a-referral-program-that-turns-everyday-spending-into-shared-value" element={<Navigate replace to="/blog/winity-life-launches-winity-loop-referral-program" />} />
+          <Route path="/winity-life-unveils-christmas-that-keeps-giving" element={<Navigate replace to="/blog/winity-life-unveils-christmas-that-keeps-giving" />} />
+          <Route path="/winity-life-launches-its-first-visa-card-and-mobile-app" element={<Navigate replace to="/blog/winity-life-launches-its-first-visa-card-and-mobile-app" />} />
+          <Route path="/kyc-reimagined-from-verification-to-activation" element={<Navigate replace to="/blog/kyc-reimagined-from-verification-to-activation" />} />
+          <Route path="/share-the-freedom-how-winity-loop-rewards-you-and-your-friends" element={<Navigate replace to="/blog/share-the-freedom-how-winity-loop-rewards-you-and-your-friends" />} />
+
+          {/* Pages pending content */}
+          <Route path="/thank-you" element={<Navigate replace to="/" />} />
+
           {/* Catch-all → home */}
           <Route path="*" element={<HomePage />} />
         </Routes>
