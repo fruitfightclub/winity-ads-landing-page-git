@@ -262,6 +262,12 @@ export default function CardsSection() {
           .cards-redeem-grid { grid-template-columns: repeat(2,1fr) !important; }
           .cards-redeem-tile { height: 64px !important; }
         }
+        @media (max-width: 640px) {
+          /* Detail panel must be full-width on phones — prevents min-width overflow */
+          .cards-detail-panel { width: 100% !important; min-width: 0 !important; }
+          /* Feature panel also full-width */
+          .cards-feat-panel { width: 100% !important; max-width: 100% !important; }
+        }
       `}</style>
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 1240, margin: '0 auto', paddingInline: 'clamp(20px, 5vw, 60px)' }}>

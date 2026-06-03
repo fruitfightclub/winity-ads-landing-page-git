@@ -82,12 +82,12 @@ const FAN_OPACITIES   = [1.0, 1.0, 1.0, 1.0, 1.0]
 const MOMENTS = [
   {
     label:    'Free to Start',
-    headline: 'Virtual card.\nZero annual fee.',
-    body:     'Your Winity Exclusive virtual card carries no annual fee. Issued upon completion of KYC verification, add it to Google Pay and start spending at 150M+ Visa® merchant locations globally. No hidden charges on card spend.',
+    headline: 'Virtual card.\nReady on approval.',
+    body:     'Your Winity Exclusive virtual card is issued upon KYC approval. Add it to Google Pay and start spending at 150M+ Visa® merchant locations globally. 0% stablecoin load fee.',
     image:    'https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp',
     fallback: '/hero_card_exclusive.png',
     icon:     Zap,
-    badge:    'USD 0 / year',
+    badge:    'Issued on approval',
     imgRight: true,
     appScreen: true,
   },
@@ -169,7 +169,7 @@ const HOW_IT_WORKS = [
 
 // ─── Fees ─────────────────────────────────────────────────────────────────────
 const FEES = [
-  { label: 'Virtual Card Annual Fee',   value: 'USD 0 / year' },
+  { label: 'Virtual Card Annual Fee',   value: 'See app' },
   { label: 'Physical Card Annual Fee',  value: 'USD 20 / year (first 6 months free)' },
   { label: 'Physical Card Issuance',    value: 'USD 0 (shipping charges may apply)' },
   { label: 'Card Spend Fee',            value: 'See app' },
@@ -182,7 +182,7 @@ const FEES = [
 ]
 
 const TICKER_ITEMS = [
-  'USD 0 Annual Fee', 'Google Pay Ready', '0% Stablecoin Load',
+  'Google Pay Ready', '0% Stablecoin Load',
   '150M+ Visa Merchants', '200+ Countries', 'ATM Worldwide', 'OTP-Free 3DS',
   '1 pt per USD 10', 'Winity Loop', '20% Data Discount',
 ]
@@ -492,7 +492,7 @@ export default function ExclusivePage() {
                   maxWidth: 440, marginBottom: 36,
                 }}
               >
-                The Winity Exclusive card carries no annual fee on the virtual tier.
+                The Winity Exclusive card is issued upon KYC approval.
                 Spend at 150M+ Visa® merchant locations across 200+ countries.
                 ATM access wherever Visa® is accepted.
               </p>
@@ -721,14 +721,14 @@ export default function ExclusivePage() {
                 className="promo-reveal"
                 style={{ color: 'rgba(143,163,160,0.82)', fontSize: 'clamp(15px, 1.3vw, 17px)', lineHeight: 1.72, maxWidth: 440, marginBottom: 32 }}
               >
-                Your virtual card is free to issue and carries no annual fee. Reach $25 in
-                eligible card spend and your premium Winity Exclusive physical card is issued
-                at no cost. First 6 months of the USD 20/yr fee waived. Shipping charges may apply.
+                Reach $25 in eligible card spend and your premium Winity Exclusive physical card
+                is issued at no cost. First 6 months of the USD 20/yr fee waived.
+                Shipping charges may apply.
               </p>
 
               <div className="promo-reveal" style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 36 }}>
                 {[
-                  'Virtual card: USD 0 annual fee, issued upon KYC approval',
+                  'Virtual card: issued upon KYC approval',
                   'Physical card: no issuance cost after $25 eligible spend',
                   'First 6 months annual fee waived for new physical activations',
                   'Accepted at 150M+ Visa® merchant locations globally',
@@ -1386,7 +1386,7 @@ export default function ExclusivePage() {
             fontSize: 'clamp(2.2rem, 5vw, 4.2rem)', fontWeight: 900, lineHeight: 1.0,
             letterSpacing: '-0.045em', color: '#fff', marginBottom: 20,
           }}>
-            No annual fee.<br />
+            Get the card.<br />
             <span style={{ color: MINT_HI }}>The world is already waiting.</span>
           </h2>
           <p className="reveal-up" style={{
@@ -1394,7 +1394,7 @@ export default function ExclusivePage() {
             fontSize: 'clamp(1rem, 1.5vw, 1.1rem)', lineHeight: 1.7, marginBottom: 44,
           }}>
             Download the Winity Life app, complete your KYC verification, and receive your
-            Exclusive virtual card at zero annual cost. Physical card available after $25 spend.
+            Exclusive virtual card, issued upon KYC approval. Physical card available after $25 spend.
           </p>
           <div className="reveal-up" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 14 }}>
             <a
@@ -1440,7 +1440,7 @@ export default function ExclusivePage() {
           }}>
             Card services are issued in Hong Kong and available globally wherever Visa® is accepted.
             Availability may vary by jurisdiction. Winity Life is not a bank. Digital asset-linked card
-            services involve risks. Virtual card carries no annual fee; physical card USD 20/yr with first
+            services involve risks. Physical card USD 20/yr with first
             6 months waived for new activations. Physical card issued at no cost after $25 eligible spend;
             shipping charges may apply. ATM withdrawal fee USD 3 per transaction. 150M+ refers to Visa®
             merchant locations worldwide. UMI data benefit subject to USD 5,000 eligible spend threshold.

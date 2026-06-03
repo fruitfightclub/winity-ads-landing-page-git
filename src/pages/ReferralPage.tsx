@@ -212,7 +212,7 @@ const HOW_IT_WORKS = [
 ]
 
 const CARD_TERMS = [
-  'Free virtual Winity Exclusive card, USD 0 annual fee',
+  'Free virtual Winity Exclusive card, issued upon KYC approval',
   'Virtual card issued upon completion of KYC verification',
   'Google Pay ready immediately after issuance',
   'Accepted at 150M+ Visa® merchant locations worldwide',
@@ -475,11 +475,11 @@ export default function ReferralPage() {
                 letterSpacing: '-0.04em', color: '#fff', marginBottom: 20,
               }}>
                 The Exclusive card.<br />
-                <span style={{ color: MINT_HI }}>Free to start. Always.</span>
+                <span style={{ color: MINT_HI }}>Ready when you are.</span>
               </h2>
               <p style={{ color: 'rgba(143,163,160,0.82)', fontSize: 16, lineHeight: 1.7, maxWidth: 420, marginBottom: 28 }}>
-                Your Winity Exclusive virtual card carries no annual fee. Issued upon KYC approval,
-                add it to Google Pay and start spending at 150M+ Visa® merchant locations globally.
+                Your Winity Exclusive virtual card is issued upon KYC approval.
+                Add it to Google Pay and start spending at 150M+ Visa® merchant locations globally.
                 Physical card available after $25 in eligible spend (shipping charges may apply).
               </p>
               <a
@@ -518,7 +518,7 @@ export default function ReferralPage() {
                 />
                 <div>
                   <div style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>Winity Exclusive</div>
-                  <div style={{ color: MINT, fontSize: 12, fontWeight: 600 }}>USD 0 annual fee</div>
+                  <div style={{ color: MINT, fontSize: 12, fontWeight: 600 }}>Winity Exclusive</div>
                 </div>
               </div>
               {/* Feature list */}

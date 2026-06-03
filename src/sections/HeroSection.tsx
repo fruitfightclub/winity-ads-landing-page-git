@@ -125,21 +125,25 @@ export default function HeroSection() {
 
       st.to('.hero-bg-arch', { yPercent: 14, ease: 'none' }, 0)
       st.to('.phone-wrap',   { y: -80, ease: 'none' }, 0)
-      
+
       // Smoothly fade in cards on scroll start
       st.to('.hero-card', { opacity: 1, duration: 0.1, ease: 'none' }, 0)
 
-      // LEFT cards fan out (Executive cards) — scaled down travel for smaller cards
-      st.to('.ec-0', { x: -80,  y: 20,  rotation: -8,  ease: 'none' }, 0)
-      st.to('.ec-1', { x: -160, y: 8,   rotation: -18, ease: 'none' }, 0)
-      st.to('.ec-2', { x: -240, y: -10, rotation: -28, ease: 'none' }, 0)
-      st.to('.ec-3', { x: -320, y: -30, rotation: -38, ease: 'none' }, 0)
+      // Scale fan travel to viewport so cards never bleed off-screen on mobile
+      const isMobile = window.innerWidth < 640
+      const fanScale = isMobile ? 0.38 : 1
 
-      // RIGHT cards fan out (Exclusive cards) — scaled down travel
-      st.to('.dk-0', { x: 80,   y: 20,  rotation: 8,   ease: 'none' }, 0)
-      st.to('.dk-1', { x: 160,  y: 8,   rotation: 18,  ease: 'none' }, 0)
-      st.to('.dk-2', { x: 240,  y: -10, rotation: 28,  ease: 'none' }, 0)
-      st.to('.dk-3', { x: 320,  y: -30, rotation: 38,  ease: 'none' }, 0)
+      // LEFT cards fan out (Executive cards)
+      st.to('.ec-0', { x: -80  * fanScale, y: 20,  rotation: -8,  ease: 'none' }, 0)
+      st.to('.ec-1', { x: -160 * fanScale, y: 8,   rotation: -18, ease: 'none' }, 0)
+      st.to('.ec-2', { x: -240 * fanScale, y: -10, rotation: -28, ease: 'none' }, 0)
+      st.to('.ec-3', { x: -320 * fanScale, y: -30, rotation: -38, ease: 'none' }, 0)
+
+      // RIGHT cards fan out (Exclusive cards)
+      st.to('.dk-0', { x: 80   * fanScale, y: 20,  rotation: 8,   ease: 'none' }, 0)
+      st.to('.dk-1', { x: 160  * fanScale, y: 8,   rotation: 18,  ease: 'none' }, 0)
+      st.to('.dk-2', { x: 240  * fanScale, y: -10, rotation: 28,  ease: 'none' }, 0)
+      st.to('.dk-3', { x: 320  * fanScale, y: -30, rotation: 38,  ease: 'none' }, 0)
 
       // Icons collapse behind phone center on scroll
       // USDT (far left) travels far right inward; USDC (closer) shorter travel
@@ -310,7 +314,7 @@ export default function HeroSection() {
             src="/hero_phone.png"
             alt="Winity App"
             style={{
-              width: 'clamp(200px, 21vw, 290px)',
+              width: 'clamp(180px, 48vw, 290px)',
               height: 'auto',
               filter: 'drop-shadow(0 32px 64px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(33,230,167,0.1))',
               display: 'block',

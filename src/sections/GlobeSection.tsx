@@ -49,55 +49,68 @@ function VolumetricGlobe() {
     const wrap   = wrapRef.current
     if (!canvas || !wrap) return
 
-    // cobe v2 creates a wrapper div with height:100% around the canvas.
-    // Without an explicit height on wrapRef, that 100% resolves to 0 (circular dependency).
-    // Measure width first, then lock the wrapper to a square before createGlobe runs.
-    const size = Math.min(wrap.offsetWidth || 500, 540)
-    const dpr  = Math.min(window.devicePixelRatio || 1, 2)
-
-    wrap.style.height  = `${size}px`   // lock wrapper height so cobe's inner div resolves correctly
-    canvas.style.width  = `${size}px`
-    canvas.style.height = `${size}px`
-
-    const globe = createGlobe(canvas, {
-      devicePixelRatio: dpr,
-      width:  size * dpr,
-      height: size * dpr,
-      phi:    0.5,
-      theta:  0.2,
-      dark:   1,
-      diffuse: 1.4,
-      mapSamples:    16000,
-      mapBrightness: 5.5,
-      baseColor:   [0.08, 0.28, 0.25],
-      markerColor: [0.13, 0.90, 0.65],
-      glowColor:   [0.07, 0.45, 0.38],
-      markers: [
-        { location: [ 51.5,  -0.1], size: 0.045 }, // London
-        { location: [ 40.7, -74.0], size: 0.055 }, // New York
-        { location: [ 35.7, 139.7], size: 0.045 }, // Tokyo
-        { location: [ 22.3, 114.2], size: 0.08  }, // Hong Kong (HQ)
-        { location: [ 25.2,  55.3], size: 0.05  }, // Dubai
-        { location: [  1.3, 103.8], size: 0.05  }, // Singapore
-        { location: [-33.9, 151.2], size: 0.04  }, // Sydney
-        { location: [ 48.9,   2.3], size: 0.045 }, // Paris
-        { location: [-23.5, -46.6], size: 0.045 }, // São Paulo
-        { location: [  6.5,   3.4], size: 0.04  }, // Lagos
-      ],
-    })
-
-    let phi   = 0.5
+    let globe: ReturnType<typeof createGlobe> | null = null
     let rafId = 0
-    const animate = () => {
-      phi += 0.003
-      globe.update({ phi })
+    let phi   = 0.5
+
+    const initGlobe = () => {
+      if (globe) { globe.destroy(); cancelAnimationFrame(rafId) }
+
+      // cobe v2 creates a wrapper div with height:100% around the canvas.
+      // Without an explicit height on wrapRef, that 100% resolves to 0 (circular dependency).
+      // Measure width first, then lock the wrapper to a square before createGlobe runs.
+      const size = Math.min(wrap.offsetWidth || 500, 540)
+      const dpr  = Math.min(window.devicePixelRatio || 1, 2)
+
+      wrap.style.height  = `${size}px`
+      canvas.style.width  = `${size}px`
+      canvas.style.height = `${size}px`
+
+      globe = createGlobe(canvas, {
+        devicePixelRatio: dpr,
+        width:  size * dpr,
+        height: size * dpr,
+        phi:    phi,
+        theta:  0.2,
+        dark:   1,
+        diffuse: 1.4,
+        mapSamples:    16000,
+        mapBrightness: 5.5,
+        baseColor:   [0.08, 0.28, 0.25],
+        markerColor: [0.13, 0.90, 0.65],
+        glowColor:   [0.07, 0.45, 0.38],
+        markers: [
+          { location: [ 51.5,  -0.1], size: 0.045 }, // London
+          { location: [ 40.7, -74.0], size: 0.055 }, // New York
+          { location: [ 35.7, 139.7], size: 0.045 }, // Tokyo
+          { location: [ 22.3, 114.2], size: 0.08  }, // Hong Kong (HQ)
+          { location: [ 25.2,  55.3], size: 0.05  }, // Dubai
+          { location: [  1.3, 103.8], size: 0.05  }, // Singapore
+          { location: [-33.9, 151.2], size: 0.04  }, // Sydney
+          { location: [ 48.9,   2.3], size: 0.045 }, // Paris
+          { location: [-23.5, -46.6], size: 0.045 }, // São Paulo
+          { location: [  6.5,   3.4], size: 0.04  }, // Lagos
+        ],
+      })
+
+      const animate = () => {
+        phi += 0.003
+        globe!.update({ phi })
+        rafId = requestAnimationFrame(animate)
+      }
       rafId = requestAnimationFrame(animate)
     }
-    rafId = requestAnimationFrame(animate)
+
+    initGlobe()
+
+    // Re-initialise on resize (e.g. device rotation)
+    const ro = new ResizeObserver(() => initGlobe())
+    ro.observe(wrap)
 
     return () => {
       cancelAnimationFrame(rafId)
-      globe.destroy()
+      if (globe) globe.destroy()
+      ro.disconnect()
     }
   }, [])
 
@@ -253,7 +266,7 @@ export default function GlobeSection() {
             <div>
               <span style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 16,
-                fontSize: 11, fontWeight: 600, letterSpacing: '0.22em',
+                fontSize: 12, fontWeight: 600, letterSpacing: '0.22em',
                 textTransform: 'uppercase' as const, color: '#21E6A7',
               }}>
                 <span style={{ display: 'inline-block', width: 24, height: 1, background: '#21E6A7' }} />
@@ -276,7 +289,7 @@ export default function GlobeSection() {
 
             {/* Supported tokens — compact pill row */}
             <div ref={assetsGridRef}>
-              <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(33,230,167,0.55)', marginBottom: 16 }}>
+              <p style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(33,230,167,0.55)', marginBottom: 16 }}>
                 Supported Assets
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -332,7 +345,7 @@ export default function GlobeSection() {
 
             {/* Network chips */}
             <div ref={networksRef} style={{ opacity: 0 }}>
-              <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(33,230,167,0.55)', marginBottom: 14 }}>
+              <p style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(33,230,167,0.55)', marginBottom: 14 }}>
                 Supported Networks
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -382,7 +395,7 @@ export default function GlobeSection() {
 
             {/* Live market rates — CoinGecko powered */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(33,230,167,0.55)', marginBottom: 10 }}>
+              <p style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(33,230,167,0.55)', marginBottom: 10 }}>
                 Live Market Rates
               </p>
               <div style={{ borderRadius: 12, overflow: 'hidden' }}>
@@ -414,13 +427,13 @@ export default function GlobeSection() {
                 pointerEvents: 'none', zIndex: 0,
               }} />
 
-              {/* Live Activity card — top-left of globe */}
+              {/* Live Activity card — top-left of globe, responsive width */}
               <div style={{
                 position: 'absolute',
                 top: 24, left: 0,
                 zIndex: 20,
                 pointerEvents: 'none',
-                width: 230,
+                width: 'min(230px, 62%)',
               }}>
                 <div style={{
                   background: 'rgba(6,28,30,0.82)',
@@ -515,7 +528,7 @@ export default function GlobeSection() {
                 background: 'rgba(6,28,30,0.72)',
                 border: '1px solid rgba(33,230,167,0.2)',
                 borderRadius: 22,
-                padding: '32px',
+                padding: 'clamp(16px, 5vw, 32px)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 boxShadow: '0 24px 64px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05)',

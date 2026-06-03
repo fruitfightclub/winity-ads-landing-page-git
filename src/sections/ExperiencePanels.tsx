@@ -234,7 +234,7 @@ export default function ExperiencePanels() {
           text-orientation: mixed;
           transform: rotate(180deg);
           color: rgba(244,247,246,0.45);
-          font-size: 10px;
+          font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -266,7 +266,7 @@ export default function ExperiencePanels() {
           top: 22px;
           left: 24px;
           z-index: 30;
-          font-size: 10px;
+          font-size: 11px;
           font-weight: 700;
           letter-spacing: 0.22em;
           text-transform: uppercase;
@@ -291,7 +291,7 @@ export default function ExperiencePanels() {
           transition: opacity 400ms ease, transform 440ms cubic-bezier(0.25,1,0.5,1);
         }
         .ep-content-card .ep-sub {
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 600;
           color: #A8D8C8;
           letter-spacing: -0.005em;
@@ -299,7 +299,7 @@ export default function ExperiencePanels() {
           line-height: 1.45;
         }
         .ep-content-card .ep-body {
-          font-size: 13px;
+          font-size: 14px;
           line-height: 1.68;
           color: rgba(200,221,216,0.86);
           margin-bottom: 16px;

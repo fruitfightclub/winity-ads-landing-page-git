@@ -87,9 +87,9 @@
   --text-h1: clamp(36px, 5vw, 72px);
   --text-h2: clamp(28px, 4vw, 52px);
   --text-h3: clamp(20px, 2.5vw, 32px);
-  --text-body: clamp(15px, 1.2vw, 17px);
-  --text-small: 13px;
-  --text-eyebrow: 11px;
+  --text-body: clamp(16px, 1.2vw, 18px);
+  --text-small: 14px;
+  --text-eyebrow: 12px;
 
   /* Transitions */
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);

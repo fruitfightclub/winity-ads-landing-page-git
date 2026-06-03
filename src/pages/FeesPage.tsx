@@ -13,7 +13,7 @@ const FEE_SECTIONS = [
   {
     title: 'Card Fees',
     rows: [
-      { label: 'Virtual Card Annual Fee',           value: 'USD 0',   note: 'Free forever' },
+      { label: 'Virtual Card Annual Fee',           value: 'See app', note: 'Check current rates in the Winity app' },
       { label: 'Physical Card Annual Fee',           value: 'USD 20 / year', note: 'First 6 months free on new activations' },
       { label: 'Physical Card Issuance',             value: 'USD 0',   note: 'Shipping charges may apply' },
       { label: 'Card Spend Fee',                     value: 'See app', note: 'Check current rates in the Winity app' },
@@ -83,7 +83,7 @@ export default function FeesPage() {
             display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 56,
           }}>
             {[
-              { v: 'USD 0', l: 'Virtual card annual fee' },
+              { v: 'See app', l: 'Virtual card annual fee' },
               { v: '0%', l: 'Stablecoin deposit fee' },
               { v: 'USD 3', l: 'ATM withdrawal' },
               { v: 'USD 20/yr', l: 'Physical card annual fee' },

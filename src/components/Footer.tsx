@@ -188,12 +188,15 @@ export default function Footer() {
         </div>
 
         {/* ── Row 2: Link columns ── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-          gap: 'clamp(24px, 4vw, 52px)',
-          marginBottom: 52,
-        }}>
+        <div
+          className="footer-link-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+            gap: 'clamp(24px, 4vw, 52px)',
+            marginBottom: 52,
+          }}
+        >
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
               <h3 style={{
@@ -289,10 +292,13 @@ export default function Footer() {
         <div style={{ height: 1, background: 'rgba(240,237,230,0.06)', marginBottom: 24 }} />
 
         {/* ── Bottom Bar: Copyright and internal legal links ── */}
-        <div style={{
-          display: 'flex', flexWrap: 'wrap', gap: 20,
-          justifyContent: 'space-between', alignItems: 'center',
-        }}>
+        <div
+          className="footer-bottom-bar"
+          style={{
+            display: 'flex', flexWrap: 'wrap', gap: 20,
+            justifyContent: 'space-between', alignItems: 'center',
+          }}
+        >
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
             <span style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)' }}>
               © 2026 WTY Technology Hong Kong Limited.
@@ -312,6 +318,13 @@ export default function Footer() {
       <style>{`
         @media (max-width: 640px) {
           footer .footer-link-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 480px) {
+          footer .footer-bottom-bar {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+          }
         }
       `}</style>
     </footer>
