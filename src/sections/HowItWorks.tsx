@@ -322,12 +322,12 @@ export default function HowItWorks() {
 
               {/* Vertical copper rail */}
               <div style={{
-                position: 'absolute', left: 22, top: 0, bottom: 0, width: 2,
+                position: 'absolute', left: 22, top: 25, bottom: 79, width: 2,
                 background: 'rgba(255,255,255,0.05)', borderRadius: 1,
               }} />
               {/* Active fill */}
               <div style={{
-                position: 'absolute', left: 22, top: 0, width: 2, borderRadius: 1,
+                position: 'absolute', left: 22, top: 25, width: 2, borderRadius: 1,
                 background: 'linear-gradient(180deg, #21E6A7, #0ECFB5)',
                 height: `${(activeStep / (STEPS.length - 1)) * 100}%`,
                 transition: 'height 0.5s cubic-bezier(0.25,1,0.5,1)',
@@ -358,7 +358,7 @@ export default function HowItWorks() {
                       border: i === activeStep
                         ? '2px solid rgba(33,230,167,0.55)'
                         : '2px solid rgba(255,255,255,0.08)',
-                      background: i === activeStep ? 'rgba(33,230,167,0.10)' : 'rgba(15,63,58,0.4)',
+                      background: i === activeStep ? '#0D3D35' : '#0B2926',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       transition: 'all 0.4s cubic-bezier(0.25,1,0.5,1)',
                       boxShadow: i === activeStep ? '0 0 20px rgba(33,230,167,0.20)' : 'none',
