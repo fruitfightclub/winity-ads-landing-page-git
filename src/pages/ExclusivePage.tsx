@@ -84,7 +84,7 @@ const MOMENTS = [
     label:    'Free to Start',
     headline: 'Virtual card.\nReady on approval.',
     body:     'Your Winity Exclusive virtual card is issued upon KYC approval. Add it to Google Pay and start spending at 150M+ Visa® merchant locations globally. 0% stablecoin load fee.',
-    image:    'https://winity.life/wp-content/uploads/2025/11/Exclusive-Virtual.webp',
+    image:    '/card_exclusive_virtual.webp',
     fallback: '/hero_card_exclusive.png',
     icon:     Zap,
     badge:    'Issued on approval',
@@ -1446,8 +1446,8 @@ export default function ExclusivePage() {
             merchant locations worldwide. UMI data benefit subject to USD 5,000 eligible spend threshold.
             Winity Club 20% discount via UMI app only. Large deposit bonuses subject to programme terms.
             USD 100,000+ concierge subject to eligibility. See{' '}
-            <a href="https://winity.life/terms" target="_blank" rel="noopener noreferrer"
-              style={{ color: 'rgba(33,230,167,0.5)' }}>winity.life/terms</a>{' '}
+            <Link to="/terms"
+              style={{ color: 'rgba(33,230,167,0.5)' }}>winity.life/terms</Link>{' '}
             for full terms and conditions.
           </p>
         </div>

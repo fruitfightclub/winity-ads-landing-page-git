@@ -200,7 +200,7 @@ export default function JoinCTA() {
         {/* Sign in link */}
         <div className="mt-6">
           <a
-            href="https://app.winity.life/login"
+            href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted/50 text-xs hover:text-muted transition-colors"

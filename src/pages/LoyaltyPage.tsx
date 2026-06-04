@@ -830,14 +830,12 @@ export default function LoyaltyPage() {
             Card services are issued in Hong Kong and available globally wherever Visa® is
             accepted. Winity Life is not a bank. Digital asset-linked card services involve
             risks. See{' '}
-            <a
-              href="https://winity.life/terms"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/terms"
               className="text-mint/60 hover:text-mint transition-colors"
             >
               winity.life/terms
-            </a>.
+            </Link>.
           </p>
         </div>
       </section>

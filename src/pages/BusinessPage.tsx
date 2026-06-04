@@ -255,7 +255,7 @@ function BusinessHero() {
             {/* CTAs */}
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
               <a
-                href="https://app.winity.life/business"
+                href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-pill"
@@ -641,7 +641,7 @@ function PaymentsSection() {
                 </div>
               ))}
             </div>
-            <a href="https://app.winity.life/business" target="_blank" rel="noopener noreferrer" className="btn-pill" style={{ fontSize: 13 }}>
+            <a href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup" target="_blank" rel="noopener noreferrer" className="btn-pill" style={{ fontSize: 13 }}>
               Start accepting payments
               <span className="pill-icon" aria-hidden="true">
                 <svg width="13" height="13" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="2">
@@ -932,7 +932,7 @@ function TreasurySection() {
                   )}
 
                   <a
-                    href={tier.featured ? 'mailto:concierge@winity.life' : 'https://app.winity.life/business'}
+                    href={tier.featured ? 'mailto:concierge@winity.life' : 'https://main.d1hk1kkou2qjtz.amplifyapp.com/signup'}
                     target={tier.featured ? undefined : '_blank'}
                     rel={tier.featured ? undefined : 'noopener noreferrer'}
                     style={{
@@ -1328,7 +1328,7 @@ function PricingSection() {
       badgeColor: MINT,
       featured: false,
       cta: 'Get started',
-      ctaHref: 'https://app.winity.life/business',
+      ctaHref: 'https://main.d1hk1kkou2qjtz.amplifyapp.com/signup',
       features: [
         'Up to 5 team Visa cards',
         'Digital asset payment acceptance',
@@ -1541,7 +1541,7 @@ function BusinessCTA() {
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
-            <a href="https://app.winity.life/business" target="_blank" rel="noopener noreferrer" className="btn-pill" style={{ fontSize: 14 }}>
+            <a href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup" target="_blank" rel="noopener noreferrer" className="btn-pill" style={{ fontSize: 14 }}>
               Apply for Business
               <span className="pill-icon" aria-hidden="true">
                 <svg width="14" height="14" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="2">

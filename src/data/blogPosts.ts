@@ -180,7 +180,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Rewards',
     readTime: '4 min read',
     date: 'February 20, 2026',
-    image: 'https://winity.life/wp-content/uploads/2026/02/Blog_v0010-5-1024x538.webp',
+    image: '/blog_v0010.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'This Lunar New Year, Winity Life is introducing the "Spend Like a Stallion" tiered rewards program. Running from 17 February through 3 March 2026, this campaign rewards active cardholders with significant Winity Points multipliers based on their spending volume during the festive period.' },
@@ -205,7 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Product',
     readTime: '5 min read',
     date: 'February 17, 2026',
-    image: 'https://winity.life/wp-content/uploads/2026/02/Blog_v008-4.jpg',
+    image: '/blog_v008.jpg',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'Lunar New Year is the busiest travel season of the year. Whether you are returning to Hong Kong for family reunions or boarding a flight for a holiday getaway, international financial transactions should be the least of your concerns.' },
@@ -232,7 +232,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Product',
     readTime: '3 min read',
     date: 'January 22, 2026',
-    image: 'https://winity.life/wp-content/uploads/2026/01/Blog_v004-7.jpg',
+    image: '/blog_v004.jpg',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'Winity Technology Limited has officially launched the "Your Card, On Us" campaign. Designed to reward active members of the Winity ecosystem, this initiative allows virtual cardholders to receive a physical Winity Exclusive Visa card at zero issuance cost.' },

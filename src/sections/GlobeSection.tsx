@@ -34,7 +34,6 @@ const TRANSACTIONS = [
   { text: 'Coffee purchased in London', value: '£3.80', type: 'spend', location: 'UK' },
   { text: 'USDT transfer received', value: '+$850.00', type: 'deposit', location: 'Hong Kong' },
   { text: 'Metro fare paid in Paris', value: '€2.10', type: 'spend', location: 'France' },
-  { text: 'Winity Loop bonus unlocked', value: '+$2.00', type: 'loop', location: 'Singapore' },
   { text: 'USDC transfer received', value: '+$1,500.00', type: 'deposit', location: 'USA' },
   { text: 'Hotel lounge charge in Tokyo', value: '¥14,200', type: 'spend', location: 'Japan' },
 ]

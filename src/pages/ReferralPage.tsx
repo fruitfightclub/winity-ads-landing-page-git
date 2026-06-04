@@ -945,10 +945,10 @@ export default function ReferralPage() {
           <div className="reveal-up" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             <p style={{ color: 'rgba(143,163,160,0.45)', fontSize: 12, lineHeight: 1.65 }}>
               Winity Loop rewards are subject to terms and conditions. See full terms at{' '}
-              <a href="https://winity.life/terms" target="_blank" rel="noopener noreferrer"
+              <Link to="/terms"
                 style={{ color: 'rgba(33,230,167,0.55)', textDecoration: 'none' }}>
                 winity.life/terms
-              </a>.
+              </Link>.
             </p>
             <p style={{ color: 'rgba(143,163,160,0.45)', fontSize: 12, lineHeight: 1.65 }}>
               UMI data benefit and Winity Club discount subject to programme terms and eligibility.

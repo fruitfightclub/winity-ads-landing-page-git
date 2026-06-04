@@ -535,9 +535,9 @@ export default function LoyaltySection() {
           }}>
             * Points shown are for illustrative purposes only and represent estimated monthly earnings at the selected spend level.
             Actual points earned may vary. Reward redemption is subject to availability, partner terms, and Winity Life's{' '}
-            <a href="https://winity.life/terms" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(33,230,167,0.5)', textDecoration: 'none' }}>
+            <Link to="/terms" style={{ color: 'rgba(33,230,167,0.5)', textDecoration: 'none' }}>
               full terms &amp; conditions
-            </a>.
+            </Link>.
           </p>
         </div>
 
