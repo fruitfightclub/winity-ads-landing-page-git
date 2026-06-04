@@ -42,10 +42,10 @@ const STEPS = [
   {
     number: '04',
     title: 'Spend & Earn',
-    desc: 'Spend anywhere Visa is accepted in 200+ countries with 150M+ merchant locations. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
+    desc: 'Spend anywhere Visa is accepted in 180+ countries with 150M+ merchant locations. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
     img: '/Spend and Earn.png',
     badge: 'Earn on every spend',
-    stat: '200+ countries',
+    stat: '180+ countries',
   },
 ]
 
@@ -152,6 +152,23 @@ export default function HowItWorks() {
   const [mobileActive, setMobileActive] = useState(0)
   const touchStartX   = useRef(0)
   const imgRefs       = useRef<(HTMLImageElement | null)[]>([])
+
+  const [circleTops, setCircleTops] = useState<number[]>([])
+
+  const updateCirclePositions = useCallback(() => {
+    const tops = stepRefs.current.map(el => el ? el.offsetTop : 0)
+    setCircleTops(tops)
+  }, [])
+
+  useEffect(() => {
+    updateCirclePositions()
+    const timer = setTimeout(updateCirclePositions, 100)
+    window.addEventListener('resize', updateCirclePositions)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', updateCirclePositions)
+    }
+  }, [activeStep, updateCirclePositions])
 
   // ── Scroll entrance for header + copper line draw ──────────────────
   useEffect(() => {
@@ -280,7 +297,7 @@ export default function HowItWorks() {
             color: 'rgba(244,247,246,0.45)', marginTop: 18,
             fontSize: 'clamp(14px,1.1vw,17px)', maxWidth: 480, marginInline: 'auto', lineHeight: 1.7,
           }}>
-            Verify once, load your wallet, and you're ready to spend in 200+ countries.
+            Verify once, load your wallet, and you're ready to spend in 180+ countries.
           </p>
         </div>
 
@@ -322,14 +339,18 @@ export default function HowItWorks() {
 
               {/* Vertical copper rail */}
               <div style={{
-                position: 'absolute', left: 22, top: 25, bottom: 79, width: 2,
+                position: 'absolute', left: 22, top: 25, width: 2,
                 background: 'rgba(255,255,255,0.05)', borderRadius: 1,
+                height: circleTops[3] ? circleTops[3] - 23 : 'calc(100% - 130px)',
               }} />
               {/* Active fill */}
               <div style={{
                 position: 'absolute', left: 22, top: 25, width: 2, borderRadius: 1,
                 background: 'linear-gradient(180deg, #21E6A7, #0ECFB5)',
-                height: `${(activeStep / (STEPS.length - 1)) * 100}%`,
+                height: circleTops.length > 0
+                  ? (activeStep === 0 ? 0 : activeStep === 3 ? circleTops[3] - 23 : circleTops[activeStep])
+                  : `${(activeStep / (STEPS.length - 1)) * 100}%`,
+                maxHeight: circleTops[3] ? circleTops[3] - 23 : 'calc(100% - 129px)',
                 transition: 'height 0.5s cubic-bezier(0.25,1,0.5,1)',
                 boxShadow: '0 0 12px rgba(33,230,167,0.4)',
               }} />

@@ -217,7 +217,7 @@ const CARD_TERMS = [
   'Google Pay ready immediately after issuance',
   'Accepted at 150M+ Visa® merchant locations worldwide',
   'Earn 1 Winity Point per USD 10 spent',
-  'Available in 200+ countries and regions',
+  'Available in 180+ countries and regions',
   'Physical card available from USD 20/yr (first 6 months free after $25 spend)',
 ]
 

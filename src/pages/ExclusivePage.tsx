@@ -105,11 +105,11 @@ const MOMENTS = [
   {
     label:    'Global ATM Access',
     headline: 'Cash. Anywhere\nVisa® is accepted.',
-    body:     'Withdraw cash at any Visa® ATM in 200+ countries and territories worldwide. Your physical card gives you access to global banking infrastructure, wherever you travel. USD 3 per withdrawal, no foreign transaction fee.',
+    body:     'Withdraw cash at any Visa® ATM in 180+ countries and territories worldwide. Your physical card gives you access to global banking infrastructure, wherever you travel. USD 3 per withdrawal, no foreign transaction fee.',
     image:    '/card_hero_float.jpg',
     fallback: '/exp_cards_closeup.png',
     icon:     Banknote,
-    badge:    '200+ Countries',
+    badge:    '180+ Countries',
     imgRight: true,
     appScreen: false,
   },
@@ -153,7 +153,7 @@ const PREMIUM_TIERS = [
 
 // ─── Small feature grid ───────────────────────────────────────────────────────
 const SMALL_FEATURES = [
-  { icon: Globe,       stat: '150M+',    title: 'Visa Merchants',    desc: 'Accepted worldwide at 150M+ Visa® locations across 200+ countries.' },
+  { icon: Globe,       stat: '150M+',    title: 'Visa Merchants',    desc: 'Accepted worldwide at 150M+ Visa® locations across 180+ countries.' },
   { icon: Smartphone,  stat: 'NFC',      title: 'Google Pay Ready',  desc: 'Tap to pay anywhere NFC is accepted. Apple Pay arriving soon.' },
   { icon: Shield,      stat: 'OTP-Free', title: '3D Secure',         desc: 'Biometric in-app authentication replaces SMS codes, faster and more secure.' },
   { icon: Zap,         stat: '0%',       title: 'Transfer Fees',     desc: 'Load with USDC or USDT at zero fee. No hidden margin on stablecoins.' },
@@ -183,7 +183,7 @@ const FEES = [
 
 const TICKER_ITEMS = [
   'Google Pay Ready', '0% Stablecoin Load',
-  '150M+ Visa Merchants', '200+ Countries', 'ATM Worldwide', 'OTP-Free 3DS',
+  '150M+ Visa Merchants', '180+ Countries', 'ATM Worldwide', 'OTP-Free 3DS',
   '1 pt per USD 10', 'Winity Loop', '20% Data Discount',
 ]
 
@@ -493,7 +493,7 @@ export default function ExclusivePage() {
                 }}
               >
                 The Winity Exclusive card is issued upon KYC approval.
-                Spend at 150M+ Visa® merchant locations across 200+ countries.
+                Spend at 150M+ Visa® merchant locations across 180+ countries.
                 ATM access wherever Visa® is accepted.
               </p>
 

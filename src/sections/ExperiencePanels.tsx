@@ -76,7 +76,7 @@ const panels: PanelData[] = [
     number: '03',
     title: 'Winity Life',
     subheadline: 'Built for people who live without borders.',
-    body: 'Dinner in Tokyo, art fairs in Basel, sunsets in Dubai. Your Winity card earns on every purchase and travels with you through 200+ countries, all managed from one app, 24/7.',
+    body: 'Dinner in Tokyo, art fairs in Basel, sunsets in Dubai. Your Winity card earns on every purchase and travels with you through 180+ countries, all managed from one app, 24/7.',
     cta: 'Download the app',
     ctaLink: 'https://apps.apple.com/us/app/winity-life/id6752761057',
     external: true,

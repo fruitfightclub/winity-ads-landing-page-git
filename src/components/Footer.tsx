@@ -148,7 +148,7 @@ export default function Footer() {
               Many Ways to Move. One Way to Pay.
             </p>
             <p style={{ fontSize: 11, color: 'rgba(240,237,230,0.25)', marginTop: 8, lineHeight: 1.5 }}>
-              Digital asset-linked Visa cards for the global economy. Available in 80+ countries.
+              Digital asset-linked Visa cards for the global economy. Available in 180+ countries.
             </p>
           </div>
 

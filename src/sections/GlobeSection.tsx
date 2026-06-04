@@ -283,7 +283,7 @@ export default function GlobeSection() {
                 fontSize: 'clamp(14px, 1.1vw, 16px)', color: 'rgba(244,247,246,0.5)',
                 lineHeight: 1.7, maxWidth: 520, marginTop: 14,
               }}>
-                Load stablecoins with zero fees, or convert non-stable digital assets instantly. One card. 200+ countries. Every Visa terminal on the planet.
+                Load stablecoins with zero fees, or convert non-stable digital assets instantly. One card. 180+ countries. Every Visa terminal on the planet.
               </p>
             </div>
 
@@ -571,7 +571,7 @@ export default function GlobeSection() {
           }}>
             {[
               { value: '150M+', label: 'Visa Merchants', sub: 'Worldwide acceptance terminals' },
-              { value: '200+',  label: 'Countries & Regions', sub: 'Active global membership utility' },
+              { value: '180+',  label: 'Countries & Regions', sub: 'Active global membership utility' },
               { value: 'USD',   label: 'Base Denomination', sub: 'Transactions denominated in USD for global spend' },
               { value: '0%',    label: 'Stablecoin transfer fees', sub: 'Zero hidden margin on loads' },
             ].map(stat => (

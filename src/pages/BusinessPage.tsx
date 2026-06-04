@@ -235,7 +235,7 @@ function BusinessHero() {
                 'Visa® Network',
                 'KYC Compliant',
                 '150M+ Merchants',
-                '200+ Countries',
+                '180+ Countries',
                 'Team Cards',
               ].map(t => (
                 <span key={t} style={{
@@ -413,7 +413,7 @@ function BusinessHero() {
                 {[
                   { value: 'Unlimited', label: 'Team Cards' },
                   { value: '$0', label: 'Monthly Fee' },
-                  { value: '200+', label: 'Countries' },
+                  { value: '180+', label: 'Countries' },
                 ].map(s => (
                   <div key={s.label} style={{
                     textAlign: 'center', padding: '16px 8px',
@@ -461,7 +461,7 @@ function MetricsBar() {
 
   const metrics = [
     { value: '150M+', label: 'Visa® merchant locations worldwide' },
-    { value: '200+', label: 'Countries supported' },
+    { value: '180+', label: 'Countries supported' },
     { value: 'Unlimited', label: 'Team cards per account' },
     { value: '24/7', label: 'Business support' },
     { value: 'USD 0', label: 'Platform setup fee' },
@@ -684,7 +684,7 @@ function TeamCardsSection() {
     { icon: Layers, title: 'Budget Separation', body: 'Ring-fence budgets by department, project, or event. Accounting integration included.' },
     { icon: Lock, title: 'Instant Controls', body: 'Freeze, unfreeze, or cancel any card in seconds. Set category locks, geo-restrictions, and daily limits.' },
     { icon: BarChart3, title: 'Real-Time Spend View', body: 'Every transaction visible instantly. Download reports in CSV or connect to your accounting software.' },
-    { icon: Globe, title: 'Global Acceptance', body: '150M+ Visa® merchant locations across 200+ countries. ATM withdrawals wherever Visa® is accepted.' },
+    { icon: Globe, title: 'Global Acceptance', body: '150M+ Visa® merchant locations across 180+ countries. ATM withdrawals wherever Visa® is accepted.' },
     { icon: Zap, title: 'Digital-First', body: 'Virtual cards issued upon KYC approval. Add to Google Pay and start spending the same day. Apple Pay support coming soon.' },
   ]
 
@@ -1115,7 +1115,7 @@ function GlobalSection() {
   const globalFeatures = [
     { icon: Globe, title: '150M+ merchants', sub: 'Worldwide Visa® acceptance' },
     { icon: Banknote, title: 'ATM worldwide', sub: 'Wherever Visa® is accepted' },
-    { icon: Users, title: '200+ countries', sub: 'Business & personal use' },
+    { icon: Users, title: '180+ countries', sub: 'Business & personal use' },
     { icon: Zap, title: 'Real-time FX', sub: 'Competitive exchange rates' },
   ]
 
@@ -1556,7 +1556,7 @@ function BusinessCTA() {
 
           {/* Trust signals */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginTop: 40, flexWrap: 'wrap' }}>
-            {['Visa® Secured', 'KYC Compliant', '200+ Countries', 'Free to start'].map(t => (
+            {['Visa® Secured', 'KYC Compliant', '180+ Countries', 'Free to start'].map(t => (
               <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: `${MUTED}80` }}>
                 <span style={{ width: 4, height: 4, borderRadius: '50%', background: `${MINT}60` }} />
                 {t}

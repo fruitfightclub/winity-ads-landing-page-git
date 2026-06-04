@@ -10,7 +10,6 @@ import UseCasesSection from '../sections/UseCasesSection'
 import HowItWorks from '../sections/HowItWorks'
 import GlobeSection from '../sections/GlobeSection'
 import LoyaltySection from '../sections/LoyaltySection'
-import LoopSection from '../sections/LoopSection'
 import ExperiencePanels from '../sections/ExperiencePanels'
 import BlogStrip from '../sections/BlogStrip'
 import JoinCTA from '../sections/JoinCTA'
@@ -20,7 +19,7 @@ export default function HomePage() {
     <>
       <SEO
         title="Winity Life — Global Visa Card & Payments Platform"
-        description="Spend digital assets globally with a Winity Visa card. Supports USDT, USDC, ETH, SOL and more. Earn points on every purchase. Available in 200+ countries wherever Visa is accepted."
+        description="Spend digital assets globally with a Winity Visa card. Supports USDT, USDC, ETH, SOL and more. Earn points on every purchase. Available in 180+ countries wherever Visa is accepted."
         canonicalUrl="https://winity.life"
         ogImage="/og-image.png"
       />
@@ -46,10 +45,7 @@ export default function HomePage() {
       {/* Section 8 — Loyalty points programme */}
       <LoyaltySection />
 
-      {/* Section 9 — Winity Loop referral */}
-      <LoopSection />
-
-      {/* Section 10 — Blog strip */}
+{/* Section 10 — Blog strip */}
       <BlogStrip />
 
       {/* Section 11 — Final CTA with copper arch */}

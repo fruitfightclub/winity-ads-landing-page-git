@@ -76,7 +76,7 @@ const SECTIONS = [
       },
       {
         q: 'Can I use the Winity Card at ATMs?',
-        a: 'Yes. Your physical Winity Card works at any Visa® ATM in 200+ countries. ATM withdrawal fee: USD 3 per transaction. PIN change at ATM: USD 5.',
+        a: 'Yes. Your physical Winity Card works at any Visa® ATM in 180+ countries. ATM withdrawal fee: USD 3 per transaction. PIN change at ATM: USD 5.',
       },
     ],
   },
