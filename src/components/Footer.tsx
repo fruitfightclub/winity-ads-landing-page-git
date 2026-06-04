@@ -29,7 +29,7 @@ const footerLinks = {
   'Member Services': [
     { label: 'WhatsApp',      href: 'https://wa.link/wxto1u' },
     { label: 'Support Portal', to: '/help' },
-    { label: 'FAQs',           to: '/help' },
+    { label: 'FAQs',           to: '/faqs' },
   ],
 }
 

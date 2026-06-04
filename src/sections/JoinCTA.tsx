@@ -197,17 +197,6 @@ export default function JoinCTA() {
           ))}
         </div>
 
-        {/* Sign in link */}
-        <div className="mt-6">
-          <a
-            href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted/50 text-xs hover:text-muted transition-colors"
-          >
-            Already have an account? Sign in on web
-          </a>
-        </div>
       </div>
     </section>
   )

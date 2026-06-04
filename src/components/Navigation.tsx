@@ -33,7 +33,7 @@ export default function Navigation() {
   const [mobileOpen,   setMobileOpen]   = useState(false)
   const [cardsOpen,    setCardsOpen]    = useState(false)
   const [mobileCards,  setMobileCards]  = useState(false)
-  const [storeUrl,     setStoreUrl]     = useState('https://main.d1hk1kkou2qjtz.amplifyapp.com/signup')
+  const [storeUrl,     setStoreUrl]     = useState('https://apps.apple.com/us/app/winity-life/id6752761057')
 
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
@@ -42,7 +42,7 @@ export default function Navigation() {
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
       setStoreUrl('https://apps.apple.com/us/app/winity-life/id6752761057')
     } else {
-      setStoreUrl('https://main.d1hk1kkou2qjtz.amplifyapp.com/signup')
+      setStoreUrl('https://apps.apple.com/us/app/winity-life/id6752761057')
     }
   }, [])
 
@@ -253,14 +253,6 @@ export default function Navigation() {
           {/* ── Desktop CTAs ── */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost text-sm py-2 hover:text-mint transition-colors"
-            >
-              Sign Up
-            </a>
-            <a
               href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -359,21 +351,6 @@ export default function Navigation() {
 
           {/* Mobile CTAs */}
           <div className="flex flex-col gap-3 pb-8">
-            <a
-              href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-pill justify-center"
-              style={{ padding: '13px 18px 13px 28px' }}
-              onClick={() => setMobileOpen(false)}
-            >
-              Sign Up Now
-              <span className="pill-icon" aria-hidden="true">
-                <svg width="14" height="14" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.5 7h9m-4-4.5L11 7l-3.5 3.5" />
-                </svg>
-              </span>
-            </a>
             <a
               href="https://apps.apple.com/us/app/winity-life/id6752761057"
               target="_blank"

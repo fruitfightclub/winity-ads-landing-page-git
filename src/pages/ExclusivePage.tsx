@@ -503,7 +503,7 @@ export default function ExclusivePage() {
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginBottom: 28 }}
               >
                 <a
-                  href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
+                  href="https://apps.apple.com/us/app/winity-life/id6752761057"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -517,7 +517,24 @@ export default function ExclusivePage() {
                   onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'brightness(1.1)' }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'none' }}
                 >
-                  Sign Up Now <ArrowRight size={16} />
+                  App Store <ArrowRight size={16} />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.winity.life"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    padding: '14px 34px', borderRadius: 999,
+                    fontWeight: 600, fontSize: 14, letterSpacing: '0.02em',
+                    color: '#fff', textDecoration: 'none',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    transition: 'border-color 0.25s ease',
+                  }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = `${MINT}55` }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.18)' }}
+                >
+                  Google Play <ArrowRight size={16} />
                 </a>
                 <Link
                   to="/executive"
@@ -747,7 +764,7 @@ export default function ExclusivePage() {
               </div>
 
               <a
-                href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
+                href="https://apps.apple.com/us/app/winity-life/id6752761057"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="promo-reveal"
@@ -761,7 +778,24 @@ export default function ExclusivePage() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'brightness(1.08)' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'none' }}
               >
-                Sign Up Now <ArrowRight size={15} />
+                App Store <ArrowRight size={15} />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.winity.life"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="promo-reveal"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '15px 38px', borderRadius: 999,
+                  fontWeight: 600, fontSize: 15, color: '#fff', textDecoration: 'none',
+                  border: '1px solid rgba(255,255,255,0.18)',
+                  transition: 'border-color 0.25s ease',
+                }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = `${MINT}55` }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.18)' }}
+              >
+                Google Play <ArrowRight size={15} />
               </a>
               <p style={{ fontSize: 11, color: 'rgba(143,163,160,0.4)', marginTop: 10 }}>
                 * Shipping charges may apply. Subject to availability and programme terms.
@@ -1118,7 +1152,7 @@ export default function ExclusivePage() {
                   No bank account required. No staking. No waiting.
                 </p>
                 <a
-                  href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
+                  href="https://apps.apple.com/us/app/winity-life/id6752761057"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -1128,7 +1162,20 @@ export default function ExclusivePage() {
                     background: `linear-gradient(135deg, ${MINT} 0%, ${MINT_HI} 100%)`,
                   }}
                 >
-                  Sign Up Now <ArrowRight size={15} />
+                  App Store <ArrowRight size={15} />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.winity.life"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    padding: '12px 28px', borderRadius: 999,
+                    fontWeight: 600, fontSize: 14, color: '#fff', textDecoration: 'none',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                  }}
+                >
+                  Google Play <ArrowRight size={15} />
                 </a>
               </div>
             </div>
@@ -1398,7 +1445,7 @@ export default function ExclusivePage() {
           </p>
           <div className="reveal-up" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 14 }}>
             <a
-              href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
+              href="https://apps.apple.com/us/app/winity-life/id6752761057"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -1408,7 +1455,20 @@ export default function ExclusivePage() {
                 background: `linear-gradient(135deg, ${MINT} 0%, ${MINT_HI} 100%)`,
               }}
             >
-              Sign Up Now <ArrowRight size={16} />
+              App Store <ArrowRight size={16} />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.winity.life"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '15px 40px', borderRadius: 999,
+                fontWeight: 600, fontSize: 15, color: '#fff', textDecoration: 'none',
+                border: '1px solid rgba(255,255,255,0.18)',
+              }}
+            >
+              Google Play <ArrowRight size={16} />
             </a>
             <Link
               to="/loyalty"

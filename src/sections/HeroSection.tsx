@@ -273,15 +273,13 @@ export default function HeroSection() {
       <div ref={prRef} style={{
         position: 'relative', zIndex: 30,
         width: '100%',
-        overflow: 'hidden',
         borderTop: '1px solid rgba(255,255,255,0.05)',
-        paddingBlock: 28,
+        paddingBlock: 20,
+        marginTop: 'clamp(60px, 10vh, 100px)',
         background: 'rgba(3,12,12,0.65)',
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
       }}>
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to right, #030C0C, transparent)', zIndex: 10 }} />
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to left, #030C0C, transparent)', zIndex: 10 }} />
         <p style={{
           textAlign: 'center', marginBottom: 18,
           color: 'rgba(255,255,255,0.26)', fontSize: 12, fontWeight: 500,
@@ -289,9 +287,13 @@ export default function HeroSection() {
         }}>
           Featured On
         </p>
-        <div style={{ overflow: 'hidden' }}>
+        <div style={{
+          overflow: 'hidden',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+        }}>
           <div className="pr-track" style={{ display: 'flex', width: 'max-content' }}>
-            {[...PR_LOGOS, ...PR_LOGOS].map((logo, i) => (
+            {[...PR_LOGOS, ...PR_LOGOS, ...PR_LOGOS, ...PR_LOGOS].map((logo, i) => (
               <span key={i} style={{
                 ...(logo.style as React.CSSProperties),
                 padding: '0 48px',

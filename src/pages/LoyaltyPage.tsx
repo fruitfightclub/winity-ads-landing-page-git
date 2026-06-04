@@ -807,12 +807,20 @@ export default function LoyaltyPage() {
               <ArrowRight size={16} />
             </Link>
             <a
-              href="https://main.d1hk1kkou2qjtz.amplifyapp.com/signup"
+              href="https://apps.apple.com/us/app/winity-life/id6752761057"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-sm tracking-wide text-white border border-white/20 hover:border-mint/40 transition-colors duration-300"
             >
-              Sign Up Now
+              App Store
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.winity.life"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-sm tracking-wide text-white border border-white/20 hover:border-mint/40 transition-colors duration-300"
+            >
+              Google Play
             </a>
           </div>
         </div>
