@@ -206,7 +206,7 @@ export default function HeroSection() {
       <div className="hero-stage-wrap" style={{
         position: 'relative',
         zIndex: 5,
-        height: 'clamp(300px, 60vh, 720px)',
+        height: 'clamp(360px, 96vw, 580px)',
         width: '100%',
         marginTop: 'clamp(16px, 4vh, 48px)',
         display: 'flex',
