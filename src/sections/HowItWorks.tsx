@@ -34,7 +34,7 @@ const STEPS = [
   {
     number: '03',
     title: 'Load Your Wallet',
-    desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your crypto converts to USD automatically. No bank required, no extra steps.',
+    desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your digital assets convert directly to USD inside the platform. Freedom in flexibility, from your first transfer.',
     img: '/Fund your card.png',
     badge: 'Freedom in flexibility',
     stat: '0% stablecoin fee',
@@ -42,7 +42,7 @@ const STEPS = [
   {
     number: '04',
     title: 'Spend & Earn',
-    desc: 'Spend anywhere Visa is accepted in 180+ countries with 150M+ merchant locations. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
+    desc: 'Spend anywhere Visa is accepted in 180+ countries with 150M+ merchant locations and zero spend fees. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
     img: '/Spend and Earn.png',
     badge: 'Earn on every spend',
     stat: '180+ countries',
@@ -290,14 +290,14 @@ export default function HowItWorks() {
             color: '#F4F7F6', letterSpacing: '-0.03em', lineHeight: 1.06,
             margin: '0 auto', maxWidth: 680,
           }}>
-            From download to first spend:{' '}
-            <span className="text-gradient-mint">four steps, no branch visit.</span>
+            Up and running.{' '}
+            <span className="text-gradient-mint">In minutes.</span>
           </h2>
           <p style={{
             color: 'rgba(244,247,246,0.45)', marginTop: 18,
             fontSize: 'clamp(14px,1.1vw,17px)', maxWidth: 480, marginInline: 'auto', lineHeight: 1.7,
           }}>
-            Verify once, load your wallet, and you're ready to spend in 180+ countries.
+            From download to your first global spend: setup takes minutes, not days.
           </p>
         </div>
 
@@ -379,7 +379,7 @@ export default function HowItWorks() {
                       border: i === activeStep
                         ? '2px solid rgba(33,230,167,0.55)'
                         : '2px solid rgba(255,255,255,0.08)',
-                      background: i === activeStep ? '#0D3D35' : '#0B2926',
+                      background: i === activeStep ? 'rgba(33,230,167,0.10)' : 'rgba(15,63,58,0.4)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       transition: 'all 0.4s cubic-bezier(0.25,1,0.5,1)',
                       boxShadow: i === activeStep ? '0 0 20px rgba(33,230,167,0.20)' : 'none',

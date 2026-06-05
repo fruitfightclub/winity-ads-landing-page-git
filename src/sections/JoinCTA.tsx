@@ -65,43 +65,28 @@ export default function JoinCTA() {
       style={{ background: '#030C0C', minHeight: '540px' }}
       aria-label="Get started with Winity Life"
     >
-      {/* Grid / mesh background — distinct from the hero arch */}
-      <div
+      {/* Copper arch background */}
+      <img
+        src="/hero_bg_arch3.png"
+        alt=""
         aria-hidden="true"
         style={{
-          position: 'absolute', inset: 0, overflow: 'hidden',
-          background: 'radial-gradient(ellipse 100% 70% at 50% 100%, rgba(33,230,167,0.07) 0%, transparent 65%)',
+          position: 'absolute', bottom: 0, left: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover', objectPosition: 'center bottom',
+          mixBlendMode: 'screen',
+          filter: 'brightness(0.75) saturate(1.2)',
+          opacity: 0.6,
+          pointerEvents: 'none',
         }}
-      >
-        {/* Horizontal lines — subtle grid */}
-        <svg
-          width="100%" height="100%"
-          style={{ position: 'absolute', inset: 0, opacity: 0.035 }}
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <pattern id="cta-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#21E6A7" strokeWidth="0.7"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#cta-grid)" />
-        </svg>
-        {/* Centered bloom */}
-        <div style={{
-          position: 'absolute', bottom: '-10%', left: '50%', transform: 'translateX(-50%)',
-          width: '70vw', height: '60vw', maxWidth: 900,
-          borderRadius: '50%',
-          background: 'radial-gradient(ellipse, rgba(33,230,167,0.09) 0%, transparent 65%)',
-          filter: 'blur(40px)',
-        }} />
-      </div>
+      />
 
-      {/* Dark overlay */}
+      {/* Deep radial gradient overlay */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(180deg, #061C1E 0%, rgba(3,12,12,0.7) 50%, #030C0C 100%)',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 70%, rgba(13,56,50,0.55) 0%, rgba(3,12,12,0.82) 65%, #030C0C 100%)',
         }}
       />
 
@@ -133,14 +118,14 @@ export default function JoinCTA() {
             className="font-black text-off-white leading-[1.05] tracking-tight"
             style={{ fontSize: 'clamp(32px, 5.5vw, 68px)', maxWidth: 820, margin: '0 auto 24px' }}
           >
-            Get the card that keeps up.
+            The world moves.<br /><span className="text-gradient-mint">Your wallet should too.</span>
           </h2>
 
           <p
             className="text-muted leading-relaxed"
             style={{ fontSize: 'clamp(15px, 1.3vw, 18px)', maxWidth: 540, margin: '0 auto' }}
           >
-            Download Winity Life, verify in minutes, and spend your crypto anywhere Visa is accepted across 180+ countries.
+            Download the Winity Life app, verify in minutes, and spend globally with your digital asset-linked Visa card.
           </p>
         </div>
 

@@ -1,5 +1,9 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 let lenis: Lenis | null = null
 
@@ -16,15 +20,18 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
       smoothWheel: true,
     })
 
-    function raf(time: number) {
-      lenis?.raf(time)
-      requestAnimationFrame(raf)
-    }
+    // Drive Lenis through GSAP's ticker so ScrollTrigger and Lenis
+    // share the same animation frame — prevents desync on reload
+    const onScroll = () => ScrollTrigger.update()
+    lenis.on('scroll', onScroll)
 
-    const rafId = requestAnimationFrame(raf)
+    const tickerFn = (time: number) => { lenis?.raf(time * 1000) }
+    gsap.ticker.add(tickerFn)
+    gsap.ticker.lagSmoothing(0)
 
     return () => {
-      cancelAnimationFrame(rafId)
+      lenis?.off('scroll', onScroll)
+      gsap.ticker.remove(tickerFn)
       lenis?.destroy()
       lenis = null
     }

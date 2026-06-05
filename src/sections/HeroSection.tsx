@@ -129,7 +129,7 @@ export default function HeroSection() {
           .hero-bg-arch-desktop { display: none; }
           .hero-bg-arch-mobile  { display: block; }
           .crypto-icon          { display: none; }
-          .hero-stage-wrap      { margin-top: 4px !important; }
+          .hero-stage-wrap      { margin-top: 24px !important; }
           .phone-wrap           { bottom: 4% !important; }
           .hero-section         { min-height: 0 !important; }
         }
@@ -149,8 +149,9 @@ export default function HeroSection() {
       <div style={{
         position: 'relative', zIndex: 30,
         textAlign: 'center',
-        paddingTop: 'clamp(52px, 10vh, 120px)',
+        paddingTop: 'clamp(88px, 12vh, 140px)',
         paddingInline: 24,
+        background: 'linear-gradient(to bottom, #030C0C 55%, transparent)',
       }}>
         <h1
           ref={headlineRef}
@@ -171,6 +172,7 @@ export default function HeroSection() {
       {/* ── Hero Stage ─────────────────────────────────────────────────── */}
       <div className="hero-stage-wrap" style={{
         position: 'relative',
+        zIndex: 5,
         height: 'clamp(300px, 60vh, 720px)',
         width: '100%',
         marginTop: 'clamp(16px, 4vh, 56px)',
@@ -271,7 +273,7 @@ export default function HeroSection() {
 
       {/* ── PR Strip ───────────────────────────────────────────────────── */}
       <div ref={prRef} style={{
-        position: 'relative', zIndex: 30,
+        position: 'relative', zIndex: 40,
         width: '100%',
         borderTop: '1px solid rgba(255,255,255,0.05)',
         paddingBlock: 20,
@@ -314,7 +316,7 @@ export default function HeroSection() {
         position: 'absolute', bottom: 0, left: 0, right: 0,
         height: 160,
         background: 'linear-gradient(to bottom, transparent, #030C0C)',
-        zIndex: 29, pointerEvents: 'none',
+        zIndex: 2, pointerEvents: 'none',
       }} />
     </section>
   )

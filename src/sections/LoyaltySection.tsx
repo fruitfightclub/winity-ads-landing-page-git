@@ -169,13 +169,13 @@ export default function LoyaltySection() {
             color: '#F4F7F6', letterSpacing: '-0.03em', lineHeight: 1.06,
             margin: '0 auto 14px', maxWidth: 680,
           }}>
-            Every purchase earns points.<br />Redeem for what matters most.
+            Points that open <span style={{ background: 'linear-gradient(135deg, #21E6A7 0%, #0CF5BC 45%, #0ECFB5 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>the world.</span>
           </h2>
           <p style={{
             fontSize: 'clamp(14px,1.1vw,16px)', color: 'rgba(244,247,246,0.5)',
             lineHeight: 1.7, maxWidth: 540, margin: '0 auto',
           }}>
-            Drag the slider to see where your monthly spend takes you, from everyday perks to business class and five-star stays.
+            Every eligible purchase earns Winity Points. See exactly what you could unlock — then redeem for travel, dining, and curated lifestyle experiences.
           </p>
         </div>
 

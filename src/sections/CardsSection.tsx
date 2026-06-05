@@ -286,10 +286,11 @@ export default function CardsSection() {
             fontWeight: 800, letterSpacing: '-0.03em',
             color: '#F4F7F6', lineHeight: 1.06, margin: 0,
           }}>
-            Pick your card. Start free.
+            Three tiers.<br />
+            <span className="text-gradient-mint">One Visa network.</span>
           </h2>
-          <p style={{ color: 'rgba(244,247,246,0.45)', marginTop: 16, fontSize: 15, maxWidth: 480, marginInline: 'auto' }}>
-            One Visa network, three tiers: from virtual-first to brushed metal. Upgrade any time, no lock-in.
+          <p style={{ color: 'rgba(244,247,246,0.45)', marginTop: 16, fontSize: 15, maxWidth: 460, marginInline: 'auto' }}>
+            Start free. Upgrade as your life grows.
           </p>
         </div>
 
