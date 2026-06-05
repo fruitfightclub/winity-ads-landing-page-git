@@ -152,7 +152,7 @@ export default function HeroSection() {
             color: '#FFF',
           }}
         >
-          Many ways to move,<br />One way to pay
+          Many ways to Move,<br />One way to Pay
         </h1>
       </div>
 

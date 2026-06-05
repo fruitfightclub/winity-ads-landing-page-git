@@ -155,7 +155,7 @@ export default function ExecutivePage() {
       {/* ── FULL VIEWPORT PAGE ──────────────────────────────────────────── */}
       <div
         ref={pageRef}
-        className="relative min-h-screen overflow-hidden bg-[#061C1E]"
+        className="relative min-h-screen overflow-x-hidden bg-[#061C1E] flex flex-col justify-center"
       >
         {/* Cinematic hero background */}
         <div className="absolute inset-0 z-0">
@@ -192,8 +192,13 @@ export default function ExecutivePage() {
 
         {/* Content — left-aligned so card creative on the right is unobstructed */}
         <div
-          className="absolute inset-0 z-20 flex items-center justify-start"
-          style={{ padding: 'clamp(80px, 10vh, 120px) clamp(24px, 7vw, 120px)' }}
+          className="relative z-20 flex-1 flex items-center justify-start w-full"
+          style={{
+            paddingTop: 'clamp(120px, 15vh, 180px)',
+            paddingBottom: 'clamp(60px, 8vh, 100px)',
+            paddingLeft: 'clamp(24px, 7vw, 120px)',
+            paddingRight: 'clamp(24px, 7vw, 120px)',
+          }}
         >
         <div ref={copyRef} className="flex flex-col items-start text-left" style={{ maxWidth: 520, width: '100%' }}>
 
