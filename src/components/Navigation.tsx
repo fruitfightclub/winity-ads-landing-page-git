@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { gsap } from 'gsap'
+import { getLenis } from './LenisProvider'
 
 // ─── Cards dropdown items ────────────────────────────────────────────────────
 const cardsDropdownLinks = [
@@ -53,11 +54,31 @@ export default function Navigation() {
 
   const { pathname } = useLocation()
 
-  // Scroll detection
+  // Scroll detection — listens to both native scroll and Lenis scroll event.
+  // Lenis (smoothWheel) intercepts wheel events before the native scroll fires
+  // on some Chrome/Edge builds, so we hook into Lenis directly via a deferred
+  // setTimeout(0) that runs after LenisProvider's useEffect has initialised it.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const update = (y: number) => setScrolled(y > 30)
+
+    const onNative = () => update(window.scrollY)
+    window.addEventListener('scroll', onNative, { passive: true })
+
+    let lenisOff: (() => void) | null = null
+    const timer = setTimeout(() => {
+      const li = getLenis()
+      if (li) {
+        const onLenis = ({ scroll }: { scroll: number }) => update(scroll)
+        li.on('scroll', onLenis)
+        lenisOff = () => li.off('scroll', onLenis)
+      }
+    }, 0)
+
+    return () => {
+      window.removeEventListener('scroll', onNative)
+      clearTimeout(timer)
+      lenisOff?.()
+    }
   }, [])
 
   // Close mobile on route change

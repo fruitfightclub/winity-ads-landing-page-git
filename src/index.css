@@ -263,8 +263,8 @@
     padding: 10px 14px 10px 22px;
     border-radius: 999px;
     background: transparent;
-    border: 1.5px solid transparent;
-    background-clip: padding-box;
+    /* Universal fallback: plain mint border */
+    border: 1.5px solid rgba(33,230,167,0.5);
     position: relative;
     color: #F4F7F6;
     font-size: 14px;
@@ -275,17 +275,24 @@
     white-space: nowrap;
     isolation: isolate;
   }
-  .btn-pill-outline::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    padding: 1.5px;
-    background: linear-gradient(90deg, #B8A040, #21E6A7, #0F9C8A);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+  /* Gradient border — only applied when mask-composite is supported */
+  @supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+    .btn-pill-outline {
+      border-color: transparent;
+      background-clip: padding-box;
+    }
+    .btn-pill-outline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      padding: 1.5px;
+      background: linear-gradient(90deg, #B8A040, #21E6A7, #0F9C8A);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
   }
   .btn-pill-outline:hover {
     background: rgba(33,230,167,0.07);

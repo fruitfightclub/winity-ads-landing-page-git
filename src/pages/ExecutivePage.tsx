@@ -193,7 +193,7 @@ export default function ExecutivePage() {
         {/* Content — left-aligned so card creative on the right is unobstructed */}
         <div
           className="absolute inset-0 z-20 flex items-center justify-start"
-          style={{ padding: 'clamp(80px, 10vh, 120px) clamp(24px, 7vw, 120px) clamp(80px, 12vh, 120px)' }}
+          style={{ padding: 'clamp(80px, 10vh, 120px) clamp(24px, 7vw, 120px)' }}
         >
         <div ref={copyRef} className="flex flex-col items-start text-left" style={{ maxWidth: 520, width: '100%' }}>
 
@@ -280,16 +280,6 @@ export default function ExecutivePage() {
         </div>
         </div>{/* end right-align wrapper */}
 
-        {/* Bottom legal line */}
-        <div
-          className="absolute bottom-0 left-0 right-0 py-6 z-20"
-          style={{ borderTop: '1px solid rgba(33,230,167,0.1)' }}
-        >
-          <p className="text-center text-xs text-[#8FA3A0]/50 px-6">
-            Card services issued in Hong Kong. Available globally wherever Visa® is accepted.
-            Availability may vary by jurisdiction.
-          </p>
-        </div>
       </div>
 
       {/* ── WAITLIST MODAL ────────────────────────────────────────────────── */}
