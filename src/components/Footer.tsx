@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
 // ─── Internal link columns ────────────────────────────────────────────────────
 const footerLinks = {
   'Company': [
-    { label: 'Contact Us',    to: '/help' },
+    { label: 'Contact Us',    to: '/support' },
     { label: 'Press Room',    to: '/press' },
     { label: 'Blogs',         to: '/blog' },
   ],
@@ -28,7 +28,7 @@ const footerLinks = {
   ],
   'Member Services': [
     { label: 'WhatsApp',      href: 'https://wa.me/917742253607' },
-    { label: 'Support Portal', to: '/help' },
+    { label: 'Support Portal', to: '/support' },
     { label: 'FAQs',           to: '/faqs' },
   ],
 }
@@ -141,7 +141,7 @@ export default function Footer() {
               <img
                 src="/WINITY Text Logo Green and copper .png"
                 alt="Winity Life"
-                style={{ height: 26, width: 'auto' }}
+                style={{ height: 34, width: 'auto' }}
               />
             </Link>
             <p style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', lineHeight: 1.65 }}>

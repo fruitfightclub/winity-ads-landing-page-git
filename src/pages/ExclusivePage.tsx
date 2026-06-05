@@ -29,16 +29,17 @@ import { SplitText } from 'gsap/SplitText'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight, Check, Zap, Globe, Smartphone, Shield,
-  CreditCard, Wifi, Gift, ExternalLink, Banknote, Star, Users,
+  CreditCard, Wifi, Gift, ExternalLink, Banknote,
 } from 'lucide-react'
 import SEO from '../components/SEO'
+import { trackMetaEvent } from '../lib/meta'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 // ─── Palette ──────────────────────────────────────────────────────────────────
 const MINT    = '#21E6A7'
 const MINT_HI = '#3CF2D0'
-const COPPER  = '#E8A84E'
+
 
 // ─── UMI Partner URLs ─────────────────────────────────────────────────────────
 const UMI_CLUB_URL = 'https://umi.app/winity'  // TODO: confirm with client
@@ -116,40 +117,17 @@ const MOMENTS = [
   {
     label:    'Travel Connected',
     headline: '1 GB free data.\nSave 20% on more.',
-    body:     'Reach USD 5,000 in eligible spend and unlock 1 GB of complimentary UMI data, activated digitally in 100+ countries. Join the Winity Club on the UMI app and save 20% on every additional data package you purchase.',
+    body:     'Reach USD 5,000 in eligible spend and unlock 1 GB of complimentary Umi data, activated digitally across 141 countries. Winity members also receive an exclusive discount code for 20% off their first Umi purchase.',
     image:    '/winity_lifestyle_travel.png',
     fallback: '/loyalty_hero_lounge.png',
     icon:     Wifi,
-    badge:    'Winity Club: 20% off data',
+    badge:    '20% off first Umi purchase',
     imgRight: false,
     appScreen: false,
   },
 ]
 
-// ─── Premium balance features ─────────────────────────────────────────────────
-const PREMIUM_TIERS = [
-  {
-    icon:  Banknote,
-    title: 'Executive Balance Bonuses',
-    body:  'Earn enhanced rewards on qualifying high-value account balances. Winity Life recognises high-tier members with exclusive rate benefits. See programme terms for eligible balance amounts and applicable rates.',
-    badge: 'Qualifying balances',
-    color: MINT,
-  },
-  {
-    icon:  Star,
-    title: 'Curated Concierge',
-    body:  'Members holding USD 100,000 or more in account balances receive access to a dedicated relationship manager and curated concierge service: travel bookings, venue access, personalised support, 24/7.',
-    badge: 'USD 100,000+ balances',
-    color: COPPER,
-  },
-  {
-    icon:  Users,
-    title: '24/7 Priority Support',
-    body:  'Every Winity member has access to 24/7 WhatsApp support. High-tier members benefit from priority routing and dedicated account management. Your lifestyle doesn\'t pause. Neither do we.',
-    badge: 'All members',
-    color: MINT,
-  },
-]
+
 
 // ─── Small feature grid ───────────────────────────────────────────────────────
 const SMALL_FEATURES = [
@@ -167,19 +145,6 @@ const HOW_IT_WORKS = [
   { n: '04', title: 'Start spending',        body: 'Add to Google Pay and spend at 150M+ Visa® merchant locations worldwide.' },
 ]
 
-// ─── Fees ─────────────────────────────────────────────────────────────────────
-const FEES = [
-  { label: 'Virtual Card Annual Fee',   value: 'See app' },
-  { label: 'Physical Card Annual Fee',  value: 'USD 20 / year (first 6 months free)' },
-  { label: 'Physical Card Issuance',    value: 'USD 0 (shipping charges may apply)' },
-  { label: 'Card Spend Fee',            value: 'See app' },
-  { label: 'Stablecoin Load',           value: '0%' },
-  { label: 'Other Digital Asset Load',  value: '5% conversion fee' },
-  { label: 'ATM Withdrawal',            value: 'USD 3 per withdrawal' },
-  { label: 'Points Earn Rate',          value: '1 Winity Point per USD 10 spent' },
-  { label: 'UMI Data Benefit',          value: '1 GB data after USD 5,000 eligible spend' },
-  { label: 'Winity Club Data Discount', value: '20% off via UMI app (Winity Club members)' },
-]
 
 const TICKER_ITEMS = [
   'Google Pay Ready', '0% Stablecoin Load',
@@ -199,7 +164,6 @@ export default function ExclusivePage() {
   const howRef         = useRef<HTMLElement>(null)
   const stepRefs       = useRef<(HTMLDivElement | null)[]>([])
   const esimRef        = useRef<HTMLElement>(null)
-  const feesRef        = useRef<HTMLElement>(null)
   const ctaRef         = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -322,8 +286,8 @@ export default function ExclusivePage() {
         })
       }
 
-      // ── UMI + Fees + CTA ──────────────────────────────────────────────────
-      ;[esimRef, feesRef, ctaRef].forEach((ref) => {
+      // ── UMI + CTA ─────────────────────────────────────────────────────────
+      ;[esimRef, ctaRef].forEach((ref) => {
         if (!ref.current) return
         gsap.fromTo(ref.current.querySelectorAll('.reveal-up'),
           { y: 40, opacity: 0 },
@@ -331,14 +295,6 @@ export default function ExclusivePage() {
             scrollTrigger: { trigger: ref.current, start: 'top 78%', once: true } }
         )
       })
-
-      if (feesRef.current) {
-        gsap.fromTo(feesRef.current.querySelectorAll('.fee-row'),
-          { x: -20, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.05, delay: 0.3,
-            scrollTrigger: { trigger: feesRef.current, start: 'top 75%', once: true } }
-        )
-      }
 
       gsap.utils.toArray<HTMLElement>('.line-draw').forEach((el) => {
         gsap.fromTo(el,
@@ -516,6 +472,7 @@ export default function ExclusivePage() {
                   }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'brightness(1.1)' }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'none' }}
+                  onClick={() => trackMetaEvent('InitiateCheckout')}
                 >
                   App Store <ArrowRight size={16} />
                 </a>
@@ -533,6 +490,7 @@ export default function ExclusivePage() {
                   }}
                   onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = `${MINT}55` }}
                   onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.18)' }}
+                  onClick={() => trackMetaEvent('InitiateCheckout')}
                 >
                   Google Play <ArrowRight size={16} />
                 </a>
@@ -777,6 +735,7 @@ export default function ExclusivePage() {
                 }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'brightness(1.08)' }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.filter = 'none' }}
+                onClick={() => trackMetaEvent('InitiateCheckout')}
               >
                 App Store <ArrowRight size={15} />
               </a>
@@ -794,6 +753,7 @@ export default function ExclusivePage() {
                 }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = `${MINT}55` }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.18)' }}
+                onClick={() => trackMetaEvent('InitiateCheckout')}
               >
                 Google Play <ArrowRight size={15} />
               </a>
@@ -1034,98 +994,6 @@ export default function ExclusivePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          PREMIUM MEMBER BENEFITS — deposits, concierge
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section
-        style={{
-          position: 'relative', overflow: 'hidden',
-          background: '#061C1E',
-          padding: 'clamp(64px, 10vh, 120px) 0',
-        }}
-      >
-        <div style={{
-          position: 'absolute', top: 0, left: 0, right: 0, height: 1,
-          background: 'linear-gradient(90deg, transparent, rgba(232,168,78,0.4), transparent)',
-        }} />
-        <GrainOverlay id="grain-prem" opacity={0.03} />
-        <div style={{ maxWidth: 1240, margin: '0 auto', paddingInline: 'clamp(24px, 6vw, 96px)', position: 'relative', zIndex: 10 }}>
-
-          <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vh, 64px)' }}>
-            <Label text="Premium Benefits" color={COPPER} />
-            <h2 style={{
-              fontSize: 'clamp(1.8rem, 3.8vw, 3rem)', fontWeight: 900,
-              letterSpacing: '-0.035em', color: '#fff', lineHeight: 1.05,
-            }}>
-              For those who go further.
-            </h2>
-            <p style={{ color: 'rgba(143,163,160,0.75)', fontSize: 16, maxWidth: 480, marginInline: 'auto', marginTop: 14, lineHeight: 1.65 }}>
-              Winity Life recognises members who hold serious capital. High account balances unlock
-              exclusive rate benefits and dedicated personal service.
-            </p>
-          </div>
-
-          <div
-            className="prem-grid"
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}
-          >
-            {PREMIUM_TIERS.map((tier, i) => {
-              const Icon = tier.icon
-              return (
-                <div
-                  key={tier.title}
-                  ref={(el) => { premiumRefs.current[i] = el }}
-                  style={{
-                    borderRadius: 22, padding: 'clamp(24px, 3vw, 36px)',
-                    background: i === 1
-                      ? 'linear-gradient(145deg, rgba(40,28,10,0.8) 0%, rgba(28,20,6,0.6) 100%)'
-                      : 'linear-gradient(145deg, rgba(15,63,58,0.5) 0%, rgba(11,46,44,0.32) 100%)',
-                    border: `1px solid ${i === 1 ? 'rgba(232,168,78,0.25)' : 'rgba(33,230,167,0.12)'}`,
-                    position: 'relative', overflow: 'hidden',
-                    transition: 'border-color 0.35s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = i === 1 ? 'rgba(232,168,78,0.5)' : 'rgba(33,230,167,0.3)'
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = i === 1 ? 'rgba(232,168,78,0.25)' : 'rgba(33,230,167,0.12)'
-                  }}
-                >
-                  <div style={{
-                    position: 'absolute', top: 0, left: 24, right: 24, height: 1,
-                    background: `linear-gradient(90deg, transparent, ${i === 1 ? 'rgba(232,168,78,0.5)' : 'rgba(33,230,167,0.4)'}, transparent)`,
-                  }} />
-                  <div style={{
-                    width: 46, height: 46, borderRadius: 14, marginBottom: 20,
-                    background: i === 1 ? 'rgba(232,168,78,0.1)' : 'rgba(33,230,167,0.1)',
-                    border: `1px solid ${i === 1 ? 'rgba(232,168,78,0.22)' : 'rgba(33,230,167,0.22)'}`,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <Icon size={22} color={tier.color} strokeWidth={1.5} />
-                  </div>
-                  <div style={{
-                    display: 'inline-flex', alignItems: 'center',
-                    padding: '3px 10px', borderRadius: 999, marginBottom: 14,
-                    background: i === 1 ? 'rgba(232,168,78,0.1)' : 'rgba(33,230,167,0.08)',
-                    border: `1px solid ${i === 1 ? 'rgba(232,168,78,0.2)' : 'rgba(33,230,167,0.15)'}`,
-                    fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' as const,
-                    color: tier.color,
-                  }}>
-                    {tier.badge}
-                  </div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: 18, marginBottom: 10, letterSpacing: '-0.01em' }}>
-                    {tier.title}
-                  </h3>
-                  <p style={{ color: 'rgba(143,163,160,0.78)', fontSize: 14, lineHeight: 1.65 }}>
-                    {tier.body}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
           HOW IT WORKS
       ══════════════════════════════════════════════════════════════════════ */}
       <section
@@ -1161,6 +1029,7 @@ export default function ExclusivePage() {
                     fontWeight: 700, fontSize: 14, color: '#061C1E', textDecoration: 'none',
                     background: `linear-gradient(135deg, ${MINT} 0%, ${MINT_HI} 100%)`,
                   }}
+                  onClick={() => trackMetaEvent('InitiateCheckout')}
                 >
                   App Store <ArrowRight size={15} />
                 </a>
@@ -1174,6 +1043,7 @@ export default function ExclusivePage() {
                     fontWeight: 600, fontSize: 14, color: '#fff', textDecoration: 'none',
                     border: '1px solid rgba(255,255,255,0.18)',
                   }}
+                  onClick={() => trackMetaEvent('InitiateCheckout')}
                 >
                   Google Play <ArrowRight size={15} />
                 </a>
@@ -1240,7 +1110,7 @@ export default function ExclusivePage() {
 
         <div style={{ maxWidth: 1240, margin: '0 auto', paddingInline: 'clamp(24px, 6vw, 96px)', position: 'relative', zIndex: 10 }}>
           <div className="reveal-up" style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vh, 64px)' }}>
-            <Label text="UMI Partnership" />
+            <Label text="Umi Partnership" />
             <h2 style={{
               fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 900, lineHeight: 1.05,
               letterSpacing: '-0.03em', color: '#fff',
@@ -1253,7 +1123,7 @@ export default function ExclusivePage() {
               <a href="https://umi.app" target="_blank" rel="noopener noreferrer"
                 style={{ color: MINT, textDecoration: 'none', borderBottom: '1px solid rgba(33,230,167,0.35)' }}
               >
-                UMI <ExternalLink size={11} style={{ display: 'inline', verticalAlign: 'middle' }} />
+                Umi <ExternalLink size={11} style={{ display: 'inline', verticalAlign: 'middle' }} />
               </a>{' '}
               to bring exclusive data benefits to Exclusive cardholders. Two ways to benefit:
             </p>
@@ -1268,15 +1138,15 @@ export default function ExclusivePage() {
                 icon: Wifi,
                 headline: '1 GB Free Data',
                 subhead: 'After USD 5,000 eligible spend',
-                body: 'Reach USD 5,000 in eligible card spend and unlock 1 GB of complimentary UMI data, digitally activated in 100+ countries with no physical SIM needed.',
+                body: 'Reach USD 5,000 in eligible card spend and unlock 1 GB of complimentary Umi data, digitally activated across 141 countries with no physical SIM needed.',
                 badge: 'Spend milestone reward',
               },
               {
                 icon: Gift,
-                headline: '20% Off All Data',
-                subhead: 'Winity Club members via UMI app',
-                body: 'Join the Winity Club on the UMI app and save 20% on every data package you purchase. An exclusive ongoing benefit for Winity cardholders.',
-                badge: 'Winity Club: ongoing discount',
+                headline: '20% Off Your First Purchase',
+                subhead: 'Winity members via Umi',
+                body: 'Use your exclusive discount code to save 20% on your first Umi purchase. One code, one use per member — a genuine first-purchase benefit.',
+                badge: 'First purchase discount',
               },
             ].map((benefit) => {
               const Icon = benefit.icon
@@ -1327,13 +1197,13 @@ export default function ExclusivePage() {
           >
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' as const, color: MINT, marginBottom: 6 }}>
-                Winity Club × UMI
+                Winity × Umi
               </p>
               <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 20, marginBottom: 8, letterSpacing: '-0.02em' }}>
-                Join Winity Club on the UMI app to unlock 20% off all data purchases.
+                Get 20% off your first Umi purchase.
               </h3>
               <p style={{ color: 'rgba(143,163,160,0.78)', fontSize: 14, lineHeight: 1.6, maxWidth: 500 }}>
-                An exclusive, ongoing data discount for Winity cardholders. Simply join the Winity Club within the UMI platform.
+                Winity members receive an exclusive one-time discount code for their first Umi purchase. One code per member — not a recurring discount.
               </p>
             </div>
             <a
@@ -1348,64 +1218,9 @@ export default function ExclusivePage() {
                 whiteSpace: 'nowrap',
               }}
             >
-              Join Winity Club on UMI <ExternalLink size={14} />
+              Get Your Umi Discount <ExternalLink size={14} />
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          FEE TRANSPARENCY
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section
-        ref={feesRef}
-        style={{
-          position: 'relative', padding: 'clamp(64px, 10vh, 140px) 0',
-          background: '#061C1E', overflow: 'hidden',
-        }}
-      >
-        <GrainOverlay id="grain-fees" opacity={0.03} />
-        <div style={{ maxWidth: 780, margin: '0 auto', paddingInline: 'clamp(24px, 6vw, 96px)', position: 'relative', zIndex: 10 }}>
-          <div className="reveal-up" style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vh, 56px)' }}>
-            <Label text="Transparent Pricing" />
-            <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.035em', color: '#fff' }}>
-              No hidden fees. Ever.
-            </h2>
-          </div>
-          <div className="reveal-up" style={{
-            borderRadius: 28, overflow: 'hidden', position: 'relative',
-            background: 'linear-gradient(145deg, rgba(15,63,58,0.55) 0%, rgba(11,46,44,0.4) 100%)',
-            border: '1px solid rgba(33,230,167,0.15)',
-          }}>
-            <div style={{
-              position: 'absolute', top: 0, left: 0, right: 0, height: 1,
-              background: 'linear-gradient(90deg, transparent, rgba(33,230,167,0.6), transparent)',
-            }} />
-            <div style={{ padding: 'clamp(24px, 4vw, 48px)' }}>
-              {FEES.map(({ label, value }, i) => (
-                <div
-                  key={label}
-                  className="fee-row"
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    padding: '16px 0',
-                    borderBottom: i < FEES.length - 1 ? '1px solid rgba(33,230,167,0.07)' : 'none',
-                  }}
-                >
-                  <span style={{ color: 'rgba(143,163,160,0.8)', fontSize: 13 }}>{label}</span>
-                  <span style={{
-                    color: i === 0 ? MINT : '#fff', fontSize: i === 0 ? 16 : 13,
-                    fontWeight: i === 0 ? 800 : 600, textAlign: 'right', maxWidth: '55%',
-                  }}>
-                    {value}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="reveal-up" style={{ textAlign: 'center', marginTop: 16, fontSize: 12, color: 'rgba(143,163,160,0.4)' }}>
-            * Shipping charges may apply for physical card delivery. First 6 months waived applies to new physical activations only. Subject to terms.
-          </p>
         </div>
       </section>
 
@@ -1454,6 +1269,7 @@ export default function ExclusivePage() {
                 fontWeight: 700, fontSize: 15, color: '#061C1E', textDecoration: 'none',
                 background: `linear-gradient(135deg, ${MINT} 0%, ${MINT_HI} 100%)`,
               }}
+              onClick={() => trackMetaEvent('InitiateCheckout')}
             >
               App Store <ArrowRight size={16} />
             </a>
@@ -1467,6 +1283,7 @@ export default function ExclusivePage() {
                 fontWeight: 600, fontSize: 15, color: '#fff', textDecoration: 'none',
                 border: '1px solid rgba(255,255,255,0.18)',
               }}
+              onClick={() => trackMetaEvent('InitiateCheckout')}
             >
               Google Play <ArrowRight size={16} />
             </a>
@@ -1503,8 +1320,8 @@ export default function ExclusivePage() {
             services involve risks. Physical card USD 20/yr with first
             6 months waived for new activations. Physical card issued at no cost after $25 eligible spend;
             shipping charges may apply. ATM withdrawal fee USD 3 per transaction. 150M+ refers to Visa®
-            merchant locations worldwide. UMI data benefit subject to USD 5,000 eligible spend threshold.
-            Winity Club 20% discount via UMI app only. Large deposit bonuses subject to programme terms.
+            merchant locations worldwide. Umi data benefit subject to USD 5,000 eligible spend threshold.
+            20% first purchase discount via Umi; one code, one use per member. Large deposit bonuses subject to programme terms.
             USD 100,000+ concierge subject to eligibility. See{' '}
             <Link to="/terms"
               style={{ color: 'rgba(33,230,167,0.5)' }}>winity.life/terms</Link>{' '}

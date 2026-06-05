@@ -757,7 +757,7 @@ export default function ReferralPage() {
                 border: '1px solid rgba(33,230,167,0.3)',
                 fontSize: 12, fontWeight: 700, color: MINT, letterSpacing: '0.05em',
               }}>
-                <Wifi size={13} /> UMI Travel Data, 100+ Countries
+                <Wifi size={13} /> Umi Travel Data, 141 Countries
               </div>
             </div>
 
@@ -775,7 +775,7 @@ export default function ReferralPage() {
               </h2>
               <p className="reveal-up" style={{ color: 'rgba(143,163,160,0.82)', fontSize: 16, lineHeight: 1.7, maxWidth: 420, marginBottom: 28 }}>
                 Winity Exclusive cardholders who reach USD 5,000 in eligible spend unlock
-                complimentary UMI travel data. eSIM activation is already free. Winity provides the data package on us.
+                complimentary Umi travel data. eSIM activation is already free. Winity provides the data package on us.
               </p>
 
               {/* Winity Club highlight */}
@@ -795,13 +795,13 @@ export default function ReferralPage() {
                     <Gift size={16} color={MINT} strokeWidth={1.8} />
                   </div>
                   <div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: '#fff' }}>Winity Club × UMI</div>
-                    <div style={{ fontSize: 12, color: MINT }}>20% off all data purchases</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#fff' }}>Winity × Umi</div>
+                    <div style={{ fontSize: 12, color: MINT }}>20% off your first Umi purchase</div>
                   </div>
                 </div>
                 <p style={{ color: 'rgba(143,163,160,0.78)', fontSize: 13, lineHeight: 1.6 }}>
-                  Join the Winity Club on the UMI app to save 20% on every data package
-                  you purchase. Exclusive to Winity cardholders.
+                  Winity members receive an exclusive discount code for 20% off their first Umi
+                  purchase. One code, one use per member.
                 </p>
               </div>
 
@@ -817,7 +817,7 @@ export default function ReferralPage() {
                     background: `linear-gradient(135deg, ${MINT} 0%, ${MINT_HI} 100%)`,
                   }}
                 >
-                  Join Winity Club on UMI <ExternalLink size={13} />
+                  Get Your Umi Discount <ExternalLink size={13} />
                 </a>
                 <Link
                   to="/exclusive"
@@ -951,8 +951,8 @@ export default function ReferralPage() {
               </Link>.
             </p>
             <p style={{ color: 'rgba(143,163,160,0.45)', fontSize: 12, lineHeight: 1.65 }}>
-              UMI data benefit and Winity Club discount subject to programme terms and eligibility.
-              eSIM activation is free; complementary data is subject to spending thresholds.
+              Umi data benefit subject to programme terms and eligibility.
+              eSIM activation is free; complimentary data is subject to spending thresholds. 20% first purchase discount via Umi: one code, one use per member.
             </p>
           </div>
         </div>

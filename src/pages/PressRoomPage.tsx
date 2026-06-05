@@ -136,7 +136,7 @@ export default function PressRoomPage() {
                     {post.title}
                   </h3>
                   <p className="text-muted text-sm leading-relaxed mb-6 flex-1 line-clamp-3">{post.excerpt}</p>
-                  
+
                   <div className="flex items-center justify-between pt-6 border-t border-white/[0.04] mt-auto">
                     <span className="text-muted/50 text-xs flex items-center gap-1.5 font-medium">
                       <Clock className="w-3.5 h-3.5" aria-hidden="true" />

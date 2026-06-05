@@ -335,13 +335,14 @@ export default function HowItWorks() {
 
           {/* LEFT: Step list */}
           <div className="hiw-steps-col" style={{ flex: 1, paddingTop: 8 }}>
-            <div style={{ position: 'relative' }}>
+            <div style={{ position: 'relative', zIndex: 1 }}>
 
               {/* Vertical copper rail */}
               <div style={{
                 position: 'absolute', left: 22, top: 25, width: 2,
                 background: 'rgba(255,255,255,0.05)', borderRadius: 1,
                 height: circleTops[3] ? circleTops[3] - 23 : 'calc(100% - 130px)',
+                zIndex: 0,
               }} />
               {/* Active fill */}
               <div style={{
@@ -353,6 +354,7 @@ export default function HowItWorks() {
                 maxHeight: circleTops[3] ? circleTops[3] - 23 : 'calc(100% - 129px)',
                 transition: 'height 0.5s cubic-bezier(0.25,1,0.5,1)',
                 boxShadow: '0 0 12px rgba(33,230,167,0.4)',
+                zIndex: 0,
               }} />
 
               {STEPS.map((step, i) => (
@@ -369,7 +371,7 @@ export default function HowItWorks() {
                     display: 'flex', gap: 28, paddingBottom: 56,
                     cursor: 'pointer', opacity: 0,
                     transition: 'opacity 0.3s ease',
-                    position: 'relative',
+                    position: 'relative', zIndex: 2,
                   }}
                 >
                   {/* Step number bubble */}
@@ -379,7 +381,9 @@ export default function HowItWorks() {
                       border: i === activeStep
                         ? '2px solid rgba(33,230,167,0.55)'
                         : '2px solid rgba(255,255,255,0.08)',
-                      background: i === activeStep ? 'rgba(33,230,167,0.10)' : 'rgba(15,63,58,0.4)',
+                      background: i === activeStep
+                        ? 'linear-gradient(rgba(33,230,167,0.10), rgba(33,230,167,0.10)), #061C1E'
+                        : 'linear-gradient(rgba(15,63,58,0.4), rgba(15,63,58,0.4)), #061C1E',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       transition: 'all 0.4s cubic-bezier(0.25,1,0.5,1)',
                       boxShadow: i === activeStep ? '0 0 20px rgba(33,230,167,0.20)' : 'none',

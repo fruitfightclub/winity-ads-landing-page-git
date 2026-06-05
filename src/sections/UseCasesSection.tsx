@@ -17,6 +17,7 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
+import { trackMetaEvent } from '../lib/meta'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -520,6 +521,7 @@ export default function UseCasesSection() {
                   rel="noopener noreferrer"
                   className="btn-pill"
                   style={{ fontSize: 12, padding: '10px 16px 10px 22px' }}
+                  onClick={() => trackMetaEvent('InitiateCheckout')}
                 >
                   Get Started
                   <span className="pill-icon" style={{ width: 26, height: 26 }} aria-hidden="true">

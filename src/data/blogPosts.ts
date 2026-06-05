@@ -257,7 +257,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Press Release',
     readTime: '4 min read',
     date: 'December 29, 2025',
-    image: '/blog_winity_loop_launch.webp',
+    image: '/blog_christmas_keeps_giving.jpeg',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'Hong Kong, 29th December 2025. Winity Life, the lifestyle-focused platform bridging digital assets with real-world Visa® payments, today announced the launch of Winity Loop, its new referral program designed to reward real usage and community participation rather than speculation. Built around everyday spending behaviour, Winity Loop enables users to earn instant cash rewards while expanding a trusted, global crypto-spending network.' },
@@ -300,7 +300,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Press Release',
     readTime: '3 min read',
     date: 'December 22, 2025',
-    image: '/blog_christmas_keeps_giving.jpeg',
+    image: '/blog_winity_loop_launch.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'Warsaw, Poland, December 22, 2025. This Christmas, Winity Life is reframing the idea of a holiday gift. Instead of something that ends once unwrapped, the company is introducing an experience that continues to deliver value well beyond the season. Launching December 19, 2025, "Christmas That Keeps Giving" is designed to convert a simple deposit into ongoing spending power, rewarding both new and existing users at a time when every extra dollar counts.' },

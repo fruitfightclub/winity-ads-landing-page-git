@@ -34,8 +34,8 @@ const FEE_SECTIONS = [
     title: 'Rewards & Benefits',
     rows: [
       { label: 'Winity Points Earn Rate',            value: '1 pt / USD 10', note: 'On eligible card spend' },
-      { label: 'UMI Data Benefit',                   value: '1 GB free', note: 'After USD 5,000 in eligible spend' },
-      { label: 'Winity Club Data Discount',          value: '20% off', note: 'Via UMI app for Winity Club members' },
+      { label: 'Umi Data Benefit',                    value: '1 GB free', note: 'After USD 5,000 in eligible spend' },
+      { label: 'Umi First Purchase Discount',        value: '20% off first purchase', note: 'One-time discount code, one use per member' },
       { label: 'Winity Loop Referral Points',        value: 'Winity Points', note: 'Awarded when referred users activate card' },
     ],
   },
@@ -132,7 +132,7 @@ export default function FeesPage() {
           }}>
             <p style={{ fontSize: 12, color: 'rgba(240,237,230,0.38)', lineHeight: 1.7 }}>
               All fees are in USD and correct as of 27 May 2026. Winity reserves the right to amend fees with 30 days' notice to members.
-              Deposit bonus rates, points programme terms, and UMI partnership benefits are subject to their own programme terms.
+              Deposit bonus rates, points programme terms, and Umi partnership benefits are subject to their own programme terms.
               Physical card shipping charges vary by destination country. See the Winity Life app for live rates and the most current fee schedule.
             </p>
           </div>

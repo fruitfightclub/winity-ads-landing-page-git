@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { trackMetaEvent } from '../lib/meta'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -137,6 +138,7 @@ export default function JoinCTA() {
             rel="noopener noreferrer"
             className="btn-pill"
             aria-label="Download on App Store"
+            onClick={() => trackMetaEvent('InitiateCheckout')}
           >
             <AppleIcon />
             App Store
@@ -152,6 +154,7 @@ export default function JoinCTA() {
             rel="noopener noreferrer"
             className="btn-pill-outline"
             aria-label="Get it on Google Play"
+            onClick={() => trackMetaEvent('InitiateCheckout')}
           >
             <GoogleIcon />
             Google Play

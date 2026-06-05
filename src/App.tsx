@@ -15,6 +15,7 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import LenisProvider from './components/LenisProvider'
+import { trackMetaEvent } from './lib/meta'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -36,6 +37,15 @@ import LegalIndexPage from './pages/LegalIndexPage'
 import CardAvailabilityPage from './pages/CardAvailabilityPage'
 import DeleteAccountPage from './pages/DeleteAccountPage'
 import FAQsPage from './pages/FAQsPage'
+
+// Fires Meta Pixel PageView on every SPA route change
+function MetaPixelPageView() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    trackMetaEvent('PageView')
+  }, [pathname])
+  return null
+}
 
 // Scroll to top on route change — skips scrollTo when a hash target is present
 function ScrollReset() {
@@ -103,6 +113,7 @@ function RippleInit() {
 function AppInner() {
   return (
     <LenisProvider>
+      <MetaPixelPageView />
       <ScrollProgress />
       <RippleInit />
       <ScrollReset />

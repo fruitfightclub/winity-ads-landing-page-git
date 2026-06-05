@@ -42,6 +42,7 @@ import {
   Code2,
   Wallet,
 } from 'lucide-react'
+import { trackMetaEvent } from '../lib/meta'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -259,6 +260,7 @@ function BusinessHero() {
                 className="btn-pill"
                 style={{ fontSize: 14 }}
                 aria-label="Apply for Winity Business"
+                onClick={() => trackMetaEvent('Lead')}
               >
                 Apply for Business
                 <span className="pill-icon" aria-hidden="true">
@@ -271,6 +273,7 @@ function BusinessHero() {
                 href="mailto:business@winity.life"
                 className="btn-ghost"
                 style={{ fontSize: 14 }}
+                onClick={() => trackMetaEvent('Lead')}
               >
                 Talk to sales <ArrowRight size={14} style={{ display: 'inline', marginLeft: 4 }} />
               </a>
@@ -639,7 +642,7 @@ function PaymentsSection() {
                 </div>
               ))}
             </div>
-            <a href="mailto:business@winity.life" className="btn-pill" style={{ fontSize: 13 }}>
+            <a href="mailto:business@winity.life" className="btn-pill" style={{ fontSize: 13 }} onClick={() => trackMetaEvent('Lead')}>
               Start accepting payments
               <span className="pill-icon" aria-hidden="true">
                 <svg width="13" height="13" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="2">
@@ -1073,6 +1076,7 @@ function ConciergeSection() {
             href="mailto:concierge@winity.life"
             className="btn-pill"
             style={{ fontSize: 14, background: `linear-gradient(135deg, ${COPPER}, ${COPPER_LT})`, color: '#1A0A00', borderColor: 'transparent' }}
+            onClick={() => trackMetaEvent('Lead')}
           >
             Enquire about concierge
             <span className="pill-icon" aria-hidden="true" style={{ background: 'rgba(0,0,0,0.15)' }}>
@@ -1279,7 +1283,7 @@ const payment = await winity.payments.create({
                 </div>
               ))}
             </div>
-            <a href="mailto:api@winity.life" style={{
+            <a href="mailto:api@winity.life" onClick={() => trackMetaEvent('Lead')} style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               fontSize: 14, fontWeight: 700, color: MINT,
               textDecoration: 'none', letterSpacing: '0.02em',
@@ -1539,7 +1543,7 @@ function BusinessCTA() {
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
-            <a href="mailto:business@winity.life" className="btn-pill" style={{ fontSize: 14 }}>
+            <a href="mailto:business@winity.life" className="btn-pill" style={{ fontSize: 14 }} onClick={() => trackMetaEvent('Lead')}>
               Apply for Business
               <span className="pill-icon" aria-hidden="true">
                 <svg width="14" height="14" fill="none" viewBox="0 0 14 14" stroke="currentColor" strokeWidth="2">
@@ -1547,7 +1551,7 @@ function BusinessCTA() {
                 </svg>
               </span>
             </a>
-            <a href="mailto:business@winity.life" className="btn-ghost" style={{ fontSize: 14 }}>
+            <a href="mailto:business@winity.life" className="btn-ghost" style={{ fontSize: 14 }} onClick={() => trackMetaEvent('Lead')}>
               Talk to sales <ArrowRight size={14} style={{ display: 'inline', marginLeft: 4 }} />
             </a>
           </div>

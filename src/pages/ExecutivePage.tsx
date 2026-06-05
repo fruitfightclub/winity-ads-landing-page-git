@@ -23,6 +23,7 @@ import { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ArrowRight, X, Check } from 'lucide-react'
 import SEO from '../components/SEO'
+import { trackMetaEvent } from '../lib/meta'
 
 // ─── Easing ──────────────────────────────────────────────────────────────────
 const EASE_POWER = 'cubic-bezier(0.16, 1, 0.3, 1)'
@@ -141,6 +142,7 @@ export default function ExecutivePage() {
     await new Promise((res) => setTimeout(res, 1400))
     setSubmitting(false)
     setSubmitted(true)
+    trackMetaEvent('Lead')
   }
 
   return (
@@ -191,7 +193,7 @@ export default function ExecutivePage() {
         {/* Content — left-aligned so card creative on the right is unobstructed */}
         <div
           className="absolute inset-0 z-20 flex items-center justify-start"
-          style={{ padding: 'clamp(80px, 10vh, 120px) clamp(24px, 7vw, 120px)' }}
+          style={{ padding: 'clamp(80px, 10vh, 120px) clamp(24px, 7vw, 120px) clamp(80px, 12vh, 120px)' }}
         >
         <div ref={copyRef} className="flex flex-col items-start text-left" style={{ maxWidth: 520, width: '100%' }}>
 
@@ -232,7 +234,7 @@ export default function ExecutivePage() {
             style={{ fontSize: 'clamp(1rem, 1.6vw, 1.15rem)' }}
           >
             Our premium metal card for global business leaders is on its way.
-            Metal finish. Best earn rate. 3 GB of complimentary UMI data annually. Priority support.
+            Metal finish. Best earn rate. 3 GB of complimentary Umi data annually. Priority support.
             Built for those who operate at the highest level.
           </p>
 
@@ -243,7 +245,7 @@ export default function ExecutivePage() {
           {/* CTA */}
           <div className="page-line flex flex-wrap gap-4">
             <button
-              onClick={() => setModalOpen(true)}
+              onClick={() => { setModalOpen(true); trackMetaEvent('InitiateCheckout') }}
               className="inline-flex items-center gap-2 px-9 py-4 rounded-full font-semibold text-sm tracking-wide text-[#061C1E] transition-all duration-300 hover:brightness-105 active:scale-[0.98] shadow-lg shadow-[#21E6A7]/10"
               style={{ background: `linear-gradient(135deg, ${MINT} 0%, ${TEAL} 100%)` }}
             >
@@ -257,7 +259,7 @@ export default function ExecutivePage() {
             {[
               { label: 'Annual Fee',  value: 'USD 1,000' },
               { label: 'Material',    value: 'Premium Metal' },
-              { label: 'Free UMI Data', value: '3 GB / Year' },
+              { label: 'Free Umi Data', value: '3 GB / Year' },
               { label: 'Earn Rate',   value: '1 pt / USD 8' },
             ].map((stat) => (
               <div

@@ -197,6 +197,32 @@ const SECTIONS = [
     ],
   },
   {
+    id: 'points',
+    label: 'Winity Points Programme',
+    items: [
+      {
+        q: 'What is the Winity Points Programme?',
+        a: 'The Winity Points Programme rewards you for eligible card spending. Points are automatically credited to your account and can be tracked in the Winity Life app. A curated redemption experience is being built to let you unlock travel, lifestyle, and everyday rewards with your points.',
+      },
+      {
+        q: 'Which cards earn Winity Points?',
+        a: 'Both the Winity Exclusive Card and the Winity Executive Card participate in the Winity Points Programme.\n\nExclusive Card: earn 1 Winity Point for every USD 10 in eligible card spend.\nExecutive Card: earn 1 Winity Point for every USD 8 in eligible card spend.\n\nPoints are credited automatically after each qualifying transaction.',
+      },
+      {
+        q: 'How do I track my Winity Points balance?',
+        a: 'Your points balance and spend milestones are updated in real time and visible inside the Winity Life app. Navigate to the Loyalty or Rewards section of the app to see your current balance and tier progress.',
+      },
+      {
+        q: 'Are there bonus points for deposits?',
+        a: 'Yes. You can earn bonus Winity Points on qualifying deposits:\n• USD 500+ deposit → 2 Winity Points\n• USD 1,000+ deposit → 5 Winity Points\n• USD 1,500+ deposit → 9 Winity Points\n• USD 2,000+ deposit → 15 Winity Points',
+      },
+      {
+        q: 'When will the rewards redemption portal be available?',
+        a: 'A curated rewards redemption experience is being integrated into the Winity ecosystem. Until the portal is live, you can continue earning and tracking your points in the Winity Life app. We will notify users when redemption becomes available.',
+      },
+    ],
+  },
+  {
     id: 'offers',
     label: 'Active Offers',
     items: [

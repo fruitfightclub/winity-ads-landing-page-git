@@ -25,6 +25,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Wifi, Check, TrendingUp, Zap, MapPin } from 'lucide-react'
 import SEO from '../components/SEO'
+import { trackMetaEvent } from '../lib/meta'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -82,14 +83,14 @@ const UMI_TIERS = [
   {
     card: 'Executive Card',
     badge: 'Executive',
-    perk: '3 GB of complimentary UMI travel data annually.',
+    perk: '3 GB of complimentary Umi travel data annually.',
     note: 'Connect globally, three gigabytes on us.',
     highlight: true,
   },
   {
     card: 'Exclusive Card',
     badge: 'Exclusive',
-    perk: 'Unlock 1 GB of complimentary UMI travel data after reaching $5,000 in eligible card spend.',
+    perk: 'Unlock 1 GB of complimentary Umi travel data after reaching $5,000 in eligible card spend.',
     note: 'Reach the milestone, travel connected.',
     highlight: false,
   },
@@ -253,7 +254,7 @@ export default function LoyaltyPage() {
     <div className="bg-deep-base min-h-screen overflow-x-hidden">
       <SEO
         title="Winity Points & Loyalty | Earn Rewards on Every Eligible Spend | Winity Life"
-        description="Earn Winity Points on eligible card transactions. Track milestones, unlock UMI travel data perks, and prepare for a curated rewards experience built around real-world value."
+        description="Earn Winity Points on eligible card transactions. Track milestones, unlock Umi travel data perks, and prepare for a curated rewards experience built around real-world value."
       />
 
       {/* ── SECTION 1: LOYALTY HERO ──────────────────────────────────────── */}
@@ -313,7 +314,7 @@ export default function LoyaltyPage() {
                 <ArrowRight size={16} />
               </Link>
               <Link
-                to="/#winitycards"
+                to="/exclusive"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide text-white border border-white/20 hover:border-mint/50 transition-colors duration-300"
               >
                 View Card Benefits
@@ -478,15 +479,15 @@ export default function LoyaltyPage() {
         <div className="container-wide relative z-10">
           <div className="max-w-xl">
             <div className="section-header">
-              <SectionLabel text="UMI Travel Perks" />
+              <SectionLabel text="Umi Travel Perks" />
               <h2
                 className="font-bold text-white tracking-[-0.03em] leading-[1.08] mb-5"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
               >
-                Travel connected with<br />Winity and UMI.
+                Travel connected with<br />Winity and Umi.
               </h2>
               <p className="text-[#8FA3A0] text-base leading-relaxed mb-10">
-                Winity is partnering with UMI to bring connected travel benefits directly into
+                Winity is partnering with Umi to bring connected travel benefits directly into
                 the card experience. Whether you are moving through Europe, Asia, or your next
                 work trip, your card activity can unlock mobile data perks that keep you
                 online when it matters.
@@ -552,7 +553,7 @@ export default function LoyaltyPage() {
             {/* UMI Data disclaimer */}
             <p className="mt-6 text-[#8FA3A0] text-xs leading-relaxed"
                style={{ borderLeft: '2px solid rgba(33,230,167,0.2)', paddingLeft: '0.875rem' }}>
-              Complimentary UMI data benefits are subject to eligibility, supported destinations,
+              Complimentary Umi data benefits are subject to eligibility, supported destinations,
               partner availability, and final program terms. eSIM activation is already free for all users.
             </p>
           </div>
@@ -654,7 +655,7 @@ export default function LoyaltyPage() {
               </h2>
               <p className="reveal-up text-[#8FA3A0] text-base leading-relaxed mb-8 max-w-md">
                 Your tier moves as your spend grows. Each level unlocks a richer set of
-                benefits, from UMI travel data passes to curated rewards access.
+                benefits, from Umi travel data passes to curated rewards access.
               </p>
 
               <div className="reveal-up space-y-3">
@@ -811,6 +812,7 @@ export default function LoyaltyPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-sm tracking-wide text-white border border-white/20 hover:border-mint/40 transition-colors duration-300"
+              onClick={() => trackMetaEvent('InitiateCheckout')}
             >
               App Store
             </a>
@@ -819,6 +821,7 @@ export default function LoyaltyPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-sm tracking-wide text-white border border-white/20 hover:border-mint/40 transition-colors duration-300"
+              onClick={() => trackMetaEvent('InitiateCheckout')}
             >
               Google Play
             </a>
