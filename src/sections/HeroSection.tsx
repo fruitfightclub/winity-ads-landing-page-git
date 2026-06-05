@@ -113,6 +113,20 @@ export default function HeroSection() {
           filter: brightness(1.1) saturate(1.2) contrast(1.05);
           opacity: 0.95; will-change: transform;
         }
+        .hero-cta-btn {
+          width: 180px !important;
+          justify-content: space-between !important;
+          font-size: 15px !important;
+          padding: 10px 14px 10px 22px !important;
+        }
+        @media (max-width: 640px) {
+          .hero-cta-btn {
+            width: 148px !important;
+            font-size: 13px !important;
+            padding: 10px 8px 10px 16px !important;
+            gap: 8px !important;
+          }
+        }
         @media (max-width: 768px) {
           .hero-bg-arch-desktop { display: none; }
           .hero-bg-arch-mobile  { display: block; }
@@ -173,8 +187,7 @@ export default function HeroSection() {
           {/* Learn more */}
           <a
             href="#how-it-works"
-            className="btn-pill-outline"
-            style={{ fontSize: 15, padding: '10px 14px 10px 22px' }}
+            className="btn-pill-outline hero-cta-btn"
           >
             Learn more
             <span className="pill-icon" aria-hidden="true">
@@ -189,8 +202,7 @@ export default function HeroSection() {
             href="https://apps.apple.com/us/app/winity-life/id6752761057"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-pill"
-            style={{ fontSize: 15, padding: '10px 14px 10px 22px' }}
+            className="btn-pill hero-cta-btn"
           >
             Get the App
             <span className="pill-icon" aria-hidden="true">
