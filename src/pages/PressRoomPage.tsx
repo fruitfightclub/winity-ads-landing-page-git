@@ -66,7 +66,7 @@ export default function PressRoomPage() {
   return (
     <div className="bg-deep-base min-h-screen">
       <SEO
-        title="Winity Press Room — Media & Announcements | Winity Life"
+        title="Winity Press Room | Media & Announcements | Winity Life"
         description="Official press releases, product campaign updates, and media notices from @WTY Technology Hong Kong Limited."
       />
 

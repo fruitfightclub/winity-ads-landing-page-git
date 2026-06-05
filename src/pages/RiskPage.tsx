@@ -5,7 +5,7 @@ export default function RiskPage() {
   return (
     <>
       <SEO
-        title="Risk Disclosure — Winity Life"
+        title="Risk Disclosure | Winity Life"
         description="Detailed disclosure of financial, regulatory, and technical risks associated with virtual assets."
       />
       <LegalShell

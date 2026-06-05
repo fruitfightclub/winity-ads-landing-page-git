@@ -5,7 +5,7 @@ export default function PrivacyPage() {
   return (
     <>
       <SEO
-        title="Privacy Policy — Winity Life"
+        title="Privacy Policy | Winity Life"
         description="How Winity Life collects, uses, and protects your personal data."
       />
       <LegalShell

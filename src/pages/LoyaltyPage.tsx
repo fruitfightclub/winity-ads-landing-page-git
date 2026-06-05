@@ -305,15 +305,15 @@ export default function LoyaltyPage() {
 
             <div className="hero-animate flex flex-wrap gap-4">
               <Link
-                to="/cards"
+                to="/#winitycards"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide text-deep-base"
                 style={{ background: 'linear-gradient(135deg, #21E6A7 0%, #3CF2D0 100%)' }}
               >
-                Explore Loyalty
+                Choose Your Card
                 <ArrowRight size={16} />
               </Link>
               <Link
-                to="/cards"
+                to="/#winitycards"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-sm tracking-wide text-white border border-white/20 hover:border-mint/50 transition-colors duration-300"
               >
                 View Card Benefits
@@ -799,11 +799,11 @@ export default function LoyaltyPage() {
 
           <div className="reveal-up flex flex-wrap justify-center gap-4">
             <Link
-              to="/cards"
+              to="/#winitycards"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-sm tracking-wide text-deep-base"
               style={{ background: 'linear-gradient(135deg, #21E6A7 0%, #3CF2D0 100%)' }}
             >
-              View Card Benefits
+              Choose Your Card
               <ArrowRight size={16} />
             </Link>
             <a

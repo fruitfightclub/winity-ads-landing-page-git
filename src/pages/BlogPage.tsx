@@ -46,7 +46,7 @@ export default function BlogPage() {
   return (
     <div className="bg-deep-base min-h-screen">
       <SEO
-        title="Winity Journal — Global Finance and Lifestyle | Winity Life"
+        title="Winity Journal | Global Finance and Lifestyle | Winity Life"
         description="Product updates, how-to guides, and lifestyle stories for the borderless professional. The Winity Life Journal."
       />
 

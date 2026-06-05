@@ -53,7 +53,7 @@ export default function FeesPage() {
   return (
     <>
       <SEO
-        title="Fees & Limits — Winity Life"
+        title="Fees & Limits | Winity Life"
         description="Complete fee schedule for Winity Life digital-asset-linked Visa cards."
       />
       <div style={{ background: BASE, minHeight: '100vh', fontFamily: 'Roboto, sans-serif' }}>

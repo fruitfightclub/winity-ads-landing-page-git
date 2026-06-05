@@ -151,7 +151,7 @@ export default function CardAvailabilityPage() {
   return (
     <>
       <SEO
-        title="Card Availability — Winity Life"
+        title="Card Availability | Winity Life"
         description={`The Winity Visa® Card is available in ${total}+ countries and regions across Europe, Asia, Africa, the Americas, and Oceania.`}
       />
       <div style={{ background: BASE, minHeight: '100vh', fontFamily: 'Roboto, sans-serif' }}>

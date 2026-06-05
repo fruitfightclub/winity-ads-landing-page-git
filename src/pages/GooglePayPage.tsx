@@ -5,7 +5,7 @@ export default function GooglePayPage() {
   return (
     <>
       <SEO
-        title="Google Pay Terms — Winity Life"
+        title="Google Pay Terms | Winity Life"
         description="Terms and conditions for integrating and using your Winity Life card with Google Pay."
       />
       <LegalShell

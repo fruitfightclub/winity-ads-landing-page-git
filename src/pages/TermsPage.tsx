@@ -5,7 +5,7 @@ export default function TermsPage() {
   return (
     <>
       <SEO
-        title="Terms of Service — Winity Life"
+        title="Terms of Service | Winity Life"
         description="Terms and conditions governing use of the Winity Life platform and card services."
       />
       <LegalShell

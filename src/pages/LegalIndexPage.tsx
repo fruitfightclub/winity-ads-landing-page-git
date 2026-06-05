@@ -39,7 +39,7 @@ export default function LegalIndexPage() {
   return (
     <>
       <SEO
-        title="Legal — Winity Life"
+        title="Legal | Winity Life"
         description="Terms of Use, Privacy Policy, Risk Disclosure, and Google Pay Terms and Conditions for Winity Life."
       />
 

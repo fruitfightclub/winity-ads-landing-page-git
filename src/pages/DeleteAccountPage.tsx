@@ -51,7 +51,7 @@ export default function DeleteAccountPage() {
   return (
     <>
       <SEO
-        title="Delete Account — Winity Life"
+        title="Delete Account | Winity Life"
         description="Important information regarding the permanent removal of your Winity Life account, including pre-deletion steps and data retention obligations."
       />
       <LegalShell

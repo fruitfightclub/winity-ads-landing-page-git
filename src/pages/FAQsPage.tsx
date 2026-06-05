@@ -372,7 +372,7 @@ export default function FAQsPage() {
   return (
     <>
       <SEO
-        title="FAQs — Winity Life"
+        title="FAQs | Winity Life"
         description="Frequently asked questions about the Winity Life app, card issuance, KYC, wallet funding, transactions, fees, and security."
       />
 

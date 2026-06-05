@@ -27,7 +27,7 @@ const footerLinks = {
     { label: 'Executive',     to: '/executive' },
   ],
   'Member Services': [
-    { label: 'WhatsApp',      href: 'https://wa.link/wxto1u' },
+    { label: 'WhatsApp',      href: 'https://wa.me/917742253607' },
     { label: 'Support Portal', to: '/help' },
     { label: 'FAQs',           to: '/faqs' },
   ],
