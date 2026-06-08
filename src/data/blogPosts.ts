@@ -88,33 +88,6 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
   },
 
-  // ─── Post 3: UMI Partnership ───────────────────────────────────────────────
-  {
-    slug: 'winity-umi-global-data-partnership',
-    title: 'Why We Partnered With UMI: Global Travel Data Built Into Your Card',
-    excerpt: 'Landing in a new country used to mean hunting for a SIM card before you could do anything else. The Winity and UMI partnership changes that equation permanently.',
-    category: 'Partnerships',
-    readTime: '3 min read',
-    date: 'May 8, 2026',
-    image: '/exp_lifestyle_train.png',
-    author: 'Winity Life',
-    content: [
-      { type: 'paragraph', text: 'The first 45 minutes in a new country used to go one of two ways. You either paid an extortionate rate for roaming data on your home network, or you queued at an airport kiosk for a local SIM, waited to swap it in, and hoped the plan you bought was worth what you paid. Neither option is acceptable for people who travel regularly.' },
-      { type: 'heading', text: 'What digital travel data changes' },
-      { type: 'paragraph', text: 'An eSIM is a digital SIM that lives inside your phone. No physical card to swap, no shop to visit. You activate a data plan remotely and your phone connects to a local network in the destination country, while keeping your home number active on the same device simultaneously.' },
-      { type: 'paragraph', text: 'UMI operates this infrastructure across 100+ countries. Activation is instant. Coverage is built on local carrier partnerships, which means you are connecting locally, not roaming at elevated rates.' },
-      { type: 'heading', text: 'What Winity cardholders receive' },
-      { type: 'list', items: [
-        'Exclusive cardholders: 1 GB complimentary UMI travel data after USD 5,000 in eligible cumulative card spend',
-        'Executive cardholders: 3 GB of complimentary UMI travel data per year, automatically included with membership',
-        'Winity Club members: 20% off all UMI data purchases via the UMI app',
-        'Available across 100+ countries; activate from the Winity Life app, no physical SIM swap',
-      ]},
-      { type: 'callout', text: 'Executive cardholders: your data allocation resets every year. Three gigabytes of complimentary UMI travel data annually, activatable instantly whenever you travel.' },
-      { type: 'heading', text: 'Why we chose UMI' },
-      { type: 'paragraph', text: 'We reviewed every major eSIM provider before making this decision. UMI had the widest country coverage for the markets where Winity cardholders travel most frequently. The activation flow was the cleanest. The network quality in the destinations that mattered was consistent. We wanted connectivity to be a native part of the Winity card experience, not an afterthought you have to think about before every trip.' },
-    ],
-  },
 
   // ─── Post 4: USDT to dinner — how the conversion works ────────────────────
   {
