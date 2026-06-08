@@ -8,6 +8,69 @@ import { BLOG_POSTS, BlogSection } from '../data/blogPosts'
 
 gsap.registerPlugin(ScrollTrigger)
 
+function parseTextWithLinks(text: string): React.ReactNode[] | string {
+  if (!text) return ''
+  
+  // Matches markdown links, raw http/https links, www. links, or winity.life domain occurrences
+  const regex = /(\[[^\]]+\]\([^)]+\)|https?:\/\/[^\s]+|www\.[a-zA-Z0-9-]+\.[a-zA-Z0-9-.:%&?#=/_~+]+|winity\.life[^\s]*)/gi
+  
+  const parts = text.split(regex)
+  if (parts.length === 1) return text
+  
+  return parts.map((part, index) => {
+    const mdMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+    if (mdMatch) {
+      const linkText = mdMatch[1]
+      let url = mdMatch[2]
+      if (!url.startsWith('http') && !url.startsWith('/')) {
+        url = 'https://' + url
+      }
+      return (
+        <a
+          key={index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-mint hover:text-aqua underline transition-colors"
+        >
+          {linkText}
+        </a>
+      )
+    }
+    
+    if (part.match(/^https?:\/\/[^\s]+$/i)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-mint hover:text-aqua underline break-all transition-colors"
+        >
+          {part}
+        </a>
+      )
+    }
+    
+    if (part.match(/^(www\.[a-zA-Z0-9-]+|winity\.life)/i)) {
+      const url = part.toLowerCase().startsWith('http') ? part : `https://${part}`
+      return (
+        <a
+          key={index}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-mint hover:text-aqua underline transition-colors"
+        >
+          {part}
+        </a>
+      )
+    }
+    
+    return part
+  })
+}
+
 function renderSection(section: BlogSection, key: number) {
   switch (section.type) {
     case 'heading':
@@ -19,7 +82,7 @@ function renderSection(section: BlogSection, key: number) {
     case 'paragraph':
       return (
         <p key={key} className="text-muted leading-relaxed mb-5" style={{ fontSize: 'clamp(15px,1.1vw,17px)' }}>
-          {section.text}
+          {parseTextWithLinks(section.text || '')}
         </p>
       )
     case 'list':
@@ -28,7 +91,7 @@ function renderSection(section: BlogSection, key: number) {
           {section.items?.map((item, i) => (
             <li key={i} className="flex items-start gap-3 text-muted" style={{ fontSize: 'clamp(14px,1.05vw,16px)' }}>
               <span className="w-1.5 h-1.5 rounded-full bg-mint flex-shrink-0 mt-2" aria-hidden="true" />
-              {item}
+              {parseTextWithLinks(item)}
             </li>
           ))}
         </ul>
@@ -40,9 +103,27 @@ function renderSection(section: BlogSection, key: number) {
           className="border-l-2 border-mint pl-5 py-1 my-7"
         >
           <p className="text-off-white font-semibold italic leading-relaxed" style={{ fontSize: 'clamp(15px,1.1vw,17px)' }}>
-            {section.text}
+            {parseTextWithLinks(section.text || '')}
           </p>
         </blockquote>
+      )
+    case 'image':
+      return (
+        <div key={key} className="my-8 flex flex-col items-center">
+          <div className="rounded-xl overflow-hidden border border-mint/10 max-w-full shadow-lg">
+            <img
+              src={section.url}
+              alt={section.alt || ''}
+              className="w-full h-auto object-cover"
+              style={{ maxHeight: '500px' }}
+            />
+          </div>
+          {section.alt && (
+            <span className="text-muted/60 text-xs mt-2.5 italic">
+              {section.alt}
+            </span>
+          )}
+        </div>
       )
     default:
       return null

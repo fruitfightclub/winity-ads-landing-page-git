@@ -36,3 +36,9 @@ build/
 
 # TypeScript build info
 *.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+

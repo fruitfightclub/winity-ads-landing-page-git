@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
@@ -8,12 +8,16 @@ import { BLOG_POSTS } from '../data/blogPosts'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const CATEGORIES = ['All', 'Product', 'Partnerships', 'How It Works', 'Rewards']
+const CATEGORIES = ['All', 'Product', 'Partnerships', 'How It Works', 'Rewards', 'Press Release']
 
 export default function BlogPage() {
   const heroRef     = useRef<HTMLDivElement>(null)
   const gridRef     = useRef<HTMLDivElement>(null)
   const cardRefs    = useRef<(HTMLAnchorElement | null)[]>([])
+  const [selectedCategory, setSelectedCategory] = useState('All')
+
+  // Reset references array on every render so it contains exactly the current list of items
+  cardRefs.current = []
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -39,9 +43,14 @@ export default function BlogPage() {
       }
     })
     return () => ctx.revert()
-  }, [])
+  }, [selectedCategory])
 
-  const [featured, ...rest] = BLOG_POSTS
+  const filteredPosts = selectedCategory === 'All'
+    ? BLOG_POSTS
+    : BLOG_POSTS.filter(post => post.category === selectedCategory)
+
+  const featured = filteredPosts[0]
+  const rest = filteredPosts.slice(1)
 
   return (
     <div className="bg-deep-base min-h-screen">
@@ -76,58 +85,68 @@ export default function BlogPage() {
       </section>
 
       {/* ── FEATURED ARTICLE ───────────────────────────────────────────────── */}
-      <section className="bg-deep-base py-12">
-        <div className="container-wide">
-          <Link
-            to={`/blog/${featured.slug}`}
-            className="group grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-2xl overflow-hidden border border-off-white/[0.06] hover:border-mint/20 transition-colors duration-300"
-          >
-            <div className="relative aspect-[16/9] lg:aspect-auto overflow-hidden">
-              <img
-                src={featured.image}
-                alt={featured.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ minHeight: '280px' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-deep-base/20" />
-            </div>
+      {featured && (
+        <section className="bg-deep-base py-12">
+          <div className="container-wide">
+            <Link
+              to={`/blog/${featured.slug}`}
+              className="group grid grid-cols-1 lg:grid-cols-2 gap-8 rounded-2xl overflow-hidden border border-off-white/[0.06] hover:border-mint/20 transition-colors duration-300"
+            >
+              <div className="relative aspect-[16/9] lg:aspect-auto overflow-hidden">
+                <img
+                  src={featured.image}
+                  alt={featured.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ minHeight: '280px' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-deep-base/20" />
+              </div>
 
-            <div className="p-8 lg:p-10 flex flex-col justify-center bg-teal-deep/40">
-              <div className="flex items-center gap-3 mb-5">
-                <span className="px-3 py-1 bg-mint/15 text-mint text-xs font-semibold rounded-full border border-mint/20">
-                  {featured.category}
-                </span>
-                <span className="text-muted text-xs flex items-center gap-1.5">
-                  <Clock className="w-3 h-3" aria-hidden="true" />
-                  {featured.readTime}
-                </span>
+              <div className="p-8 lg:p-10 flex flex-col justify-center bg-teal-deep/40">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="px-3 py-1 bg-mint/15 text-mint text-xs font-semibold rounded-full border border-mint/20">
+                    {featured.category}
+                  </span>
+                  <span className="text-muted text-xs flex items-center gap-1.5">
+                    <Clock className="w-3 h-3" aria-hidden="true" />
+                    {featured.readTime}
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-off-white leading-tight mb-4 tracking-tight group-hover:text-mint transition-colors duration-300">
+                  {featured.title}
+                </h2>
+                <p className="text-muted text-sm leading-relaxed mb-6">{featured.excerpt}</p>
+                <div className="flex items-center gap-2 text-mint text-sm font-semibold">
+                  Read article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
               </div>
-              <h2 className="text-2xl md:text-3xl font-black text-off-white leading-tight mb-4 tracking-tight group-hover:text-mint transition-colors duration-300">
-                {featured.title}
-              </h2>
-              <p className="text-muted text-sm leading-relaxed mb-6">{featured.excerpt}</p>
-              <div className="flex items-center gap-2 text-mint text-sm font-semibold">
-                Read article <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* ── ARTICLE GRID ───────────────────────────────────────────────────── */}
       <section className="bg-deep-base pb-24">
         <div className="container-wide">
-          <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
             <h2 className="text-off-white font-bold text-xl">Latest articles</h2>
             <div className="flex gap-2 flex-wrap">
-              {CATEGORIES.slice(0, 4).map(cat => (
-                <span
-                  key={cat}
-                  className="px-3 py-1.5 rounded-full text-xs font-medium border border-off-white/10 text-muted hover:border-mint/30 hover:text-mint transition-colors cursor-default"
-                >
-                  {cat}
-                </span>
-              ))}
+              {CATEGORIES.map(cat => {
+                const isActive = selectedCategory === cat
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all duration-300 ${
+                      isActive
+                        ? 'border-mint bg-mint/15 text-mint shadow-[0_0_15px_rgba(33,230,167,0.15)]'
+                        : 'border-off-white/10 text-muted hover:border-mint/30 hover:text-mint'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                )
+              })}
             </div>
           </div>
 

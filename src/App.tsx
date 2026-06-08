@@ -16,6 +16,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { useEffect, useRef } from 'react'
 import LenisProvider from './components/LenisProvider'
 import { trackMetaEvent } from './lib/meta'
+import { trackGTMPageView } from './lib/gtm'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -46,6 +47,16 @@ function MetaPixelPageView() {
   }, [pathname])
   return null
 }
+
+// Fires Google Tag Manager virtualPageview on every SPA route change
+function GTMPageView() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    trackGTMPageView(pathname)
+  }, [pathname])
+  return null
+}
+
 
 // Scroll to top on route change — skips scrollTo when a hash target is present
 function ScrollReset() {
@@ -114,6 +125,7 @@ function AppInner() {
   return (
     <LenisProvider>
       <MetaPixelPageView />
+      <GTMPageView />
       <ScrollProgress />
       <RippleInit />
       <ScrollReset />
