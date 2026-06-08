@@ -24,6 +24,7 @@ const cardsDropdownLinks = [
 const navLinks = [
   { label: 'How it works', href: '/#how-it-works' },
   { label: 'Loyalty',      href: '/loyalty'        },
+  { label: 'Blogs',        href: '/blog'           },
   { label: 'FAQs',         href: '/faqs'           },
   { label: 'Support',      href: '/support'        },
 ]
