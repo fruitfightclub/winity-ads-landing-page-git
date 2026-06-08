@@ -22,6 +22,8 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
+
 import {
   ArrowRight,
   Building2,
@@ -1591,6 +1593,11 @@ export default function BusinessPage() {
 
   return (
     <div style={{ fontFamily: 'Roboto, sans-serif', background: HERO_BG }}>
+      <SEO
+        title="Winity Business — Corporate Card & Treasury Management Platform"
+        description="Empower your team with digital asset-linked corporate Visa cards. Accept client payments in crypto, convert instantly, and settle to bank accounts in USD, EUR, HKD, and 40+ currencies. Zero setup fees."
+      />
+
       <BusinessHero />
       <MetricsBar />
       <PaymentsSection />
