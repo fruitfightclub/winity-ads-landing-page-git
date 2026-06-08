@@ -4,7 +4,7 @@ declare global {
   }
 }
 
-export const GTM_ID = import.meta.env.VITE_GTM_ID || 'GTM-TZMJLDNQ'
+export const GTM_ID = (import.meta as any).env?.VITE_GTM_ID || 'GTM-TZMJLDNQ'
 
 export function trackGTMPageView(path: string) {
   if (typeof window !== 'undefined') {
