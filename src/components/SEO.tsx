@@ -20,7 +20,7 @@ export default function SEO({ title, description, canonicalUrl, ogImage }: SEOPr
     }
     metaDesc.content = description
 
-    // Open Graph
+    // Helper to set meta tags by property (Open Graph)
     const setOG = (property: string, content: string) => {
       let el = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement
       if (!el) {
@@ -31,10 +31,35 @@ export default function SEO({ title, description, canonicalUrl, ogImage }: SEOPr
       el.setAttribute('content', content)
     }
 
+    // Helper to set meta tags by name (Twitter Cards, description, etc.)
+    const setMetaName = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement
+      if (!el) {
+        el = document.createElement('meta')
+        el.name = name
+        document.head.appendChild(el)
+      }
+      el.setAttribute('content', content)
+    }
+
+    // Resolve absolute URL for ogImage / twitter:image
+    const defaultImage = '/og-image.png'
+    const imagePath = ogImage || defaultImage
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://winity.life'
+    const absoluteOgImage = imagePath.startsWith('http') ? imagePath : `${origin}${imagePath}`
+
+    // Update Open Graph (Facebook, LinkedIn, Slack, WhatsApp)
     setOG('og:title', title)
     setOG('og:description', description)
-    if (canonicalUrl) setOG('og:url', canonicalUrl)
-    if (ogImage) setOG('og:image', ogImage)
+    setOG('og:image', absoluteOgImage)
+
+    const absoluteCanonical = canonicalUrl || (typeof window !== 'undefined' ? window.location.href : 'https://winity.life')
+    setOG('og:url', absoluteCanonical)
+
+    // Update Twitter Cards
+    setMetaName('twitter:title', title)
+    setMetaName('twitter:description', description)
+    setMetaName('twitter:image', absoluteOgImage)
   }, [title, description, canonicalUrl, ogImage])
 
   return null

@@ -171,6 +171,7 @@ export default function BlogPostPage() {
       <SEO
         title={`${post.title} | Winity Journal`}
         description={post.excerpt}
+        ogImage={post.image}
       />
 
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
