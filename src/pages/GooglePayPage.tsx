@@ -15,7 +15,7 @@ export default function GooglePayPage() {
       >
         <H2>Introduction</H2>
 
-        <Para>These Terms and Conditions (“Terms”) govern your use of the card and wallet services provided under the WINITY brand, a program operated by WTY Technology Hongkong Limited (“WTY,” “we,” “us,” or “our”). These Terms apply to all individuals or business users (“you” or “your”) who are approved to use WINITY services in accordance with our eligibility and compliance framework. By applying for, activating, or using any WINITY service, you agree to be bound by these Terms.</Para>
+        <Para>These Terms and Conditions (“Terms”) govern your use of the card and wallet services provided under the WINITY brand, a program operated by WTY Technology Hong Kong Limited (“WTY,” “we,” “us,” or “our”). These Terms apply to all individuals or business users (“you” or your”) who are approved to use WINITY services in accordance with our eligibility and compliance framework. By applying for, activating, or using any WINITY service, you agree to be bound by these Terms.</Para>
 
         <Para>These services are provided on a commercial-use basis and are not available to the general public. Access is strictly limited to approved users meeting internal compliance and due diligence criteria, through our official authorised partner(s).</Para>
 

@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       >
         <H2>Introduction</H2>
 
-        <Para>Your use of the services and this site being provided by WTY Technology Hongkong Limited (“Company,” “we,” “us,” or “our”), whose reference shall also be used interchangeably with “WINITY”, is on the understanding and acceptance by you and all users of our services (referred to as “Users” or “you” herein) of our privacy policy(/ies) involved in the use of our services, site and platforms.</Para>
+        <Para>Your use of the services and this site being provided by WTY Technology Hong Kong Limited (“Company,” “we,” “us,” or “our”), whose reference shall also be used interchangeably with “WINITY”, is on the understanding and acceptance by you and all users of our services (referred to as “Users” or “you” herein) of our privacy policy(/ies) involved in the use of our services, site and platforms.</Para>
 
         <Para>WINITY, along with our affiliates and subsidiaries (collectively referred to as “WINITY,” “we,” “us,” or “our”), sets forth this policy to outline our approach to protecting, collecting, using, and sharing your personal information.</Para>
 
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
 
         <H2>Document Scope</H2>
 
-        <Para>This Privacy Policy describes how WINITY, operated by WTY Technology Hongkong Limited, collects, uses, discloses, and protects personal data across its platforms and services. It applies to all users and visitors engaging with WINITY websites, apps, APIs, and integrated features. This policy is to be read in conjunction with the WINITY Terms of Use, Risk Disclosure, and applicable laws in your jurisdiction.</Para>
+        <Para>This Privacy Policy describes how WINITY, operated by WTY Technology Hong Kong Limited, collects, uses, discloses, and protects personal data across its platforms and services. It applies to all users and visitors engaging with WINITY websites, apps, APIs, and integrated features. This policy is to be read in conjunction with the WINITY Terms of Use, Risk Disclosure, and applicable laws in your jurisdiction.</Para>
 
         <H2>Definition of Personal Data</H2>
 

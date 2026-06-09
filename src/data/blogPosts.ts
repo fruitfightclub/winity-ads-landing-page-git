@@ -90,7 +90,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: 'list', items: [
         'Open Google Play Store (Android) or Apple App Store (iOS)',
         'Search for “Winity” or “Winity Life”',
-        'Install the app (Developer: WTY Technology Hongkong Limited)',
+        'Install the app (Developer: WTY Technology Hong Kong Limited)',
         'Launch the app'
       ]},
       { type: 'paragraph', text: 'The app brings spending, rewards, and digital asset management together in one mobile experience.' },

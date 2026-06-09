@@ -250,12 +250,11 @@ export default function ExecutivePage() {
           {/* CTA */}
           <div className="page-line flex flex-wrap gap-4">
             <button
-              onClick={() => { setModalOpen(true); trackMetaEvent('InitiateCheckout') }}
-              className="inline-flex items-center gap-2 px-9 py-4 rounded-full font-semibold text-sm tracking-wide text-[#061C1E] transition-all duration-300 hover:brightness-105 active:scale-[0.98] shadow-lg shadow-[#21E6A7]/10"
+              disabled
+              className="inline-flex items-center gap-2 px-9 py-4 rounded-full font-semibold text-sm tracking-wide text-[#061C1E] opacity-90 cursor-default select-none shadow-lg shadow-[#21E6A7]/10"
               style={{ background: `linear-gradient(135deg, ${MINT} 0%, ${TEAL} 100%)` }}
             >
-              Join the Waitlist
-              <ArrowRight size={16} />
+              Coming Soon
             </button>
           </div>
 

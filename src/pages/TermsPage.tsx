@@ -19,7 +19,7 @@ export default function TermsPage() {
 
         <H2>Document Scope</H2>
 
-        <Para>This Terms of Use governs access to and participation in the WINITY card program and associated financial services provided by WTY Technology Hongkong Limited. It outlines eligibility, user responsibilities, transaction limits, supported currencies, legal rights, and obligations. This document must be read in conjunction with the WINITY Privacy Policy , Risk Disclosure , and any applicable third-party Partner or card issuer terms.</Para>
+        <Para>This Terms of Use governs access to and participation in the WINITY card program and associated financial services provided by WTY Technology Hong Kong Limited. It outlines eligibility, user responsibilities, transaction limits, supported currencies, legal rights, and obligations. This document must be read in conjunction with the WINITY Privacy Policy , Risk Disclosure , and any applicable third-party Partner or card issuer terms.</Para>
 
         <H2>1. Definitions and Interpretation</H2>
 

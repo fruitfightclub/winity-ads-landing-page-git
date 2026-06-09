@@ -15,7 +15,7 @@ export default function RiskPage() {
       >
         <H2>Introduction</H2>
 
-        <Para>Your use of the services and this site being provided by WTY Technology Hongkong Limited (“Company,” “we,” “us,” or “our”), whose reference shall also be used interchangeably with “WINITY”, is on the understanding and acceptance by you and all users of our services (referred to as “Users” or “you” herein) of the inherent risks involved in the use of our services, site and platforms.</Para>
+        <Para>Your use of the services and this site being provided by WTY Technology Hong Kong Limited (“Company,” “we,” “us,” or “our”), whose reference shall also be used interchangeably with “WINITY”, is on the understanding and acceptance by you and all users of our services (referred to as “Users” or “you” herein) of the inherent risks involved in the use of our services, site and platforms.</Para>
 
         <Para>The WINITY card program is not available to the general public. It is offered only to eligible users whose access aligns with approved commercial use cases under our compliance framework.</Para>
 
