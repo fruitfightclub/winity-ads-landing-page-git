@@ -142,8 +142,8 @@ export default function HeroSection() {
           position: 'absolute', inset: 0,
           background: 'radial-gradient(ellipse 90% 80% at 50% 70%, #0D4540 0%, #071E1E 55%, #030C0C 100%)',
         }} />
-        <img src="/hero_bg_arch3.png" alt="" className="hero-bg-arch hero-bg-arch-desktop" />
-        <img src="/hero_bg_arch_mobile.png" alt="" className="hero-bg-arch hero-bg-arch-mobile" />
+        <img src="/hero_bg_arch3.webp" alt="" fetchPriority="high" className="hero-bg-arch hero-bg-arch-desktop" />
+        <img src="/hero_bg_arch_mobile.webp" alt="" fetchPriority="high" className="hero-bg-arch hero-bg-arch-mobile" />
       </div>
 
       {/* Headline */}
@@ -248,7 +248,7 @@ export default function HeroSection() {
             }}
           >
             <img
-              src="/hero_card_executive_cropped_auto.png"
+              src="/hero_card_executive_cropped_auto.webp"
               alt={`Winity Executive card ${i + 1}`}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
@@ -265,7 +265,7 @@ export default function HeroSection() {
           willChange: 'transform',
         }}>
           <img
-            src="/hero_phone.png"
+            src="/hero_phone.webp"
             alt="Winity App"
             style={{
               width: 'clamp(180px, 48vw, 290px)',

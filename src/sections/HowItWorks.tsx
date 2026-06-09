@@ -19,7 +19,7 @@ const STEPS = [
     number: '01',
     title: 'Download & Verify',
     desc: 'Get the Winity Life app on iOS or Android. Verify your identity in minutes: no branch visits, no paperwork, no waiting.',
-    img: '/Download and verify.png',
+    img: '/Download and verify.webp',
     badge: 'iOS & Android',
     stat: '< 3 min setup',
   },
@@ -27,7 +27,7 @@ const STEPS = [
     number: '02',
     title: 'Choose Your Card',
     desc: 'Pick the card that moves with your life. Start with the Exclusive virtual card, Google Pay ready upon KYC approval. Step up to Executive metal when your lifestyle demands more.',
-    img: '/Choose your card.png',
+    img: '/Choose your card.webp',
     badge: 'Free to start',
     stat: '2 card tiers',
   },
@@ -35,7 +35,7 @@ const STEPS = [
     number: '03',
     title: 'Load Your Wallet',
     desc: 'Transfer USDT or USDC at zero fee, or add ETH, SOL, WCO and more. Your digital assets convert directly to USD inside the platform. Freedom in flexibility, from your first transfer.',
-    img: '/Fund your card.png',
+    img: '/Fund your card.webp',
     badge: 'Freedom in flexibility',
     stat: '0% stablecoin fee',
   },
@@ -43,7 +43,7 @@ const STEPS = [
     number: '04',
     title: 'Spend & Earn',
     desc: 'Spend anywhere Visa is accepted in 180+ countries with 150M+ merchant locations and zero spend fees. Every eligible purchase earns Winity Points. Redeem for travel, dining and exclusive rewards.',
-    img: '/Spend and Earn.png',
+    img: '/Spend and Earn.webp',
     badge: 'Earn on every spend',
     stat: '180+ countries',
   },
@@ -348,11 +348,18 @@ export default function HowItWorks() {
               <div style={{
                 position: 'absolute', left: 22, top: 25, width: 2, borderRadius: 1,
                 background: 'linear-gradient(180deg, #21E6A7, #0ECFB5)',
-                height: circleTops.length > 0
-                  ? (activeStep === 0 ? 0 : activeStep === 3 ? circleTops[3] - 23 : circleTops[activeStep])
-                  : `${(activeStep / (STEPS.length - 1)) * 100}%`,
-                maxHeight: circleTops[3] ? circleTops[3] - 23 : 'calc(100% - 129px)',
-                transition: 'height 0.5s cubic-bezier(0.25,1,0.5,1)',
+                height: circleTops[3] ? circleTops[3] - 23 : 0,
+                transform: `scaleY(${
+                  circleTops[3]
+                    ? (activeStep === 0
+                      ? 0
+                      : activeStep === 3
+                      ? 1
+                      : (circleTops[activeStep] / (circleTops[3] - 23 || 1)))
+                    : 0
+                })`,
+                transformOrigin: 'top',
+                transition: 'transform 0.5s cubic-bezier(0.25,1,0.5,1)',
                 boxShadow: '0 0 12px rgba(33,230,167,0.4)',
                 zIndex: 0,
               }} />
@@ -494,7 +501,12 @@ export default function HowItWorks() {
                     aria-label={`Go to step ${i + 1}`}
                     style={{
                       height: 3, borderRadius: 2, border: 'none', cursor: 'pointer',
-                      width: i === activeStep ? 32 : 10,
+                      width: 32,
+                      transform: `scaleX(${i === activeStep ? 1 : 0.3125})`,
+                      transformOrigin: 'left',
+                      padding: '12px 0',
+                      backgroundClip: 'content-box',
+                      boxSizing: 'content-box',
                       background: i === activeStep
                         ? 'linear-gradient(90deg, #21E6A7, #0ECFB5)'
                         : 'rgba(255,255,255,0.12)',
@@ -555,8 +567,13 @@ export default function HowItWorks() {
                 onClick={() => setMobileActive(i)}
                 aria-label={`Step ${i + 1}`}
                 style={{
-                  width: i === mobileActive ? 28 : 8, height: 8, borderRadius: 4,
+                  width: 28, height: 8, borderRadius: 4,
                   border: 'none', cursor: 'pointer',
+                  transform: `scaleX(${i === mobileActive ? 1 : 0.2857})`,
+                  transformOrigin: 'center',
+                  padding: '10px 0',
+                  backgroundClip: 'content-box',
+                  boxSizing: 'content-box',
                   background: i === mobileActive
                     ? 'linear-gradient(90deg, #21E6A7, #0ECFB5)'
                     : 'rgba(255,255,255,0.15)',

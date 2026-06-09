@@ -52,7 +52,7 @@ export default function SupportPage() {
         {/* ── HERO ────────────────────────────────────────────────────────────── */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: 'clamp(320px, 45vh, 480px)' }}>
           <img
-            src="/winity_lifestyle_lounge.jpg"
+            src="/winity_lifestyle_lounge.webp"
             alt=""
             aria-hidden="true"
             style={{

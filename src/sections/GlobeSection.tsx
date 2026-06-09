@@ -131,13 +131,13 @@ function VolumetricGlobe() {
 // ─── Parallax Lifestyle Moments Data ─────────────────────────────────────
 const MOMENTS = [
   {
-    image: '/winity_lifestyle_lounge.jpg',
+    image: '/winity_lifestyle_lounge.webp',
     eyebrow: 'Executive Benefits',
     title: 'Premium Experiences. Included.',
     description: 'The Winity Executive metal card opens access to a curated world of privilege: dedicated concierge services, exclusive lifestyle benefits, and a personal relationship manager available 24/7 for members who move at the highest level.',
   },
   {
-    image: '/winity_lifestyle_travel.png',
+    image: '/winity_lifestyle_travel.webp',
     eyebrow: 'Nomadic Mobility',
     title: 'Spend Without Boundaries',
     description: 'Travel countries seamlessly. Digital asset-linked card conversions take place instantly inside the platform, meaning your wallet stays fully functional, converting to fiat USD locally at millions of Visa terminals.',
@@ -629,11 +629,11 @@ export default function GlobeSection() {
           </div>
 
           {/* Legal disclaimers in compliant fine print */}
-          <div style={{ maxWidth: 840, margin: '0 auto', textAlign: 'center', opacity: 0.38 }}>
-            <p style={{ fontSize: 11, color: 'rgba(244,247,246,0.85)', lineHeight: 1.6, margin: '0 0 8px 0' }}>
+          <div style={{ maxWidth: 840, margin: '0 auto', textAlign: 'center' }}>
+            <p style={{ fontSize: 11, color: 'rgba(244, 247, 246, 0.65)', lineHeight: 1.6, margin: '0 0 8px 0' }}>
               Disclaimer: Winity Life is not a bank. Digital asset-linked card services involve risks. See winity.life/terms.
             </p>
-            <p style={{ fontSize: 11, color: 'rgba(244,247,246,0.85)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: 11, color: 'rgba(244, 247, 246, 0.65)', lineHeight: 1.6, margin: 0 }}>
               Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.
             </p>
           </div>

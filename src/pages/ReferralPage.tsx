@@ -337,7 +337,7 @@ export default function ReferralPage() {
             background: 'radial-gradient(ellipse 80% 70% at 60% 40%, #0D4038 0%, #082820 55%, #071E20 100%)',
           }} />
           <img
-            src="/hero_bg_arch3.png"
+            src="/hero_bg_arch3.webp"
             alt=""
             style={{
               position: 'absolute', bottom: 0, left: 0,
@@ -511,10 +511,10 @@ export default function ReferralPage() {
               {/* Card image + name */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
                 <img
-                  src="/card_hero_float.jpg"
+                  src="/card_hero_float.webp"
                   alt="Winity Exclusive Card"
                   style={{ width: 72, height: 'auto', borderRadius: 10, boxShadow: '0 8px 24px rgba(0,0,0,0.6)' }}
-                  onError={(e) => { (e.target as HTMLImageElement).src = '/hero_card_exclusive.png' }}
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/hero_card_exclusive.webp' }}
                 />
                 <div>
                   <div style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>Winity Exclusive</div>
@@ -740,7 +740,7 @@ export default function ReferralPage() {
               }}
             >
               <img
-                src="/winity_lifestyle_dining.jpg"
+                src="/winity_lifestyle_dining.webp"
                 alt="Winity lifestyle"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />

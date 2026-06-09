@@ -43,7 +43,7 @@ export default function SEO({ title, description, canonicalUrl, ogImage }: SEOPr
     }
 
     // Resolve absolute URL for ogImage / twitter:image
-    const defaultImage = '/og-image.png'
+    const defaultImage = '/og-image.webp'
     const imagePath = ogImage || defaultImage
     const origin = typeof window !== 'undefined' ? window.location.origin : 'https://winity.life'
     const absoluteOgImage = imagePath.startsWith('http') ? imagePath : `${origin}${imagePath}`

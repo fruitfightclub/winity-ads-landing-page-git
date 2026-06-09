@@ -21,7 +21,7 @@ export default function HomePage() {
         title="Winity Life | Global Visa Card & Payments Platform"
         description="Spend digital assets globally with a Winity Visa card. Supports USDT, USDC, ETH, SOL and more. Earn points on every purchase. Available in 180+ countries wherever Visa is accepted."
         canonicalUrl="https://winity.life"
-        ogImage="/og-image.png"
+        ogImage="/og-image.webp"
       />
 
       {/* Section 1 — Hero */}

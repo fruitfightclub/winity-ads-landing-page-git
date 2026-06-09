@@ -8,19 +8,19 @@ gsap.registerPlugin(ScrollTrigger)
 
 const MOMENTS = [
   {
-    image: '/exp_lounge.png',
+    image: '/exp_lounge.webp',
     label: 'Airport Lounge, Dubai',
     tag: 'Executive Benefit',
     accent: 'copper' as const,
   },
   {
-    image: '/exp_lifestyle_train.png',
+    image: '/exp_lifestyle_train.webp',
     label: 'Rail Journey, Europe',
     tag: 'Travel Rewards',
     accent: 'mint' as const,
   },
   {
-    image: '/exp_cards_closeup.png',
+    image: '/exp_cards_closeup.webp',
     label: 'Spend Everywhere',
     tag: '150M+ Merchants',
     accent: 'mint' as const,

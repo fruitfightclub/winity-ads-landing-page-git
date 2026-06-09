@@ -161,7 +161,7 @@ export default function ExecutivePage() {
         <div className="absolute inset-0 z-0">
           {/* Primary background image */}
           <img
-            src="/EXECUTIVE_PAGE_BACKGROUND.png"
+            src="/EXECUTIVE_PAGE_BACKGROUND.webp"
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover object-center pointer-events-none select-none"

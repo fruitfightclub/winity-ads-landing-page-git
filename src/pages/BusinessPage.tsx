@@ -166,7 +166,7 @@ function BusinessHero() {
 
       {/* Arch background */}
       <img
-        src="/hero_bg_arch3.png"
+        src="/hero_bg_arch3.webp"
         alt=""
         aria-hidden="true"
         style={{
@@ -757,7 +757,7 @@ function TeamCardsSection() {
             </div>
             <div style={{ background: `linear-gradient(135deg, ${CARD_BG2} 0%, #112E2C 100%)`, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 40 }}>
               <img
-                src="/hero_card_exclusive_cropped_symmetric.png"
+                src="/hero_card_exclusive_cropped_symmetric.webp"
                 alt="Winity business card"
                 style={{ maxWidth: '100%', height: 'auto', maxHeight: 160, objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))' }}
                 onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
@@ -997,7 +997,7 @@ function ConciergeSection() {
 
       {/* Copper arch bg element */}
       <img
-        src="/hero_bg_arch3.png"
+        src="/hero_bg_arch3.webp"
         alt=""
         aria-hidden="true"
         style={{
@@ -1506,7 +1506,7 @@ function BusinessCTA() {
       <Grain />
 
       <img
-        src="/hero_bg_arch3.png"
+        src="/hero_bg_arch3.webp"
         alt=""
         aria-hidden="true"
         style={{

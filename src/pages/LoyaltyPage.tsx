@@ -265,7 +265,7 @@ export default function LoyaltyPage() {
         {/* Full-bleed bg image with dark cinematic overlay */}
         <div
           className="hero-bg absolute inset-0 bg-cover bg-center will-change-transform"
-          style={{ backgroundImage: "url('/loyalty_hero_lounge.png')" }}
+          style={{ backgroundImage: "url('/loyalty_hero_lounge.webp')" }}
           aria-hidden="true"
         />
         {/* Multi-layer overlay: bottom-heavy for copy legibility */}
@@ -330,7 +330,7 @@ export default function LoyaltyPage() {
         {/* Full-bleed parallax header image */}
         <div className="relative overflow-hidden" style={{ height: 'clamp(380px, 52vh, 560px)' }}>
           <img
-            src="/loyalty_points_cafe.png"
+            src="/loyalty_points_cafe.webp"
             alt=""
             aria-hidden="true"
             className="loyalty-points-hero-img"
@@ -375,19 +375,19 @@ export default function LoyaltyPage() {
               step: '01',
               title: 'Earn',
               copy: 'Collect Winity Points on every eligible card purchase: dining, travel, shopping, wherever life takes you.',
-              image: '/winity_lifestyle_dining.jpg',
+              image: '/winity_lifestyle_dining.webp',
             },
             {
               step: '02',
               title: 'Track',
               copy: 'Your points balance and spend milestones update in real time inside the Winity app. One view. Full picture.',
-              image: '/winity_lifestyle_art.jpg',
+              image: '/winity_lifestyle_art.webp',
             },
             {
               step: '03',
               title: 'Redeem',
               copy: 'A curated partner rewards experience is being integrated, turning your points into real-world moments.',
-              image: '/winity_lifestyle_travel.png',
+              image: '/winity_lifestyle_travel.webp',
             },
           ].map((item, i) => (
             <div
@@ -457,7 +457,7 @@ export default function LoyaltyPage() {
         {/* Full-bleed city image — right half only on large screens */}
         <div
           className="absolute top-0 right-0 bottom-0 w-full lg:w-1/2 bg-cover bg-center"
-          style={{ backgroundImage: "url('/loyalty_umi_city.png')" }}
+          style={{ backgroundImage: "url('/loyalty_umi_city.webp')" }}
           aria-hidden="true"
         />
         <div

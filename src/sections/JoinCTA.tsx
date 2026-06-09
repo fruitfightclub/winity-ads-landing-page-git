@@ -68,7 +68,7 @@ export default function JoinCTA() {
     >
       {/* Copper arch background */}
       <img
-        src="/hero_bg_arch3.png"
+        src="/hero_bg_arch3.webp"
         alt=""
         aria-hidden="true"
         style={{

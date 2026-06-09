@@ -375,7 +375,7 @@ export default function LoopSection() {
         }}
       >
         <img
-          src="/Winity Loop design.png"
+          src="/Winity Loop design.webp"
           alt=""
           style={{
             position: 'absolute',

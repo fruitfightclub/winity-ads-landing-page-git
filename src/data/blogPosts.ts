@@ -27,7 +27,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Product',
     readTime: '4 min read',
     date: 'June 8, 2026',
-    image: '/blog_businesses_benefit_thumbnail.png',
+    image: '/blog_businesses_benefit_thumbnail.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'In today’s global economy, businesses are no longer operating within one country, one currency, or one financial system.' },
@@ -262,7 +262,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: 'paragraph', text: 'Stablecoins have quietly become one of the fastest-growing sectors in global finance. As of June 2026, the global Stablecoin market exceeds $315 billion in circulation, with continued growth driven by payments, remittances, and cross-border commerce.' },
       { type: 'paragraph', text: 'Major financial institutions, payment providers, and fintech companies are increasingly integrating Stablecoin infrastructure into their products and services. Recent examples include MoneyGram launching its own dollar-backed Stablecoin and major fintech platforms expanding Stablecoin services to millions of users worldwide.' },
       { type: 'paragraph', text: 'This represents a major shift. The question is no longer whether Stablecoins will play a role in payments. The question is how quickly they become part of everyday financial life.' },
-      { type: 'image', url: '/blog_stablecoins_going_mainstream.png', alt: 'Stablecoins are going Mainstream - Winity Life' },
+      { type: 'image', url: '/blog_stablecoins_going_mainstream.webp', alt: 'Stablecoins are going Mainstream - Winity Life' },
       { type: 'heading', text: 'Why Cross-Border Payments Are Driving Adoption' },
       { type: 'paragraph', text: 'Traditional international payments remain slow, fragmented, and expensive. Stablecoin-based payment infrastructure is helping solve many of these challenges by enabling near-instant settlement and reducing the complexity of moving money internationally. The opportunity is enormous.' },
       { type: 'paragraph', text: 'According to FXC Intelligence, cross-border payments represent a market worth more than $17 trillion annually, yet Stablecoin-powered payments still account for only a small fraction of global payment volume. This leaves significant room for future growth.' },
@@ -350,7 +350,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'How It Works',
     readTime: '5 min read',
     date: 'May 20, 2026',
-    image: '/hero_phone.png',
+    image: '/hero_phone.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'You have USDT. You want to buy something. Sounds simple, but if you have tried it, you know the reality is a four-step obstacle course. Send to an exchange. Sell for fiat. Wait 1-5 business days for the bank wire. Use your bank card. By step four, you have paid fees, waited days, and dealt with a bank that probably flagged your transfer.' },
@@ -390,7 +390,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Product',
     readTime: '4 min read',
     date: 'May 15, 2026',
-    image: '/app_referral.png',
+    image: '/app_referral.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'Most referral programmes reward you once: one friend, one bonus, done. Winity Loop works differently. When you invite someone to Winity Life, you earn Winity Points from their eligible card spending. When they invite someone, you earn from that network too. When that person invites their own contacts, the earning continues three tiers deep from a single share.' },
@@ -422,7 +422,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'How It Works',
     readTime: '5 min read',
     date: 'May 4, 2026',
-    image: '/card_phone_scene.jpg',
+    image: '/card_phone_scene.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'The fundamental problem with spending digital assets in the physical world has never been philosophical. It has been operational. By the time you explain how to accept cryptocurrency at a restaurant, dinner is cold. Winity Life solves this at the infrastructure level.' },
@@ -448,7 +448,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Rewards',
     readTime: '6 min read',
     date: 'April 30, 2026',
-    image: '/exp_lounge.png',
+    image: '/exp_lounge.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'A loyalty programme is only as good as what you can do with it. Most card rewards sit accumulating for months before the cardholder realises they do not actually want any of the things on offer. Winity Points are designed for the category of spending that already defines your lifestyle: travel, dining, entertainment, connectivity, and experience.' },
@@ -634,7 +634,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Product',
     readTime: '4 min read',
     date: 'May 27, 2026',
-    image: '/executive_hero_holding.jpg',
+    image: '/executive_hero_holding.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'The Winity Executive Card is a premium metal digital asset-linked Visa card designed for global business professionals and high-volume cardholders. It is currently in development with a waitlist open for early access. Here is what is confirmed.' },
@@ -798,7 +798,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Product',
     readTime: '4 min read',
     date: 'May 22, 2026',
-    image: '/exclusive_card_fanned.png',
+    image: '/exclusive_card_fanned.webp',
     author: 'Winity Life',
     content: [
       { type: 'paragraph', text: 'The Winity Exclusive Card is a digital asset-linked Visa card accepted at over 150 million Visa® merchant locations and ATMs globally. The card is issued digitally upon KYC approval, ready to add to Google Pay and spend within minutes.' },

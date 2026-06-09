@@ -491,10 +491,10 @@ export default function CardsSection() {
                 </p>
                 <div className="cards-redeem-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 6 }}>
                   {[
-                    { label: 'Flights', img: '/winity_lifestyle_travel.png' },
-                    { label: 'Lounges', img: '/winity_lifestyle_lounge.jpg' },
-                    { label: 'Dining',  img: '/winity_lifestyle_dining.jpg' },
-                    { label: 'Retail',  img: '/winity_lifestyle_art.jpg' },
+                    { label: 'Flights', img: '/winity_lifestyle_travel.webp' },
+                    { label: 'Lounges', img: '/winity_lifestyle_lounge.webp' },
+                    { label: 'Dining',  img: '/winity_lifestyle_dining.webp' },
+                    { label: 'Retail',  img: '/winity_lifestyle_art.webp' },
                   ].map(({ label, img }) => (
                     <div key={label} className="cards-redeem-tile" style={{
                       borderRadius: 8, overflow: 'hidden', position: 'relative',

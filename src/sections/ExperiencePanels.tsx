@@ -57,7 +57,7 @@ const panels: PanelData[] = [
     body: 'Earn rewards on every spend and unlock premier access: 24/7 dedicated member services, the Winity Loop referral program, and exclusive discounts with curated lifestyle partners worldwide.',
     cta: 'Explore rewards',
     ctaLink: '/loyalty',
-    image: '/winity_lifestyle_lounge.jpg',
+    image: '/winity_lifestyle_lounge.webp',
     bgBase: '#0B2E2C',
   },
   {
@@ -68,7 +68,7 @@ const panels: PanelData[] = [
     body: 'The Exclusive virtual card is issued upon KYC approval, Google Pay ready, and accepted at 150M+ Visa merchant locations worldwide. The Executive metal card unlocks a faster earn rate and premium perks for high-volume travellers.',
     cta: 'Compare cards',
     ctaLink: '/exclusive',
-    image: '/exp_cards_closeup.png',
+    image: '/exp_cards_closeup.webp',
     bgBase: '#061C1E',
   },
   {
@@ -80,7 +80,7 @@ const panels: PanelData[] = [
     cta: 'Download the app',
     ctaLink: 'https://apps.apple.com/us/app/winity-life/id6752761057',
     external: true,
-    image: '/winity_lifestyle_art.jpg',
+    image: '/winity_lifestyle_art.webp',
     bgBase: '#0F3F3A',
   },
 ]

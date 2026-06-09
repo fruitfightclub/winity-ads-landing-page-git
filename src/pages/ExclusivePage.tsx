@@ -74,7 +74,7 @@ const Label = ({ text, color = MINT }: { text: string; color?: string }) => (
 )
 
 // ─── Hero card fan — CSS transform-origin pivot (Medium article pattern) ───────
-const FAN_CARD_SRC  = '/card_exclusive_visa.png'
+const FAN_CARD_SRC  = '/card_exclusive_visa.webp'
 // Base angles for the 5-card fan — all full opacity, scroll-triggered entrance
 const FAN_BASE_ANGLES = [-28, -14, 0, 14, 28]
 const FAN_OPACITIES   = [1.0, 1.0, 1.0, 1.0, 1.0]
@@ -86,7 +86,7 @@ const MOMENTS = [
     headline: 'Virtual card.\nReady on approval.',
     body:     'Your Winity Exclusive virtual card is issued upon KYC approval. Add it to Google Pay and start spending at 150M+ Visa® merchant locations globally. 0% stablecoin load fee.',
     image:    '/card_exclusive_virtual.webp',
-    fallback: '/hero_card_exclusive.png',
+    fallback: '/hero_card_exclusive.webp',
     icon:     Zap,
     badge:    'Issued on approval',
     imgRight: true,
@@ -96,8 +96,8 @@ const MOMENTS = [
     label:    'Physical Card',
     headline: 'Get the physical\ncard on us.',
     body:     'Spend just $25 on your virtual card and receive your premium Exclusive physical card at no issuance cost. First 6 months of the USD 20/yr annual fee waived on new activations. Shipping charges may apply.',
-    image:    '/card_hand_pull.jpg',
-    fallback: '/exp_cards_closeup.png',
+    image:    '/card_hand_pull.webp',
+    fallback: '/exp_cards_closeup.webp',
     icon:     CreditCard,
     badge:    'Free after $25 spend*',
     imgRight: false,
@@ -107,8 +107,8 @@ const MOMENTS = [
     label:    'Global ATM Access',
     headline: 'Cash. Anywhere\nVisa® is accepted.',
     body:     'Withdraw cash at any Visa® ATM in 180+ countries and territories worldwide. Your physical card gives you access to global banking infrastructure, wherever you travel. USD 3 per withdrawal, no foreign transaction fee.',
-    image:    '/card_hero_float.jpg',
-    fallback: '/exp_cards_closeup.png',
+    image:    '/card_hero_float.webp',
+    fallback: '/exp_cards_closeup.webp',
     icon:     Banknote,
     badge:    '180+ Countries',
     imgRight: true,
@@ -118,8 +118,8 @@ const MOMENTS = [
     label:    'Travel Connected',
     headline: '1 GB free data.\nSave 20% on more.',
     body:     'Reach USD 5,000 in eligible spend and unlock 1 GB of complimentary Umi data, activated digitally across 141 countries. Winity members also receive an exclusive discount code for 20% off their first Umi purchase.',
-    image:    '/winity_lifestyle_travel.png',
-    fallback: '/loyalty_hero_lounge.png',
+    image:    '/winity_lifestyle_travel.webp',
+    fallback: '/loyalty_hero_lounge.webp',
     icon:     Wifi,
     badge:    '20% off first Umi purchase',
     imgRight: false,
@@ -393,7 +393,7 @@ export default function ExclusivePage() {
         {/* Background — hero photo + gradient overlay */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
           <img
-            src="/EXCLUSIVE_PAGE_BACKGROUND.png"
+            src="/EXCLUSIVE_PAGE_BACKGROUND.webp"
             alt=""
             style={{
               position: 'absolute', inset: 0,
@@ -659,10 +659,10 @@ export default function ExclusivePage() {
               }}
             >
               <img
-                src="/card_wallet_green.jpg"
+                src="/card_wallet_green.webp"
                 alt="Winity Exclusive physical card"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }}
-                onError={(e) => { (e.target as HTMLImageElement).src = '/exp_cards_closeup.png' }}
+                onError={(e) => { (e.target as HTMLImageElement).src = '/exp_cards_closeup.webp' }}
               />
               <div style={{
                 position: 'absolute', top: 20, left: 20, zIndex: 10,

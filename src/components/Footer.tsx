@@ -102,13 +102,13 @@ const socialLinks = [
 // ─── Helper: link item ────────────────────────────────────────────────────────
 function FooterLink({ label, to, href }: { label: string; to?: string; href?: string }) {
   const baseStyle: React.CSSProperties = {
-    fontSize: 13, color: 'rgba(240,237,230,0.50)',
+    fontSize: 13, color: 'rgba(240,237,230,0.68)',
     textDecoration: 'none',
     transition: 'color 0.18s',
     display: 'block',
   }
   const onEnter = (e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.color = '#F0EDE6' }
-  const onLeave = (e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.color = 'rgba(240,237,230,0.50)' }
+  const onLeave = (e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.color = 'rgba(240,237,230,0.68)' }
 
   if (to) return <Link to={to} style={baseStyle} onMouseEnter={onEnter} onMouseLeave={onLeave}>{label}</Link>
   return <a href={href} target="_blank" rel="noopener noreferrer" style={baseStyle} onMouseEnter={onEnter} onMouseLeave={onLeave}>{label}</a>
@@ -144,10 +144,10 @@ export default function Footer() {
                 style={{ height: 34, width: 'auto' }}
               />
             </Link>
-            <p style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', lineHeight: 1.65 }}>
+            <p style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)', lineHeight: 1.65 }}>
               Many Ways to Move. One Way to Pay.
             </p>
-            <p style={{ fontSize: 11, color: 'rgba(240,237,230,0.25)', marginTop: 8, lineHeight: 1.5 }}>
+            <p style={{ fontSize: 11, color: 'rgba(240,237,230,0.50)', marginTop: 8, lineHeight: 1.5 }}>
               Digital asset-linked Visa cards for the global economy. Available in 180+ countries.
             </p>
           </div>
@@ -164,7 +164,7 @@ export default function Footer() {
                   width: 34, height: 34, borderRadius: 8,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   border: '1px solid rgba(240,237,230,0.09)',
-                  color: 'rgba(240,237,230,0.42)',
+                  color: 'rgba(240,237,230,0.65)',
                   textDecoration: 'none',
                   transition: 'all 0.2s',
                 }}
@@ -176,7 +176,7 @@ export default function Footer() {
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLAnchorElement
-                  el.style.color = 'rgba(240,237,230,0.42)'
+                  el.style.color = 'rgba(240,237,230,0.65)'
                   el.style.borderColor = 'rgba(240,237,230,0.09)'
                   el.style.background = 'transparent'
                 }}
@@ -201,7 +201,7 @@ export default function Footer() {
             <div key={section}>
               <h3 style={{
                 fontSize: 10, fontWeight: 800, letterSpacing: '0.15em',
-                textTransform: 'uppercase', color: 'rgba(240,237,230,0.30)',
+                textTransform: 'uppercase', color: 'rgba(240,237,230,0.55)',
                 marginBottom: 16,
               }}>
                 {section}
@@ -224,7 +224,7 @@ export default function Footer() {
           <div>
             <h3 style={{
               fontSize: 10, fontWeight: 800, letterSpacing: '0.15em',
-              textTransform: 'uppercase', color: 'rgba(240,237,230,0.30)',
+              textTransform: 'uppercase', color: 'rgba(240,237,230,0.55)',
               marginBottom: 16,
             }}>
               Download
@@ -283,7 +283,7 @@ export default function Footer() {
 
         {/* ── Disclaimers — EXACTLY like Winity.life ── */}
         <div style={{ marginBottom: 32 }}>
-          <p style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', lineHeight: 1.7, margin: 0 }}>
+          <p style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)', lineHeight: 1.7, margin: 0 }}>
             Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.
           </p>
         </div>
@@ -300,13 +300,13 @@ export default function Footer() {
           }}
         >
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-            <span style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)' }}>
+            <span style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)' }}>
               © 2026 WTY Technology Hong Kong Limited.
             </span>
-            <Link to="/risk" style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.42)'}>Risk Disclosure</Link>
-            <Link to="/terms" style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.42)'}>Terms of Use</Link>
-            <Link to="/privacy" style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.42)'}>Privacy Policy</Link>
-            <Link to="/google-pay-tc" style={{ fontSize: 13, color: 'rgba(240,237,230,0.42)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.42)'}>Google Pay T&C</Link>
+            <Link to="/risk" style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.65)'}>Risk Disclosure</Link>
+            <Link to="/terms" style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.65)'}>Terms of Use</Link>
+            <Link to="/privacy" style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.65)'}>Privacy Policy</Link>
+            <Link to="/google-pay-tc" style={{ fontSize: 13, color: 'rgba(240,237,230,0.65)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color = '#21E6A7'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(240,237,230,0.65)'}>Google Pay T&C</Link>
           </div>
 
           {/* Site creation signature moved internally to code comments - no public facing footer credit */}
