@@ -162,9 +162,54 @@
       align-items: center;
       justify-content: center;
       overflow: visible;
-      padding: 110px 20px 60px;
+      padding: 110px 20px 110px;
       z-index: 5;
       background: radial-gradient(ellipse 90% 80% at 50% 70%, #0D4540 0%, #071E1E 55%, #030C0C 100%);
+    }
+
+    .hero-marquee-banner {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(4, 15, 17, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      overflow: hidden;
+      z-index: 10;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: hero-marquee 30s linear infinite;
+      align-items: center;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 40px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(244, 247, 246, 0.85);
+      white-space: nowrap;
+    }
+    .marquee-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 8px var(--mint);
+      display: inline-block;
+    }
+    @keyframes hero-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .hero-container {
@@ -619,7 +664,7 @@
     }
     .step-img-wrap {
       width: 100%;
-      aspect-ratio: 16/11;
+      aspect-ratio: 4/5;
       overflow: hidden;
       background: rgba(3, 12, 12, 0.4);
       position: relative;
@@ -1096,7 +1141,7 @@
       .desktop-only { display: block !important; }
       .mobile-only { display: none !important; }
 
-      #hero { padding: 120px 40px 80px; }
+      #hero { padding: 120px 40px 130px; }
 
       .hero-container {
         grid-template-columns: 1.1fr 0.9fr;
@@ -1257,6 +1302,25 @@
       </div>
     </div>
   </div>
+
+  <!-- Horizontal Rotating Banner at bottom of Section 1 -->
+  <div class="hero-marquee-banner">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="marquee-dot"></span>Available in 180+ Countries</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Accepted Globally</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>0% Stablecoin Deposit Fee</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Issued in Hong Kong</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>150M+ Merchants Worldwide</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Instant Virtual Issuance</span>
+      <!-- Duplicated for infinite scroll -->
+      <span class="marquee-item"><span class="marquee-dot"></span>Available in 180+ Countries</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Accepted Globally</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>0% Stablecoin Deposit Fee</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Issued in Hong Kong</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>150M+ Merchants Worldwide</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Instant Virtual Issuance</span>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════════════════════
@@ -1355,59 +1419,74 @@
      ════════════════════════════════════ -->
 <section class="section" id="experience" aria-label="The Winity Life Experience">
   <div style="max-width:1200px;margin:0 auto;">
-          <p class="ep-sub">Start free. Upgrade when you're ready.</p>
-          <p class="ep-body">The Exclusive virtual card is issued instantly upon KYC approval, ready to link to Google Pay, and accepted at 150M+ Visa merchant locations worldwide. No staking or lockups required.</p>
-          <button class="ep-btn" onclick="openModal('cards')">Compare Cards</button>
+    <span class="section-label">Freedom in Motion</span>
+    <h2 class="section-h2">The Winity Life <em>experience.</em></h2>
+    
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack">
+        <!-- Slide 1: Travel -->
+        <div class="carousel-slide">
+          <img class="carousel-img" src="/mOMENT_Travel_Pause.webp" alt="Travel without borders" loading="lazy" width="1100" height="540">
+          <div class="carousel-content">
+            <div class="carousel-text-box">
+              <span class="carousel-tag">Travel</span>
+              <h3 class="carousel-title">Travel without borders.</h3>
+              <p class="carousel-desc">Sunrise in Tokyo, dining in Zurich, sunset over Dubai. Spend your stablecoins globally with zero FX markups in 180+ countries.</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Panel 3: Winity Life -->
-      <div class="exp-panel" role="listitem" tabindex="0" onclick="activatePanel(this)" onmouseenter="hoverPanel(this)">
-        <img class="ep-bg" src="/winity_lifestyle_art.webp" alt="Lifestyle">
-        <div class="ep-overlay" aria-hidden="true"></div>
-        <span class="ep-num" aria-hidden="true">03</span>
-        <div class="ep-content">
-          <h3>Winity Life</h3>
-          <p class="ep-sub">Built for people who live without borders.</p>
-          <p class="ep-body">Sunrise in Tokyo, dining in Zurich, sunset over Dubai. Your Winity card handles conversion on card use, accompanying you smoothly through 180+ countries, all managed from one app.</p>
-          <button class="ep-btn" onclick="openModal('lifestyle')">Get App Access</button>
+        <!-- Slide 2: Conversion -->
+        <div class="carousel-slide">
+          <img class="carousel-img" src="/Shopping_TopUp_Mall.webp" alt="Instant stablecoin conversion" loading="lazy" width="1100" height="540">
+          <div class="carousel-content">
+            <div class="carousel-text-box">
+              <span class="carousel-tag">Payments</span>
+              <h3 class="carousel-title">Instant stablecoin conversion.</h3>
+              <p class="carousel-desc">Deposit USDT and USDC from Solana, TRON, Ethereum, or Polygon. Spend instantly at 150M+ merchants worldwide with zero conversion friction.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ════════════════════════════════════
-     HOW IT WORKS
-     ════════════════════════════════════ -->
-<section class="section" id="how">
-  <div style="max-width:1200px;margin:0 auto;">
-    <span class="section-label">How It Works</span>
-    <h2 class="section-h2">Three steps to global spending freedom</h2>
-    <div class="steps">
-      <div class="step anim anim-d1">
-        <div class="step-num">01</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+        <!-- Slide 3: Rewards -->
+        <div class="carousel-slide">
+          <img class="carousel-img" src="/mOMENT_Amalfi_Hotel.webp" alt="Earn Winity points" loading="lazy" width="1100" height="540">
+          <div class="carousel-content">
+            <div class="carousel-text-box">
+              <span class="carousel-tag">Rewards</span>
+              <h3 class="carousel-title">Unlock exclusive rewards.</h3>
+              <p class="carousel-desc">Earn Winity Points on every purchase. Redeem points for flights, hotels, dining, and premium lifestyle benefits directly in the app.</p>
+            </div>
+          </div>
         </div>
-        <h3>Add Your Stablecoins</h3>
-        <p>Deposit USDT or USDC via Ethereum, Polygon, Solana, Tron, or BSC networks. No minimums. 0% deposit fee.</p>
+
+        <!-- Slide 4: Real World Spend -->
+        <div class="carousel-slide">
+          <img class="carousel-img" src="/mOMENT_Nightlife_Barcelona.webp" alt="Everyday lifestyle spending" loading="lazy" width="1100" height="540">
+          <div class="carousel-content">
+            <div class="carousel-text-box">
+              <span class="carousel-tag">Lifestyle</span>
+              <h3 class="carousel-title">Designed for everyday luxury.</h3>
+              <p class="carousel-desc">From fine dining to high-end boutiques, tap to pay with your Exclusive virtual card or recycled physical card. No lockups, no staking.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="step anim anim-d2">
-        <div class="step-num">02</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-        </div>
-        <h3>Converted Instantly</h3>
-        <p>Your digital assets are converted within the Winity platform into a USD spending balance — no external exchange required.</p>
-      </div>
-      <div class="step anim anim-d3">
-        <div class="step-num">03</div>
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <h3>Spend Anywhere Visa® Is Accepted</h3>
-        <p>Tap your Winity virtual or physical Visa® card at 150M+ merchants across 180+ countries. Online or in-store.</p>
+      
+      <!-- Left/Right Arrows -->
+      <button class="carousel-arrow" style="position: absolute; left: 24px; bottom: 24px; z-index: 20;" onclick="prevSlide()" aria-label="Previous Slide">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-arrow" style="position: absolute; left: 76px; bottom: 24px; z-index: 20;" onclick="nextSlide()" aria-label="Next Slide">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <!-- Carousel Navigation Dots -->
+      <div class="carousel-nav">
+        <button class="carousel-dot active" onclick="setSlide(0)" aria-label="Go to slide 1"></button>
+        <button class="carousel-dot" onclick="setSlide(1)" aria-label="Go to slide 2"></button>
+        <button class="carousel-dot" onclick="setSlide(2)" aria-label="Go to slide 3"></button>
+        <button class="carousel-dot" onclick="setSlide(3)" aria-label="Go to slide 4"></button>
       </div>
     </div>
   </div>
