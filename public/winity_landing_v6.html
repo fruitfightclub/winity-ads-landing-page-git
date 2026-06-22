@@ -1126,6 +1126,18 @@
     .anim-d3 { animation-delay: 0.25s; }
     .anim-d4 { animation-delay: 0.35s; }
     .anim-d5 { animation-delay: 0.45s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anim, .js-ready .anim, .js-ready .anim.in {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .carousel-track {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 
