@@ -164,17 +164,6 @@
       overflow: visible;
       padding: 110px 20px 60px;
       z-index: 5;
-    }
-
-    .hero-bg-container {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .hero-radial-bg {
-      position: absolute;
-      inset: 0;
       background: radial-gradient(ellipse 90% 80% at 50% 70%, #0D4540 0%, #071E1E 55%, #030C0C 100%);
     }
 
@@ -530,7 +519,7 @@
       font-weight: 900; letter-spacing: -0.03em;
       color: #fff; margin-bottom: clamp(32px, 6vh, 52px);
       line-height: 1.12;
-      max-width: 540px;
+      max-width: 680px;
     }
     .section-h2 em { color: var(--mint); font-style: normal; }
 
@@ -538,232 +527,268 @@
       background: var(--deep);
       border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
-    .net-grid {
+    .usp-highlight-row {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 24px;
+      margin-bottom: 56px;
     }
-    @media (min-width: 992px) {
-      .net-grid {
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 48px;
-        align-items: start;
-      }
-    }
-    
-    .token-dashboard {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.4), 0 0 30px rgba(33,230,167,0.02);
-    }
-    .token-dashboard-header {
-      margin-bottom: 20px;
-    }
-    .token-dashboard-h3 {
-      font-size: 20px;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 6px;
-      letter-spacing: -0.02em;
-    }
-    .token-dashboard-sub {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    
-    .token-group {
-      margin-bottom: 16px;
-      padding: 16px;
-      background: rgba(255,255,255,0.01);
-      border: 1px solid rgba(255,255,255,0.03);
-      border-radius: 12px;
-    }
-    .token-group:last-child {
-      margin-bottom: 0;
-    }
-    .token-group-title {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--mint);
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .token-badge-fee {
-      background: var(--mint-glow);
-      border: 1px solid rgba(33,230,167,0.2);
-      color: var(--mint);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 9px;
-      letter-spacing: 0.05em;
-      font-weight: 800;
-    }
-    .token-badge-conversion {
-      background: rgba(232,201,122,0.1);
-      border: 1px solid rgba(232,201,122,0.25);
-      color: var(--copper-bright);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 9px;
-      letter-spacing: 0.05em;
-      font-weight: 800;
-    }
-    .token-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .token-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 12px;
-      background: rgba(3,12,12,0.6);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #fff;
-    }
-    .token-item svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--mint);
-    }
-    
-    .networks-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-      align-items: center;
-    }
-    .network-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      color: var(--muted);
-      background: rgba(255,255,255,0.02);
-      padding: 4px 8px;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.04);
-    }
-    .network-badge svg {
-      width: 12px;
-      height: 12px;
-      fill: currentColor;
-    }
-    
-    .usp-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    @media (min-width: 576px) {
-      .usp-list {
-        grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 768px) {
+      .usp-highlight-row {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     .usp-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 20px;
+      padding: 28px;
       transition: all 0.3s var(--ease);
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
     .usp-card:hover {
-      border-color: rgba(33, 230, 167, 0.25);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(33,230,167,0.03);
+      border-color: rgba(33, 230, 167, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(33,230,167,0.04);
     }
     .usp-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
       background: var(--mint-glow);
-      border: 1px solid rgba(33,230,167,0.15);
+      border: 1px solid rgba(33,230,167,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .usp-icon svg {
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
       stroke: var(--mint);
       fill: none;
       stroke-width: 2.5;
     }
     .usp-card h3 {
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 800;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       letter-spacing: -0.01em;
     }
     .usp-card p {
-      font-size: 12.5px;
+      font-size: 13.5px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    /* ════════════════════════════════════════
-       HOW IT WORKS SECTION
-       ════════════════════════════════════════ */
-    #how {
-      background: var(--deep);
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
-    }
-    .steps {
+    /* Steps Grid Layout */
+    .steps-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 24px;
+      margin-top: 48px;
     }
-    .step {
+    @media (min-width: 640px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .step-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: clamp(24px, 3vw, 36px);
-      position: relative;
+      overflow: hidden;
       transition: all 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
-    .step:hover {
-      border-color: rgba(33, 230, 167, 0.3);
-      transform: translateY(-2px);
+    .step-card:hover {
+      border-color: rgba(33, 230, 167, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(33,230,167,0.04);
     }
-    .step-num {
-      font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
-      color: var(--mint); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 12px;
+    .step-img-wrap {
+      width: 100%;
+      aspect-ratio: 16/11;
+      overflow: hidden;
+      background: rgba(3, 12, 12, 0.4);
+      position: relative;
     }
-    .step-num::after {
-      content: ''; flex: 1; height: 1px;
-      background: var(--border);
+    .step-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
     }
-    .step-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--mint-glow);
-      border: 1px solid rgba(33, 230, 167, 0.20);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px;
+    .step-card:hover .step-img-wrap img {
+      transform: scale(1.05);
     }
-    .step-icon svg { width: 20px; height: 20px; stroke: var(--mint); fill: none; stroke-width: 2.5; }
-    .step h3 {
-      font-size: 18px; font-weight: 700;
-      color: #fff; margin-bottom: 10px;
-      line-height: 1.3;
+    .step-info {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
-    .step p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .step-number {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--mint);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .step-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+    .step-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ════════════════════════════════════════
+       LIFESTYLE CAROUSEL SECTION (SECTION 3)
+       ════════════════════════════════════════ */
+    #experience {
+      background: var(--deep);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: clamp(380px, 52vw, 560px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.65), 0 0 32px rgba(33,230,167,0.03);
+      background: #020808;
+    }
+    .carousel-track {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.65) contrast(1.02);
+      transition: transform 1.2s var(--ease);
+    }
+    .carousel-slide:hover .carousel-img {
+      transform: scale(1.03);
+    }
+    .carousel-content {
+      position: absolute;
+      inset: 0;
+      padding: clamp(24px, 5vw, 56px);
+      background: linear-gradient(to top, rgba(3,12,12,0.95) 0%, rgba(3,12,12,0.5) 50%, rgba(3,12,12,0.1) 100%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .carousel-text-box {
+      max-width: 620px;
+    }
+    .carousel-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 12px;
+    }
+    .carousel-title {
+      font-size: clamp(22px, 3.2vw, 38px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .carousel-desc {
+      font-size: clamp(13.5px, 1.8vw, 16px);
+      color: rgba(244, 247, 246, 0.85);
+      line-height: 1.6;
+    }
+    .carousel-nav {
+      position: absolute;
+      bottom: clamp(24px, 4vw, 40px);
+      right: clamp(24px, 4vw, 40px);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      border: none;
+    }
+    .carousel-dot.active {
+      background: var(--mint);
+      transform: scale(1.35);
+      box-shadow: 0 0 10px var(--mint);
+    }
+    .carousel-arrow {
+      background: rgba(6, 28, 30, 0.75);
+      border: 1px solid var(--border);
+      color: var(--mint);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .carousel-arrow:hover {
+      background: var(--mint);
+      color: var(--deep);
+      border-color: var(--mint);
+      box-shadow: 0 0 16px var(--mint-glow);
+    }
+    .carousel-arrow:active {
+      transform: scale(0.95);
+    }
+    .carousel-arrow svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+    }
 
     /* ════════════════════════════════════════
        TRUST BAND
@@ -1127,10 +1152,6 @@
      HERO
      ════════════════════════════════════ -->
 <section id="hero" aria-label="Hero">
-  <!-- Background radial glow -->
-  <div class="hero-bg-container">
-    <div class="hero-radial-bg"></div>
-  </div>
 
   <div class="hero-container">
     <!-- Left Column: Copy & Form -->
@@ -1215,15 +1236,11 @@
       </div>
     </div>
 
-    <!-- Right Column: Editorial Visual (Option B) -->
+    <!-- Right Column: Card Visual -->
     <div class="hero-visual-col anim anim-d4">
       <div class="hero-editorial-wrap">
-        <div class="hero-visual-bg">
-          <img class="hero-visual-arch desktop-only" src="/hero_bg_arch3.webp" alt="">
-          <img class="hero-visual-arch mobile-only" src="/hero_bg_arch_mobile.webp" alt="">
-        </div>
         <div class="hero-photo-container">
-          <img class="hero-lifestyle-photo" src="/boutique_payment.png" alt="Borderless Lifestyle Spending with Winity Card" loading="eager" width="480" height="640">
+          <img class="hero-lifestyle-photo" src="/card_hero_float.webp" alt="Winity Exclusive Visa Card" loading="eager" width="480" height="640">
         </div>
       </div>
     </div>
@@ -1231,120 +1248,90 @@
 </section>
 
 <!-- ════════════════════════════════════
-     NETWORKS, TOKENS & VALUE PROPOSITIONS
+     NETWORKS, TOKENS & VALUE PROPOSITIONS (SECTION 2)
      ════════════════════════════════════ -->
 <section class="section" id="network-hub" aria-label="Networks and Value Propositions">
   <div style="max-width:1200px;margin:0 auto;">
-    <span class="section-label">Supported Assets & USPs</span>
-    <h2 class="section-h2">Spend everywhere. Deposit <em>instantly.</em></h2>
+    <span class="section-label">Supported Assets &amp; USPs</span>
+    <h2 class="section-h2">Spend stablecoins globally.<br><em>Verified in under 3 minutes.</em></h2>
     
-    <div class="net-grid">
-      <!-- Left Column: Token Dashboard Mockup -->
-      <div class="token-dashboard anim anim-d2">
-        <div class="token-dashboard-header">
-          <div class="token-dashboard-h3">Deposits & Networks</div>
-          <p class="token-dashboard-sub">Fund your balance globally with major digital assets. Converted instantly inside the platform to USD.</p>
+    <!-- Strongest USPs Highlight Row -->
+    <div class="usp-highlight-row">
+      <div class="usp-card">
+        <div class="usp-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 12h8" stroke="currentColor" stroke-width="2.5"/></svg>
         </div>
-        
-        <!-- Stablecoins group -->
-        <div class="token-group">
-          <div class="token-group-title">
-            Stablecoins
-            <span class="token-badge-fee">0% Deposit Fee</span>
-          </div>
-          <div class="token-row">
-            <span class="token-item">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="var(--mint)"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 9h8M8 12h8" stroke="var(--deep)" stroke-width="1.5"/></svg>
-              USDT (Tether)
-            </span>
-            <span class="token-item">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="var(--mint)"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 10h6" stroke="var(--deep)" stroke-width="1.5"/></svg>
-              USDC (USD Coin)
-            </span>
-          </div>
+        <h3>0% Deposit Fees</h3>
+        <p>Deposit USDT and USDC directly with zero platform fees. Fund your card balance instantly on Solana, Polygon, Ethereum, TRON, or BSC networks.</p>
+      </div>
+      
+      <div class="usp-card">
+        <div class="usp-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         </div>
-        
-        <!-- Volatile group -->
-        <div class="token-group">
-          <div class="token-group-title">
-            Supported Assets
-            <span class="token-badge-conversion">Instant Conversion</span>
-          </div>
-          <div class="token-row">
-            <span class="token-item">
-              Solana (SOL)
-            </span>
-            <span class="token-item">
-              Ethereum (ETH)
-            </span>
-            <span class="token-item">
-              Tron (TRX)
-            </span>
-          </div>
+        <h3>Free Virtual Card</h3>
+        <p>Generate your Winity Exclusive card immediately after KYC. Link to Google Pay instantly and spend globally at 150M+ merchants.</p>
+      </div>
+      
+      <div class="usp-card">
+        <div class="usp-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        
-        <!-- Networks Row -->
-        <div style="margin-top: 20px;">
-          <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Supported Deposit Chains</div>
-          <div class="networks-list">
-            <span class="network-badge">
-              Solana Network
-            </span>
-            <span class="network-badge">
-              TRON (TRC-20)
-            </span>
-            <span class="network-badge">
-              Ethereum Mainnet
-            </span>
-            <span class="network-badge">
-              Polygon
-            </span>
-            <span class="network-badge">
-              BNB Smart Chain
-            </span>
-            <span class="network-badge">
-              W Chain
-            </span>
-          </div>
+        <h3>Physical Card Waived</h3>
+        <p>The annual fee of USD 20 for the premium recycled ocean-plastic physical card is fully waived for your first 6 months, or free when you spend $25+ in your first 30 days.</p>
+      </div>
+    </div>
+
+    <!-- 4 Steps to Get Started -->
+    <span class="section-label" style="margin-top: 24px;">Four Steps to Start</span>
+    <h2 class="section-h2" style="margin-bottom: 24px;">Get started in <em>3 minutes.</em></h2>
+    
+    <div class="steps-grid">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="/Download and verify.webp" alt="Download and verify Winity Life app" loading="lazy" width="300" height="200">
+        </div>
+        <div class="step-info">
+          <span class="step-number">Step 01</span>
+          <h3 class="step-title">Download &amp; Verify</h3>
+          <p class="step-desc">Download the Winity app. Complete identity verification in under 3 minutes with standard biometric check — zero paperwork required.</p>
         </div>
       </div>
       
-      <!-- Right Column: Staggered USP list -->
-      <div class="usp-list anim anim-d3">
-        <!-- Card 1 -->
-        <div class="usp-card">
-          <div class="usp-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <h3>Get Started for Free</h3>
-          <p>No registration fees, no monthly costs, and no security staking. Get your Exclusive Virtual Card issued immediately after brief KYC verification.</p>
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="/Choose your card.webp" alt="Choose Winity card tier" loading="lazy" width="300" height="200">
         </div>
-        
-        <!-- Card 2 -->
-        <div class="usp-card">
-          <div class="usp-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-          </div>
-          <h3>Free Virtual Card</h3>
-          <p>Link your Exclusive Virtual Card to Google Pay instantly. Spend globally at 150M+ merchants and manage everything within the mobile app.</p>
+        <div class="step-info">
+          <span class="step-number">Step 02</span>
+          <h3 class="step-title">Choose Your Card</h3>
+          <p class="step-desc">Select the Winity Exclusive Virtual card (issued instantly and free of annual fees), or request the ocean-plastic physical card.</p>
         </div>
-        
-        <!-- Card 3 -->
-        <div class="usp-card">
-          <div class="usp-icon">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-          <h3>0% Stablecoin Deposits</h3>
-          <p>Deposit USDT and USDC directly with zero platform fees. Converted instantly to USD for transparent real-world spending.</p>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="/Fund your card.webp" alt="Fund Winity balance with stablecoins" loading="lazy" width="300" height="200">
         </div>
-        
-        <!-- Card 4 -->
-        <div class="usp-card">
-          <div class="usp-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <h3>Physical Card on Us</h3>
-          <p>The premium ocean-plastic Exclusive Physical Card annual fee of USD 20 is waived for the first 6 months (or free if you spend $25+ in your first 30 days).</p>
+        <div class="step-info">
+          <span class="step-number">Step 03</span>
+          <h3 class="step-title">Fund Your Balance</h3>
+          <p class="step-desc">Deposit USDT or USDC with 0% deposit fee. The platform converts stablecoins instantly into a USD spending balance.</p>
+        </div>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-img-wrap">
+          <img src="/Spend and Earn.webp" alt="Spend and earn Winity points" loading="lazy" width="300" height="200">
+        </div>
+        <div class="step-info">
+          <span class="step-number">Step 04</span>
+          <h3 class="step-title">Spend &amp; Earn</h3>
+          <p class="step-desc">Spend anywhere Visa® is accepted worldwide (online or in-store) and earn Winity Points on every purchase to redeem for travel rewards.</p>
         </div>
       </div>
     </div>
@@ -1352,60 +1339,10 @@
 </section>
 
 <!-- ════════════════════════════════════
-     FEATURED ON / PRESS MARQUEE
-     ════════════════════════════════════ -->
-<section id="press" aria-label="Media Publications">
-  <div class="press-title">Featured On</div>
-  <div class="pr-track-container">
-    <div class="pr-track">
-      <span class="pr-item" style="font-family: Georgia, serif; font-style: italic;">Financial Times</span>
-      <span class="pr-item" style="letter-spacing: 0.12em;">REUTERS</span>
-      <span class="pr-item" style="font-weight: 900;">AP</span>
-      <span class="pr-item" style="letter-spacing: 0.04em;">Business Insider</span>
-      <span class="pr-item">Bloomberg</span>
-      <span class="pr-item" style="letter-spacing: 0.03em;">CoinDesk</span>
-      <span class="pr-item" style="letter-spacing: 0.02em;">Yahoo Finance</span>
-      <!-- Duplicate for marquee loop -->
-      <span class="pr-item" style="font-family: Georgia, serif; font-style: italic;">Financial Times</span>
-      <span class="pr-item" style="letter-spacing: 0.12em;">REUTERS</span>
-      <span class="pr-item" style="font-weight: 900;">AP</span>
-      <span class="pr-item" style="letter-spacing: 0.04em;">Business Insider</span>
-      <span class="pr-item">Bloomberg</span>
-      <span class="pr-item" style="letter-spacing: 0.03em;">CoinDesk</span>
-      <span class="pr-item" style="letter-spacing: 0.02em;">Yahoo Finance</span>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     JOURNEY: THE WINITY LIFE EXPERIENCE
+     JOURNEY: THE WINITY LIFE EXPERIENCE (CAROUSEL)
      ════════════════════════════════════ -->
 <section class="section" id="experience" aria-label="The Winity Life Experience">
   <div style="max-width:1200px;margin:0 auto;">
-    <span class="section-label">The Winity Life Experience</span>
-    <h2 class="section-h2">Freedom in <em>motion.</em></h2>
-    
-    <div class="exp-panels" role="list">
-      <!-- Panel 1: Member Benefits -->
-      <div class="exp-panel active" role="listitem" tabindex="0" onclick="activatePanel(this)" onmouseenter="hoverPanel(this)">
-        <img class="ep-bg" src="/winity_lifestyle_lounge.webp" alt="Lounge">
-        <div class="ep-overlay" aria-hidden="true"></div>
-        <span class="ep-num" aria-hidden="true">01</span>
-        <div class="ep-content">
-          <h3>Member Benefits</h3>
-          <p class="ep-sub">Earn on every spend. Redeem where it counts.</p>
-          <p class="ep-body">Earn Winity Points on every transaction and unlock premium lifestyle access: 24/7 dedicated customer support, points-based rewards redemption, and exclusive perks with travel partners globally.</p>
-          <button class="ep-btn" onclick="openModal('benefits')">Explore Rewards</button>
-        </div>
-      </div>
-
-      <!-- Panel 2: Winity Cards -->
-      <div class="exp-panel" role="listitem" tabindex="0" onclick="activatePanel(this)" onmouseenter="hoverPanel(this)">
-        <img class="ep-bg" src="/exp_cards_closeup.webp" alt="Winity Cards">
-        <div class="ep-overlay" aria-hidden="true"></div>
-        <span class="ep-num" aria-hidden="true">02</span>
-        <div class="ep-content">
-          <h3>Winity Cards</h3>
           <p class="ep-sub">Start free. Upgrade when you're ready.</p>
           <p class="ep-body">The Exclusive virtual card is issued instantly upon KYC approval, ready to link to Google Pay, and accepted at 150M+ Visa merchant locations worldwide. No staking or lockups required.</p>
           <button class="ep-btn" onclick="openModal('cards')">Compare Cards</button>
@@ -1842,33 +1779,55 @@ document.querySelectorAll('#hero .anim').forEach(function(el){
   el.classList.add('in');
 });
 
-// ── EXPERIENCE PANELS INTERACTION ────────────────────────
-function activatePanel(panel) {
-  if (window.innerWidth < 768) {
-    var wasActive = panel.classList.contains('active');
-    document.querySelectorAll('.exp-panel').forEach(function(p){ p.classList.remove('active'); });
-    if (!wasActive) {
-      panel.classList.add('active');
-    }
-  } else {
-    document.querySelectorAll('.exp-panel').forEach(function(p){
-      p.classList.remove('active');
-      p.classList.add('compressed');
-    });
-    panel.classList.remove('compressed');
-    panel.classList.add('active');
+// ── LIFESTYLE CAROUSEL ──────────────────────────────────
+var carouselIndex = 0;
+var carouselSlides = document.querySelectorAll('.carousel-slide');
+var carouselDots = document.querySelectorAll('.carousel-dot');
+var carouselInterval = null;
+
+function showSlide(index) {
+  if (index >= carouselSlides.length) index = 0;
+  if (index < 0) index = carouselSlides.length - 1;
+  carouselIndex = index;
+  
+  var track = document.getElementById('carouselTrack');
+  if (track) {
+    track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
   }
+  
+  carouselDots.forEach(function(dot, i) {
+    dot.classList.toggle('active', i === carouselIndex);
+  });
 }
 
-function hoverPanel(panel) {
-  if (window.innerWidth >= 768) {
-    document.querySelectorAll('.exp-panel').forEach(function(p){
-      p.classList.remove('active');
-      p.classList.add('compressed');
-    });
-    panel.classList.remove('compressed');
-    panel.classList.add('active');
+function nextSlide() {
+  showSlide(carouselIndex + 1);
+}
+
+function prevSlide() {
+  showSlide(carouselIndex - 1);
+}
+
+function setSlide(index) {
+  showSlide(index);
+  resetCarouselTimer();
+}
+
+function startCarouselTimer() {
+  carouselInterval = setInterval(nextSlide, 5000);
+}
+
+function resetCarouselTimer() {
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
   }
+  startCarouselTimer();
+}
+
+// Initialize carousel
+if (carouselSlides.length > 0) {
+  showSlide(0);
+  startCarouselTimer();
 }
 
 // ── MODAL WINDOWS ────────────────────────────────────────
