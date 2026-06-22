@@ -312,21 +312,57 @@
       filter: brightness(1.1) saturate(1.2) contrast(1.05);
       opacity: 0.85;
     }
-    .hero-photo-container {
+    .hero-collage {
       position: relative;
-      z-index: 2;
-      width: 88%;
-      height: 92%;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.85), 0 0 32px rgba(33,230,167,0.06);
-    }
-    .hero-lifestyle-photo {
       width: 100%;
       height: 100%;
+      max-width: 440px;
+      aspect-ratio: 4/5;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .collage-img {
+      position: absolute;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 28px rgba(33,230,167,0.04);
+      overflow: hidden;
+      transition: all 0.4s var(--ease);
+      cursor: pointer;
       object-fit: cover;
-      filter: brightness(0.9) contrast(1.02);
+    }
+    /* Main Top Image - card_hero_float.webp */
+    .collage-img-1 {
+      width: 62%;
+      height: 72%;
+      z-index: 3;
+      transform: translate(0, 0) rotate(-3deg);
+    }
+    /* Left Image - card_lifestyle_1.webp */
+    .collage-img-2 {
+      width: 54%;
+      height: 64%;
+      z-index: 1;
+      transform: translate(-38%, -8%) rotate(-12deg);
+      opacity: 0.85;
+    }
+    /* Right Image - card_phone_scene.webp */
+    .collage-img-3 {
+      width: 56%;
+      height: 66%;
+      z-index: 2;
+      transform: translate(38%, 10%) rotate(8deg);
+      opacity: 0.9;
+    }
+    /* Hover effect for premium interactivity */
+    .collage-img:hover {
+      z-index: 10 !important;
+      transform: scale(1.08) rotate(0deg) translate(0, 0) !important;
+      opacity: 1 !important;
+      border-color: var(--mint);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 36px var(--mint-glow);
     }
 
     /* Desktop Lead capture Form box */
@@ -1293,11 +1329,13 @@
       </div>
     </div>
 
-    <!-- Right Column: Card Visual -->
+    <!-- Right Column: Card Visual (Interactive Collage) -->
     <div class="hero-visual-col anim anim-d4">
       <div class="hero-editorial-wrap">
-        <div class="hero-photo-container">
-          <img class="hero-lifestyle-photo" src="/card_hero_float.webp" alt="Winity Exclusive Visa Card" loading="eager" width="480" height="640">
+        <div class="hero-collage">
+          <img class="collage-img collage-img-2" src="/card_lifestyle_1.webp" alt="Winity Premium Card Lifestyle" loading="lazy" width="280" height="350">
+          <img class="collage-img collage-img-3" src="/card_phone_scene.webp" alt="Winity App Spend Scene" loading="lazy" width="280" height="350">
+          <img class="collage-img collage-img-1" src="/card_hero_float.webp" alt="Winity Card Premium Close-up" loading="eager" width="300" height="380">
         </div>
       </div>
     </div>
@@ -1424,50 +1462,50 @@
     
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
-        <!-- Slide 1: Travel -->
+        <!-- Slide 1: Digital Marketing -->
         <div class="carousel-slide">
-          <img class="carousel-img" src="/mOMENT_Travel_Pause.webp" alt="Travel without borders" loading="lazy" width="1100" height="540">
+          <img class="carousel-img" src="/uc_digital_marketing.webp" onerror="this.onerror=null; this.src='/ads_1.webp';" alt="Power your ad accounts" loading="lazy" width="1100" height="540">
           <div class="carousel-content">
             <div class="carousel-text-box">
-              <span class="carousel-tag">Travel</span>
-              <h3 class="carousel-title">Travel without borders.</h3>
-              <p class="carousel-desc">Sunrise in Tokyo, dining in Zurich, sunset over Dubai. Spend your stablecoins globally with zero FX markups in 180+ countries.</p>
+              <span class="carousel-tag">Digital Marketing</span>
+              <h3 class="carousel-title">Power your ad accounts.</h3>
+              <p class="carousel-desc">Meta, Google, TikTok, LinkedIn. Load your Winity card and run campaigns globally. No declined transactions, no currency headaches.</p>
             </div>
           </div>
         </div>
 
-        <!-- Slide 2: Conversion -->
+        <!-- Slide 2: SaaS & Subscriptions -->
         <div class="carousel-slide">
-          <img class="carousel-img" src="/Shopping_TopUp_Mall.webp" alt="Instant stablecoin conversion" loading="lazy" width="1100" height="540">
+          <img class="carousel-img" src="/uc_saas.webp" onerror="this.onerror=null; this.src='/ads_2.webp';" alt="One card for every tool" loading="lazy" width="1100" height="540">
           <div class="carousel-content">
             <div class="carousel-text-box">
-              <span class="carousel-tag">Payments</span>
-              <h3 class="carousel-title">Instant stablecoin conversion.</h3>
-              <p class="carousel-desc">Deposit USDT and USDC from Solana, TRON, Ethereum, or Polygon. Spend instantly at 150M+ merchants worldwide with zero conversion friction.</p>
+              <span class="carousel-tag">SaaS & Subscriptions</span>
+              <h3 class="carousel-title">One card for every tool.</h3>
+              <p class="carousel-desc">Notion, Figma, AWS, Shopify, Adobe, Slack. Manage all your software subscriptions from a single Winity card with full spend visibility.</p>
             </div>
           </div>
         </div>
 
-        <!-- Slide 3: Rewards -->
+        <!-- Slide 3: Travel & Hotels -->
         <div class="carousel-slide">
-          <img class="carousel-img" src="/mOMENT_Amalfi_Hotel.webp" alt="Earn Winity points" loading="lazy" width="1100" height="540">
+          <img class="carousel-img" src="/uc_travel.webp" onerror="this.onerror=null; this.src='/winity_lifestyle_travel.webp';" alt="Spend like a local, anywhere" loading="lazy" width="1100" height="540">
           <div class="carousel-content">
             <div class="carousel-text-box">
-              <span class="carousel-tag">Rewards</span>
-              <h3 class="carousel-title">Unlock exclusive rewards.</h3>
-              <p class="carousel-desc">Earn Winity Points on every purchase. Redeem points for flights, hotels, dining, and premium lifestyle benefits directly in the app.</p>
+              <span class="carousel-tag">Travel & Hotels</span>
+              <h3 class="carousel-title">Spend like a local, anywhere.</h3>
+              <p class="carousel-desc">From Dubai to Tokyo, pay at hotels, restaurants, and retail. Your card works at 150M+ Visa® locations across 200+ countries.</p>
             </div>
           </div>
         </div>
 
-        <!-- Slide 4: Real World Spend -->
+        <!-- Slide 4: Online Shopping -->
         <div class="carousel-slide">
-          <img class="carousel-img" src="/mOMENT_Nightlife_Barcelona.webp" alt="Everyday lifestyle spending" loading="lazy" width="1100" height="540">
+          <img class="carousel-img" src="/uc_shopping.webp" onerror="this.onerror=null; this.src='/winity_gallery_culture.webp';" alt="Shop global. Earn points" loading="lazy" width="1100" height="540">
           <div class="carousel-content">
             <div class="carousel-text-box">
-              <span class="carousel-tag">Lifestyle</span>
-              <h3 class="carousel-title">Designed for everyday luxury.</h3>
-              <p class="carousel-desc">From fine dining to high-end boutiques, tap to pay with your Exclusive virtual card or recycled physical card. No lockups, no staking.</p>
+              <span class="carousel-tag">Online Shopping</span>
+              <h3 class="carousel-title">Shop global. Earn points.</h3>
+              <p class="carousel-desc">Amazon, AliExpress, ASOS, Farfetch. Shop any online store that accepts Visa® and earn 1 Winity Point per USD 10 spent automatically.</p>
             </div>
           </div>
         </div>
@@ -1534,8 +1572,7 @@
         </div>
         <div class="c-body">
           <div class="c-badge">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            Virtual · Instant
+            Virtual
           </div>
           <h3>Exclusive Virtual</h3>
           <p class="c-desc">Generates instantly after biometric verification. Spend digital assets globally with Google Pay compatibility.</p>
@@ -1557,11 +1594,10 @@
         </div>
         <div class="c-body">
           <div class="c-badge">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            Physical · Recycled Plastic
+            Physical
           </div>
           <h3>Exclusive Physical</h3>
-          <p class="c-desc">Tactile physical card made from recycled ocean plastic. Supports contactless payments and global ATM cash access.</p>
+          <p class="c-desc">Everything virtual offers, plus a premium physical card in your wallet, ready at the ATM.</p>
           <div class="c-price">USD 20<span>/year (waived first 6m)</span></div>
           <ul class="feat-list">
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Free card when spending $25+</li>
@@ -1580,8 +1616,7 @@
         </div>
         <div class="c-body">
           <div class="c-badge copper-theme">
-            <svg viewBox="0 0 24 24" stroke="var(--copper-bright)" fill="none" stroke-width="2.5" style="width:10px;height:10px;"><polyline points="20 6 9 17 4 12"/></svg>
-            Brushed Metal · Premium
+            Metal
           </div>
           <h3 style="color: var(--copper-bright);">Executive Metal</h3>
           <p class="c-desc">Laser-cut matte black titanium metal. Built for high-volume travelers seeking concierge and VIP benefits.</p>
