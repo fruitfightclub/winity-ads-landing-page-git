@@ -153,7 +153,7 @@
     .nav-btn:active { transform: scale(0.97); }
 
     /* ════════════════════════════════════════
-       HERO SECTION
+       HERO SECTION (OPTION B - EDITORIAL USE-CASE)
        ════════════════════════════════════════ */
     #hero {
       min-height: 100svh;
@@ -218,17 +218,17 @@
     .hero-h1 em { color: var(--mint); font-style: normal; }
 
     .hero-sub {
-      font-size: clamp(14px, 2vw, 17px);
+      font-size: clamp(14px, 1.8vw, 16px);
       line-height: 1.6;
       color: rgba(244, 247, 246, 0.7);
-      margin-bottom: 28px;
-      max-width: 480px;
+      margin-bottom: 24px;
+      max-width: 520px;
     }
 
     /* Trust pills */
     .trust-row {
       display: flex; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
     .trust-pill {
       display: inline-flex; align-items: center; gap: 6px;
@@ -240,29 +240,34 @@
     }
     .trust-pill svg { width: 12px; height: 12px; stroke: var(--mint); fill: none; stroke-width: 2.5; }
 
-    /* Static hero visual with integrated arch background */
-    .hero-visual {
-      position: relative;
+    /* Editorial Visual Column */
+    .hero-visual-col {
       width: 100%;
-      height: clamp(260px, 45vw, 420px);
-      margin-top: 24px;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
+    }
+    .hero-editorial-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(300px, 42vw, 520px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: visible;
     }
     .hero-visual-bg {
       position: absolute;
-      top: -10px;
-      bottom: -15px;
+      top: -20px;
+      bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      width: 140%;
-      height: calc(100% + 25px);
+      width: 130%;
+      height: calc(100% + 50px);
       pointer-events: none;
       z-index: 0;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
     }
     .hero-visual-arch {
@@ -270,26 +275,44 @@
       height: 100%;
       object-fit: contain;
       mix-blend-mode: screen;
-      filter: brightness(1.2) saturate(1.25) contrast(1.05);
-      opacity: 0.95;
+      filter: brightness(1.1) saturate(1.2) contrast(1.05);
+      opacity: 0.85;
     }
-    .hero-phone-mock {
-      width: clamp(140px, 28vw, 220px);
-      height: auto;
+    .hero-photo-container {
+      position: relative;
       z-index: 2;
-      transform: translateY(10px);
-      filter: drop-shadow(0 24px 48px rgba(0,0,0,0.85)) drop-shadow(0 0 32px rgba(33,230,167,0.1));
+      width: 88%;
+      height: 92%;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.85), 0 0 32px rgba(33,230,167,0.06);
     }
-    .hero-card-fan {
-      position: absolute;
-      bottom: 12%;
-      left: 52%;
-      width: clamp(150px, 30vw, 230px);
-      height: auto;
-      transform: rotate(14deg);
-      z-index: 1;
-      filter: drop-shadow(0 14px 28px rgba(0,0,0,0.8));
+    .hero-lifestyle-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9) contrast(1.02);
     }
+
+    /* Desktop Lead capture Form box */
+    .hero-form-box {
+      width: 100%;
+      background: rgba(6, 28, 30, 0.74);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4), 0 0 30px rgba(33,230,167,0.02);
+    }
+    .hero-form-title {
+      font-size: 16px; font-weight: 900; color: #fff;
+      margin-bottom: 4px; letter-spacing: -0.02em;
+    }
+    .hero-form-sub { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
 
     .cta-primary {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -493,7 +516,7 @@
     .ty-sub { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
     /* ════════════════════════════════════════
-       JOURNEY SECTION: EXPERIENCE PANELS (EMERALD NOIR)
+       NETWORKS & USPs SECTION (SECTION 2)
        ════════════════════════════════════════ */
     .section { padding: clamp(60px, 10vh, 100px) clamp(20px, 5vw, 60px); position: relative; }
     .section-label {
@@ -511,151 +534,187 @@
     }
     .section-h2 em { color: var(--mint); font-style: normal; }
 
-    #experience {
+    #network-hub {
       background: var(--deep);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
-    .exp-panels {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-height: auto;
+    .net-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
-
-    .exp-panel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      cursor: pointer;
-      outline: none;
+    @media (min-width: 992px) {
+      .net-grid {
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 48px;
+        align-items: start;
+      }
+    }
+    
+    .token-dashboard {
       background: var(--surface);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-      min-height: 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 24px;
-      transition: all 0.5s var(--ease);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4), 0 0 30px rgba(33,230,167,0.02);
     }
-
-    .ep-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.45;
-      transition: transform 0.6s var(--ease), opacity 0.5s var(--ease);
+    .token-dashboard-header {
+      margin-bottom: 20px;
     }
-
-    .exp-panel:hover .ep-bg {
-      transform: scale(1.03);
-      opacity: 0.65;
-    }
-
-    .ep-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(to top, rgba(3,12,12,0.95) 0%, rgba(3,12,12,0.4) 65%, transparent 100%);
-    }
-
-    .ep-num {
-      position: absolute;
-      top: 24px; left: 24px;
-      z-index: 2;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 0.2em; color: rgba(33,230,167,0.7);
-    }
-
-    .ep-content {
-      position: relative;
-      z-index: 2;
-      max-width: 100%;
-      transition: transform 0.5s var(--ease);
-    }
-
-    .ep-content h3 {
-      font-size: 22px; font-weight: 900;
-      color: #fff; margin-bottom: 6px;
+    .token-dashboard-h3 {
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 6px;
       letter-spacing: -0.02em;
     }
-
-    .ep-sub {
-      font-size: 14px; font-weight: 600;
-      color: #a8d8c8; margin-bottom: 12px;
-      line-height: 1.4;
+    .token-dashboard-sub {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
     }
-
-    .ep-body {
-      font-size: 13.5px; line-height: 1.6;
-      color: rgba(200, 221, 216, 0.8);
-      max-width: 520px;
-      display: none; /* Desktop expands dynamically */
-      margin-bottom: 18px;
+    
+    .token-group {
+      margin-bottom: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,0.01);
+      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: 12px;
     }
-
-    .exp-panel.active .ep-body {
-      display: block;
-      animation: fadeIn 0.4s var(--ease) forwards;
+    .token-group:last-child {
+      margin-bottom: 0;
     }
-
-    @style {
-      .fadeIn {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
+    .token-group-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .token-badge-fee {
+      background: var(--mint-glow);
+      border: 1px solid rgba(33,230,167,0.2);
+      color: var(--mint);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .token-badge-conversion {
+      background: rgba(232,201,122,0.1);
+      border: 1px solid rgba(232,201,122,0.25);
+      color: var(--copper-bright);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      font-weight: 800;
+    }
+    .token-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .token-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: rgba(3,12,12,0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .token-item svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--mint);
+    }
+    
+    .networks-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      align-items: center;
+    }
+    .network-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.02);
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .network-badge svg {
+      width: 12px;
+      height: 12px;
+      fill: currentColor;
+    }
+    
+    .usp-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 576px) {
+      .usp-list {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-
-    .ep-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 20px; border-radius: 999px;
-      background: linear-gradient(135deg, rgba(33,230,167,0.15) 0%, rgba(15,63,58,0.5) 100%);
-      border: 1px solid rgba(33,230,167,0.35);
-      color: var(--mint); font-size: 12px; font-weight: 600;
+    .usp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
       transition: all 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
     }
-    .exp-panel.active .ep-btn {
-      background: var(--mint); color: var(--deep);
-      border-color: var(--mint);
+    .usp-card:hover {
+      border-color: rgba(33, 230, 167, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(33,230,167,0.03);
     }
-
-    /* Desktop flex panel expansion rules */
-    @media (min-width: 768px) {
-      .exp-panels {
-        flex-direction: row;
-        min-height: 520px;
-      }
-      .exp-panel {
-        flex: 1;
-        min-height: auto;
-        transition: flex 0.7s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
-      }
-      .exp-panel.active {
-        flex: 3.5;
-        box-shadow: inset 0 0 0 1px rgba(33,230,167,0.2), 0 0 40px rgba(33,230,167,0.06);
-        border-color: rgba(33,230,167,0.25);
-      }
-      .exp-panel.compressed {
-        flex: 0.4;
-      }
-      .exp-panel.compressed .ep-content h3 {
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transform: rotate(180deg);
-        color: rgba(244,247,246,0.35);
-        font-size: 12px; font-weight: 700;
-        letter-spacing: 0.22em; text-transform: uppercase;
-        margin: 20px auto 0;
-        white-space: nowrap;
-      }
-      .exp-panel.compressed .ep-sub,
-      .exp-panel.compressed .ep-btn,
-      .exp-panel.compressed .ep-num {
-        display: none;
-      }
-      .exp-panel.compressed .ep-bg {
-        opacity: 0.15;
-      }
+    .usp-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--mint-glow);
+      border: 1px solid rgba(33,230,167,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .usp-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--mint);
+      fill: none;
+      stroke-width: 2.5;
+    }
+    .usp-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .usp-card p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     /* ════════════════════════════════════════
@@ -1015,39 +1074,15 @@
       #hero { padding: 120px 40px 80px; }
 
       .hero-container {
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 60px;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 48px;
         align-items: center;
       }
 
-      .hero-visual {
-        height: 380px;
-        margin-top: 32px;
-      }
-      .hero-phone-mock {
-        width: 200px;
-      }
-      .hero-card-fan {
-        width: 210px;
-        left: 53%;
+      .hero-editorial-wrap {
+        height: 480px;
       }
 
-      /* Desktop Lead capture Form box */
-      .hero-form-box {
-        width: 100%;
-        background: rgba(6, 28, 30, 0.74);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 36px 32px;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(33,230,167,0.02);
-      }
-      .hero-form-title {
-        font-size: 20px; font-weight: 900; color: #fff;
-        margin-bottom: 6px; letter-spacing: -0.02em;
-      }
-      .hero-form-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 24px; }
       .sticky-bar { display: none !important; }
     }
 
@@ -1098,7 +1133,7 @@
   </div>
 
   <div class="hero-container">
-    <!-- Left Column: Copy & Visuals -->
+    <!-- Left Column: Copy & Form -->
     <div class="hero-copy-col">
       <div class="hero-eyebrow anim anim-d1">
         <span class="blink"></span>
@@ -1107,47 +1142,71 @@
 
       <!-- UTM-dynamic headline -->
       <h1 class="hero-h1 anim anim-d2" id="heroH1">
-        Spend Your<br>
-        Stablecoins<br>
-        <em>Anywhere.</em>
+        Your Stablecoins.<br>
+        <em>Liquid Globally.</em>
       </h1>
 
       <p class="hero-sub anim anim-d3" id="heroSub">
-        Deposit USDT or USDC. Converted within the Winity platform into a USD spending balance — spend at 150M+ merchants globally with your Winity Visa® card.
+        Deposit USDT or USDC. Convert instantly to USD. Spend at 150M+ merchants with your Winity Visa® card. Free virtual card, 0% deposit fee.
       </p>
 
+      <!-- Desktop-only Inline Lead Form -->
+      <div class="hero-form-box anim anim-d4 desktop-only">
+        <div class="hero-form-title">Get Your Free Card</div>
+        <p class="hero-form-sub">Join thousands of members spending globally</p>
+        <form id="heroForm" onsubmit="submitForm(event,'heroForm')">
+          <div class="field-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+            <div class="field" style="margin-bottom: 0;">
+              <label for="h-name">First Name</label>
+              <input id="h-name" name="name" type="text" placeholder="First name" required autocomplete="given-name">
+            </div>
+            <div class="field" style="margin-bottom: 0;">
+              <label for="h-email">Email Address</label>
+              <input id="h-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="field-row" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 12px; align-items: flex-end;">
+            <div class="field" style="margin-bottom: 0;">
+              <label for="h-country">Country</label>
+              <select id="h-country" name="country" required>
+                <option value="">Select country</option>
+                <option>Saudi Arabia</option>
+                <option>United Arab Emirates</option>
+                <option>Qatar</option>
+                <option>Bahrain</option>
+                <option>Kuwait</option>
+                <option>Oman</option>
+                <option>United Kingdom</option>
+                <option>Hong Kong</option>
+                <option>Singapore</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="submit-btn" id="heroSubmitBtn" style="margin-top: 0; padding: 14px;">Get Card Free →</button>
+          </div>
+          <p class="form-disclaimer" style="margin-top: 12px; text-align: left;">Card services issued in Hong Kong. Available globally wherever Visa® is accepted. Subject to KYC verification.</p>
+        </form>
+        <div class="ty-state" id="heroTy">
+          <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="ty-title">You're on the list.</div>
+          <p class="ty-sub">We'll reach out within 24 hours. Check your inbox.</p>
+        </div>
+      </div>
+
       <!-- Trust pills -->
-      <div class="trust-row anim anim-d4">
+      <div class="trust-row anim anim-d4" style="margin-top: 16px;">
         <span class="trust-pill">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           Visa® Accepted
         </span>
         <span class="trust-pill">
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          180+ Countries
+          180+ Countries Supported
         </span>
-        <span class="trust-pill">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          Free Virtual Card
-        </span>
-        <span class="trust-pill">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          0% Deposit Fee
-        </span>
-      </div>
-
-      <!-- Visual elements (phone & cards framed by arch) -->
-      <div class="hero-visual anim anim-d4">
-        <div class="hero-visual-bg">
-          <img class="hero-visual-arch desktop-only" src="/hero_bg_arch3.webp" alt="">
-          <img class="hero-visual-arch mobile-only" src="/hero_bg_arch_mobile.webp" alt="">
-        </div>
-        <img class="hero-phone-mock" src="/hero_phone.webp" alt="Winity App" loading="eager">
-        <img class="hero-card-fan" src="/card_exclusive_physical.webp" alt="Winity Exclusive Card" loading="eager">
       </div>
 
       <!-- Mobile CTA -->
-      <div class="mobile-only anim anim-d5" style="width: 100%; margin-top: 24px;">
+      <div class="mobile-only anim anim-d5" style="width: 100%; margin-top: 20px;">
         <button class="cta-primary" onclick="openModal('hero')">
           Get My Card Free
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -1156,43 +1215,136 @@
       </div>
     </div>
 
-    <!-- Right Column: Desktop-only Form -->
-    <div class="hero-form-col desktop-only anim anim-d4">
-      <div class="hero-form-box">
-        <div class="hero-form-title">Get Your Free Card</div>
-        <p class="hero-form-sub">Join thousands of members spending globally</p>
-        <form id="heroForm" onsubmit="submitForm(event,'heroForm')">
-          <div class="field">
-            <label for="h-name">First Name</label>
-            <input id="h-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
+    <!-- Right Column: Editorial Visual (Option B) -->
+    <div class="hero-visual-col anim anim-d4">
+      <div class="hero-editorial-wrap">
+        <div class="hero-visual-bg">
+          <img class="hero-visual-arch desktop-only" src="/hero_bg_arch3.webp" alt="">
+          <img class="hero-visual-arch mobile-only" src="/hero_bg_arch_mobile.webp" alt="">
+        </div>
+        <div class="hero-photo-container">
+          <img class="hero-lifestyle-photo" src="/boutique_payment.png" alt="Borderless Lifestyle Spending with Winity Card" loading="eager" width="480" height="640">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     NETWORKS, TOKENS & VALUE PROPOSITIONS
+     ════════════════════════════════════ -->
+<section class="section" id="network-hub" aria-label="Networks and Value Propositions">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="section-label">Supported Assets & USPs</span>
+    <h2 class="section-h2">Spend everywhere. Deposit <em>instantly.</em></h2>
+    
+    <div class="net-grid">
+      <!-- Left Column: Token Dashboard Mockup -->
+      <div class="token-dashboard anim anim-d2">
+        <div class="token-dashboard-header">
+          <div class="token-dashboard-h3">Deposits & Networks</div>
+          <p class="token-dashboard-sub">Fund your balance globally with major digital assets. Converted instantly inside the platform to USD.</p>
+        </div>
+        
+        <!-- Stablecoins group -->
+        <div class="token-group">
+          <div class="token-group-title">
+            Stablecoins
+            <span class="token-badge-fee">0% Deposit Fee</span>
           </div>
-          <div class="field">
-            <label for="h-email">Email Address</label>
-            <input id="h-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          <div class="token-row">
+            <span class="token-item">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="var(--mint)"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 9h8M8 12h8" stroke="var(--deep)" stroke-width="1.5"/></svg>
+              USDT (Tether)
+            </span>
+            <span class="token-item">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="var(--mint)"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 10h6" stroke="var(--deep)" stroke-width="1.5"/></svg>
+              USDC (USD Coin)
+            </span>
           </div>
-          <div class="field">
-            <label for="h-country">Country</label>
-            <select id="h-country" name="country" required>
-              <option value="">Select your country</option>
-              <option>Saudi Arabia</option>
-              <option>United Arab Emirates</option>
-              <option>Qatar</option>
-              <option>Bahrain</option>
-              <option>Kuwait</option>
-              <option>Oman</option>
-              <option>United Kingdom</option>
-              <option>Hong Kong</option>
-              <option>Singapore</option>
-              <option>Other</option>
-            </select>
+        </div>
+        
+        <!-- Volatile group -->
+        <div class="token-group">
+          <div class="token-group-title">
+            Supported Assets
+            <span class="token-badge-conversion">Instant Conversion</span>
           </div>
-          <button type="submit" class="submit-btn" id="heroSubmitBtn">Join the Membership →</button>
-          <p class="form-disclaimer">Card services issued in Hong Kong. Available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
-        </form>
-        <div class="ty-state" id="heroTy">
-          <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="ty-title">You're on the list.</div>
-          <p class="ty-sub">We'll reach out within 24 hours.<br>Check your inbox — including spam.</p>
+          <div class="token-row">
+            <span class="token-item">
+              Solana (SOL)
+            </span>
+            <span class="token-item">
+              Ethereum (ETH)
+            </span>
+            <span class="token-item">
+              Tron (TRX)
+            </span>
+          </div>
+        </div>
+        
+        <!-- Networks Row -->
+        <div style="margin-top: 20px;">
+          <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;">Supported Deposit Chains</div>
+          <div class="networks-list">
+            <span class="network-badge">
+              Solana Network
+            </span>
+            <span class="network-badge">
+              TRON (TRC-20)
+            </span>
+            <span class="network-badge">
+              Ethereum Mainnet
+            </span>
+            <span class="network-badge">
+              Polygon
+            </span>
+            <span class="network-badge">
+              BNB Smart Chain
+            </span>
+            <span class="network-badge">
+              W Chain
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Staggered USP list -->
+      <div class="usp-list anim anim-d3">
+        <!-- Card 1 -->
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Get Started for Free</h3>
+          <p>No registration fees, no monthly costs, and no security staking. Get your Exclusive Virtual Card issued immediately after brief KYC verification.</p>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <h3>Free Virtual Card</h3>
+          <p>Link your Exclusive Virtual Card to Google Pay instantly. Spend globally at 150M+ merchants and manage everything within the mobile app.</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <h3>0% Stablecoin Deposits</h3>
+          <p>Deposit USDT and USDC directly with zero platform fees. Converted instantly to USD for transparent real-world spending.</p>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="usp-card">
+          <div class="usp-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>Physical Card on Us</h3>
+          <p>The premium ocean-plastic Exclusive Physical Card annual fee of USD 20 is waived for the first 6 months (or free if you spend $25+ in your first 30 days).</p>
         </div>
       </div>
     </div>
