@@ -28,6 +28,7 @@ import { ArrowRight } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { cn } from '@/lib/utils'
+import { useStoreUrl } from '../hooks/useStoreUrl'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -129,6 +130,7 @@ function PanelCTA({ label, href, external }: { label: string; href: string; exte
 // ─── ExperiencePanels ─────────────────────────────────────────────────────────
 
 export default function ExperiencePanels() {
+  const storeUrl = useStoreUrl()
   const sectionRef  = useRef<HTMLElement>(null)
   const panelRefs   = useRef<(HTMLDivElement | null)[]>([])
   const headerRef   = useRef<HTMLDivElement>(null)
@@ -450,7 +452,11 @@ export default function ExperiencePanels() {
                     <p className="ep-title-sm">{panel.title}</p>
                     <p className="ep-sub">{panel.subheadline}</p>
                     <p className="ep-body">{panel.body}</p>
-                    <PanelCTA label={panel.cta} href={panel.ctaLink} external={panel.external} />
+                    <PanelCTA 
+                      label={panel.cta} 
+                      href={panel.id === 'lifestyle' ? storeUrl : panel.ctaLink} 
+                      external={panel.external} 
+                    />
                   </div>
                 )}
 

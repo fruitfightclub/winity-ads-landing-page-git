@@ -27,6 +27,7 @@ import { SplitText } from 'gsap/SplitText'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check, Users, Repeat2, TrendingUp, Wifi, ExternalLink, Gift } from 'lucide-react'
 import SEO from '../components/SEO'
+import { useStoreUrl } from '../hooks/useStoreUrl'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -223,6 +224,7 @@ const CARD_TERMS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function ReferralPage() {
+  const storeUrl = useStoreUrl()
   const heroRef    = useRef<HTMLElement>(null)
   const headlineRef = useRef<HTMLHeadingElement>(null)
   const levelsRef  = useRef<HTMLElement>(null)
@@ -389,7 +391,7 @@ export default function ReferralPage() {
                 style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}
               >
                 <a
-                  href="https://apps.apple.com/us/app/winity-life/id6752761057"
+                  href={storeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -483,7 +485,7 @@ export default function ReferralPage() {
                 Physical card available after $25 in eligible spend (shipping charges may apply).
               </p>
               <a
-                href="https://apps.apple.com/us/app/winity-life/id6752761057"
+                href={storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -674,7 +676,7 @@ export default function ReferralPage() {
 
           <div className="reveal-up" style={{ display: 'flex', justifyContent: 'center', gap: 14, marginTop: 48, flexWrap: 'wrap' }}>
             <a
-              href="https://apps.apple.com/us/app/winity-life/id6752761057"
+              href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -875,7 +877,7 @@ export default function ReferralPage() {
           </p>
           <div className="reveal-up" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 14 }}>
             <a
-              href="https://apps.apple.com/us/app/winity-life/id6752761057"
+              href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
               style={{

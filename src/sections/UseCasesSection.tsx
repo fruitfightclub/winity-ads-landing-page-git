@@ -1,23 +1,20 @@
-/**
- * ---
- * client: Winity Life
- * philosophy: Emerald Noir
- * deliverable: Use Cases Section — Homepage
- * phase: 6
- * date: 2026-05-27
- * skills_used: [tss-master, tss-frontend-pro, ag-scroll-reveal]
- * ---
- *
- * Real-world use cases for the Winity card.
- * Shows how people actually use it: ads, subscriptions, travel, shopping.
- * Placed after CardsSection on the homepage.
- */
+// ==============================================================================
+// TSS STUDIO — PHILOSOPHY REFERENCE BLOCK
+// Client: Winity Life
+// Philosophy: Emerald Noir
+// Palette: Deep Teal (#0B2E2C) | Mint Accent (#21E6A7) | Aqua Glow (#3CF2D0)
+// Phase: Phase 6 (Build & Optimization)
+// Date: 2026-06-15
+// Status: Production
+// ==============================================================================
 
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
 import { trackMetaEvent } from '../lib/meta'
+import { useStoreUrl } from '../hooks/useStoreUrl'
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -99,7 +96,7 @@ const USE_CASES = [
     image: '/winity_lifestyle_dining.webp',
     imageFallback: '/winity_gallary.webp',
     stat: 'NFC',
-    statLabel: 'Contactless & Apple/Google Pay',
+    statLabel: 'Contactless & Google Pay',
   },
   {
     id: 'freelance',
@@ -322,6 +319,7 @@ function TabItem({
 
 // ─── Main section ─────────────────────────────────────────────────────────────
 export default function UseCasesSection() {
+  const storeUrl = useStoreUrl()
   const sectionRef   = useRef<HTMLElement>(null)
   const headRef      = useRef<HTMLDivElement>(null)
   const bodyRef      = useRef<HTMLDivElement>(null)
@@ -516,7 +514,7 @@ export default function UseCasesSection() {
                 </div>
 
                 <a
-                  href="https://apps.apple.com/us/app/winity-life/id6752761057"
+                  href={storeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-pill"

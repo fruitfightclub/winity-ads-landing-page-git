@@ -148,7 +148,7 @@ export const BLOG_POSTS: BlogPost[] = [
       { type: 'paragraph', text: 'Download Winity Life on the Apple App Store or Google Play and start your borderless journey today.' },
       { type: 'list', items: [
         '[Apple Store](https://apps.apple.com/us/app/winity-life/id6752761057)',
-        '[Google Play Store](https://apps.apple.com/us/app/winity-life/id6752761057)'
+        '[Google Play Store](https://play.google.com/store/apps/details?id=com.winity.life)'
       ]},
       { type: 'paragraph', text: 'Disclaimer: Cards are issued in Hong Kong and available globally wherever Visa® is accepted. Availability of the cards may vary by jurisdiction and region. Visa® is a registered trademark of Visa® International Service Association. Google Pay™ is trademarks of its respective owner. The opinions expressed in this article are the author’s own and do not reflect the view of Visa.' },
       { type: 'paragraph', text: '©WinityLife. All rights reserved. Visit www.winity.life for full terms and disclosures.' }

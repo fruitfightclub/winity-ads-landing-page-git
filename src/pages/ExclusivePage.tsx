@@ -74,7 +74,7 @@ const Label = ({ text, color = MINT }: { text: string; color?: string }) => (
 )
 
 // ─── Hero card fan — CSS transform-origin pivot (Medium article pattern) ───────
-const FAN_CARD_SRC  = '/card_exclusive_visa.webp'
+const FAN_CARD_SRC  = '/card_exclusive_physical.webp'
 // Base angles for the 5-card fan — all full opacity, scroll-triggered entrance
 const FAN_BASE_ANGLES = [-28, -14, 0, 14, 28]
 const FAN_OPACITIES   = [1.0, 1.0, 1.0, 1.0, 1.0]

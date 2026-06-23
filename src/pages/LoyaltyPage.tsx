@@ -14,7 +14,7 @@
  *
  * LOYALTY PAGE — Emerald Noir
  * Premium travel and lifestyle rewards hub.
- * Redemption partner (Xoxoday) kept private until public launch.
+ * Bespoke on-chain loyalty redemption program (in development) for claiming gift cards.
  * Sections: LoyaltyHero → PointsEngine → UmiBenefits →
  *           RewardsPreview → LoyaltyDashboardPreview → LoyaltyCTA
  */

@@ -374,7 +374,7 @@ export default function Navigation() {
           {/* Mobile CTAs */}
           <div className="flex flex-col gap-3 pb-8">
             <a
-              href="https://apps.apple.com/us/app/winity-life/id6752761057"
+              href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-pill-outline justify-center"

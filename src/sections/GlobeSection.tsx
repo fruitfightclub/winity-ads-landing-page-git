@@ -1,9 +1,21 @@
+// ==============================================================================
+// TSS STUDIO — PHILOSOPHY REFERENCE BLOCK
+// Client: Winity Life
+// Philosophy: Emerald Noir
+// Palette: Deep Teal (#0B2E2C) | Mint Accent (#21E6A7) | Aqua Glow (#3CF2D0)
+// Phase: Phase 6 (Build & Optimization)
+// Date: 2026-06-15
+// Status: Production
+// ==============================================================================
+
 import { useEffect, useRef, useState } from 'react'
 import createGlobe from 'cobe'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import LiveRateBar from '../components/LiveRateBar'
+import { useStoreUrl } from '../hooks/useStoreUrl'
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -146,6 +158,7 @@ const MOMENTS = [
 
 // ─── GlobeSection Main component ──────────────────────────────────────────
 export default function GlobeSection() {
+  const storeUrl = useStoreUrl()
   const sectionRef   = useRef<HTMLElement>(null)
   const headerRef    = useRef<HTMLDivElement>(null)
   const assetsGridRef = useRef<HTMLDivElement>(null)
@@ -601,7 +614,7 @@ export default function GlobeSection() {
           {/* Action CTAs */}
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 40 }}>
             <a
-              href="https://apps.apple.com/us/app/winity-life/id6752761057"
+              href={storeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-pill"

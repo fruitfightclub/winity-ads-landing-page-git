@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useStoreUrl } from '../hooks/useStoreUrl'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -79,6 +80,7 @@ const executiveBenefitTags = [
 
 // ── Component ────────────────────────────────────────────────────────────────
 export default function LoyaltySection() {
+  const storeUrl = useStoreUrl()
   const sectionRef     = useRef<HTMLElement>(null)
   const headerRef      = useRef<HTMLDivElement>(null)
   const calculatorRef  = useRef<HTMLDivElement>(null)
@@ -557,7 +559,7 @@ export default function LoyaltySection() {
             </span>
           </Link>
           <a
-            href="https://apps.apple.com/us/app/winity-life/id6752761057"
+            href={storeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-pill-outline"

@@ -1,17 +1,19 @@
-/**
- * HeroSection — Winity Life | Emerald Noir
- * ─────────────────────────────────────────
- * Matches the exact hero visual you provided:
- * - Centered headline + dual CTAs (Learn more / Get the app)
- * - Floating glowing crypto icons (USDT, USDC, SOL, ETH)
- * - Central phone mockup + fanned Executive/Exclusive Visa cards
- * - Bronze arch backgrounds + premium dark theme
- * - Scroll-triggered GSAP card fan animation (preserved)
- */
+// ==============================================================================
+// TSS STUDIO — PHILOSOPHY REFERENCE BLOCK
+// Client: Winity Life
+// Philosophy: Emerald Noir
+// Palette: Deep Teal (#0B2E2C) | Mint Accent (#21E6A7) | Aqua Glow (#3CF2D0)
+// Phase: Phase 6 (Build & Optimization)
+// Date: 2026-06-15
+// Status: Production
+// ==============================================================================
+
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
+import { useStoreUrl } from '../hooks/useStoreUrl'
+
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -29,6 +31,7 @@ const CARD_W = 'clamp(200px, 20vw, 280px)'
 const CARD_H = 'clamp(126px, 12.6vw, 177px)'
 
 export default function HeroSection() {
+  const storeUrl = useStoreUrl()
   const sectionRef = useRef<HTMLElement>(null)
   const headlineRef = useRef<HTMLHeadingElement>(null)
   const prRef = useRef<HTMLDivElement>(null)
@@ -199,7 +202,7 @@ export default function HeroSection() {
 
           {/* Get the app — matches navbar btn-pill */}
           <a
-            href="https://apps.apple.com/us/app/winity-life/id6752761057"
+            href={storeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-pill hero-cta-btn"

@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Clock } from 'lucide-react'
 import SEO from '../components/SEO'
 import { BLOG_POSTS } from '../data/blogPosts'
+import { useStoreUrl } from '../hooks/useStoreUrl'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const CATEGORIES = ['All', 'Product', 'Partnerships', 'How It Works', 'Rewards', 'Press Release']
 
 export default function BlogPage() {
+  const storeUrl = useStoreUrl()
   const heroRef     = useRef<HTMLDivElement>(null)
   const gridRef     = useRef<HTMLDivElement>(null)
   const cardRefs    = useRef<(HTMLAnchorElement | null)[]>([])
@@ -203,7 +205,7 @@ export default function BlogPage() {
             Download Winity Life to get notified.
           </p>
           <a
-            href="https://apps.apple.com/us/app/winity-life/id6752761057"
+            href={storeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-pill"

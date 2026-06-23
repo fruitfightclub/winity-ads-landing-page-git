@@ -27,9 +27,8 @@
   <meta name="theme-color" content="#030C0C">
 
   <!-- ════ CRITICAL PRELOADS — LCP optimization ════ -->
-  <link rel="preload" as="image" href="/hero_bg_arch_mobile.webp" fetchpriority="high" type="image/webp" media="(max-width: 767px)">
-  <link rel="preload" as="image" href="/hero_bg_arch3.webp" fetchpriority="high" type="image/webp" media="(min-width: 768px)">
-  <link rel="preload" as="image" href="/hero_phone.webp" fetchpriority="high" type="image/webp">
+  <link rel="preload" as="image" href="/hero_bg_mobile.png" fetchpriority="high" type="image/png" media="(max-width: 767px)">
+  <link rel="preload" as="image" href="/hero_bg_desktop.png" fetchpriority="high" type="image/png" media="(min-width: 768px)">
   <link rel="preconnect" href="https://www.facebook.com" crossorigin>
   <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
 
@@ -164,7 +163,18 @@
       overflow: visible;
       padding: 110px 20px 110px;
       z-index: 5;
-      background: radial-gradient(ellipse 90% 80% at 50% 70%, #0D4540 0%, #071E1E 55%, #030C0C 100%);
+      background-image: url('/hero_bg_desktop.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    @media (max-width: 767px) {
+      #hero {
+        background-image: url('/hero_bg_mobile.png');
+        background-position: center top;
+        padding-top: 80px;
+        padding-bottom: 360px; /* Leave space for the phone graphic at the bottom */
+      }
     }
 
     .hero-marquee-banner {
@@ -312,57 +322,176 @@
       filter: brightness(1.1) saturate(1.2) contrast(1.05);
       opacity: 0.85;
     }
-    .hero-collage {
+    /* Branded Pill Buttons */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #21E6A7 0%, #0ECFB5 55%, #0ABFAA 100%);
+      color: #030C0C;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-pill:hover {
+      background: linear-gradient(90deg, #3CF2D0 0%, #21E6A7 55%, #0ECFB5 100%);
+      transform: scale(1.03);
+      box-shadow: 0 8px 32px rgba(33,230,167,0.35);
+    }
+    .btn-pill .pill-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(3, 12, 12, 0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.3s ease;
+      margin-left: 6px;
+    }
+    .btn-pill:hover .pill-icon { background: rgba(3, 12, 12, 0.40); }
+
+    .btn-pill-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px 10px 22px;
+      border-radius: 999px;
+      background: transparent;
+      border: 1.5px solid rgba(33,230,167,0.5);
+      color: #F4F7F6;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-pill-outline:hover {
+      background: rgba(33,230,167,0.07);
+      border-color: rgba(33,230,167,0.7);
+      transform: scale(1.03);
+    }
+    .btn-pill-outline .pill-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(244,247,246,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.3s ease;
+      margin-left: 6px;
+    }
+    .btn-pill-outline:hover .pill-icon { border-color: rgba(33,230,167,0.6); }
+
+    .download-buttons-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Trust stats grid instead of trust pills */
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-stat-val {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 900;
+      color: var(--mint);
+      line-height: 1.1;
+    }
+    .hero-stat-item em {
+      font-style: normal;
+    }
+    .hero-stat-lbl {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    @media (max-width: 480px) {
+      .hero-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    /* Branded Gradient Text Highlight */
+    .hero-h1 em,
+    .section-h2 em,
+    .join-h2 em {
+      background: linear-gradient(135deg, #21E6A7 0%, #0CF5BC 45%, #0ECFB5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: normal;
+    }
+
+    /* Steps Responsive Swipe Slider */
+    .steps-slider-container {
       position: relative;
       width: 100%;
-      height: 100%;
-      max-width: 440px;
-      aspect-ratio: 4/5;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .collage-img {
-      position: absolute;
-      border-radius: 20px;
-      border: 1.5px solid var(--border);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 28px rgba(33,230,167,0.04);
       overflow: hidden;
-      transition: all 0.4s var(--ease);
-      cursor: pointer;
+      margin-top: 32px;
+    }
+    .steps-slider-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0;
+    }
+    .steps-slider-track::-webkit-scrollbar {
+      display: none;
+    }
+    .steps-slider-slide {
+      flex: 0 0 calc(25% - 15px);
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+      transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+      aspect-ratio: 4/5;
+    }
+    .steps-slider-slide:hover {
+      border-color: var(--mint);
+      transform: translateY(-4px);
+    }
+    .steps-slider-slide img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
-    /* Main Top Image - card_hero_float.webp */
-    .collage-img-1 {
-      width: 62%;
-      height: 72%;
-      z-index: 3;
-      transform: translate(0, 0) rotate(-3deg);
+    @media (max-width: 1024px) {
+      .steps-slider-slide {
+        flex: 0 0 calc(50% - 10px);
+      }
     }
-    /* Left Image - card_lifestyle_1.webp */
-    .collage-img-2 {
-      width: 54%;
-      height: 64%;
-      z-index: 1;
-      transform: translate(-38%, -8%) rotate(-12deg);
-      opacity: 0.85;
-    }
-    /* Right Image - card_phone_scene.webp */
-    .collage-img-3 {
-      width: 56%;
-      height: 66%;
-      z-index: 2;
-      transform: translate(38%, 10%) rotate(8deg);
-      opacity: 0.9;
-    }
-    /* Hover effect for premium interactivity */
-    .collage-img:hover {
-      z-index: 10 !important;
-      transform: scale(1.08) rotate(0deg) translate(0, 0) !important;
-      opacity: 1 !important;
-      border-color: var(--mint);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.85), 0 0 36px var(--mint-glow);
+    @media (max-width: 640px) {
+      .steps-slider-slide {
+        flex: 0 0 75%;
+      }
+      .steps-slider-track {
+        padding-inline: 20px;
+        margin-inline: -20px;
+      }
     }
 
     /* Desktop Lead capture Form box */
@@ -1238,7 +1367,7 @@
     alt="Winity Life"
     width="100" height="22"
     loading="eager">
-  <button class="nav-btn" onclick="openModal('nav')">Get My Card</button>
+  <button class="nav-btn" onclick="openModal('modalDownload')">Download App</button>
 </nav>
 
 <!-- ════════════════════════════════════
@@ -1264,81 +1393,57 @@
         Deposit USDT or USDC. Convert instantly to USD. Spend at 150M+ merchants with your Winity Visa® card. Free virtual card, 0% deposit fee.
       </p>
 
-      <!-- Desktop-only Inline Lead Form -->
-      <div class="hero-form-box anim anim-d4 desktop-only">
-        <div class="hero-form-title">Get Your Free Card</div>
-        <p class="hero-form-sub">Join thousands of members spending globally</p>
-        <form id="heroForm" onsubmit="submitForm(event,'heroForm')">
-          <div class="field-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
-            <div class="field" style="margin-bottom: 0;">
-              <label for="h-name">First Name</label>
-              <input id="h-name" name="name" type="text" placeholder="First name" required autocomplete="given-name">
-            </div>
-            <div class="field" style="margin-bottom: 0;">
-              <label for="h-email">Email Address</label>
-              <input id="h-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
-            </div>
-          </div>
-          <div class="field-row" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 12px; align-items: flex-end;">
-            <div class="field" style="margin-bottom: 0;">
-              <label for="h-country">Country</label>
-              <select id="h-country" name="country" required>
-                <option value="">Select country</option>
-                <option>Saudi Arabia</option>
-                <option>United Arab Emirates</option>
-                <option>Qatar</option>
-                <option>Bahrain</option>
-                <option>Kuwait</option>
-                <option>Oman</option>
-                <option>United Kingdom</option>
-                <option>Hong Kong</option>
-                <option>Singapore</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <button type="submit" class="submit-btn" id="heroSubmitBtn" style="margin-top: 0; padding: 14px;">Get Card Free →</button>
-          </div>
-          <p class="form-disclaimer" style="margin-top: 12px; text-align: left;">Card services issued in Hong Kong. Available globally wherever Visa® is accepted. Subject to KYC verification.</p>
-        </form>
-        <div class="ty-state" id="heroTy">
-          <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="ty-title">You're on the list.</div>
-          <p class="ty-sub">We'll reach out within 24 hours. Check your inbox.</p>
+      <!-- Trust Stats Grid -->
+      <div class="hero-stats-grid anim anim-d4">
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">180+</span>
+          <span class="hero-stat-lbl">Countries Supported</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">150M+</span>
+          <span class="hero-stat-lbl">Merchants Worldwide</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">0%</span>
+          <span class="hero-stat-lbl">Deposit Fee</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-val">Visa®</span>
+          <span class="hero-stat-lbl">Issued in HK</span>
         </div>
       </div>
 
-      <!-- Trust pills -->
-      <div class="trust-row anim anim-d4" style="margin-top: 16px;">
-        <span class="trust-pill">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          Visa® Accepted
-        </span>
-        <span class="trust-pill">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          180+ Countries Supported
-        </span>
-      </div>
-
-      <!-- Mobile CTA -->
-      <div class="mobile-only anim anim-d5" style="width: 100%; margin-top: 20px;">
-        <button class="cta-primary" onclick="openModal('hero')">
-          Get My Card Free
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-        <p class="cta-note">Free virtual card · No credit check · Instant access</p>
-      </div>
-    </div>
-
-    <!-- Right Column: Card Visual (Interactive Collage) -->
-    <div class="hero-visual-col anim anim-d4">
-      <div class="hero-editorial-wrap">
-        <div class="hero-collage">
-          <img class="collage-img collage-img-2" src="/card_lifestyle_1.webp" alt="Winity Premium Card Lifestyle" loading="lazy" width="280" height="350">
-          <img class="collage-img collage-img-3" src="/card_phone_scene.webp" alt="Winity App Spend Scene" loading="lazy" width="280" height="350">
-          <img class="collage-img collage-img-1" src="/card_hero_float.webp" alt="Winity Card Premium Close-up" loading="eager" width="300" height="380">
-        </div>
+      <!-- Download Buttons CTA -->
+      <div class="download-buttons-group anim anim-d5" style="margin-top: 24px;">
+        <a href="https://apps.apple.com/app/winity-life" target="_blank" rel="noopener" class="btn-pill">
+          <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
+          </svg>
+          App Store
+          <span class="pill-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=life.winity.app" target="_blank" rel="noopener" class="btn-pill-outline">
+          <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
+            <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
+          </svg>
+          Google Play
+          <span class="pill-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
       </div>
     </div>
+
+    <!-- Right Column: Kept empty to let the background graphic show clearly -->
+    <div class="hero-visual-col desktop-only" aria-hidden="true" style="height: 100%; min-height: 400px;"></div>
   </div>
 
   <!-- Horizontal Rotating Banner at bottom of Section 1 -->
@@ -1367,7 +1472,7 @@
 <section class="section" id="network-hub" aria-label="Networks and Value Propositions">
   <div style="max-width:1200px;margin:0 auto;">
     <span class="section-label">Supported Assets &amp; USPs</span>
-    <h2 class="section-h2">Spend stablecoins globally.<br><em>Verified in under 3 minutes.</em></h2>
+    <h2 class="section-h2">Spend stablecoins globally.<br><em>Get started in minutes.</em></h2>
     
     <!-- Strongest USPs Highlight Row -->
     <div class="usp-highlight-row">
@@ -1398,54 +1503,21 @@
 
     <!-- 4 Steps to Get Started -->
     <span class="section-label" style="margin-top: 24px;">Four Steps to Start</span>
-    <h2 class="section-h2" style="margin-bottom: 24px;">Get started in <em>3 minutes.</em></h2>
+    <h2 class="section-h2" style="margin-bottom: 24px;">Get started in <em>minutes.</em></h2>
     
-    <div class="steps-grid">
-      <!-- Step 1 -->
-      <div class="step-card">
-        <div class="step-img-wrap">
-          <img src="/Download and verify.webp" alt="Download and verify Winity Life app" loading="lazy" width="300" height="200">
+    <div class="steps-slider-container">
+      <div class="steps-slider-track">
+        <div class="steps-slider-slide">
+          <img src="/Download and verify.webp" alt="Step 1: Download &amp; Verify" loading="lazy">
         </div>
-        <div class="step-info">
-          <span class="step-number">Step 01</span>
-          <h3 class="step-title">Download &amp; Verify</h3>
-          <p class="step-desc">Download the Winity app. Complete identity verification in under 3 minutes with standard biometric check — zero paperwork required.</p>
+        <div class="steps-slider-slide">
+          <img src="/Choose your card.webp" alt="Step 2: Choose Your Card" loading="lazy">
         </div>
-      </div>
-      
-      <!-- Step 2 -->
-      <div class="step-card">
-        <div class="step-img-wrap">
-          <img src="/Choose your card.webp" alt="Choose Winity card tier" loading="lazy" width="300" height="200">
+        <div class="steps-slider-slide">
+          <img src="/Fund your card.webp" alt="Step 3: Fund Your Balance" loading="lazy">
         </div>
-        <div class="step-info">
-          <span class="step-number">Step 02</span>
-          <h3 class="step-title">Choose Your Card</h3>
-          <p class="step-desc">Select the Winity Exclusive Virtual card (issued instantly and free of annual fees), or request the ocean-plastic physical card.</p>
-        </div>
-      </div>
-      
-      <!-- Step 3 -->
-      <div class="step-card">
-        <div class="step-img-wrap">
-          <img src="/Fund your card.webp" alt="Fund Winity balance with stablecoins" loading="lazy" width="300" height="200">
-        </div>
-        <div class="step-info">
-          <span class="step-number">Step 03</span>
-          <h3 class="step-title">Fund Your Balance</h3>
-          <p class="step-desc">Deposit USDT or USDC with 0% deposit fee. The platform converts stablecoins instantly into a USD spending balance.</p>
-        </div>
-      </div>
-      
-      <!-- Step 4 -->
-      <div class="step-card">
-        <div class="step-img-wrap">
-          <img src="/Spend and Earn.webp" alt="Spend and earn Winity points" loading="lazy" width="300" height="200">
-        </div>
-        <div class="step-info">
-          <span class="step-number">Step 04</span>
-          <h3 class="step-title">Spend &amp; Earn</h3>
-          <p class="step-desc">Spend anywhere Visa® is accepted worldwide (online or in-store) and earn Winity Points on every purchase to redeem for travel rewards.</p>
+        <div class="steps-slider-slide">
+          <img src="/Spend and Earn.webp" alt="Step 4: Spend &amp; Earn" loading="lazy">
         </div>
       </div>
     </div>
@@ -1455,10 +1527,10 @@
 <!-- ════════════════════════════════════
      JOURNEY: THE WINITY LIFE EXPERIENCE (CAROUSEL)
      ════════════════════════════════════ -->
-<section class="section" id="experience" aria-label="The Winity Life Experience">
+<section class="section" id="experience" aria-label="Where to Use It">
   <div style="max-width:1200px;margin:0 auto;">
-    <span class="section-label">Freedom in Motion</span>
-    <h2 class="section-h2">The Winity Life <em>experience.</em></h2>
+    <span class="section-label">Where to Use It</span>
+    <h2 class="section-h2">One card. <em>Every moment.</em></h2>
     
     <div class="carousel-container">
       <div class="carousel-track" id="carouselTrack">
@@ -1583,7 +1655,7 @@
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Google Pay integration</li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 0% deposit fee on USDT/USDC</li>
           </ul>
-          <button class="c-btn" onclick="openModal('tier_virtual')">Get Virtual Card</button>
+          <button class="c-btn" onclick="openModal('modalVirtual')">Get Virtual Card</button>
         </div>
       </article>
 
@@ -1605,7 +1677,7 @@
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> ATM cash withdrawals globally</li>
             <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Google Pay + Contactless Tap</li>
           </ul>
-          <button class="c-btn" onclick="openModal('tier_physical')">Get Physical Card</button>
+          <button class="c-btn" onclick="openModal('modalPhysical')">Get Physical Card</button>
         </div>
       </article>
 
@@ -1627,42 +1699,9 @@
             <li class="copper-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> VIP airport lounge access</li>
             <li class="copper-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Onboarding strategy call</li>
           </ul>
-          <button class="c-btn copper-btn" onclick="openModal('tier_executive')">Register Interest</button>
+          <button class="c-btn copper-btn" onclick="openModal('modalExecutive')">Register Interest</button>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     USE CASES
-     ════════════════════════════════════ -->
-<section class="section" id="use-cases">
-  <div style="max-width:1200px;margin:0 auto;">
-    <span class="section-label">Where to Use It</span>
-    <h2 class="section-h2">One card. Every moment.</h2>
-    <div class="use-cases-grid">
-      <div class="uc-card">
-        <img src="/mOMENT_Travel_Pause.webp" alt="Travel" loading="lazy" width="400" height="600">
-        <div class="uc-label">
-          <div class="uc-tag">Travel</div>
-          <h3>Flights, Hotels &amp; Airport Lounges</h3>
-        </div>
-      </div>
-      <div class="uc-card">
-        <img src="/mOMENT_Nightlife_Barcelona.webp" alt="Dining" loading="lazy" width="400" height="600">
-        <div class="uc-label">
-          <div class="uc-tag">Lifestyle</div>
-          <h3>Fine Dining &amp; Everyday Spending</h3>
-        </div>
-      </div>
-      <div class="uc-card">
-        <img src="/Shopping_TopUp_Mall.webp" alt="Shopping" loading="lazy" width="400" height="600">
-        <div class="uc-label">
-          <div class="uc-tag">Shopping</div>
-          <h3>Retail &amp; Online Checkout Globally</h3>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1690,7 +1729,7 @@
           <span class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">The Winity Exclusive Card is available globally in <strong>180+ countries</strong> wherever Visa® is accepted. Card services are issued in Hong Kong. Availability may vary by jurisdiction — check regional availability details on the Winity app.</div>
+          <div class="faq-a-inner">The Winity Card is available in <strong>187+ countries</strong> across Europe, Asia, Africa, the Americas, and Oceania. Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1699,7 +1738,7 @@
           <span class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">Winity supports deposits of <strong>USDT and USDC</strong> with <strong>0% deposit fee</strong>. Supported networks include <strong>Solana, Tron (TRC-20), Ethereum, Polygon, and BNB Smart Chain</strong>. Loaded stablecoins are converted within the platform into your USD spending balance.</div>
+          <div class="faq-a-inner">Winity supports deposits of <strong>USDT and USDC</strong> with <strong>0% deposit fee</strong>. Non-stable assets (5% conversion fee) include WCO, ETH, BSC, POL, Tron, and SOL. Supported networks include <strong>Ethereum, W Chain, Polygon, Tron, Solana, and Binance Smart Chain</strong>. Loaded stablecoins are converted within the platform into your USD spending balance.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1708,7 +1747,7 @@
           <span class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">Your <strong>virtual card is issued instantly</strong>. The physical ocean plastic card is delivered once you apply, verify identity, and choose physical delivery. Annual physical card fee is USD 20/year, which is fully waived for the first 6 months (or free if you spend $25+ in your first month).</div>
+          <div class="faq-a-inner">Spend USD 25 on your virtual card to qualify for the physical card at no issuance cost. Request it from the card management section in the app. The first 6 months of the USD 20/year annual fee are waived on new activations. Shipping charges may apply.</div>
         </div>
       </div>
     </div>
@@ -1716,55 +1755,39 @@
 </section>
 
 <!-- ════════════════════════════════════
-     BOTTOM CTA + FORM
+     BOTTOM CTA
      ════════════════════════════════════ -->
 <section id="join">
   <div class="join-inner">
     <h2 class="join-h2">Ready to spend<br><em>smarter?</em></h2>
-    <p class="join-sub">Join the Winity membership. Get your free virtual card. Spend globally from day one.</p>
+    <p class="join-sub">Get your Winity Exclusive card today. Download the app to start spending globally.</p>
 
-    <!-- Desktop inline form -->
-    <div class="join-form-desktop">
-      <form id="joinForm" onsubmit="submitForm(event,'joinForm')" class="join-form">
-        <div class="field" style="text-align: left;">
-          <label for="j-name">First Name</label>
-          <input id="j-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
-        </div>
-        <div class="field" style="text-align: left;">
-          <label for="j-email">Email Address</label>
-          <input id="j-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
-        </div>
-        <div class="field" style="text-align: left;">
-          <label for="j-country">Country</label>
-          <select id="j-country" name="country" required>
-            <option value="">Select your country</option>
-            <option>Saudi Arabia</option>
-            <option>United Arab Emirates</option>
-            <option>Qatar</option>
-            <option>Bahrain</option>
-            <option>Kuwait</option>
-            <option>Oman</option>
-            <option>United Kingdom</option>
-            <option>Hong Kong</option>
-            <option>Singapore</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <button type="submit" class="submit-btn" id="joinSubmitBtn">Join the Membership →</button>
-        <p class="form-disclaimer">Card services issued in Hong Kong. Available in 180+ countries wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
-      </form>
-      <div class="ty-state" id="joinTy">
-        <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="ty-title">You're on the list.</div>
-        <p class="ty-sub">We'll reach out within 24 hours.<br>Check your inbox — including spam.</p>
-      </div>
+    <div class="download-buttons-group" style="justify-content: center; margin-top: 32px;">
+      <a href="https://apps.apple.com/app/winity-life" target="_blank" rel="noopener" class="btn-pill">
+        <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
+        </svg>
+        App Store
+        <span class="pill-icon">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=life.winity.app" target="_blank" rel="noopener" class="btn-pill-outline">
+        <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
+          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
+        </svg>
+        Google Play
+        <span class="pill-icon">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
     </div>
-
-    <!-- Mobile: opens modal -->
-    <button class="cta-primary" onclick="openModal('bottom')" style="margin:0 auto;display:flex;max-width:300px;" id="bottomMobileCta">
-      Join the Membership
-      <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </button>
   </div>
 </section>
 
@@ -1786,30 +1809,32 @@
      STICKY MOBILE BAR
      ════════════════════════════════════ -->
 <div class="sticky-bar" id="stickyBar">
-  <button class="sticky-btn" onclick="openModal('sticky')">Get My Free Card →</button>
+  <button class="sticky-btn" onclick="openModal('modalDownload')">Download App →</button>
 </div>
 
 <!-- ════════════════════════════════════
-     MODAL FORM (MOBILE SLIDE-UP DRAWER)
+     MODAL FORMS (SEPERATE PATHS)
      ════════════════════════════════════ -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+
+<!-- Modal for Virtual Card Tier -->
+<div class="modal-overlay" id="modalVirtual" onclick="closeModalOnBg(event)">
   <div class="modal" style="position:relative;">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
     <div class="modal-drag"></div>
-    <div class="modal-title">Get Your Free Card</div>
-    <p class="modal-sub">Join thousands spending globally with Winity</p>
-    <form id="modalForm" onsubmit="submitForm(event,'modalForm')">
+    <div class="modal-title">Winity Exclusive Virtual</div>
+    <p class="modal-sub">Generate your virtual card instantly with zero annual fees.</p>
+    <form id="formVirtual" onsubmit="submitForm(event,'formVirtual')">
       <div class="field">
-        <label for="m-name">First Name</label>
-        <input id="m-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
+        <label for="v-name">First Name</label>
+        <input id="v-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
       </div>
       <div class="field">
-        <label for="m-email">Email Address</label>
-        <input id="m-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+        <label for="v-email">Email Address</label>
+        <input id="v-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
       </div>
       <div class="field">
-        <label for="m-country">Country</label>
-        <select id="m-country" name="country" required>
+        <label for="v-country">Country</label>
+        <select id="v-country" name="country" required>
           <option value="">Select your country</option>
           <option>Saudi Arabia</option>
           <option>United Arab Emirates</option>
@@ -1823,23 +1848,145 @@
           <option>Other</option>
         </select>
       </div>
-      <button type="submit" class="submit-btn" id="modalSubmitBtn">Join the Membership →</button>
-      <p class="form-disclaimer">Card services issued in Hong Kong. Available in 180+ countries wherever Visa® is accepted. Availability may vary by jurisdiction. No credit check required.</p>
+      <button type="submit" class="submit-btn" id="btnSubmitVirtual">Get Virtual Card →</button>
+      <p class="form-disclaimer">Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
     </form>
-    <div class="ty-state" id="modalTy">
+    <div class="ty-state" id="tyVirtual">
       <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <div class="ty-title">You're on the list.</div>
-      <p class="ty-sub">We'll reach out within 24 hours.<br>Check your inbox — including spam.</p>
+      <p class="ty-sub">We'll reach out within 24 hours to set up your virtual card.</p>
     </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     SCRIPTS
-     ════════════════════════════════════ -->
+<!-- Modal for Physical Card Tier -->
+<div class="modal-overlay" id="modalPhysical" onclick="closeModalOnBg(event)">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="modal-drag"></div>
+    <div class="modal-title">Winity Exclusive Physical</div>
+    <p class="modal-sub">Recycled ocean-plastic card with contactless spending and global ATM access.</p>
+    <form id="formPhysical" onsubmit="submitForm(event,'formPhysical')">
+      <div class="field">
+        <label for="p-name">First Name</label>
+        <input id="p-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="p-email">Email Address</label>
+        <input id="p-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="p-country">Country</label>
+        <select id="p-country" name="country" required>
+          <option value="">Select your country</option>
+          <option>Saudi Arabia</option>
+          <option>United Arab Emirates</option>
+          <option>Qatar</option>
+          <option>Bahrain</option>
+          <option>Kuwait</option>
+          <option>Oman</option>
+          <option>United Kingdom</option>
+          <option>Hong Kong</option>
+          <option>Singapore</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn" id="btnSubmitPhysical">Get Physical Card →</button>
+      <p class="form-disclaimer">Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
+    </form>
+    <div class="ty-state" id="tyPhysical">
+      <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="ty-title">You're on the list.</div>
+      <p class="ty-sub">We'll contact you shortly with shipment details for your physical card.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Executive Metal Tier -->
+<div class="modal-overlay" id="modalExecutive" onclick="closeModalOnBg(event)">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="modal-drag"></div>
+    <div class="modal-title">Winity Executive Metal</div>
+    <p class="modal-sub">Matte black titanium card, VIP lounge access, and dedicated personal concierge.</p>
+    <form id="formExecutive" onsubmit="submitForm(event,'formExecutive')">
+      <div class="field">
+        <label for="e-name">First Name</label>
+        <input id="e-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="e-email">Email Address</label>
+        <input id="e-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="e-country">Country</label>
+        <select id="e-country" name="country" required>
+          <option value="">Select your country</option>
+          <option>Saudi Arabia</option>
+          <option>United Arab Emirates</option>
+          <option>Qatar</option>
+          <option>Bahrain</option>
+          <option>Kuwait</option>
+          <option>Oman</option>
+          <option>United Kingdom</option>
+          <option>Hong Kong</option>
+          <option>Singapore</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn" id="btnSubmitExecutive" style="background: var(--copper); color: var(--deep); border-color: var(--copper);">Register Interest →</button>
+      <p class="form-disclaimer">Winity Executive Card is subject to verification and onboarding review.</p>
+    </form>
+    <div class="ty-state" id="tyExecutive">
+      <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="ty-title">Interest Registered.</div>
+      <p class="ty-sub">An onboarding specialist will reach out to schedule your review call.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for App Download Links -->
+<div class="modal-overlay" id="modalDownload" onclick="closeModalOnBg(event)">
+  <div class="modal" style="position:relative; text-align:center;">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="modal-drag"></div>
+    <div class="modal-title">Download Winity Life</div>
+    <p class="modal-sub" style="margin-bottom: 24px;">Available for iOS and Android. Start spending globally in minutes.</p>
+    
+    <div class="download-buttons-group" style="justify-content: center; margin-bottom: 16px;">
+      <a href="https://apps.apple.com/app/winity-life" target="_blank" rel="noopener" class="btn-pill">
+        <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
+        </svg>
+        App Store
+        <span class="pill-icon">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=life.winity.app" target="_blank" rel="noopener" class="btn-pill-outline">
+        <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
+          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
+        </svg>
+        Google Play
+        <span class="pill-icon">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
-// ── CONFIG ──────────────────────────────────────────────
-var SHEETS_WEBHOOK = '';  // Google Sheets Web App URL for lead capturing
+// ── WEBHOOK CONFIGURATION (SEPERATE PATHS) ──────────────────
+var VIRTUAL_CARD_WEBHOOK   = 'https://script.google.com/macros/s/AKfycbz_virtual_placeholder/exec';  // Paste Apps Script URL for Virtual leads
+var PHYSICAL_CARD_WEBHOOK  = 'https://script.google.com/macros/s/AKfycbz_physical_placeholder/exec'; // Paste Apps Script URL for Physical leads
+var EXECUTIVE_CARD_WEBHOOK = 'https://script.google.com/macros/s/AKfycbz_executive_placeholder/exec';// Paste Apps Script URL for Executive leads
 
 // ── UTM DYNAMIC HEADLINES ───────────────────────────────
 (function(){
@@ -1957,21 +2104,24 @@ if (carouselSlides.length > 0) {
 }
 
 // ── MODAL WINDOWS ────────────────────────────────────────
-var currentFormSource = '';
-function openModal(src) {
-  currentFormSource = src;
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'InitiateCheckout', {content_name: 'Winity Exclusive - Form Open - ' + src});
+function openModal(id) {
+  var targetModal = document.getElementById(id);
+  if (targetModal) {
+    targetModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout', {content_name: 'Winity Exclusive - Open - ' + id});
+    }
   }
 }
 function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
+  document.querySelectorAll('.modal-overlay').forEach(function(el) {
+    el.classList.remove('open');
+  });
   document.body.style.overflow = '';
 }
 function closeModalOnBg(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
+  if (e.target.classList.contains('modal-overlay')) closeModal();
 }
 window.openModal = openModal;
 window.closeModal = closeModal;
@@ -1985,21 +2135,25 @@ function submitForm(e, formId) {
   var form = document.getElementById(formId);
 
   var btnMap = {
-    'heroForm':  'heroSubmitBtn',
-    'modalForm': 'modalSubmitBtn',
-    'joinForm':  'joinSubmitBtn'
+    'formVirtual':   'btnSubmitVirtual',
+    'formPhysical':  'btnSubmitPhysical',
+    'formExecutive': 'btnSubmitExecutive'
   };
   var submitBtn = document.getElementById(btnMap[formId]);
   if (submitBtn) { submitBtn.textContent = 'Submitting…'; submitBtn.classList.add('loading'); }
 
-  var sourceTrigger = (formId === 'modalForm' && currentFormSource) ? currentFormSource : formId;
   var selectedTier = 'exclusive';
-  if (sourceTrigger.toLowerCase().includes('virtual')) {
+  var webhookUrl = '';
+  
+  if (formId === 'formVirtual') {
     selectedTier = 'exclusive_virtual';
-  } else if (sourceTrigger.toLowerCase().includes('physical')) {
+    webhookUrl = VIRTUAL_CARD_WEBHOOK;
+  } else if (formId === 'formPhysical') {
     selectedTier = 'exclusive_physical';
-  } else if (sourceTrigger.toLowerCase().includes('executive')) {
+    webhookUrl = PHYSICAL_CARD_WEBHOOK;
+  } else if (formId === 'formExecutive') {
     selectedTier = 'executive_metal';
+    webhookUrl = EXECUTIVE_CARD_WEBHOOK;
   }
 
   var data = {
@@ -2011,7 +2165,7 @@ function submitForm(e, formId) {
     kycStatus:   'Pending Verification',
     liveKyc:     false,
     diditSessionId: '',
-    source:      sourceTrigger,
+    source:      formId,
     utmSource:   new URLSearchParams(location.search).get('utm_source') || '',
     utmMedium:   new URLSearchParams(location.search).get('utm_medium') || '',
     utmCampaign: new URLSearchParams(location.search).get('utm_campaign') || '',
@@ -2023,8 +2177,8 @@ function submitForm(e, formId) {
   // Fire tracking events
   if (typeof fbq !== 'undefined') {
     fbq('track', 'Lead', {
-      content_name: 'Winity Exclusive Card',
-      content_category: data.country,
+      content_name: 'Winity Exclusive Card - ' + selectedTier,
+      content_category: data.region,
       value: 0,
       currency: 'USD'
     });
@@ -2034,19 +2188,23 @@ function submitForm(e, formId) {
     gtag('event', 'generate_lead', {
       event_category: 'Form',
       event_label: formId,
-      country: data.country
+      country: data.region
     });
   }
 
   function showSuccess() {
-    var tyMap = { 'heroForm':'heroTy', 'modalForm':'modalTy', 'joinForm':'joinTy' };
+    var tyMap = { 
+      'formVirtual':   'tyVirtual', 
+      'formPhysical':  'tyPhysical', 
+      'formExecutive': 'tyExecutive' 
+    };
     if (form) form.style.display = 'none';
     var ty = document.getElementById(tyMap[formId]);
     if (ty) ty.style.display = 'block';
   }
 
-  if (SHEETS_WEBHOOK) {
-    fetch(SHEETS_WEBHOOK, {
+  if (webhookUrl && !webhookUrl.includes('_placeholder')) {
+    fetch(webhookUrl, {
       method: 'POST',
       mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
