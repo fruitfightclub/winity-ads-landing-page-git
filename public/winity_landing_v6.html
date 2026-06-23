@@ -135,21 +135,43 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo { height: 22px; width: auto; }
-    .nav-btn {
-      padding: 9px 22px;
-      background: transparent;
-      color: var(--mint);
-      border: 1px solid var(--mint);
-      font-size: 13px; font-weight: 700;
-      border-radius: 999px;
-      transition: all 0.25s var(--ease);
+    
+    .nav-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .nav-btn:hover {
-      background: var(--mint);
-      color: var(--deep);
-      box-shadow: 0 0 16px var(--mint-glow);
+    .nav-btn-store {
+      padding: 6px 12px 6px 16px !important;
+      font-size: 11px !important;
+      height: 36px;
     }
-    .nav-btn:active { transform: scale(0.97); }
+    .nav-btn-store svg {
+      width: 12px;
+      height: 12px;
+    }
+    .nav-btn-store .pill-icon {
+      width: 20px !important;
+      height: 20px !important;
+      margin-left: 4px !important;
+    }
+    .nav-btn-store .pill-icon svg {
+      width: 8px !important;
+      height: 8px !important;
+    }
+    
+    @media (max-width: 767px) {
+      .nav-store-text {
+        display: none; /* Hide text on mobile nav, only show store icons for clean look */
+      }
+      .nav-btn-store {
+        padding: 8px 10px !important;
+        justify-content: center;
+      }
+      .nav-btn-store .pill-icon {
+        display: none !important; /* Hide arrow on mobile nav to save space */
+      }
+    }
 
     /* ════════════════════════════════════════
        HERO SECTION (OPTION B - EDITORIAL USE-CASE)
@@ -1367,7 +1389,32 @@
     alt="Winity Life"
     width="100" height="22"
     loading="eager">
-  <button class="nav-btn" onclick="openModal('modalDownload')">Download App</button>
+  <div class="nav-btn-group">
+    <button class="nav-btn-store btn-pill" onclick="openModal('modalDownload')">
+      <svg viewBox="0 0 384 512" fill="currentColor">
+        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
+      </svg>
+      <span class="nav-store-text">App Store</span>
+      <span class="pill-icon">
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </span>
+    </button>
+    <button class="nav-btn-store btn-pill-outline" onclick="openModal('modalDownload')">
+      <svg viewBox="0 0 512 512" fill="currentColor">
+        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
+      </svg>
+      <span class="nav-store-text">Google Play</span>
+      <span class="pill-icon">
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </span>
+    </button>
+  </div>
 </nav>
 
 <!-- ════════════════════════════════════
@@ -1409,13 +1456,13 @@
         </div>
         <div class="hero-stat-item">
           <span class="hero-stat-val">Visa®</span>
-          <span class="hero-stat-lbl">Issued in HK</span>
+          <span class="hero-stat-lbl">Accepted Globally</span>
         </div>
       </div>
 
       <!-- Download Buttons CTA -->
-      <div class="download-buttons-group anim anim-d5" style="margin-top: 24px;">
-        <a href="https://apps.apple.com/app/winity-life" target="_blank" rel="noopener" class="btn-pill">
+      <div class="download-buttons-group anim anim-d5 desktop-only" style="margin-top: 24px;">
+        <button onclick="openModal('modalDownload')" class="btn-pill">
           <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
             <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
           </svg>
@@ -1426,8 +1473,8 @@
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </span>
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=life.winity.app" target="_blank" rel="noopener" class="btn-pill-outline">
+        </button>
+        <button onclick="openModal('modalDownload')" class="btn-pill-outline">
           <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
             <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
           </svg>
@@ -1438,7 +1485,20 @@
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </span>
-        </a>
+        </button>
+      </div>
+
+      <!-- Mobile Hero CTA Button to prevent overlap -->
+      <div class="mobile-only anim anim-d5" style="margin-top: 24px;">
+        <button onclick="openModal('modalDownload')" class="btn-pill" style="width: 100%; justify-content: center; padding: 14px 20px;">
+          Get Your Free Card
+          <span class="pill-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
 
@@ -1452,14 +1512,14 @@
       <span class="marquee-item"><span class="marquee-dot"></span>Available in 180+ Countries</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Visa® Accepted Globally</span>
       <span class="marquee-item"><span class="marquee-dot"></span>0% Stablecoin Deposit Fee</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Issued in Hong Kong</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Card Services</span>
       <span class="marquee-item"><span class="marquee-dot"></span>150M+ Merchants Worldwide</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Instant Virtual Issuance</span>
       <!-- Duplicated for infinite scroll -->
       <span class="marquee-item"><span class="marquee-dot"></span>Available in 180+ Countries</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Visa® Accepted Globally</span>
       <span class="marquee-item"><span class="marquee-dot"></span>0% Stablecoin Deposit Fee</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Issued in Hong Kong</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Visa® Card Services</span>
       <span class="marquee-item"><span class="marquee-dot"></span>150M+ Merchants Worldwide</span>
       <span class="marquee-item"><span class="marquee-dot"></span>Instant Virtual Issuance</span>
     </div>
@@ -1603,33 +1663,6 @@
 </section>
 
 <!-- ════════════════════════════════════
-     TRUST STATS BAND
-     ════════════════════════════════════ -->
-<div class="trust-band">
-  <div class="trust-band-inner">
-    <div class="stat">
-      <span class="stat-num">180+</span>
-      <div class="stat-label">Countries Supported</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <span class="stat-num">150M+</span>
-      <div class="stat-label">Merchants Worldwide</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <span class="stat-num">0%</span>
-      <div class="stat-label">Deposit Fee</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <span class="stat-num">Visa®</span>
-      <div class="stat-label">Issued in Hong Kong</div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════
      CHOOSE YOUR CARD (3 TIERS)
      ════════════════════════════════════ -->
 <section class="section" id="cards-compare">
@@ -1729,7 +1762,7 @@
           <span class="faq-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a">
-          <div class="faq-a-inner">The Winity Card is available in <strong>187+ countries</strong> across Europe, Asia, Africa, the Americas, and Oceania. Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</div>
+          <div class="faq-a-inner">The Winity Card is available in <strong>187+ countries</strong> across Europe, Asia, Africa, the Americas, and Oceania. Card services are issued by licensed partners and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -1763,7 +1796,7 @@
     <p class="join-sub">Get your Winity Exclusive card today. Download the app to start spending globally.</p>
 
     <div class="download-buttons-group" style="justify-content: center; margin-top: 32px;">
-      <a href="https://apps.apple.com/app/winity-life" target="_blank" rel="noopener" class="btn-pill">
+      <button onclick="openModal('modalDownload')" class="btn-pill">
         <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
           <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
         </svg>
@@ -1774,8 +1807,8 @@
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </span>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=life.winity.app" target="_blank" rel="noopener" class="btn-pill-outline">
+      </button>
+      <button onclick="openModal('modalDownload')" class="btn-pill-outline">
         <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
           <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
         </svg>
@@ -1786,7 +1819,7 @@
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </span>
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -1794,22 +1827,34 @@
 <!-- ════════════════════════════════════
      FOOTER
      ════════════════════════════════════ -->
-<footer>
-  <img class="footer-logo"
-    src="/winity_logo.png"
-    alt="Winity Life" width="80" height="18" loading="lazy">
-  <p class="footer-legal">
-    Disclaimer: Winity Life is not a bank. Digital asset-linked card services involve risks. Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction. Supported digital assets are converted within the Winity platform into USD for card use. "Visa" is a registered trademark of Visa International Service Association.
-    <br><br>
-    © 2026 WTY Technology Hong Kong Limited. All rights reserved.
-  </p>
+<footer style="background: #040E0E; font-family: 'Roboto', sans-serif;">
+  <div style="width: 100%; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <img class="footer-logo" src="/winity_logo.png" alt="Winity Life" width="80" height="18" loading="lazy">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--muted);">
+        <a href="/terms" target="_blank" style="transition: color 0.2s ease;" onmouseenter="this.style.color='#21E6A7'" onmouseleave="this.style.color='var(--muted)'">Terms of Use</a>
+        <span>•</span>
+        <a href="/privacy" target="_blank" style="transition: color 0.2s ease;" onmouseenter="this.style.color='#21E6A7'" onmouseleave="this.style.color='var(--muted)'">Privacy Policy</a>
+        <span>•</span>
+        <a href="/risk" target="_blank" style="transition: color 0.2s ease;" onmouseenter="this.style.color='#21E6A7'" onmouseleave="this.style.color='var(--muted)'">Risk Disclosure</a>
+        <span>•</span>
+        <a href="/google-pay-tc" target="_blank" style="transition: color 0.2s ease;" onmouseenter="this.style.color='#21E6A7'" onmouseleave="this.style.color='var(--muted)'">Google Pay T&C</a>
+      </div>
+    </div>
+    <div style="height: 1px; background: rgba(255,255,255,0.05); width: 100%;"></div>
+    <p class="footer-legal" style="font-size: 11px; color: var(--muted); line-height: 1.65; max-width: 900px; margin: 0;">
+      Disclaimer: Winity Life is a financial technology platform, not a bank. Winity card services are issued by licensed partners and are available globally wherever Visa® is accepted. Digital asset-linked card services involve significant risks. Supported digital assets (such as USDT and USDC) are converted within the Winity platform into a USD spending balance prior to card transactions. "Visa" is a registered trademark of Visa International Service Association.
+      <br><br>
+      © 2026 WTY Technology Hong Kong Limited. All rights reserved.
+    </p>
+  </div>
 </footer>
 
 <!-- ════════════════════════════════════
      STICKY MOBILE BAR
      ════════════════════════════════════ -->
 <div class="sticky-bar" id="stickyBar">
-  <button class="sticky-btn" onclick="openModal('modalDownload')">Download App →</button>
+  <button class="sticky-btn" onclick="openModal('modalDownload')">Get Your Free Card</button>
 </div>
 
 <!-- ════════════════════════════════════
@@ -1849,7 +1894,7 @@
         </select>
       </div>
       <button type="submit" class="submit-btn" id="btnSubmitVirtual">Get Virtual Card →</button>
-      <p class="form-disclaimer">Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
+      <p class="form-disclaimer">Winity card services are issued by licensed partners and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
     </form>
     <div class="ty-state" id="tyVirtual">
       <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -1892,7 +1937,7 @@
         </select>
       </div>
       <button type="submit" class="submit-btn" id="btnSubmitPhysical">Get Physical Card →</button>
-      <p class="form-disclaimer">Card services are issued in Hong Kong and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
+      <p class="form-disclaimer">Winity card services are issued by licensed partners and available globally wherever Visa® is accepted. Availability may vary by jurisdiction.</p>
     </form>
     <div class="ty-state" id="tyPhysical">
       <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -1945,39 +1990,74 @@
   </div>
 </div>
 
-<!-- Modal for App Download Links -->
+<!-- Modal for App Download Links (Lead capture form, only reveals active download links upon submission) -->
 <div class="modal-overlay" id="modalDownload" onclick="closeModalOnBg(event)">
-  <div class="modal" style="position:relative; text-align:center;">
+  <div class="modal" style="position:relative;">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
     <div class="modal-drag"></div>
-    <div class="modal-title">Download Winity Life</div>
-    <p class="modal-sub" style="margin-bottom: 24px;">Available for iOS and Android. Start spending globally in minutes.</p>
+    <div class="modal-title" style="text-align: center;">Download Winity Life</div>
+    <p class="modal-sub" style="margin-bottom: 24px; text-align: center;">Enter your details to receive secure download links and get started.</p>
     
-    <div class="download-buttons-group" style="justify-content: center; margin-bottom: 16px;">
-      <a href="https://apps.apple.com/app/winity-life" target="_blank" rel="noopener" class="btn-pill">
-        <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
-          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
-        </svg>
-        App Store
-        <span class="pill-icon">
-          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
+    <form id="formDownload" onsubmit="submitForm(event,'formDownload')">
+      <div class="field">
+        <label for="d-name">First Name</label>
+        <input id="d-name" name="name" type="text" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="field">
+        <label for="d-email">Email Address</label>
+        <input id="d-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="d-country">Country</label>
+        <select id="d-country" name="country" required>
+          <option value="">Select your country</option>
+          <option>Saudi Arabia</option>
+          <option>United Arab Emirates</option>
+          <option>Qatar</option>
+          <option>Bahrain</option>
+          <option>Kuwait</option>
+          <option>Oman</option>
+          <option>United Kingdom</option>
+          <option>Hong Kong</option>
+          <option>Singapore</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn" id="btnSubmitDownload">Get Download Links →</button>
+      <p class="form-disclaimer">Winity card services are issued by licensed partners and available globally wherever Visa® is accepted.</p>
+    </form>
+    
+    <div class="ty-state" id="tyDownload" style="text-align: center;">
+      <div class="ty-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="ty-title">Thank you!</div>
+      <p class="ty-sub" style="margin-bottom: 24px;">Your download links are ready. Choose your platform below to download Winity Life:</p>
+      
+      <div class="download-buttons-group" style="justify-content: center; gap: 12px; margin-top: 16px;">
+        <a href="https://apps.apple.com/us/app/winity-life/id6752761057" target="_blank" rel="noopener" class="btn-pill" style="padding: 8px 12px 8px 16px;">
+          <svg viewBox="0 0 384 512" width="14" height="14" fill="currentColor" style="flex-shrink:0;">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-19.1-77.5-19.1-38.3 0-77 21.8-97.5 57.5-41.2 71.7-10.7 178.6 29 236.4 19.5 28.1 42.4 59.4 72.8 58.2 29.2-1.2 40.5-18.9 76-18.9 35.1 0 45.4 18.9 76 18.5 31.1-.4 51.5-28.5 70.7-56.6 22.2-32.4 31.2-63.6 31.7-65.4-.6-.2-61.1-23.5-61.7-93.5zM277.6 98c15.2-18.3 24.4-43 21.7-67.7-21.1 1-47.2 14.3-62.4 32.1-13.6 15.6-25.5 40.7-22.3 65 23.6 1.8 48.2-11.1 63-29.4z"/>
           </svg>
-        </span>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=life.winity.app" target="_blank" rel="noopener" class="btn-pill-outline">
-        <svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor" style="flex-shrink:0;">
-          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
-        </svg>
-        Google Play
-        <span class="pill-icon">
-          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" fill="none" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
+          App Store
+          <span class="pill-icon" style="width:20px; height:20px;">
+            <svg viewBox="0 0 24 24" width="8" height="8" stroke="currentColor" fill="none" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.winity.life" target="_blank" rel="noopener" class="btn-pill-outline" style="padding: 8px 12px 8px 16px;">
+          <svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor" style="flex-shrink:0;">
+            <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58-33.2-60.7 60.7 60.7 60.7 58-33.2c15-8.6 24.8-23.7 24.8-42.5s-9.8-33.9-24.8-42.5zM104.6 499l220.7-126.3 60.1 60.1L104.6 499z"/>
           </svg>
-        </span>
-      </a>
+          Google Play
+          <span class="pill-icon" style="width:20px; height:20px;">
+            <svg viewBox="0 0 24 24" width="8" height="8" stroke="currentColor" fill="none" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -2137,7 +2217,8 @@ function submitForm(e, formId) {
   var btnMap = {
     'formVirtual':   'btnSubmitVirtual',
     'formPhysical':  'btnSubmitPhysical',
-    'formExecutive': 'btnSubmitExecutive'
+    'formExecutive': 'btnSubmitExecutive',
+    'formDownload':  'btnSubmitDownload'
   };
   var submitBtn = document.getElementById(btnMap[formId]);
   if (submitBtn) { submitBtn.textContent = 'Submitting…'; submitBtn.classList.add('loading'); }
@@ -2154,6 +2235,9 @@ function submitForm(e, formId) {
   } else if (formId === 'formExecutive') {
     selectedTier = 'executive_metal';
     webhookUrl = EXECUTIVE_CARD_WEBHOOK;
+  } else if (formId === 'formDownload') {
+    selectedTier = 'app_download';
+    webhookUrl = VIRTUAL_CARD_WEBHOOK; // General download capture routes to virtual webhook
   }
 
   var data = {
@@ -2196,7 +2280,8 @@ function submitForm(e, formId) {
     var tyMap = { 
       'formVirtual':   'tyVirtual', 
       'formPhysical':  'tyPhysical', 
-      'formExecutive': 'tyExecutive' 
+      'formExecutive': 'tyExecutive',
+      'formDownload':  'tyDownload'
     };
     if (form) form.style.display = 'none';
     var ty = document.getElementById(tyMap[formId]);
