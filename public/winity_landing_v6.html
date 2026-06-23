@@ -508,7 +508,7 @@
     }
     @media (max-width: 640px) {
       .steps-slider-slide {
-        flex: 0 0 75%;
+        flex: 0 0 88%; /* Instagram carousel size */
       }
       .steps-slider-track {
         padding-inline: 20px;
@@ -1300,6 +1300,10 @@
     /* Mobile viewports */
     @media (max-width: 767px) {
       .sticky-bar { display: block; }
+
+      .carousel-container {
+        height: 520px !important; /* Taller on mobile for maximum premium visual impact */
+      }
 
       /* Journey use cases horizontal scrolling */
       .use-cases-grid {
@@ -2164,10 +2168,31 @@ function resetCarouselTimer() {
   startCarouselTimer();
 }
 
-// Initialize carousel
+// Initialize carousel & swipe triggers
 if (carouselSlides.length > 0) {
   showSlide(0);
   startCarouselTimer();
+  
+  // Touch swipe support for mobile viewports
+  var startX = 0;
+  var endX = 0;
+  var carouselContainer = document.querySelector('.carousel-container');
+  if (carouselContainer) {
+    carouselContainer.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+    }, {passive: true});
+    carouselContainer.addEventListener('touchend', function(e) {
+      endX = e.changedTouches[0].clientX;
+      var threshold = 40; // swipe threshold in pixels
+      if (startX - endX > threshold) {
+        nextSlide();
+        resetCarouselTimer();
+      } else if (endX - startX > threshold) {
+        prevSlide();
+        resetCarouselTimer();
+      }
+    }, {passive: true});
+  }
 }
 
 // ── MODAL WINDOWS ────────────────────────────────────────
